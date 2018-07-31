@@ -1,10 +1,9 @@
-guest_wifi:
-  alias: Script Guest Wifi ON
-  sequence:
-    - alias: Guest Wifi ON
-      service: fritzbox_guestwifi.turn_on
-    - alias: Notify Mirko
-      service: notify.iphone_mirko
-      data:
-        title: "Guest wifi is enabled"
-        message: "Hallo Mirko."
+alias: Script Guest Wifi ON
+sequence:
+  - alias: Guest Wifi ON
+    service: fritzbox_guestwifi.turn_on
+  - alias: Notify Mirko
+    service: notify.iphone_mirko
+    data:
+      title: "Guest wifi is enabled"
+      message: "Hallo Mirko."

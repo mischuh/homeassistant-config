@@ -4,6 +4,7 @@ venv/
 .vscode/
 .docker/
 docker/
+deps/
 etc/
 
 raspiBackup.log

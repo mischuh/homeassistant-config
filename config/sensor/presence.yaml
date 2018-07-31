@@ -1,0 +1,11 @@
+- platform: template
+  sensors:
+    mirko_status:
+      value_template: '{{ states.input_select.mirko_state.state }}'
+      friendly_name: 'Mirko'
+    femke_status:
+      value_template: '{{ states.input_select.femke_state.state }}'
+      friendly_name: 'Femke'
+    mika_status:
+      value_template: '{{ states.input_select.mika_state.state }}'
+      friendly_name: 'Mika'

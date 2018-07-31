@@ -1,0 +1,219 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude_loc_home
+  longitude: !secret longitude_loc_home
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 3
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Berlin
+  # Customization file
+  customize: !include customize.yaml
+
+####################################################
+#                                                  #
+#                     Enables                      #
+#                                                  #
+####################################################
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+#Enables support for tracking state changes over time
+history:
+  include:
+    domains:
+      - sensor
+      - switch
+      - media_player
+      - light
+      - binary_sensor
+      
+# View all events in a logbook
+logbook:
+  exclude:
+      entities:
+        - group.system
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Cloud
+cloud:
+
+ios:
+
+# weather:
+#   - platform: darksky
+#     api_key: !secrets darksky_api_key
+#     name: Wetter
+
+zone: !include_dir_merge_list zones
+ 
+
+####################################################
+#                                                  #
+#                     Dies/Das                     #
+#                                                  #
+####################################################
+http:
+  # Secrets are defined in the file secrets.yaml
+  # api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+notify:
+  - platform: ios
+    name: iPhone Mirko
+    target: !secret notify_mirko_target 
+  - platform: ios
+    name: iPhone Femke
+    target: !secret notify_femke_target
+
+mqtt:
+  broker: localhost
+  port: 1883  
+  client_id: home-assistant-1
+  keepalive: 60
+
+# Text to speech
+tts:
+  - platform: google
+
+zwave:
+  usb_path: /dev/ttyACM0
+
+tradfri:
+  host: Tradfri-Gateway  
+
+# Emulated Hue
+emulated_hue: !include alexa.yaml
+
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
+
+fritzbox_guestwifi:
+  username: !secret fritzbox_user
+  password: !secret fritzbox_password
+
+homematic:  
+  interfaces:
+    wireless:
+      host: 192.168.178.2      
+      port: 2001      
+
+####################################################
+#                                                  #
+#                     Includes                     #
+#                                                  #
+####################################################
+automation: !include_dir_merge_list automation
+binary_sensor: !include_dir_merge_list binary_sensor
+device_tracker: !include device_tracker.yaml
+group: !include_dir_merge_named groups
+# history_graph: !include_dir_merge_named history_graph
+input_boolean: !include_dir_merge_named input_boolean
+input_select: !include_dir_merge_named input_select
+media_player: !include_dir_merge_list media_player
+script: !include_dir_merge_list script
+sensor: !include_dir_merge_list sensor
+switch: !include_dir_merge_list switch
+
+
+####################################################
+#                                                  #
+#                     Persistence                  #
+#                                                  #
+####################################################
+influxdb:
+  include:
+    domains:
+      - sensor
+      - switch
+      - media_player
+      - light
+      - binary_sensor
+    #  entities:
+    #    - binary_sensor.femke_home
+    #    - binary_sensor.mika_home
+    #    - binary_sensor.mirko_home
+    #    - input_boolean.guest_wlan
+    #    - light.heq0359760
+    #    - light.jeq0207534
+    #    - light.jeq0207545
+    #    - light.jeq0207587 
+    #    - light.meq0169146
+    #    - light.meq0397149
+    #    - light.links
+    #    - light.rechts
+    #    - light.retchs
+    #    - sensor.aeotec_zw100_multisensor_6_burglar
+    #    - sensor.aeotec_zw100_multisensor_6_luminance
+    #    - sensor.aeotec_zw100_multisensor_6_relative_humidity
+    #    - sensor.aeotec_zw100_multisensor_6_temperature
+    #    - sensor.dark_sky_humidity
+    #    - sensor.dark_sky_temperature
+    #    - sensor.disk_use_percent_home
+    #    - sensor.luftdaten_temperature
+    #    - sensor.speedtest_download
+    #    - sensor.speedtest_upload
+    #    - switch.feq0062058
+    #    - switch.ff_floor_tree
+    #    - switch.ff_jona_bed
+    #    - switch.ff_mika_bed
+    #    - switch.gf_kitchen_ceiling_outlet
+    #    - switch.gf_kitchen_window_outlet
+    #    - switch.sf_bedroom_outlet
+    #    - switch.sf_floor_work_outlet
+  
+logger: !include logger.yaml
+recorder: !include recorder.yaml
+
+# Discover some devices automatically
+discovery:
+  ignore: 
+    - axis
+    - belkin_wemo
+    - bluesound
+    - bose_soundtouch
+    - denonavr
+    - directv
+    - frontier_silicon
+    - google_cast
+    - harmony
+    - logitech_mediaserver
+    - netgear_router
+    - openhome
+    - philips_hue
+    - plex_mediaserver
+    - roku
+    - sabnzbd
+    - samsung_printer
+    - samsung_tv
+    - sonos
+    - tellstick
+    - volumio
+    - wink
+    - yeelight
+    - xiaomi_gw
+
+panel_iframe:
+  router:
+    title: 'Router'
+    url: 'http://fritz.box'
+    icon: mdi:router-wireless
+  # grafana:
+  #   title: 'Grafana'
+  #   url: 'http://homeassi:3000'
+  #   icon: mdi:raspberrypi

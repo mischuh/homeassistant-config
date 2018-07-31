@@ -1,0 +1,4 @@
+name: Arbeit Mirko
+latitude: !secret latitude_work_mirko
+longitude: !secret longitude_work_mirko
+icon: mdi:worker

@@ -1,0 +1,73 @@
+
+default_view:
+  name: Home
+  view: yes
+  icon: mdi:home
+  entities:    
+    - group.ground_floor_lights
+    - group.first_floor_lights
+    - group.second_floor_lights
+    - group.family_status
+    - group.weather_dashboard
+    - group.trash
+
+
+view_ground_floor:
+  name: EG
+  view: yes
+  entities:
+    - group.kitchen_lights    
+    - group.livingroom_lights        
+    - group.entree_lights
+    - group.livingroom_media
+
+
+view_first_floor:
+  name: OG
+  view: yes
+  entities:
+    - sensor.aeotec_zw100_multisensor_6_temperature
+    - sensor.aeotec_zw100_multisensor_6_luminance
+    - sensor.aeotec_zw100_multisensor_6_burglar    
+    - group.ff_floor_lights
+    - group.ff_mika
+    - group.ff_jona
+    
+
+view_second_floor:
+  name: DG
+  view: yes
+  entities:
+    - group.sf_work_lights
+    - group.sf_bedroom_lights
+    - group.sf_work_media
+
+
+view_rest:
+  view: yes
+  name: Dies&Das
+  icon: mdi:creation
+  entities:
+    - group.family_status
+    - input_boolean.sunset
+    - input_boolean.guest_wlan   
+
+
+view_system:
+  view: yes
+  name: System
+  icon: mdi:cogs
+  entities:
+    - group.speedtest
+    - group.raspi
+    - group.batteries    
+
+
+# view_weather:
+#   view: yes
+#   name: Wetter
+#   icon: mdi:cloud
+#   entities:
+#     - group.weather_darksky
+#     - group.airdata
+#     - sun.sun    

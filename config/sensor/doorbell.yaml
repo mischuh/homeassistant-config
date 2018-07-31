@@ -1,0 +1,5 @@
+- platform: mqtt
+  state_topic: "home/doorbell/ring"
+  name: doorbell  
+  payload_on: 1
+  payload_off: 0

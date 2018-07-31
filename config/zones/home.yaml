@@ -1,0 +1,6 @@
+  # This will override the default home zone
+name: Home
+latitude: !secret latitude_loc_home
+longitude: !secret longitude_loc_home
+radius: 30
+icon: mdi:account-multiple

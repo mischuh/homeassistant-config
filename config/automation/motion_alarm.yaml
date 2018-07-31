@@ -1,0 +1,45 @@
+###########################################################
+# Motion Sensor
+###########################################################
+
+- alias: "Motion Sensor: Dim Light"
+  trigger:
+    platform: state
+    entity_id: sensor.aeotec_zw100_multisensor_6_burglar
+    from: '0'
+    to: '8'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.sunset
+        state: 'on'
+      - condition: state
+        entity_id: light.meq0397149
+        state: 'off'
+  action:
+    service: light.turn_on
+    entity_id: light.meq0397149
+    data:
+      brightness_pct: 15   
+  # - delay:
+  #    - minutes: 3
+
+- alias: "Motion Sensor: Turn off"
+  trigger:
+    platform: state
+    entity_id: sensor.aeotec_zw100_multisensor_6_burglar
+    from: '8'
+    to: '0'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.sunset
+        state: 'on'
+      - condition: state
+        entity_id: light.meq0397149
+        state: 'on'
+  action:
+    service: light.turn_off
+    entity_id: light.meq0397149

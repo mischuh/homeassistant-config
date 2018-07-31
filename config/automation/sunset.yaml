@@ -1,0 +1,22 @@
+- alias: "Turn on: Sunset Event"
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-01:30:00"
+    # - platform: time
+    #   at: '15:32:00'  
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.sunset
+
+- alias: "Turn off: Sunset Event"
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: "-01:00:00"    
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.sunset
+    - service: notify.iphone_mirko
+      data:
+        message: "Sunrise..."

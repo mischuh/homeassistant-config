@@ -1,0 +1,4 @@
+guest_wlan:
+  name: "Gäste WLAN"
+  initial: off
+  icon: mdi:wifi

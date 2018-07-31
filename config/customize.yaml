@@ -1,0 +1,122 @@
+# Global
+# sensor.*_luminance:
+#   icon: mdi:white-balance-sunny
+
+# Homematic
+switch.feq0062058:
+  icon: mdi:lightbulb
+  friendly_name: Gartenlicht
+
+light.heq0359760:
+  friendly_name: Lampe 1
+  
+light.jeq0207534:
+  friendly_name: Küche - Essplatz
+
+light.jeq0207545:
+  friendly_name: Eingang
+
+light.jeq0207587:
+  friendly_name: Außenlicht
+
+light.meq0169146:
+  friendly_name: Wohnzimmer
+
+light.meq0397149:
+  friendly_name: Flurwand
+
+# Switches
+
+switch.gf_kitchen_ceiling_outlet:
+  firendly_name: Küche Arbeitsplatte
+  assumed_state: false
+
+switch.gf_kitchen_window_outlet: 
+  firendly_name: Küche Fenster
+  assumed_state: false
+
+switch.ff_floor_tree:
+  friendly_name: Flur (Baum)
+  assumed_state: false
+
+switch.ff_mika_bed:
+  firendly_name: Mika Lichterkette
+  assumed_state: false
+
+switch.ff_jona_bed:
+  firendly_name: Jona Lichterkette
+  assumed_state: false
+
+switch.sf_floor_work_outlet:
+  friendly_name: Arbeitszimmer Sofa
+  assumed_state: false
+
+switch.sf_bedroom_outlet:
+  friendly_name: Schlafzimmer Kommode
+  assumed_state: false
+
+# Aeotec Sensor 6
+sensor.aeotec_zw100_multisensor_6_temperature:
+  friendly_name: Temperatur 1. OG
+
+sensor.aeotec_zw100_multisensor_6_luminance:
+  friendly_name: Helligkeit 1. OG
+
+sensor.aeotec_zw100_multisensor_6_burglar:
+  friendly_name: Bewegungsmelder 1. OG
+
+
+# Tradfri
+
+light.links:
+  friendly_name: Sofa links
+
+light.rechts:
+  friendly_name: Sofa rechts
+
+light.sofa:
+  friendly_name: Sofa
+
+# Mediaplayer
+
+media_player.yamaha_receiver:
+  friendly_name: RX-1030 Wohnzimmer
+
+media_player.yamaha_receiver_zone_2:
+  friendly_name: RX-1030 Küche
+
+media_player.viera_gt30_series:
+  friendly_name: Fernseher
+
+media_player.volumio:
+  friendly_name: Volumio
+
+# Trashcans
+
+# sensor.doorbell:
+#   friendly_name: "Klingel"
+#   icon: mdi:bell
+
+sensor.trash:
+  friendly_name: Müll
+  icon: mdi:delete
+  templates:
+    hs_color: >
+      if (state === 'schwarz') {
+        return [0,0];
+      } else if (state === 'blau' ) {
+        # return [213, 88];
+        return [255, 255];
+      } else if (state === 'gelb' ) {
+        return [44, 100];
+      } else if (state === 'grün' ) {
+        return [113, 36];
+      } else {
+        return [63, 81];
+      }
+    # icon_color: >
+    #   if (state === 'schwarz') return 'rgb(0,0,0)';
+    #   if (state === 'blau') return 'rgb(30,144,255)';
+    #   if (state === 'gelb') return 'rgb(255,255,0)';
+    #   return 'rgb(153,153,0)';
+    hidden: if (state === 'unknown' or state === 'Unbekannt') return true;;

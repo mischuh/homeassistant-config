@@ -1,0 +1,6 @@
+name: Temperatur
+entities:
+  - sensor.luftdaten_temperature
+  - sensor.aeotec_zw100_multisensor_6_temperature
+hours_to_show: 72
+refresh: 600

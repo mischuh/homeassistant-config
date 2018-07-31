@@ -1,0 +1,76 @@
+
+ground_floor:
+  name: Erdgeschoss
+  entities:
+    - group.livingroom
+    - group.kitchen_lights
+    - group.entree_lights
+    - group.garden_lighs
+
+ground_floor_lights:
+  name: Erdgeschoss Lichter
+  entities:
+    - group.entree_lights
+    - group.kitchen_lights
+    - group.livingroom_lights
+    - group.garden_lights
+    
+ground_floor_433_lights:
+  name: Erdgeschoss Funk
+  entities:
+    - switch.gf_kitchen_window_outlet
+    - switch.gf_kitchen_ceiling_outlet
+    - switch.gf_living_room_outlet
+
+kitchen:
+  name: Kueche
+  entities:
+    - group.livingroom_lights
+    - group.kitchen_lights
+    - group.kitchen_media
+
+kitchen_lights:
+  name: Küche Lichter
+  entities:
+    - light.jeq0207534
+    - switch.gf_kitchen_window_outlet
+    - switch.gf_kitchen_ceiling_outlet
+    
+kitchen_media:
+  name: Küche Multimedia
+  entities:
+    - media_player.yamaha_receiver_zone_2
+
+
+livingroom:
+  name: Wohnzimmer
+  entities:
+    - group.livingroom_lights
+    - group.livingroom_media
+
+livingroom_lights:
+  name: Wohnzimmer Lichter
+  entities:
+    - switch.gf_living_room_outlet
+    - light.meq0169146
+    - light.sofa
+    - light.links
+    - light.rechts
+
+livingroom_media:
+  name: Wohnzimmer Multimedia
+  entities:
+    - media_player.yamaha_receiver
+    - media_player.viera_gt30_series    
+
+entree_lights:
+  name: Eingangsbereich
+  entities:
+    - light.jeq0207545
+    - light.jeq0207587
+
+
+garden_lights:
+  name: Garten
+  entities:    
+    - switch.feq0062058

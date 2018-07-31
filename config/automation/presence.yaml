@@ -1,0 +1,222 @@
+- alias: "presence_sepp_home"
+  trigger:
+    platform: state
+    entity_id: device_tracker.iphone_sepp
+    to: 'home'
+  action:
+    service: script.guest_wifi
+
+
+- alias: Mark person as just arrived
+  trigger:
+    - platform: state
+      entity_id: device_tracker.iphone_mirko
+      from: 'not_home'
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.iphone_femke
+      from: 'not_home'
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.huawei_mika
+      from: 'not_home'
+      to: 'home'
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'device_tracker.iphone_mirko' %}
+            input_select.mirko_state
+          {% elif trigger.entity_id == 'device_tracker.iphone_femke' %}
+            input_select.femke_state
+          {% else %}
+            input_select.mika_state
+          {% endif %}
+        option: >
+          {% if trigger.entity_id == 'device_tracker.iphone_mirko' %}
+            {% if states.input_select.mirko_state.state == 'Just Left' %}
+              Home
+            {% else %}
+              Just Arrived
+            {% endif %}
+          {% elif trigger.entity_id == 'device_tracker.iphone_femke' %}
+            {% if states.input_select.femke_state.state == 'Just Left' %}
+              Home
+            {% else %}
+              Just Arrived
+            {% endif %}            
+          {% else %}
+            {% if states.input_select.mika_state.state == 'Just Left' %}
+              Home
+            {% else %}
+              Just Arrived
+            {% endif %}
+          {% endif %}
+
+
+- alias: Mark person as home
+  trigger:
+    - platform: state
+      entity_id: input_select.mirko_state
+      to: 'Just Arrived'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: input_select.femke_state
+      to: 'Just Arrived'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: input_select.mika_state
+      to: 'Just Arrived'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: input_select.mirko_state
+      from: 'Just Left'
+      to: 'Just Arrived'
+    - platform: state
+      entity_id: input_select.femke_state
+      from: 'Just Left'
+      to: 'Just Arrived'
+    - platform: state
+      entity_id: input_select.mika_state
+      from: 'Just Left'
+      to: 'Just Arrived'
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'device_tracker.iphone_mirko' %}
+            input_select.mirko_state
+          {% elif trigger.entity_id == 'device_tracker.iphone_femke' %}
+            input_select.femke_state
+          {% else %}
+            input_select.mika_state
+          {% endif %}
+        option: Home
+
+
+- alias: Mark person as just left
+  trigger:
+    - platform: state
+      entity_id: device_tracker.iphone_mirko
+      from: 'home'
+      to: 'not_home'
+    - platform: state
+      entity_id: device_tracker.iphone_femke
+      from: 'home'
+      to: 'not_home'
+    - platform: state
+      entity_id: device_tracker.huawei_mika
+      from: 'home'
+      to: 'not_home'
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'device_tracker.iphone_mirko' %}
+            input_select.mirko_state
+          {% elif trigger.entity_id == 'device_tracker.iphone_femke' %}
+            input_select.femke_state
+          {% else %}
+            input_select.mika_state
+          {% endif %}
+        option: Just Left
+
+
+- alias: Mark person as away
+  trigger:
+    - platform: state
+      entity_id: input_select.mirko_state
+      to: 'Just Left'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: input_select.femke_state
+      to: 'Just Left'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: input_select.mika_state
+      to: 'Just Left'
+      for:
+        minutes: 10
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'device_tracker.iphone_mirko' %}
+            input_select.mirko_state
+          {% elif trigger.entity_id == 'device_tracker.iphone_femke' %}
+            input_select.femke_state
+          {% else %}
+            input_select.mika_state
+          {% endif %}
+        option: Away
+
+
+- alias: Mark person as extended away
+  trigger:
+    - platform: state
+      entity_id: input_select.mirko_state
+      to: 'Away'
+      for:
+        hours: 24
+    - platform: state
+      entity_id: input_select.femke_state
+      to: 'Away'
+      for:
+        hours: 24
+    - platform: state
+      entity_id: input_select.mika_state
+      to: 'Away'
+      for:
+        hours: 24
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'device_tracker.iphone_mirko' %}
+            input_select.mirko_state
+          {% elif trigger.entity_id == 'device_tracker.iphone_femke' %}
+            input_select.femke_state
+          {% else %}
+            input_select.mika_state
+          {% endif %}
+        option: Extended Away
+
+
+# - alias: "presence_mirko_home"
+#   trigger:
+#     platform: state
+#     entity_id: device_tracker.iphone_mirko
+#     to: 'home'
+#   action:
+#     service: notify.iphone_mirko
+#     data:
+#       title: "Mirko@Home"
+#       message: "Hallo Mirko! Schön, dass du zuhause bist"
+
+# - alias: "presence_mirko_work"
+#   trigger:
+#     platform: state
+#     entity_id: device_tracker.iphone_mirko
+#     to: 'work'
+#   action:
+#     service: notify.iphone_mirko
+#     data:
+#       title: "Mirko@Work"
+#       message: "Du schaffst das :)"
+
+
+# - alias: "presence_femke_work"
+#   trigger:
+#     platform: state
+#     entity_id: device_tracker.iphone_femke
+#     to: 'work'
+#   action:
+#     service: notify.iphone_femke
+#     data:
+#       title: "Femke@Work"
+#       message: "Du schaffst das :). Ich habe dich lieb <3"

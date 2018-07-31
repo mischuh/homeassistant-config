@@ -1,0 +1,88 @@
+###########################################################
+# Lights
+###########################################################
+
+- alias: "Turn on lights"
+  trigger: 
+    platform: state
+    entity_id: input_boolean.sunset
+    to: 'on'
+    # - platform: time
+    #   at: '20:00:00'
+    # condition:
+    #   # condition for time trigger 
+    #   condition: state
+    #   entity_id: input_boolean.sunset
+    #   state: 'off'
+  action:
+    # TODO: Make a scence
+    - service: light.turn_on
+      data:
+        brightness_pct: 45
+        entity_id: 
+          - light.jeq0207534
+          - light.links
+          - light.rechts
+    - service: light.turn_on
+      data:
+        brightness_pct: 25
+        entity_id: 
+          - light.jeq0207587
+    - service: light.turn_on
+      data:
+        brightness_pct: 33
+        entity_id:
+          - light.jeq0207545
+    - service: switch.turn_on
+      entity_id: 
+        - group.ground_floor_433_lights 
+        - group.garden_lights
+    - service: notify.iphone_mirko
+      data:
+        message: "Der Sonnenuntergang naht…"
+    
+
+- alias: "Turn off lights: 22:30"
+  trigger:    
+    platform: time
+    at: '23:00:00'  
+  action:
+    - service: homeassistant.turn_off
+      entity_id:         
+        - group.kitchen_lights        
+    
+
+- alias: "Turn off lights: 23:00"
+  trigger:    
+    platform: time
+    at: '23:00:00'  
+  action:
+    - service: homeassistant.turn_off
+      entity_id: 
+        - group.livingroom_lights    
+        - group.kitchen_lights
+        - group.garden_lights
+    - service: light.turn_on
+      data:
+        brightness_pct: 14
+        entity_id: light.jeq0207587  
+
+
+- alias: "Turn off lights: Entree"
+  trigger:    
+    platform: time
+    at: '23:45:00'  
+  action:
+    service: homeassistant.turn_off
+    entity_id: 
+      - light.jeq0207587    
+
+
+- alias: "Turn off lights: Door"
+  trigger:    
+    platform: time
+    at: '00:15:00'  
+  action:
+    service: homeassistant.turn_off
+    entity_id: 
+      - light.jeq0207545

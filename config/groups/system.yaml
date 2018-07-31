@@ -1,0 +1,35 @@
+system:
+  name: System
+  entities:
+    - group.speedtest
+    - group.batteries
+    - group.raspi
+
+speedtest:
+  name: Speedtest
+  entities:
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+
+batteries:
+  name: Batterien
+  entities:
+    - sensor.tradfri_wireless_dimmer
+
+trash:
+  name: Müll
+  entities:
+    - sensor.trash
+
+raspi:
+  name: Raspberry
+  entities:
+    - sensor.disk_use_percent_home
+    - sensor.memory_use_percent
+    - sensor.network_in_eth0
+    - sensor.network_out_eth0
+    - sensor.processor_use
+    - sensor.since_last_boot
+    - sensor.load_1m
+    - sensor.load_5m
+    - sensor.load_15m

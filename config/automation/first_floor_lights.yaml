@@ -1,0 +1,31 @@
+- alias: "Turn on lights: Floor"
+  trigger: 
+    platform: state
+    entity_id: input_boolean.sunset
+    to: 'on'  
+  action:
+    - service: light.turn_on
+      data:
+        brightness_pct: 40
+        entity_id: 
+          - light.meq0397149     
+    - service: switch.turn_on
+      entity_id: switch.ff_floor_tree
+          
+
+- alias: "Turn off lights: Floor"
+  trigger:    
+    platform: time
+    at: '22:30:00'  
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.ff_floor_lights    
+
+
+- alias: "Turn off lights: children"
+  trigger:    
+    platform: time
+    at: '21:00:00'  
+  action:
+    service: switch.turn_off
+    entity_id: group.ff_children    

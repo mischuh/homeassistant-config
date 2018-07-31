@@ -1,0 +1,40 @@
+- alias: "Luminance Sensor: Dim Light ON"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.aeotec_zw100_multisensor_6_luminance
+    below: 13
+  condition:
+    condition: and
+    conditions:
+      # - condition: state
+      #   entity_id: input_boolean.sunset
+      #   state: 'off'      
+      - condition: state
+        entity_id: light.meq0397149
+        state: 'off'      
+      - condition: time
+        after: '06:30:00'
+      - condition: time
+        before: '22:30:00'        
+  action:
+    service: light.turn_on
+    entity_id: light.meq0397149
+    data:
+      brightness_pct: 30
+
+- alias: "Luminance Sensor: Dim Light OFF"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.aeotec_zw100_multisensor_6_luminance
+    above: 13
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.sunset
+        state: 'off'
+      - condition: time
+        after: '06:30:00'
+  action:
+    service: light.turn_off
+    entity_id: light.meq0397149    

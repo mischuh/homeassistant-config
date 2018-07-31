@@ -1,0 +1,5 @@
+name: Arbeit Femke
+latitude: !secret latitude_work_femke
+longitude: !secret longitude_work_femke
+radius: 50
+icon: mdi:worker

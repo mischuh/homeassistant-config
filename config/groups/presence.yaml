@@ -1,0 +1,21 @@
+# presence:
+#   name: Presence
+#   entities:
+#     - group.presence_home
+
+# presence_home:
+#   name: Home
+#   icon: mdi:account-multiple
+#   entities:
+#     - binary_sensor.mika_home
+#     - binary_sensor.mirko_home
+#     - binary_sensor.femke_home
+
+ 
+family_status:
+  name: Family Status
+  icon: mdi:account-multiple
+  entities:
+    - sensor.mirko_status
+    - sensor.femke_status
+    - sensor.mika_status

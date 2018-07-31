@@ -1,0 +1,37 @@
+first_floor:
+  name: Obergeschoss
+  entities:
+    - sensor.aeotec_zw100_multisensor_6_temperature
+    - sensor.aeotec_zw100_multisensor_6_luminance
+    - sensor.aeotec_zw100_multisensor_6_alarm_level
+    - group.ff_floor_lights
+    - group.ff_mika
+    - group.ff_jona
+
+first_floor_lights:
+  name: Obergeschoss Lichter
+  entities:
+    - group.ff_floor_lights
+    - group.ff_children
+
+ff_floor_lights:
+  name: Flur Lichter
+  entities:
+    - light.meq0397149
+    - switch.ff_floor_tree
+
+ff_children:
+  name: Kinder  
+  entities:
+    - group.ff_mika
+    - group.ff_jona
+
+ff_mika:
+  name: Mika
+  entities:
+    - switch.ff_mika_bed
+
+ff_jona:
+  name: Jona
+  entities:
+    - switch.ff_jona_bed

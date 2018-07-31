@@ -1,0 +1,23 @@
+###########################################################
+# Guest WIFI
+###########################################################
+
+- alias: "Turn on: Guest WIFI"
+  trigger:
+    platform: state
+    entity_id: input_boolean.guest_wlan
+    to: 'on'
+  action:
+    -  service: fritzbox_guestwifi.turn_on
+    -  service: notify.iphone_mirko
+       data:
+         title: "Guest wifi is enabled"
+         message: "Hallo Mirko."
+
+- alias: "Turn off: Guest WIFI"
+  trigger:
+    platform: state
+    entity_id: input_boolean.guest_wlan
+    to: 'off'
+  action:
+    -  service: fritzbox_guestwifi.turn_off

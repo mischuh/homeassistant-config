@@ -1,0 +1,4 @@
+sunset:
+  name: Sunset Event
+  initial: off
+  icon: mdi:weather-night

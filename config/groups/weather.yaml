@@ -1,0 +1,28 @@
+airdata:
+  entities:
+    - sensor.luftdaten_humidity
+    - sensor.luftdaten_pm10
+    - sensor.luftdaten_pm25
+    - sensor.luftdaten_temperature
+
+weather_dashboard:
+  name: Wetter
+  view: false
+  entities:
+  - sensor.dark_sky_summary
+  - sensor.dark_sky_temperature
+  - sensor.dark_sky_daytime_high_temperature  
+
+weather_darksky:
+  name: Wetter
+  view: false
+  entities:
+  - sensor.dark_sky_summary
+  - sensor.dark_sky_daily_summary  
+  - sensor.dark_sky_temperature
+  - sensor.dark_sky_apparent_temperature
+  - sensor.dark_sky_daytime_high_temperature  
+  - sensor.dark_sky_wind_speed
+  - sensor.dark_sky_visibility
+  - sensor.dark_sky_humidity
+  - sensor.dark_sky_cloud_coverage

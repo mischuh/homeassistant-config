@@ -1,0 +1,10 @@
+# - alias: "Doorbell: ON"
+#   trigger:
+#     platform: state
+#     entity_id: sensor.doorbell
+#     to: '1'
+#   action:    
+#     service: notify.iphone_mirko
+#     data:
+#       title: "Es hat geklingelt..."
+#       message: "Jemand steht vor der Tür"

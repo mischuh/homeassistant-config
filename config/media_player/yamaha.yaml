@@ -1,0 +1,19 @@
+- platform: yamaha
+  host: 192.168.178.43
+  source_ignore:
+    - "AUDIO2"
+    - "AUDIO3"
+    - "AUDIO4"
+    - "AV2" 
+    - "AV3" 
+    - "AV4" 
+    - "AV5" 
+    - "AV6" 
+    - "AV7" 
+    - "MULTI CH" 
+    - "Napster" 
+    - "Phono"
+    - "iPod (USB)"
+    - "V-AUX"
+    - "USB"
+    - "Server" 

@@ -1,0 +1,22 @@
+- platform: imap_email_content
+  name: Trash
+  server: !secret imap_server
+  port: 993
+  username: !secret imap_user
+  password: !secret imap_password
+  senders:
+    - abfuhrkalender@srhh.de
+  value_template: >-
+    {% if subject.find("schwarze Restmülltonne") | int >= 0 %}
+      schwarz
+    {% elif subject.find("blaue Papiertonne") | int >= 0 %}
+      blau
+    {% elif subject.find("grüne Biotonne und gelbe Hamburger Wertstofftonne") | int >= 0 %}
+      grün-gelb
+    {% elif subject.find("grüne Biotonne") | int >= 0 %}
+      grün
+    {% elif subject.find("gelbe Hamburger Wertstofftonne") | int >= 0 %}
+      gelb
+    {% else %}
+      unknown
+    {% endif %}

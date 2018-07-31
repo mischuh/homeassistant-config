@@ -35,7 +35,7 @@
       command_off: "curl http://homeassi:81/10101A/off"
       friendly_name: Schalfzimmer Konsole
 
-    free_outlet:
+    sf_bedroom_bed:
       command_on: "curl http://homeassi:81/10100A/on"
       command_off: "curl http://homeassi:81/10100A/off"
-      friendly_name: Frei
+      friendly_name: Schlafzimmer Bett

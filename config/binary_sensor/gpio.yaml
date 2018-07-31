@@ -1,0 +1,4 @@
+- platform: rpi_gpio
+  bouncetime: 100
+  ports:
+    21: Doorbell

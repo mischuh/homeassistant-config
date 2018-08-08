@@ -9,9 +9,9 @@ weather_dashboard:
   name: Wetter
   view: false
   entities:
-  - sensor.dark_sky_summary
-  - sensor.dark_sky_temperature
-  - sensor.dark_sky_daytime_high_temperature  
+  - sensor.weather_temperature
+  - sensor.weather_humidity
+  - sensor.weather_cloudiness
 
 weather_darksky:
   name: Wetter

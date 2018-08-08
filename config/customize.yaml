@@ -95,11 +95,29 @@ media_player.viera_gt30_series:
 media_player.volumio:
   friendly_name: Volumio
 
-# Trashcans
+
+# Weather
+sensor.weather_cloudiness:
+  friendly_name: Cloudiness
+  icon: mdi:cloud-outline
+
+sensor.weather_humidity:
+  friendly_name: Humidity (Outdoor)
+  icon: mdi:water-percent
+
+sensor.weather_symbol:
+  friendly_name: Weather
+
+sensor.weather_temperature:
+  friendly_name: Temperature
 
 # sensor.doorbell:
 #   friendly_name: "Klingel"
 #   icon: mdi:bell
+
+
+
+# Trashcans
 
 sensor.trash:
   friendly_name: Müll
@@ -109,8 +127,7 @@ sensor.trash:
       if (state === 'schwarz') {
         return [0,0];
       } else if (state === 'blau' ) {
-        # return [213, 88];
-        return [255, 255];
+        return [213, 88];        
       } else if (state === 'gelb' ) {
         return [44, 100];
       } else if (state === 'grün' ) {
@@ -123,4 +140,4 @@ sensor.trash:
     #   if (state === 'blau') return 'rgb(30,144,255)';
     #   if (state === 'gelb') return 'rgb(255,255,0)';
     #   return 'rgb(153,153,0)';
-    hidden: if (state === 'unknown' or state === 'Unbekannt') return true;;
+    hidden: if (state === '' or state === 'unknown' or state === 'Unbekannt') return true;;

@@ -1,0 +1,8 @@
+- platform: template
+  sensors:
+    femke_schedule:
+      value_template: '{{ states.calendar.femke_schuh.attributes.message }}: {{ states.calendar.femke_schuh.attributes.start_time }}'
+      friendly_name: 'Femke'
+    mirko_schedule:
+      value_template: '{{ states.calendar.hrschuhgooglemailcom.attributes.message }}: {{ states.calendar.hrschuhgooglemailcom.attributes.start_time }}'
+      friendly_name: 'Mirko'

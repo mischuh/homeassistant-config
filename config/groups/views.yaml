@@ -10,6 +10,7 @@ default_view:
     - group.family_status
     - group.weather_dashboard
     - group.trash
+    - group.calendars
 
 
 view_ground_floor:
@@ -48,7 +49,7 @@ view_rest:
   name: Dies&Das
   icon: mdi:creation
   entities:
-    - group.family_status
+    - group.family_status    
     - input_boolean.sunset
     - input_boolean.guest_wlan   
 

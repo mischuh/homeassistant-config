@@ -20,8 +20,17 @@
   action:
     service: light.turn_on
     entity_id: light.meq0397149
-    data:
-      brightness_pct: 15   
+    # data:
+    #   brightness_pct: 15  
+    data_template:
+      brightness_pct: >
+        {% if ('sun.sun', 'above_horizon') and now().hour >= 15 and now().hour < 22 %}
+        50
+        {% else %}
+        16
+        {% endif %}  
+      # brightness_pct: '{{|int}}'
+ 
   # - delay:
   #    - minutes: 3
 

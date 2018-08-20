@@ -11,7 +11,7 @@ default_view:
     - group.weather_dashboard
     - group.trash
     - group.calendars
-
+    - group.scenes
 
 view_ground_floor:
   name: EG
@@ -61,8 +61,7 @@ view_system:
   entities:
     - group.speedtest
     - group.raspi
-    - group.batteries    
-
+    - group.batteries   
 
 # view_weather:
 #   view: yes

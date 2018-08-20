@@ -88,23 +88,3 @@ Additional Packages
 ## FritzBox WLAN
 
 https://community.home-assistant.io/t/control-guest-wifi-custom-component/34450/3
-
-## Doorbell
-
-sudo nano /etc/systemd/system/doorbell.service
-
-    [Unit]
-    Description=Doorbell Service
-    After=multi-user.target
-
-    [Service]
-    Type=idle
-    ExecStart=/usr/bin/python3 /usr/share/homeassistant/etc/scripts/doorbell.py > /usr/share/homeassistant/etc/scripts/doorbell.log 2>&1
-
-    [Install]
-    WantedBy=multi-user.target
-
-sudo chmod 644 /etc/systemd/system/doorbell.service
-sudo systemctl daemon-reload
-sudo systemctl enable doorbell.service
-sudo systemctl start doorbell.service

@@ -1,0 +1,10 @@
+- name: Blockbuster
+  entities:
+    # Lights
+    # group.kitchen_lights: off 
+    switch.gf_kitchen_ceiling_outlet: on
+    light.sofa:
+      state: on
+      brightness_pct: 15
+    # AVR    
+    script.yamaha_tv: on

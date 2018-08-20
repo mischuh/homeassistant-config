@@ -11,6 +11,8 @@
           - light.meq0397149     
     - service: switch.turn_on
       entity_id: switch.ff_floor_tree
+    - service: switch.turn_on
+      entity_id: group.ff_children
           
 
 - alias: "Turn off lights: Floor"

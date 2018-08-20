@@ -53,10 +53,10 @@ cloud:
 
 ios:
 
-# weather:
-#   - platform: darksky
-#     api_key: !secrets darksky_api_key
-#     name: Wetter
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    name: Wetter
 
 zone: !include_dir_list zones
 
@@ -126,6 +126,7 @@ input_boolean: !include_dir_merge_named input_boolean
 input_select: !include_dir_merge_named input_select
 media_player: !include_dir_merge_list media_player
 script: !include_dir_named script
+scene: !include_dir_merge_list scene
 sensor: !include_dir_merge_list sensor
 switch: !include_dir_merge_list switch
 

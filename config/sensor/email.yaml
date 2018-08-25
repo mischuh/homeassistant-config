@@ -8,15 +8,15 @@
     - abfuhrkalender@srhh.de
   value_template: >-
     {% if subject.find("schwarze Restmülltonne") | int >= 0 %}
-      schwarz
+      schwarze
     {% elif subject.find("blaue Papiertonne") | int >= 0 %}
-      blau
+      blaue
     {% elif subject.find("grüne Biotonne und gelbe Hamburger Wertstofftonne") | int >= 0 %}
-      grün-gelb
+      grüne und gelbe
     {% elif subject.find("grüne Biotonne") | int >= 0 %}
-      grün
+      grüne
     {% elif subject.find("gelbe Hamburger Wertstofftonne") | int >= 0 %}
-      gelb
+      gelbe
     {% else %}
       unknown
     {% endif %}

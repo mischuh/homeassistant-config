@@ -1,0 +1,13 @@
+- alias: "Trash notification"
+  hide_entity: False
+  trigger:
+    # platform: template
+    # value_template: "{{ states('sensor.trash') | int > 0 }}"
+    platform: state
+    entity_id: sensor.trash
+    # AND NOT value_template: "{{ states('sensor.trash') | int > 0 }}" = Unkonw
+  action:
+    service: persistent_notification.create
+    data:
+      message: "Die **{{ states.sensor.trash.state }}** Tonne muss noch nach vorne gebracht werden."
+      title: "Mülltonne"

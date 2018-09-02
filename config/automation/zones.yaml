@@ -1,0 +1,37 @@
+
+- alias: "presence_mirko_home"
+  trigger:
+    platform: zone
+    entity_id: group.mirko
+    zone: zone.home    
+    event: enter 
+  action:
+    service: notify.iphone_mirko
+    data:
+      title: "Mirko@Home"
+      message: "Hallo Mirko! Schön, dass du zuhause bist"
+
+- alias: "presence_mirko_work"
+  trigger:
+    platform: zone
+    entity_id: device_tracker.iphone_mirko
+    zone: zone.work_ml    
+    event: enter
+  action:
+    service: notify.iphone_mirko
+    data:
+      title: "Mirko@Work"
+      message: "Du schaffst das :)"
+
+
+# - alias: "presence_femke_work"
+#   trigger:
+#     platform: zone
+#     entity_id: device_tracker.iphone_femke
+#     zone: zone.work_salon
+#     event: enter
+#   action:
+#     service: notify.iphone_femke
+#     data:
+#       title: "Femke@Work"
+#       message: "Du schaffst das :). Ich habe dich lieb <3"

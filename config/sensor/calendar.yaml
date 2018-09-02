@@ -6,3 +6,6 @@
     mirko_schedule:
       value_template: '{{ states.calendar.hrschuhgooglemailcom.attributes.message }}: {{ states.calendar.hrschuhgooglemailcom.attributes.start_time }}'
       friendly_name: 'Mirko'
+    family_schedule:
+      value_template: '{{ states.calendar.familie.attributes.message }}: {{ states.calendar.familie.attributes.start_time }}'
+      friendly_name: 'Family'      

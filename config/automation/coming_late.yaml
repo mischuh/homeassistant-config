@@ -1,0 +1,26 @@
+- alias: "Coming home late"
+  trigger:
+    platform: zone
+    entity_id: group.parents
+    zone: zone.home
+    event: enter
+  condition:  
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.sunset
+        state: 'on'
+      - condition: state
+        entity_id: group.entree_lights
+        state: 'off'
+  action:
+    - service: light.turn_on
+      data:
+        # Door
+        brightness_pct: 40
+        entity_id: light.jeq0207587  
+    - service: light.turn_on
+      data:
+        # Entree
+        brightness_pct: 25
+        entity_id: light.jeq0207545 

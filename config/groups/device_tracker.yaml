@@ -1,0 +1,32 @@
+family:
+  name: Familie
+  entities:
+    - group.parents
+    - device_tracker.huawei_mika
+
+parents:
+  name: Eltern
+  entities:
+    - device_tracker.iphone_mirko
+    - device_tracker.iphone_femke
+
+mirko:
+  name: Mirko
+  entities:
+    - device_tracker.iphone_mirko
+
+femke:
+  name: Femke
+  entities:
+    - device_tracker.iphone_femke
+
+mika:
+  name: Mika
+  entities:
+    - device_tracker.huawei_mika
+
+trusted_friends:
+  name: Freunde und Bekannte
+  entities:
+    - device_tracker.iphone_sepp
+    - device_tracker.iphone_frank

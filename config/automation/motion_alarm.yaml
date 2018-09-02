@@ -25,14 +25,11 @@
     data_template:
       brightness_pct: >
         {% if ('sun.sun', 'above_horizon') and now().hour >= 15 and now().hour < 22 %}
-        50
+        45
         {% else %}
         16
         {% endif %}  
-      # brightness_pct: '{{|int}}'
- 
-  # - delay:
-  #    - minutes: 3
+              
 
 - alias: "Motion Sensor: Turn off"
   trigger:

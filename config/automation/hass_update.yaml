@@ -1,0 +1,12 @@
+- alias: Update notifications
+  trigger:
+    platform: state
+    entity_id: sensor.ha_online_version
+  condition:
+    - condition: template
+      value_template: '{{states.sensor.ha_online_version.state != states.sensor.current_version.state }}'
+  action:
+    service: persistent_notification.create
+    data:
+      message: "Es ist eine neue Version ({{states.sensor.ha_online_version.state}}) von Home Assistant verfügbar :)"
+      title: "HomeAssi - Update"

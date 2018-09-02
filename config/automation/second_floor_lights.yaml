@@ -4,8 +4,11 @@
     entity_id: input_boolean.sunset
     to: 'on'
   action:
-    service: switch.turn_on
-    entity_id: group.second_floor_lights
+    - service: switch.turn_on
+      entity_id: group.second_floor_lights
+    - delay: "00:00:05"
+    - service: switch.turn_on
+      entity_id: group.second_floor_lights
       
 
 - alias: "Turn off lights: Work"
@@ -13,8 +16,11 @@
     platform: time
     at: '22:30:00'
   action:
-    service: switch.turn_off
-    entity_id: group.sf_work_lights 
+    - service: switch.turn_off
+      entity_id: group.sf_work_lights
+    - delay: "00:00:05"
+    - service: switch.turn_off
+      entity_id: group.sf_work_lights
 
 
 - alias: "Turn off lights: Bedroom"
@@ -22,8 +28,11 @@
     platform: time
     at: '22:45:00'
   action:
-    service: switch.turn_off
-    entity_id: group.sf_bedroom_lights    
+    - service: switch.turn_off
+      entity_id: group.sf_bedroom_lights
+    - delay: "00:00:05"
+    - service: switch.turn_off
+      entity_id: group.sf_bedroom_lights
 
 
 - alias: "Turn off lights: Fallback"
@@ -31,5 +40,8 @@
     platform: time
     at: '23:00:00'
   action:
-    service: switch.turn_off
-    entity_id: group.second_floor_lights   
+    - service: switch.turn_off
+      entity_id: group.second_floor_lights
+    - delay: "00:00:05"
+    - service: switch.turn_off
+      entity_id: group.second_floor_lights

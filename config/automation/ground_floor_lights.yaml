@@ -1,21 +1,11 @@
-###########################################################
-# Lights
-###########################################################
 
 - alias: "Turn on lights"
   trigger: 
     platform: state
     entity_id: input_boolean.sunset
-    to: 'on'
-    # - platform: time
-    #   at: '20:00:00'
-    # condition:
-    #   # condition for time trigger 
-    #   condition: state
-    #   entity_id: input_boolean.sunset
-    #   state: 'off'
+    to: 'on'    
   action:
-    # TODO: Make a scence
+     # TODO: Make a scence
     - service: light.turn_on
       data:
         brightness_pct: 45
@@ -40,22 +30,29 @@
     - service: notify.iphone_mirko
       data:
         message: "Der Sonnenuntergang naht…"
-    
 
-- alias: "Turn off lights: 22:30"
-  trigger:    
-    platform: time
-    at: '23:00:00'  
-  action:
-    - service: homeassistant.turn_off
-      entity_id:         
-        - group.kitchen_lights        
-    
+    # - service: scene.turn_on
+    #   entity_id: scene.groundfloor_lights
+    # - service: switch.turn_on
+    #   entity_id:         
+    #     - group.garden_lights
+    # - service: notify.iphone_mirko
+    #   data:
+    #     message: "Der Sonnenuntergang naht…"  
 
 - alias: "Turn off lights: 23:00"
   trigger:    
     platform: time
     at: '23:00:00'  
+  action:
+    service: homeassistant.turn_off
+    entity_id:         
+      - group.kitchen_lights        
+    
+- alias: "Turn off lights: 23:15"
+  trigger:    
+    platform: time
+    at: '23:15:00'  
   action:
     - service: homeassistant.turn_off
       entity_id: 
@@ -67,7 +64,6 @@
         brightness_pct: 14
         entity_id: light.jeq0207587  
 
-
 - alias: "Turn off lights: Entree"
   trigger:    
     platform: time
@@ -76,7 +72,6 @@
     service: homeassistant.turn_off
     entity_id: 
       - light.jeq0207587    
-
 
 - alias: "Turn off lights: Door"
   trigger:    

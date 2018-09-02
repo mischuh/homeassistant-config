@@ -6,6 +6,9 @@ venv/
 docker/
 deps/
 etc/
+config/.storage
+python-lovelace/
+
 
 raspiBackup.log
 *.IGNORE
@@ -29,5 +32,5 @@ config/options.xml
 config/OZW_Log.txt
 config/pyozw.sqlite
 config/home-assistant.log
-config/home-assistant_v2.db
+config/home-assistant_v2.db*
 config/known_devices.yaml

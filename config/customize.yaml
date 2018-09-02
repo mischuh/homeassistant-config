@@ -69,6 +69,13 @@ sensor.aeotec_zw100_multisensor_6_luminance:
 sensor.aeotec_zw100_multisensor_6_burglar:
   friendly_name: Bewegungsmelder 1. OG
 
+# HASS Versions
+sensor.ha_online_version:
+  friendly_name: Online Version
+
+sensor.current_version:
+  friendly_name: Aktuelle Version
+
 
 # Tradfri
 
@@ -111,33 +118,17 @@ sensor.weather_symbol:
 sensor.weather_temperature:
   friendly_name: Temperature
 
-# sensor.doorbell:
-#   friendly_name: "Klingel"
-#   icon: mdi:bell
+# Calendar
+sensor.femke_schedule:
+  icon: mdi:calendar
 
+sensor.mirko_schedule:
+  icon: mdi:calendar
 
+sensor.family_schedule:
+  icon: mdi:calendar
 
 # Trashcans
-
 sensor.trash:
   friendly_name: Müll
   icon: mdi:delete
-  templates:
-    hs_color: >
-      if (state === 'schwarz') {
-        return [0,0];
-      } else if (state === 'blau' ) {
-        return [213, 88];        
-      } else if (state === 'gelb' ) {
-        return [44, 100];
-      } else if (state === 'grün' ) {
-        return [113, 36];
-      } else {
-        return [63, 81];
-      }
-    # icon_color: >
-    #   if (state === 'schwarz') return 'rgb(0,0,0)';
-    #   if (state === 'blau') return 'rgb(30,144,255)';
-    #   if (state === 'gelb') return 'rgb(255,255,0)';
-    #   return 'rgb(153,153,0)';
-    hidden: if (state === '' or state === 'unknown' or state === 'Unbekannt') return true;;

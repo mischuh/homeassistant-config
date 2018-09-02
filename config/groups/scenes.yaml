@@ -2,4 +2,5 @@ scenes:
   name: Szenen
   entities:
     - scene.dinner
+    - scene.groundfloor_lights
     # - scene.blockbuster

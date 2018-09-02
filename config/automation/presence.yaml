@@ -1,45 +1,37 @@
-- alias: "presence_sepp_home"
-  trigger:
-    platform: state
-    entity_id: device_tracker.iphone_sepp
-    to: 'home'
-  action:
-    service: script.guest_wifi
-
-
 - alias: Mark person as just arrived
+  initial_state: True
   trigger:
     - platform: state
-      entity_id: device_tracker.iphone_mirko
+      entity_id: sensor.mirko
       from: 'not_home'
       to: 'home'
     - platform: state
-      entity_id: device_tracker.iphone_femke
+      entity_id: sensor.femke
       from: 'not_home'
       to: 'home'
     - platform: state
-      entity_id: device_tracker.huawei_mika
+      entity_id: sensor.mika
       from: 'not_home'
       to: 'home'
   action:
     - service: input_select.select_option
       data_template:
         entity_id: >
-          {% if trigger.entity_id == 'device_tracker.iphone_mirko' %}
+          {% if trigger.entity_id == 'sensor.mirko' %}
             input_select.mirko_state
-          {% elif trigger.entity_id == 'device_tracker.iphone_femke' %}
+          {% elif trigger.entity_id == 'sensor.femke' %}
             input_select.femke_state
           {% else %}
             input_select.mika_state
           {% endif %}
         option: >
-          {% if trigger.entity_id == 'device_tracker.iphone_mirko' %}
+          {% if trigger.entity_id == 'sensor.mirko' %}
             {% if states.input_select.mirko_state.state == 'Just Left' %}
               Home
             {% else %}
               Just Arrived
             {% endif %}
-          {% elif trigger.entity_id == 'device_tracker.iphone_femke' %}
+          {% elif trigger.entity_id == 'sensor.femke' %}
             {% if states.input_select.femke_state.state == 'Just Left' %}
               Home
             {% else %}
@@ -55,6 +47,7 @@
 
 
 - alias: Mark person as home
+  initial_state: True
   trigger:
     - platform: state
       entity_id: input_select.mirko_state
@@ -87,9 +80,9 @@
     - service: input_select.select_option
       data_template:
         entity_id: >
-          {% if trigger.entity_id == 'device_tracker.iphone_mirko' %}
+          {% if trigger.entity_id == 'input_select.mirko_state' %}
             input_select.mirko_state
-          {% elif trigger.entity_id == 'device_tracker.iphone_femke' %}
+          {% elif trigger.entity_id == 'input_select.femke_state' %}
             input_select.femke_state
           {% else %}
             input_select.mika_state
@@ -98,26 +91,27 @@
 
 
 - alias: Mark person as just left
+  initial_state: True
   trigger:
     - platform: state
-      entity_id: device_tracker.iphone_mirko
+      entity_id: sensor.mirko
       from: 'home'
       to: 'not_home'
     - platform: state
-      entity_id: device_tracker.iphone_femke
+      entity_id: sensor.femke
       from: 'home'
       to: 'not_home'
     - platform: state
-      entity_id: device_tracker.huawei_mika
+      entity_id: sensor.mika
       from: 'home'
       to: 'not_home'
   action:
     - service: input_select.select_option
       data_template:
         entity_id: >
-          {% if trigger.entity_id == 'device_tracker.iphone_mirko' %}
+          {% if trigger.entity_id == 'sensor.mirko' %}
             input_select.mirko_state
-          {% elif trigger.entity_id == 'device_tracker.iphone_femke' %}
+          {% elif trigger.entity_id == 'sensor.femke' %}
             input_select.femke_state
           {% else %}
             input_select.mika_state
@@ -146,9 +140,9 @@
     - service: input_select.select_option
       data_template:
         entity_id: >
-          {% if trigger.entity_id == 'device_tracker.iphone_mirko' %}
+          {% if trigger.entity_id == 'input_select.mirko_state' %}
             input_select.mirko_state
-          {% elif trigger.entity_id == 'device_tracker.iphone_femke' %}
+          {% elif trigger.entity_id == 'input_select.femke_state' %}
             input_select.femke_state
           {% else %}
             input_select.mika_state
@@ -177,46 +171,12 @@
     - service: input_select.select_option
       data_template:
         entity_id: >
-          {% if trigger.entity_id == 'device_tracker.iphone_mirko' %}
+          {% if trigger.entity_id == 'input_select.mirko_state' %}
             input_select.mirko_state
-          {% elif trigger.entity_id == 'device_tracker.iphone_femke' %}
+          {% elif trigger.entity_id == 'input_select.femke_state' %}
             input_select.femke_state
           {% else %}
             input_select.mika_state
           {% endif %}
         option: Extended Away
 
-
-# - alias: "presence_mirko_home"
-#   trigger:
-#     platform: state
-#     entity_id: device_tracker.iphone_mirko
-#     to: 'home'
-#   action:
-#     service: notify.iphone_mirko
-#     data:
-#       title: "Mirko@Home"
-#       message: "Hallo Mirko! Schön, dass du zuhause bist"
-
-# - alias: "presence_mirko_work"
-#   trigger:
-#     platform: state
-#     entity_id: device_tracker.iphone_mirko
-#     to: 'work'
-#   action:
-#     service: notify.iphone_mirko
-#     data:
-#       title: "Mirko@Work"
-#       message: "Du schaffst das :)"
-
-
-# - alias: "presence_femke_work"
-#   trigger:
-#     platform: state
-#     entity_id: device_tracker.iphone_femke
-#     to: 'work'
-#   action:
-#     service: notify.iphone_femke
-#     data:
-#       title: "Femke@Work"
-#       message: "Du schaffst das :). Ich habe dich lieb <3"

@@ -1,20 +1,29 @@
-###########################################################
-# Guest WIFI
-###########################################################
 
 - alias: "Turn on: Guest WIFI"
   trigger:
     platform: state
     entity_id: input_boolean.guest_wlan
-    to: 'on'
+    to: 'on'   
   action:
     - service: script.guest_wifi    
 
-    
 - alias: "Turn off: Guest WIFI"
   trigger:
-    platform: state
-    entity_id: input_boolean.guest_wlan
-    to: 'off'
+    - platform: time
+      at: '00:00:00'
+    - platform: state
+      entity_id: input_boolean.guest_wlan
+      to: 'off'    
   action:
     -  service: fritzbox_guestwifi.turn_off
+
+- alias: "Turn on: Gues Wifi if known guests arrive"
+  trigger:
+    platform: zone
+    entity_id: group.trusted_friends
+    zone: zone.home
+    event: enter
+  action:
+    service: homeassistant.turn_on
+    entity_id: 
+      - input_boolean.guest_wlan

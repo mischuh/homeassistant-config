@@ -60,8 +60,9 @@ view_system:
   icon: mdi:cogs
   entities:
     - group.speedtest
+    - group.hass_versions
     - group.raspi
-    - group.batteries   
+    - group.batteries
 
 # view_weather:
 #   view: yes

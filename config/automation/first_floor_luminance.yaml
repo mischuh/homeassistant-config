@@ -6,12 +6,9 @@
   condition:
     condition: and
     conditions:
-      # - condition: state
-      #   entity_id: input_boolean.sunset
-      #   state: 'off'      
       - condition: state
         entity_id: light.meq0397149
-        state: 'off'      
+        state: 'off'
       - condition: time
         after: '06:30:00'
       - condition: time

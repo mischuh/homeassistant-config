@@ -2,6 +2,7 @@ system:
   name: System
   entities:
     - group.speedtest
+    - group.hass_versions
     - group.batteries
     - group.raspi
 
@@ -20,6 +21,12 @@ trash:
   name: Müll
   entities:
     - sensor.trash
+
+hass_versions:
+  name: Home-Assistant Versions
+  entities:
+    - sensor.ha_online_version
+    - sensor.current_version
 
 raspi:
   name: Raspberry

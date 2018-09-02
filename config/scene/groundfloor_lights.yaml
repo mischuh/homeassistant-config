@@ -1,0 +1,19 @@
+- name: Groundfloor Lights
+  entities:
+    group.ground_floor_433_lights: on 
+    
+    light.sofa:
+      state: on
+      brightness_pct: 45
+    
+    light.jeq0207587:
+      state: on
+      brightness_pct: 25
+    
+    light.jeq0207534:  
+      state: on
+      brightness_pct: 43
+    
+    light.jeq0207545:  
+      state: on
+      brightness_pct: 33

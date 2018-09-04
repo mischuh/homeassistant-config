@@ -14,7 +14,7 @@
 - alias: "presence_mirko_work"
   trigger:
     platform: zone
-    entity_id: device_tracker.iphone_mirko
+    entity_id: group.mirko
     zone: zone.work_ml    
     event: enter
   action:

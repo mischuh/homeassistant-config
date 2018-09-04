@@ -20,3 +20,13 @@
     - service: notify.iphone_mirko
       data:
         message: "Sunrise..."
+
+- alias: "Turn on: Sunrise Event"
+  trigger:
+    platform: sun
+    event: sunrise    
+    # - platform: time
+    #   at: '15:32:00'  
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.sunrise

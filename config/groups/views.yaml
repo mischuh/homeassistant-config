@@ -51,6 +51,7 @@ view_rest:
     - group.scenes
     - group.family_status    
     - input_boolean.sunset
+    - input_boolean.sunrise
     - input_boolean.guest_wlan   
 
 

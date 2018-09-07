@@ -115,9 +115,9 @@ views:
       - type: map
         aspect_ratio: 100%
         entities:
-          - device_tracker.iphone_mirko
-          - device_tracker.iphone_femke
-          - device_tracker.huawei_mika
+          - sensor.mirko
+          - sensor.femke
+          - sensor.mika
           - zone.work_ml
       - type: entities
         entities:

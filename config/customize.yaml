@@ -132,3 +132,13 @@ sensor.family_schedule:
 sensor.trash:
   friendly_name: Müll
   icon: mdi:delete
+
+# Scenes
+scene.groundfloor_lights:
+  icon: mdi:google-fit
+
+scene.dinner:
+  icon: mdi:food-fork-drink
+
+scene.blockbuster:
+  icon: mdi:youtube-tv

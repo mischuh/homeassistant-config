@@ -3,7 +3,7 @@ sequence:
   - alias: Guest Wifi ON
     service: fritzbox_guestwifi.turn_on
   - alias: Notify Mirko
-    service: notify.iphone_mirko
+    service: notify.ios_iphone_mirko
     data:
       title: "Guest wifi is enabled"
-      message: "Hallo Mirko."
+      message: ""

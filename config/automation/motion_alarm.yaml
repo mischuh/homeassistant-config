@@ -10,13 +10,18 @@
     to: '8'
   condition:
     condition: and
-    conditions:
-      - condition: state
-        entity_id: input_boolean.sunset
-        state: 'on'
+    conditions:      
       - condition: state
         entity_id: light.meq0397149
         state: 'off'
+      - condition: or
+        conditions:
+          - condition: numeric_state      
+            entity_id: sensor.aeotec_zw100_multisensor_6_luminance
+            below: 13
+          - condition: state
+            entity_id: input_boolean.sunset
+            state: 'on'
   action:
     service: light.turn_on
     entity_id: light.meq0397149
@@ -25,9 +30,9 @@
     data_template:
       brightness_pct: >
         {% if ('sun.sun', 'above_horizon') and now().hour >= 15 and now().hour < 22 %}
-        45
+          45
         {% else %}
-        16
+          16
         {% endif %}  
               
 
@@ -39,13 +44,18 @@
     to: '0'
   condition:
     condition: and
-    conditions:
-      - condition: state
-        entity_id: input_boolean.sunset
-        state: 'on'
+    conditions:      
       - condition: state
         entity_id: light.meq0397149
-        state: 'on'
+        state: 'off'
+      - condition: or
+        conditions:
+          - condition: numeric_state      
+            entity_id: sensor.aeotec_zw100_multisensor_6_luminance
+            below: 13
+          - condition: state
+            entity_id: input_boolean.sunset
+            state: 'on'
   action:
     service: light.turn_off
     entity_id: light.meq0397149

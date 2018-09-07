@@ -27,7 +27,7 @@
       entity_id: 
         - group.ground_floor_433_lights 
         - group.garden_lights
-    - service: notify.iphone_mirko
+    - service: notify.ios_iphone_mirko
       data:
         message: "Der Sonnenuntergang naht…"
 
@@ -36,7 +36,7 @@
     # - service: switch.turn_on
     #   entity_id:         
     #     - group.garden_lights
-    # - service: notify.iphone_mirko
+    # - service: notify.ios_iphone_mirko
     #   data:
     #     message: "Der Sonnenuntergang naht…"  
 

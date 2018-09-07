@@ -9,7 +9,7 @@ first_floor:
     - group.ff_jona
 
 first_floor_lights:
-  name: Obergeschoss Lichter
+  name: Obergeschoss
   entities:
     - group.ff_floor_lights
     - group.ff_children

@@ -6,7 +6,7 @@ second_floor:
     - group.sf_bedroom_lights    
 
 second_floor_lights:
-  name: Dachgeschoss Lichter
+  name: Dachgeschoss
   entities:
     - group.sf_work_lights
     - group.sf_bedroom_lights    

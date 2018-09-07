@@ -74,18 +74,19 @@ http:
  
 
 notify:
-  - platform: ios
-    name: iPhone Mirko
-    target: !secret notify_mirko_target 
-  - platform: ios
-    name: iPhone Femke
-    target: !secret notify_femke_target
 
+  
 mqtt:
-  broker: localhost
-  port: 1883  
-  client_id: home-assistant-1
-  keepalive: 60
+  # broker: localhost
+  # port: 1883  
+  # client_id: home-assistant-1
+  # keepalive: 60
+  # https://community.home-assistant.io/t/mqtt-working-mosquitto-cloudmqtt-bridge/1830/17
+  # https://community.home-assistant.io/t/mqtt-bridge/12177
+  broker: !secret cloudmqtt_host
+  port: !secret cloudmqtt_port
+  username: !secret cloudmqtt_user
+  password: !secret cloudmqtt_password
 
 # Text to speech
 tts:

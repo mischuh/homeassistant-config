@@ -3,4 +3,4 @@ scenes:
   entities:
     - scene.dinner
     - scene.groundfloor_lights
-    # - scene.blockbuster
+    - scene.blockbuster

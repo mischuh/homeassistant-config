@@ -19,10 +19,10 @@
 
 - alias: "Turn on: Gues Wifi if known guests arrive"
   trigger:
-    platform: zone
+    platform: state
     entity_id: group.trusted_friends
-    zone: zone.home
-    event: enter
+    from: 'not_home'
+    to: 'home'
   action:
     service: homeassistant.turn_on
     entity_id: 

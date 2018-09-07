@@ -8,7 +8,7 @@ ground_floor:
     - group.garden_lighs
 
 ground_floor_lights:
-  name: Erdgeschoss Lichter
+  name: Erdgeschoss
   entities:
     - group.entree_lights
     - group.kitchen_lights

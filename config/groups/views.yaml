@@ -4,9 +4,7 @@ default_view:
   view: yes
   icon: mdi:home
   entities:    
-    - group.ground_floor_lights
-    - group.first_floor_lights
-    - group.second_floor_lights
+    - group.home_lights    
     - group.family_status
     - group.weather_dashboard
     - group.calendars

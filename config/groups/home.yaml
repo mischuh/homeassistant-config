@@ -1,0 +1,7 @@
+
+home_lights:
+  name: Lichter
+  entities:
+    - group.ground_floor_lights
+    - group.first_floor_lights
+    - group.second_floor_lights

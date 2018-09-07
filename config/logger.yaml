@@ -1,6 +1,6 @@
-default: warning
+default: error
 logs:
-  homeassistant.components: info
+  homeassistant.components: warning
 
 # default: info
 # logs:

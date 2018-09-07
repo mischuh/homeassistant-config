@@ -34,4 +34,4 @@ trusted_friends:
   name: Freunde und Bekannte
   entities:
     - device_tracker.iphone_sepp
-    - device_tracker.iphone_frank
+    - device_tracker.iphone_frank    

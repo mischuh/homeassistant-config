@@ -1,18 +1,28 @@
 
-- alias: "Turn on lights"
+- alias: "Turn on ground floor lights"
   trigger: 
     platform: state
     entity_id: input_boolean.sunset
     to: 'on'    
   action:
      # TODO: Make a scence
+     # 
     - service: light.turn_on
       data:
         brightness_pct: 45
-        entity_id: 
-          - light.jeq0207534
+        entity_id:           
           - light.links
           - light.rechts
+    - service: light.turn_on
+      entity_id: light.jeq0207534
+      data_template:
+        brightness: >
+          {% if ( states.light.jeq0207534.state == 'off' or states.light.jeq0207534.attributes.brightness < 115 ) %}
+            115
+          {% else %}
+            {{ states.light.jeq0207534.attributes.brightness | int }}
+          {% endif %}
+        
     - service: light.turn_on
       data:
         brightness_pct: 25
@@ -29,6 +39,7 @@
         - group.garden_lights
     - service: notify.ios_iphone_mirko
       data:
+        title: "Home-Assistant"
         message: "Der Sonnenuntergang naht…"
 
     # - service: scene.turn_on
@@ -40,7 +51,7 @@
     #   data:
     #     message: "Der Sonnenuntergang naht…"  
 
-- alias: "Turn off lights: 23:00"
+- alias: "Turn off ground floor lights: 23:00"
   trigger:    
     platform: time
     at: '23:00:00'  

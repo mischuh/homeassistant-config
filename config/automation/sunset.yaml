@@ -7,18 +7,14 @@
     #   at: '15:32:00'
   action:
     - service: input_boolean.turn_on
-      entity_id: input_boolean.sunset
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.sunrise
+      entity_id: input_boolean.sunset    
 
 - alias: "Turn on: Sunrise Event"
   trigger:
     platform: sun
     event: sunrise   
     # offset: "-01:00:00"     
-  action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.sunrise
+  action:    
     - service: input_boolean.turn_off
       entity_id: input_boolean.sunset
 

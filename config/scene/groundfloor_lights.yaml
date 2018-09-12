@@ -12,8 +12,14 @@
     
     light.jeq0207534:  
       state: on
-      brightness_pct: 43
-    
+      data_template:
+        brightness: >
+            {% if ( states.light.jeq0207534.attributes.brightness < 115 or states.light.jeq0207534.state == 'off' ) %}
+              115
+            {% else %}
+              {{ states.light.jeq0207534.attributes.brightness | int }}
+            {% endif %}
+
     light.jeq0207545:  
       state: on
       brightness_pct: 33

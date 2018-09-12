@@ -74,8 +74,17 @@ http:
  
 
 notify:
-
   
+homekit:
+  pincode: !secret homekit_pin
+  port: 9124
+  filter:
+    include_entities:
+      - light.jeq0207534 #essplatz
+      - light.sofa
+      - input_boolean.guest_wlan
+
+
 mqtt:
   # broker: localhost
   # port: 1883  
@@ -124,7 +133,7 @@ automation: !include_dir_merge_list automation
 binary_sensor: !include_dir_merge_list binary_sensor
 device_tracker: !include device_tracker.yaml
 group: !include_dir_merge_named groups
-# history_graph: !include_dir_merge_named history_graph
+history_graph: !include_dir_merge_list history_graph
 input_boolean: !include_dir_merge_named input_boolean
 input_select: !include_dir_merge_named input_select
 media_player: !include_dir_merge_list media_player

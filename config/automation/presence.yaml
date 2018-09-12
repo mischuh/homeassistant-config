@@ -1,3 +1,57 @@
+#####################################################################
+# After restart
+#####################################################################
+
+- alias: "Initialization after restart: Mirko"
+  trigger:
+    platform: homeassistant    
+    event: start  
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.mirko_state
+      option: > 
+        {% if is_state("sensor.mirko", "home") %}
+          Home
+        {% else %}
+          Away
+        {% endif %}
+
+- alias: "Initialization after restart: Femke"
+  trigger:
+    platform: homeassistant    
+    event: start  
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.femke_state
+      option: > 
+        {% if is_state("sensor.femke", "home") %}
+          Home
+        {% else %}
+          Away
+        {% endif %}
+
+- alias: "Initialization after restart: Mika"
+  trigger:
+    platform: homeassistant    
+    event: start  
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.mika_state
+      option: > 
+        {% if is_state("sensor.mika", "home") %}
+          Home
+        {% else %}
+          Away
+        {% endif %}
+
+
+#####################################################################
+# 
+#####################################################################
+
 - alias: Mark person as just arrived
   initial_state: True
   trigger:

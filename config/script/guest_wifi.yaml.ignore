@@ -5,5 +5,5 @@ sequence:
   - alias: Notify Mirko
     service: notify.ios_iphone_mirko
     data:
-      title: "Guest wifi is enabled"
-      message: ""
+      title: "Home-Assistant"
+      message: "Guest wifi turned on"

@@ -27,6 +27,7 @@ view_first_floor:
     - sensor.aeotec_zw100_multisensor_6_temperature
     - sensor.aeotec_zw100_multisensor_6_luminance
     - sensor.aeotec_zw100_multisensor_6_burglar    
+    - history_graph.gr1
     - group.ff_floor_lights
     - group.ff_mika
     - group.ff_jona
@@ -49,7 +50,6 @@ view_rest:
     - group.scenes
     - group.family_status    
     - input_boolean.sunset
-    - input_boolean.sunrise
     - input_boolean.guest_wlan   
 
 

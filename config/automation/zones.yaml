@@ -2,7 +2,7 @@
 - alias: "presence_mirko_home"
   trigger:
     platform: zone
-    entity_id: group.mirko
+    entity_id: device_tracker.mirko_owntracks
     zone: zone.home    
     event: enter 
   action:
@@ -14,8 +14,8 @@
 - alias: "presence_mirko_work"
   trigger:
     platform: zone
-    entity_id: group.mirko
-    zone: zone.work_ml    
+    entity_id: device_tracker.mirko_owntracks
+    zone: zone.work_ml
     event: enter
   action:
     service: notify.ios_iphone_mirko

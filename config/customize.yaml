@@ -99,9 +99,6 @@ media_player.yamaha_receiver_zone_2:
 media_player.viera_gt30_series:
   friendly_name: Fernseher
 
-media_player.volumio:
-  friendly_name: Volumio
-
 
 # Weather
 sensor.weather_cloudiness:

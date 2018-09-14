@@ -9,8 +9,9 @@ system:
 speedtest:
   name: Speedtest
   entities:
+    - history_graph.dsl
     - sensor.speedtest_download
-    - sensor.speedtest_upload
+    - sensor.speedtest_upload    
 
 batteries:
   name: Batterien

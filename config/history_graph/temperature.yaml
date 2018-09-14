@@ -1,8 +1,0 @@
-name: Temperatur
-entities:
-  - sensor.luftdaten_temperature
-  - sensor.aeotec_zw100_multisensor_6_temperature
-hours_to_show: 72
-refresh: 600
-
-# ed a dictionary for dictionary value @ data['history_graph']. Got [OrderedDict([('name', 'Temperatur'), ('entities', ['sensor.luftdaten_temperature', 'sensor.aeotec_zw100_multisensor_6_temperature']), ('hours_to_show', 72), ('refresh', 600)])]. (See ?, line ?). Please check the docs at https://home-assistant.io/components/history_graph/

@@ -4,6 +4,7 @@ default_view:
   view: yes
   icon: mdi:home
   entities:    
+    - history_graph.temperatur
     - group.home_lights    
     - group.family_status
     - group.weather_dashboard
@@ -27,7 +28,6 @@ view_first_floor:
     - sensor.aeotec_zw100_multisensor_6_temperature
     - sensor.aeotec_zw100_multisensor_6_luminance
     - sensor.aeotec_zw100_multisensor_6_burglar    
-    - history_graph.gr1
     - group.ff_floor_lights
     - group.ff_mika
     - group.ff_jona

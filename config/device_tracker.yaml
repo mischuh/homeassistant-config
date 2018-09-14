@@ -6,11 +6,11 @@
 
 # - platform: nmap_tracker
 #   hosts: 192.168.178.0/24
-#   consider_home: 180
+#   consider_home: 90
 #   track_new_devices: False  
 #   interval_seconds: 300
 #   # nmap specific
-#   home_interval: 180
+#   home_interval: 90
 
 - platform: owntracks
   waypoints: False

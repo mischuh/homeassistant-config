@@ -76,8 +76,9 @@ services:
     # devices:
     #   - /dev/zwave:/dev/zwave
     volumes:
-      - ./config:/config      
+      - ./config:/config
       - /etc/localtime:/etc/localtime:ro
+      - ./etc/rxv/rxv.py:/usr/local/lib/python3.6/site-packages/rxv/rxv.py
     ports:
       - 8123:8123    
     # Does not work on raspberry's docker version

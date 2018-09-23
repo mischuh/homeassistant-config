@@ -8,6 +8,7 @@ femke:
   name: Femke
   entities:
     - device_tracker.iphone_femke
+    - device_tracker.femke_owntracks
 
 mika:
   name: Mika

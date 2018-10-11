@@ -2,6 +2,9 @@ listen_port: 80
 upnp_bind_multicast: true
 expose_by_default: false
 entities:
+  group.ground_floor_lights:
+    name: "Erdgeschoss"
+    hidden: false  
   light.jeq0207534:
     name: "Essplatz"
     hidden: false
@@ -9,7 +12,7 @@ entities:
     name: "Sofa"
     hidden: false
   light.meq0397149:
-    name: "Flur"
+    name: "Eingangsbereich"
     hidden: false
   switch.feq0062058:
     name: "Gartenlicht"
@@ -17,18 +20,27 @@ entities:
   switch.gf_kitchen_ceiling_outlet:
     name: "Arbeitsplatte"
     hidden: false
-  switch.sf_bedroom_outlet:
+
+  group.second_floor_lights:
+    name: "Dachgeschoss"
+    hidden: false
+  group.sf_bedroom_lights:
     name: "Schlafzimmer"
+    hidden: false
+  switch.sf_bedroom_outlet:
+    name: "Kommode"
+    hidden: false
+  switch.sf_bedroom_bed:
+    name: "Bett"
     hidden: false
   switch.sf_floor_work_outlet:
     name: "Arbeitszimmer"
     hidden: false
-  group.ground_floor_lights:
-    name: "Erdgeschoss"
-    hidden: false  
-  group.ff_floor_lights:
+
+  group.first_floor_lights:
     name: "Obergeschoss"
-    hidden: false  
-  group.second_floor_lights:
-    name: "Dachgeschoss"
-    hidden: false  
+    hidden: false
+  group.ff_floor_lights:
+    name: "Flur"
+  group.ff_children:
+    name: "Kinder"

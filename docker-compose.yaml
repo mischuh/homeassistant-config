@@ -65,7 +65,7 @@ services:
       - 81:80
  
   hass:
-    image: homeassistant/raspberrypi3-homeassistant
+    image: homeassistant/raspberrypi3-homeassistant:0.79.3
     container_name: home-assistant
     restart: always
     privileged: true

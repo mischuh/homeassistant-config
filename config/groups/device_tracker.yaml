@@ -18,13 +18,13 @@ mika:
 kids:
   name: Kinder
   entities:
-    - device_tracker.huawei_mika
+    - group.mika
 
 parents:
   name: Eltern
   entities:
-    - device_tracker.iphone_mirko
-    - device_tracker.iphone_femke
+    - group.mirko
+    - group.femke
 
 family:
   name: Familie

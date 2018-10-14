@@ -5,7 +5,7 @@ ground_floor:
     - group.livingroom
     - group.kitchen_lights
     - group.entree_lights
-    - group.garden_lighs
+    - group.garden_lights
 
 ground_floor_lights:
   name: Erdgeschoss

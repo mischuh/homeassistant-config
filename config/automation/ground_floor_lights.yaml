@@ -1,3 +1,15 @@
+- alias: "Turn on light Arbeitsplatte in the morning"
+  trigger:
+    platform: time
+    at: '06:45:00'  
+  condition:        
+    condition: state
+    entity_id: binary_sensor.workday
+    state: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.gf_kitchen_ceiling_outlet
+
 
 - alias: "Turn on ground floor lights"
   trigger: 
@@ -13,6 +25,7 @@
         entity_id:           
           - light.links
           - light.rechts
+
     - service: light.turn_on
       entity_id: light.jeq0207534
       data_template:

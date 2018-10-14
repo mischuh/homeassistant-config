@@ -1,0 +1,4 @@
+doorbell:
+  name: "Klingel"
+  initial: off
+  icon: mdi:door

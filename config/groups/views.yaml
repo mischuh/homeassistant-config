@@ -18,6 +18,7 @@ view_ground_floor:
     - group.kitchen_lights    
     - group.livingroom_lights        
     - group.entree_lights
+    - group.garden_lights
     - group.livingroom_media
 
 
@@ -50,7 +51,8 @@ view_rest:
     - group.scenes
     - group.family_status    
     - input_boolean.sunset
-    - input_boolean.guest_wlan   
+    - input_boolean.guest_wlan
+    - input_boolean.doorbell
 
 
 view_system:

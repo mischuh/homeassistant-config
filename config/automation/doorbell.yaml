@@ -1,0 +1,56 @@
+- alias: "Doorbell"
+  trigger:
+    platform: event
+    event_type: homematic.keypress
+    event_data:
+      name: OEQ2237980
+      channel: 1
+      param: PRESS_SHORT
+  condition:        
+    condition: state
+    entity_id: input_boolean.doorbell
+    state: 'off'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.doorbell   
+    - service: notify.ios_iphone_mirko
+      data:
+        title: "Home-Assistant"
+        message: "Es hat geklingelt"
+
+- alias: "Doorbell Timer"
+  trigger:
+    platform: state
+    entity_id: input_boolean.doorbell
+    to: 'on'
+    for:
+      seconds: 90
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.doorbell
+
+- alias: "Doorbell Entree Lights ON"
+  trigger:
+    platform: state
+    entity_id: input_boolean.doorbell    
+    to: 'on'
+  condition:        
+    condition: state
+    entity_id: input_boolean.sunset
+    state: 'on'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.entree_lights_on
+
+- alias: "Doorbell Entree Lights Dimm"
+  trigger:
+    platform: state
+    entity_id: input_boolean.doorbell
+    to: 'off'
+  condition:
+    condition: state
+    entity_id: input_boolean.sunset
+    state: 'on'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.entree_lights_dimm

@@ -69,7 +69,6 @@ entree_lights:
     - light.jeq0207545
     - light.jeq0207587
 
-
 garden_lights:
   name: Garten
   entities:    

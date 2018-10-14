@@ -1,0 +1,21 @@
+- name: Entree Lights ON
+  entities:
+    # Eingang
+    light.jeq0207545:
+      state: on
+      brightness_pct: 60
+    # Außenlicht
+    light.jeq0207587:
+      state: on
+      brightness_pct: 85
+
+- name: Entree Lights Dimm
+  entities:    
+    # Eingang
+    light.jeq0207545:
+      state: on
+      brightness_pct: 33
+    # Außenlicht
+    light.jeq0207587:
+      state: on
+      brightness_pct: 25

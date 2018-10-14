@@ -194,32 +194,32 @@ logger: !include logger.yaml
 recorder: !include recorder.yaml
 
 # Discover some devices automatically
-discovery:
-  ignore: 
-    - axis
-    - belkin_wemo
-    - bluesound
-    - bose_soundtouch
-    - denonavr
-    - directv
-    - frontier_silicon
-    - google_cast
-    - harmony
-    - logitech_mediaserver
-    - netgear_router
-    - openhome
-    - philips_hue
-    - plex_mediaserver
-    - roku
-    - sabnzbd
-    - samsung_printer
-    - samsung_tv
-    - sonos
-    - tellstick
-    - volumio
-    - wink
-    - yeelight
-    - xiaomi_gw
+# discovery:
+#   ignore: 
+#     - axis
+#     - belkin_wemo
+#     - bluesound
+#     - bose_soundtouch
+#     - denonavr
+#     - directv
+#     - frontier_silicon
+#     - google_cast
+#     - harmony
+#     - logitech_mediaserver
+#     - netgear_router
+#     - openhome
+#     - philips_hue
+#     - plex_mediaserver
+#     - roku
+#     - sabnzbd
+#     - samsung_printer
+#     - samsung_tv
+#     - sonos
+#     - tellstick
+#     - volumio
+#     - wink
+#     - yeelight
+#     - xiaomi_gw
 
 panel_iframe:
   router:

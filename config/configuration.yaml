@@ -95,6 +95,7 @@ mqtt:
   # https://community.home-assistant.io/t/mqtt-bridge/12177
   broker: !secret cloudmqtt_host
   port: !secret cloudmqtt_port
+  certificate: auto
   username: !secret cloudmqtt_user
   password: !secret cloudmqtt_password
 

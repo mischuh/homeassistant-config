@@ -13,6 +13,16 @@ services:
       - ./docker/influxdb/data:/data
       - ./docker/influxdb/config:/etc/influxdb
 
+  portainer:
+    image: hypriot/rpi-portainer
+    container_name: portainer
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 9000:9000/tcp
+
   grafana:
     image: fg2it/grafana-armhf:v5.1.3
     container_name: grafana
@@ -65,7 +75,7 @@ services:
       - 81:80
  
   hass:
-    image: homeassistant/raspberrypi3-homeassistant:0.79.3
+    image: homeassistant/raspberrypi3-homeassistant
     container_name: home-assistant
     restart: always
     privileged: true

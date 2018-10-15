@@ -1,14 +1,15 @@
 alias: TV Scene
 sequence:
-  - service: media_player.turn_on
+  - service: input_select.select_option
     data:
-      entity_id: media_player.yamaha_receiver
+      entity_id: input_select.yamaha_scene_list         
+      option: Playstation
+  - delay: "00:00:05"
   - service: media_player.volume_set
     data:
       entity_id: media_player.yamaha_receiver
       volume_level: 0.55
-  - service: media_player.select_source
+  - service: media_player.select_sound_mode
     data:
       entity_id: media_player.yamaha_receiver
-      source: AV1
-      
+      sound_mode: Sci-Fi

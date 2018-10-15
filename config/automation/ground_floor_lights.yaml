@@ -1,3 +1,6 @@
+# ####################################################
+# Morning routine
+# ####################################################
 - alias: "Turn on light Arbeitsplatte in the morning"
   trigger:
     platform: time
@@ -7,10 +10,18 @@
     entity_id: binary_sensor.workday
     state: 'on'
   action:
-    service: switch.turn_on
-    entity_id: switch.gf_kitchen_ceiling_outlet
+    - service: switch.turn_on
+      entity_id: switch.gf_kitchen_ceiling_outlet
+    - service: ligth.turn_on
+      data:
+        brightness_pct: 45
+        entity_id:           
+          - light.links
+          - light.rechts
 
-
+# ####################################################
+# Sunset event
+# ####################################################
 - alias: "Turn on ground floor lights"
   trigger: 
     platform: state

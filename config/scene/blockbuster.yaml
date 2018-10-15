@@ -1,7 +1,7 @@
 - name: Blockbuster
   entities:
     # Lights
-    # group.kitchen_lights: off 
+    group.kitchen_lights: off 
     switch.gf_kitchen_ceiling_outlet: on
     light.sofa:
       state: on

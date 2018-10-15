@@ -1,0 +1,11 @@
+yamaha_scene_list:
+    name: Yamaha Szenen
+    options:
+      - Spotify
+      - Playstation
+      - TV Viewing
+      - Apple TV
+      - Radio Listening
+      - Jazz    
+
+# {'Playstation': 'Scene 1', 'TV Viewing': 'Scene 2', 'Apple TV': 'Scene 3', 'Radio Listening': 'Scene 4', 'Spotify': 'Scene 5', 'Jazz': 'Scene 6', 'SCENE7': 'Scene 7', 'SCENE8': 'Scene 8', 'SCENE9': 'Scene 9', 'SCENE10': 'Scene 10', 'SCENE11': 'Scene 11', 'SCENE12': 'Scene 12'}

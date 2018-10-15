@@ -23,6 +23,13 @@ trash:
   entities:
     - sensor.trash
 
+boolean_states:
+  name: Zustände
+  entities:    
+    - input_boolean.sunset
+    - input_boolean.guest_wlan
+    - input_boolean.doorbell
+
 hass_versions:
   name: Home-Assistant Versions
   entities:

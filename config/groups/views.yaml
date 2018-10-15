@@ -50,10 +50,8 @@ view_rest:
   entities:
     - group.scenes
     - group.family_status    
-    - input_boolean.sunset
-    - input_boolean.guest_wlan
-    - input_boolean.doorbell
-
+    - group.boolean_states
+    
 
 view_system:
   view: yes

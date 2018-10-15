@@ -31,6 +31,9 @@
     - delay: "00:00:05"
     - service: switch.turn_off
       entity_id: switch.ff_floor_tree
+    - delay: "00:00:05"
+    - service: switch.turn_off
+      entity_id: switch.ff_floor_tree
 
 
 - alias: "Turn off lights: children k1"
@@ -43,12 +46,19 @@
     - delay: "00:00:05"
     - service: switch.turn_off
       entity_id: switch.ff_mika_bed
+    - delay: "00:00:05"
+    - service: switch.turn_off
+      entity_id: switch.ff_mika_bed
+
 
 - alias: "Turn off lights: children k2"
   trigger:    
     platform: time
     at: '20:30:00'  
   action:
+    - service: switch.turn_off
+      entity_id: switch.ff_jona_bed
+    - delay: "00:00:05"
     - service: switch.turn_off
       entity_id: switch.ff_jona_bed
     - delay: "00:00:05"

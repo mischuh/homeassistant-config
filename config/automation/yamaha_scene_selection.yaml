@@ -3,17 +3,13 @@
     platform: state
     entity_id: input_select.yamaha_scene_list    
   action:
-    - service: notify.ios_iphone_mirko
-      data:
-        title: "Home-Assistant"
-        message: "Szene ausgewählt"
-    - service: homeassistant.turn_on
-      data_template:
-        entity_id: >
-          {% if is_state ('input_select.yamaha_scene_list','Playstation') %} switch.yamaha_scene_ps4
-          {% elif is_state ('input_select.yamaha_scene_list','TV Viewing') %} switch.yamaha_scene_tv
-          {% elif is_state ('input_select.yamaha_scene_list','Apple TV') %} switch.yamaha_scene_apple
-          {% elif is_state ('input_select.yamaha_scene_list','Radio Listening') %} switch.yamaha_scene_radio
-          {% elif is_state ('input_select.yamaha_scene_list','Spotify') %} switch.yamaha_scene_spotify
-          {% elif is_state ('input_select.yamaha_scene_list','Jazz') %} switch.yamaha_scene_jazz
-          {% endif %}
+    service: homeassistant.turn_on
+    data_template:
+      entity_id: >
+        {% if is_state ('input_select.yamaha_scene_list','Playstation') %} switch.yamaha_scene_ps4
+        {% elif is_state ('input_select.yamaha_scene_list','TV Viewing') %} switch.yamaha_scene_tv
+        {% elif is_state ('input_select.yamaha_scene_list','Apple TV') %} switch.yamaha_scene_apple
+        {% elif is_state ('input_select.yamaha_scene_list','Radio Listening') %} switch.yamaha_scene_radio
+        {% elif is_state ('input_select.yamaha_scene_list','Spotify') %} switch.yamaha_scene_spotify
+        {% elif is_state ('input_select.yamaha_scene_list','Jazz') %} switch.yamaha_scene_jazz
+        {% endif %}

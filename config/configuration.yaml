@@ -83,7 +83,7 @@ homekit:
     include_entities:
       - light.jeq0207534 #essplatz
       - light.sofa
-      - input_boolean.guest_wlan
+      # - input_boolean.guest_wlan
 
 
 mqtt:

@@ -1,0 +1,129 @@
+alias: Halloween
+sequence:    
+  - service: light.turn_on
+    data:
+      # Eingang
+      entity_id: light.jeq0207545
+      brightness_pct: 0
+  - service: light.turn_on
+    data:
+      # Wand
+      entity_id: light.jeq0207587
+      brightness_pct: 0
+
+  - delay: "00:00:02"
+  - service: light.turn_on
+    data:
+      # Eingang
+      entity_id: light.jeq0207545
+      brightness_pct: 100
+  - service: light.turn_on
+    data:
+      # Wand
+      entity_id: light.jeq0207587
+      brightness_pct: 75
+  - service: light.turn_on
+    data:
+      # Eingang
+      entity_id: light.jeq0207545
+      brightness_pct: 10
+
+  - delay: "00:00:01"
+  - service: light.turn_on
+    data:
+      # Eingang
+      entity_id: light.jeq0207545
+      brightness_pct: 70
+  - service: light.turn_on
+    data:
+      # Wand
+      entity_id: light.jeq0207587
+      brightness_pct: 70
+  - service: light.turn_on
+    data:
+      # Eingang
+      entity_id: light.jeq0207545
+      brightness_pct: 10
+  - service: light.turn_on
+    data:
+      # Wand
+      entity_id: light.jeq0207587
+      brightness_pct: 80
+  - service: light.turn_on
+    data:
+      # Wand
+      entity_id: light.jeq0207587
+      brightness_pct: 30
+  - service: light.turn_on
+    data:
+      # Eingang
+      entity_id: light.jeq0207545
+      brightness_pct: 100
+  - service: light.turn_on
+    data:
+      # Wand
+      entity_id: light.jeq0207587
+      brightness_pct: 100
+
+  - delay: "00:00:01"
+  - service: light.turn_on
+    data:
+      # Eingang
+      entity_id: light.jeq0207545
+      brightness_pct: 10
+  - service: light.turn_on
+    data:
+      # Eingang
+      entity_id: light.jeq0207545
+      brightness_pct: 30
+  - service: light.turn_on
+    data:
+      # Eingang
+      entity_id: light.jeq0207545
+      brightness_pct: 0
+
+  - delay: "00:00:01"
+  - service: light.turn_on
+    data:
+      # Wand
+      entity_id: light.jeq0207587
+      brightness_pct: 100
+  - service: light.turn_on
+    data:
+      # Eingang
+      entity_id: light.jeq0207545
+      brightness_pct: 100
+  - service: light.turn_on
+    data:
+      # Wand
+      entity_id: light.jeq0207587
+      brightness_pct: 70
+  - service: light.turn_on
+    data:
+      # Wand
+      entity_id: light.jeq0207587
+      brightness_pct: 100
+
+  - delay: "00:00:01"
+  - service: light.turn_on
+    data:
+      # Eingang
+      entity_id: light.jeq0207545
+      brightness_pct: 0
+  - service: light.turn_on
+    data:
+      # Wand
+      entity_id: light.jeq0207587
+      brightness_pct: 0
+
+  - delay: "00:00:03"
+  - service: light.turn_on
+    data:
+      # Eingang
+      entity_id: light.jeq0207545
+      brightness_pct: 60
+  - service: light.turn_on
+    data:
+      # Wand
+      entity_id: light.jeq0207587
+      brightness_pct: 60

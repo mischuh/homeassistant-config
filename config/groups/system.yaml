@@ -29,6 +29,7 @@ boolean_states:
     - input_boolean.sunset
     - input_boolean.guest_wlan
     - input_boolean.doorbell
+    - binary_sensor.workday
 
 hass_versions:
   name: Home-Assistant Versions

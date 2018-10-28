@@ -4,7 +4,7 @@ system:
     - group.speedtest
     - group.hass_versions
     - group.batteries
-    - group.raspi
+    - group.raspi    
 
 speedtest:
   name: Speedtest

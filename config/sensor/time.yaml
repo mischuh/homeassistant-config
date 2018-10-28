@@ -1,3 +1,10 @@
 - platform: time_date
   display_options:
     - "date"
+
+- platform: template
+  sensors:
+    weekofyear:
+      entity_id: now.strftime
+      friendly_name: 'Kalenderwoche'
+      value_template: "{{ now().strftime('%U') }}"

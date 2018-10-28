@@ -1,14 +1,17 @@
 - platform: template
   sensors:
     mirko_status:
+      entity_id: input_select.mirko_state
       value_template: '{{ states.input_select.mirko_state.state }}'
       friendly_name: 'Mirko'
       entity_picture_template: /local/images/mirko.jpg      
     femke_status:
+      entity_id: input_select.femke_state
       value_template: '{{ states.input_select.femke_state.state }}'
       friendly_name: 'Femke'
       entity_picture_template: /local/images/femke.jpg
     mika_status:
+      entity_id: input_select.mika_state
       value_template: '{{ states.input_select.mika_state.state }}'
       friendly_name: 'Mika'
       entity_picture_template: /local/images/mika.jpg

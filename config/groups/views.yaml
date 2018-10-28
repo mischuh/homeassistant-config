@@ -9,6 +9,7 @@ default_view:
     - group.family_status
     - group.weather_dashboard
     - group.calendars
+    - sensor.weekofyear
 
 
 view_ground_floor:

@@ -124,7 +124,8 @@ homematic:
   interfaces:
     wireless:
       host: 192.168.178.2      
-      port: 2001      
+      port: 2001
+      resolvenames: metadata
 
 ####################################################
 #                                                  #
@@ -225,7 +226,7 @@ recorder: !include recorder.yaml
 panel_iframe:
   router:
     title: 'Router'
-    url: 'http://fritz.box'
+    url: 'http://192.168.178.1'
     icon: mdi:router-wireless
   # grafana:
   #   title: 'Grafana'

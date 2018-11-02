@@ -9,6 +9,9 @@
       - condition: state
         entity_id: light.meq0397149
         state: 'off'
+      - condition: state
+        entity_id: group.family
+        state: 'home'
       - condition: time
         after: '06:30:00'
       - condition: time

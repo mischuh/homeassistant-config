@@ -1,9 +1,9 @@
 calendars:
   name: Kalender
   entities: 
+    - sensor.weekofyear
     - sensor.femke_schedule
     - sensor.mirko_schedule
     - sensor.family_schedule
-    - sensor.weekofyear
   
     

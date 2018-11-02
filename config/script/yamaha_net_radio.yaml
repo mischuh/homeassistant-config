@@ -1,0 +1,21 @@
+alias: Yamaha Net Radio
+sequence:
+  - service: media_player.turn_on
+    data:
+      entity_id: media_player.yamaha_receiver
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.yamaha_receiver
+      volume_level: 0.55
+  - service: media_player.play_media
+    data_template:
+      entity_id: media_player.yamaha_receiver
+      media_content_type: "NET RADIO"
+      media_content_id: >
+        {% if is_state("input_select.yamaha_radio_station", "NDR 2 (HH)") %} Lesezeichen>Radio>NDR 2 (HH)
+        {% elif is_state("input_select.yamaha_radio_station", "Radio Hamburg") %} Lesezeichen>Radio>Radio Hamburg
+        {% elif is_state("input_select.yamaha_radio_station", "ENERGY 97.1 Hamburg") %} Lesezeichen>Radio>ENERGY 97.1 Hamburg
+        {% elif is_state("input_select.yamaha_radio_station", "NDR Info (Hamburg)") %} Lesezeichen>Radio>NDR Info (Hamburg)
+        {% elif is_state("input_select.yamaha_radio_station", "delta radio LIVE") %} Lesezeichen>Radio>delta radio LIVE
+        {% elif is_state("input_select.yamaha_radio_station", "HAMBURG ZWEI") %} Lesezeichen>Radio>HAMBURG ZWEI
+        {% endif %}

@@ -8,8 +8,7 @@ default_view:
     - group.home_lights    
     - group.family_status
     - group.weather_dashboard
-    - group.calendars
-    - sensor.weekofyear
+    - group.calendars    
 
 
 view_ground_floor:
@@ -21,6 +20,7 @@ view_ground_floor:
     - group.entree_lights
     - group.garden_lights
     - group.livingroom_media
+    - group.yamaha_radio
 
 
 view_first_floor:

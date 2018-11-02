@@ -63,6 +63,13 @@ livingroom_media:
     - media_player.yamaha_receiver
     - media_player.viera_gt30_series    
 
+yamaha_radio:
+  name: Yamaha Radio
+  entities:
+    - input_select.yamaha_radio_station
+    - script.yamaha_net_radio
+    - script.yamaha_net_radio_zone2
+
 entree_lights:
   name: Eingangsbereich
   entities:

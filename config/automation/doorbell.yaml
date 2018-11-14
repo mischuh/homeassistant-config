@@ -17,6 +17,10 @@
       data:
         title: "Home-Assistant"
         message: "Es hat geklingelt"
+    - service: notify.ios_iphone_femke
+      data:
+        title: "Home-Assistant"
+        message: "Es hat geklingelt"
 
 - alias: "Doorbell Timer"
   trigger:
@@ -24,7 +28,7 @@
     entity_id: input_boolean.doorbell
     to: 'on'
     for:
-      seconds: 60
+      seconds: 120
   action:
     - service: homeassistant.turn_off
       entity_id: input_boolean.doorbell
@@ -41,8 +45,6 @@
   action:
     - service: scene.turn_on
       entity_id: scene.entree_lights_on
-    # - service: script.turn_on
-    #   entity_id: script.halloween
 
 - alias: "Doorbell Entree Lights Dimm"
   trigger:

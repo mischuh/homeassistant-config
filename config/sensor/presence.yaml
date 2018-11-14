@@ -15,3 +15,31 @@
       value_template: '{{ states.input_select.mika_state.state }}'
       friendly_name: 'Mika'
       entity_picture_template: /local/images/mika.jpg
+
+
+- platform: mqtt
+  state_topic: !secret bt_presence_ff_mirko
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'bt_presence_ff_mirko_iphone'
+
+- platform: mqtt
+  state_topic: !secret bt_presence_ff_femke
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'bt_presence_ff_femke_iphone'
+
+- platform: mqtt
+  state_topic: !secret bt_presence_ff_mika
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'bt_presence_ff_mika_huawei'
+
+- platform: min_max
+  name: "BT Presence FF Family"
+  type: mean
+  round_digits: 0
+  entity_ids:
+    - sensor.bt_presence_ff_mirko_iphone
+    - sensor.bt_presence_ff_femke_iphone
+    - sensor.bt_presence_ff_mika_huawei

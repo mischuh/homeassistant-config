@@ -16,6 +16,7 @@ family_status:
   name: Family Status
   icon: mdi:account-multiple
   entities:
+    - history_graph.bt_presence
     - sensor.mirko_status
     - sensor.femke_status
     - sensor.mika_status

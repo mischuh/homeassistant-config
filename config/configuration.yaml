@@ -13,6 +13,7 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
+
 ####################################################
 #                                                  #
 #                     Enables                      #
@@ -26,7 +27,7 @@ frontend:
 config:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+# conversation:
 
 #Enables support for tracking state changes over time
 history:
@@ -41,8 +42,8 @@ history:
 # View all events in a logbook
 logbook:
   exclude:
-      entities:
-        - group.system
+    entities:
+      - group.system
 
 # Track the sun
 sun:
@@ -73,7 +74,6 @@ http:
     - 127.0.0.1
     - 192.168.178.0/24
  
-
 notify:
   
 homekit:
@@ -85,19 +85,18 @@ homekit:
       - light.sofa
       # - input_boolean.guest_wlan
 
-
 mqtt:
-  # broker: localhost
-  # port: 1883  
-  # client_id: home-assistant-1
-  # keepalive: 60
-  # https://community.home-assistant.io/t/mqtt-working-mosquitto-cloudmqtt-bridge/1830/17
-  # https://community.home-assistant.io/t/mqtt-bridge/12177
-  broker: !secret cloudmqtt_host
-  port: !secret cloudmqtt_port
-  certificate: auto
-  username: !secret cloudmqtt_user
-  password: !secret cloudmqtt_password
+  broker: localhost
+  port: 1883  
+  client_id: home-assistant-1
+  keepalive: 60
+#   # https://community.home-assistant.io/t/mqtt-working-mosquitto-cloudmqtt-bridge/1830/17
+#   # https://community.home-assistant.io/t/mqtt-bridge/12177
+#   broker: !secret cloudmqtt_host
+#   port: !secret cloudmqtt_port
+#   certificate: auto
+#   username: !secret cloudmqtt_user
+#   password: !secret cloudmqtt_password
 
 # Text to speech
 tts:
@@ -125,13 +124,14 @@ homematic:
     wireless:
       host: 192.168.178.2      
       port: 2001
-      resolvenames: metadata
+      # resolvenames: metadata
 
 ####################################################
 #                                                  #
 #                     Includes                     #
 #                                                  #
 ####################################################
+
 automation: !include_dir_merge_list automation
 binary_sensor: !include_dir_merge_list binary_sensor
 device_tracker: !include device_tracker.yaml
@@ -159,69 +159,9 @@ influxdb:
       - media_player
       - light
       - binary_sensor
-    #  entities:
-    #    - binary_sensor.femke_home
-    #    - binary_sensor.mika_home
-    #    - binary_sensor.mirko_home
-    #    - input_boolean.guest_wlan
-    #    - light.heq0359760
-    #    - light.jeq0207534
-    #    - light.jeq0207545
-    #    - light.jeq0207587 
-    #    - light.meq0169146
-    #    - light.meq0397149
-    #    - light.links
-    #    - light.rechts
-    #    - light.retchs
-    #    - sensor.aeotec_zw100_multisensor_6_burglar
-    #    - sensor.aeotec_zw100_multisensor_6_luminance
-    #    - sensor.aeotec_zw100_multisensor_6_relative_humidity
-    #    - sensor.aeotec_zw100_multisensor_6_temperature
-    #    - sensor.dark_sky_humidity
-    #    - sensor.dark_sky_temperature
-    #    - sensor.disk_use_percent_home
-    #    - sensor.luftdaten_temperature
-    #    - sensor.speedtest_download
-    #    - sensor.speedtest_upload
-    #    - switch.feq0062058
-    #    - switch.ff_floor_tree
-    #    - switch.ff_jona_bed
-    #    - switch.ff_mika_bed
-    #    - switch.gf_kitchen_ceiling_outlet
-    #    - switch.gf_kitchen_window_outlet
-    #    - switch.sf_bedroom_outlet
-    #    - switch.sf_floor_work_outlet
-  
+    
 logger: !include logger.yaml
 recorder: !include recorder.yaml
-
-# Discover some devices automatically
-# discovery:
-#   ignore: 
-#     - axis
-#     - belkin_wemo
-#     - bluesound
-#     - bose_soundtouch
-#     - denonavr
-#     - directv
-#     - frontier_silicon
-#     - google_cast
-#     - harmony
-#     - logitech_mediaserver
-#     - netgear_router
-#     - openhome
-#     - philips_hue
-#     - plex_mediaserver
-#     - roku
-#     - sabnzbd
-#     - samsung_printer
-#     - samsung_tv
-#     - sonos
-#     - tellstick
-#     - volumio
-#     - wink
-#     - yeelight
-#     - xiaomi_gw
 
 panel_iframe:
   router:

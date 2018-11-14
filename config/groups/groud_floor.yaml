@@ -18,8 +18,8 @@ ground_floor_lights:
 ground_floor_433_lights:
   name: Erdgeschoss Funk
   entities:
-    - switch.gf_kitchen_window_outlet
-    - switch.gf_kitchen_ceiling_outlet
+    - switch.gf_kitchen_window
+    - switch.gf_kitchen_workplace
     - switch.gf_living_room_outlet
 
 kitchen:
@@ -33,8 +33,8 @@ kitchen_lights:
   name: Küche Lichter
   entities:
     - light.jeq0207534
-    - switch.gf_kitchen_window_outlet
-    - switch.gf_kitchen_ceiling_outlet
+    - switch.gf_kitchen_window
+    - switch.gf_kitchen_workplace
     
 kitchen_media:
   name: Küche Multimedia
@@ -60,7 +60,7 @@ livingroom_lights:
 livingroom_media:
   name: Wohnzimmer Multimedia
   entities:
-    - media_player.yamaha_receiver
+    - media_player.yamaha_receiver    
     - media_player.viera_gt30_series    
 
 yamaha_radio:

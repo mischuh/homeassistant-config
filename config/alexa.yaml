@@ -17,7 +17,7 @@ entities:
   switch.feq0062058:
     name: "Gartenlicht"
     hidden: false
-  switch.gf_kitchen_ceiling_outlet:
+  switch.gf_kitchen_workplace:
     name: "Arbeitsplatte"
     hidden: false
 

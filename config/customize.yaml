@@ -1,6 +1,3 @@
-# Global
-# sensor.*_luminance:
-#   icon: mdi:white-balance-sunny
 
 # Homematic
 switch.feq0062058:
@@ -27,12 +24,12 @@ light.meq0397149:
 
 # Switches
 
-switch.gf_kitchen_ceiling_outlet:
-  firendly_name: Küche Arbeitsplatte
+switch.gf_kitchen_workplace:
+  friendly_name: Küche Arbeitsplatte
   assumed_state: false
 
-switch.gf_kitchen_window_outlet: 
-  firendly_name: Küche Fenster
+switch.gf_kitchen_window: 
+  friendly_name: Küche Fenster
   assumed_state: false
 
 switch.ff_floor_tree:
@@ -40,11 +37,11 @@ switch.ff_floor_tree:
   assumed_state: false
 
 switch.ff_mika_bed:
-  firendly_name: Mika Lichterkette
+  friendly_name: Mika Lichterkette
   assumed_state: false
 
 switch.ff_jona_bed:
-  firendly_name: Jona Lichterkette
+  friendly_name: Jona Lichterkette
   assumed_state: false
 
 switch.sf_floor_work_outlet:
@@ -141,6 +138,10 @@ scene.blockbuster:
   icon: mdi:youtube-tv
 
 # Scripts
-script.yamaha_radio:
+script.yamaha_net_radio:
   friendly_name: Start Playing
+  icon: mdi:play
+
+script.yamaha_net_radio_zone2:
+  friendly_name: Start Playing (Küche)
   icon: mdi:play

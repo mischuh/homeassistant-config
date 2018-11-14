@@ -1,49 +1,93 @@
-- platform: command_line
-  switches:
-    gf_kitchen_ceiling_outlet:
-      command_on: "curl http://homeassi:81/11000A/off && sleep 0.25 && curl http://homeassi:81/11000A/on"
-      # Just to be shure everything actually turns out 
-      command_off: "curl http://homeassi:81/11000A/off"
-      friendly_name: Küche Arbeitsplatte
+# Groundfloor
+- platform: mqtt
+  name: "gf_kitchen_workplace"
+  command_topic: "rc433/groundfloor/gf_kitchen_workplace/switch"
+  retain: false
+
+- platform: mqtt
+  name: "gf_kitchen_window"
+  command_topic: "rc433/groundfloor/gf_kitchen_window/switch"
+  retain: false
+
+# Firstfloor
+- platform: mqtt
+  name: "ff_floor_tree"
+  command_topic: "rc433/firstfloor/ff_floor_tree/switch"
+  retain: false
+
+- platform: mqtt
+  name: "ff_mika_bed"
+  command_topic: "rc433/firstfloor/ff_mika_bed/switch"
+  retain: false
+
+- platform: mqtt
+  name: "ff_jona_bed"
+  command_topic: "rc433/firstfloor/ff_jona_bed/switch"
+  retain: false
+
+# Secondfloor
+- platform: mqtt
+  name: "sf_floor_work_outlet"
+  command_topic: "rc433/secondfloor/sf_floor_work_outlet/switch"
+  retain: false
+
+- platform: mqtt
+  name: "sf_bedroom_outlet"
+  command_topic: "rc433/secondfloor/sf_bedroom_outlet/switch"
+  retain: false
+
+- platform: mqtt
+  name: "sf_bedroom_bed"
+  command_topic: "rc433/secondfloor/sf_bedroom_bed/switch"
+  retain: false
+
+
+# - platform: command_line
+#   switches:
+#     gf_kitchen_ceiling_outlet:
+#       command_on: "curl http://homeassi:81/11000A/off && sleep 0.25 && curl http://homeassi:81/11000A/on"
+#       # Just to be shure everything actually turns out 
+#       command_off: "curl http://homeassi:81/11000A/off"
+#       friendly_name: Küche Arbeitsplatte
       
-    gf_kitchen_window_outlet:
-      command_on: "curl http://homeassi:81/10000B/on"
-      # Just to be shure everything actually turns out 
-      command_off: "curl http://homeassi:81/10000B/off && sleep 0.25 && curl http://homeassi:81/10000B/off"
-      friendly_name: Küche Fenster
+#     gf_kitchen_window_outlet:
+#       command_on: "curl http://homeassi:81/10000B/on"
+#       # Just to be shure everything actually turns out 
+#       command_off: "curl http://homeassi:81/10000B/off && sleep 0.25 && curl http://homeassi:81/10000B/off"
+#       friendly_name: Küche Fenster
 
-    ff_floor_tree:
-      command_on: "curl http://homeassi:81/01000E/on"
-      # Just to be shure everything actually turns out 
-      command_off: "curl http://homeassi:81/01000E/off && sleep 0.25 &&  curl http://homeassi:81/01000E/off"
-      friendly_name: Flur Baum
+#     ff_floor_tree:
+#       command_on: "curl http://homeassi:81/01000E/on"
+#       # Just to be shure everything actually turns out 
+#       command_off: "curl http://homeassi:81/01000E/off && sleep 0.25 &&  curl http://homeassi:81/01000E/off"
+#       friendly_name: Flur Baum
 
-    ff_mika_bed:
-      command_on: "curl http://homeassi:81/01000A/on"
-      # Just to be shure everything actually turns out 
-      command_off: "curl http://homeassi:81/01000A/off && sleep 0.25 && curl http://homeassi:81/01000A/off"
-      friendly_name: Mika Bett
+#     ff_mika_bed:
+#       command_on: "curl http://homeassi:81/01000A/on"
+#       # Just to be shure everything actually turns out 
+#       command_off: "curl http://homeassi:81/01000A/off && sleep 0.25 && curl http://homeassi:81/01000A/off"
+#       friendly_name: Mika Bett
 
-    ff_jona_bed:
-      command_on: "curl http://homeassi:81/10000A/on"
-      # Just to be shure everything actually turns out 
-      command_off: "curl http://homeassi:81/10000A/off && sleep 0.25 && curl http://homeassi:81/10000A/off"
-      friendly_name: Jona Bett
+#     ff_jona_bed:
+#       command_on: "curl http://homeassi:81/10000A/on"
+#       # Just to be shure everything actually turns out 
+#       command_off: "curl http://homeassi:81/10000A/off && sleep 0.25 && curl http://homeassi:81/10000A/off"
+#       friendly_name: Jona Bett
 
-    sf_floor_work_outlet:
-      command_on: "curl http://homeassi:81/10000C/on"
-      # Just to be shure everything actually turns out 
-      command_off: "curl http://homeassi:81/10000C/off && sleep 0.25 && curl http://homeassi:81/10000C/off"
-      friendly_name: Arbeitszimmer Sofa
+#     sf_floor_work_outlet:
+#       command_on: "curl http://homeassi:81/10000C/on"
+#       # Just to be shure everything actually turns out 
+#       command_off: "curl http://homeassi:81/10000C/off && sleep 0.25 && curl http://homeassi:81/10000C/off"
+#       friendly_name: Arbeitszimmer Sofa
 
-    sf_bedroom_outlet:
-      command_on: "curl http://homeassi:81/10101A/on"
-      # Just to be shure everything actually turns out 
-      command_off: "curl http://homeassi:81/10101A/off && sleep 0.25 && curl http://homeassi:81/10101A/off"
-      friendly_name: Schalfzimmer Konsole
+#     sf_bedroom_outlet:
+#       command_on: "curl http://homeassi:81/10101A/on"
+#       # Just to be shure everything actually turns out 
+#       command_off: "curl http://homeassi:81/10101A/off && sleep 0.25 && curl http://homeassi:81/10101A/off"
+#       friendly_name: Schalfzimmer Konsole
 
-    sf_bedroom_bed:
-      command_on: "curl http://homeassi:81/10100A/on"
-      # Just to be shure everything actually turns out 
-      command_off: "curl http://homeassi:81/10100A/off && sleep 0.25 && curl http://homeassi:81/10100A/off"
-      friendly_name: Schlafzimmer Bett
+#     sf_bedroom_bed:
+#       command_on: "curl http://homeassi:81/10100A/on"
+#       # Just to be shure everything actually turns out 
+#       command_off: "curl http://homeassi:81/10100A/off && sleep 0.25 && curl http://homeassi:81/10100A/off"
+#       friendly_name: Schlafzimmer Bett

@@ -11,7 +11,7 @@
     state: 'on'
   action:
     - service: switch.turn_on
-      entity_id: switch.gf_kitchen_ceiling_outlet
+      entity_id: switch.gf_kitchen_workplace
     - service: ligth.turn_on
       data:
         brightness_pct: 45
@@ -61,19 +61,6 @@
       entity_id: 
         - group.ground_floor_433_lights 
         - group.garden_lights
-    - service: notify.ios_iphone_mirko
-      data:
-        title: "Home-Assistant"
-        message: "Der Sonnenuntergang naht…"
-
-    # - service: scene.turn_on
-    #   entity_id: scene.groundfloor_lights
-    # - service: switch.turn_on
-    #   entity_id:         
-    #     - group.garden_lights
-    # - service: notify.ios_iphone_mirko
-    #   data:
-    #     message: "Der Sonnenuntergang naht…"  
 
 - alias: "Turn off ground floor lights: 23:00"
   trigger:    

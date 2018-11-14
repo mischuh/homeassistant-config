@@ -1,0 +1,11 @@
+- alias: Occupancy 
+  hide_entity: true
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.bt_presence_ff_mirko_iphone
+      below: 90
+  action:
+    - service: notify.ios_iphone_mirko
+      data:
+        title: "Home-Assistant"
+        message: "Mirko hat das Haus verlassen: {{sensor.bt_presence_ff_mirko_iphone.state}}"  

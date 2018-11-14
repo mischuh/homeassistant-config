@@ -6,7 +6,7 @@ default_view:
   entities:    
     - history_graph.temperatur
     - group.home_lights    
-    - group.family_status
+    - group.family_status    
     - group.weather_dashboard
     - group.calendars    
 
@@ -19,6 +19,7 @@ view_ground_floor:
     - group.livingroom_lights        
     - group.entree_lights
     - group.garden_lights
+    - group.kitchen_media
     - group.livingroom_media
     - group.yamaha_radio
 

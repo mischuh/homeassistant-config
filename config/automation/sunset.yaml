@@ -7,7 +7,11 @@
     #   at: '15:32:00'
   action:
     - service: input_boolean.turn_on
-      entity_id: input_boolean.sunset    
+      entity_id: input_boolean.sunset
+    - service: notify.ios_iphone_mirko
+      data:
+        title: "Home-Assistant"
+        message: "Der Sonnenuntergang naht…"
 
 - alias: "Turn on: Sunrise Event"
   trigger:
@@ -17,4 +21,3 @@
   action:    
     - service: input_boolean.turn_off
       entity_id: input_boolean.sunset
-

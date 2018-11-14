@@ -1,7 +1,7 @@
 - platform: yamaha
-  host: 192.168.178.43
-  zone_ignore: 
-    - "Zone_2"
+  host: RX-A1030-A2E197
+  # zone_ignore: 
+  #   - "Zone_2"
   source_ignore:
     - "AUDIO2"
     - "AUDIO3"
@@ -19,3 +19,4 @@
     - "V-AUX"
     - "USB"
     - "Server" 
+    - "Tuner"

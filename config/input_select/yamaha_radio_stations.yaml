@@ -1,6 +1,7 @@
 yamaha_radio_station:
   name: 'Select Radio Station:'
   options:
+    - '...'
     - NDR 2 (HH)
     - Radio Hamburg
     - ENERGY 97.1 Hamburg

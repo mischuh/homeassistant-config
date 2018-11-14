@@ -1,2 +1,3 @@
 - platform: panasonic_viera
-  host: VIERA-GT30-Series
+  host: VIERA-GT30-Series  
+  mac: !secret panasonic_viera_mac

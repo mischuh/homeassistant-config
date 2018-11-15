@@ -1,6 +1,7 @@
-version: '2'
+version: '3'
 
 services:
+
   influxdb:
     image: hypriot/rpi-influxdb
     container_name: influxdb
@@ -13,16 +14,6 @@ services:
       - ./docker/influxdb/data:/data
       - ./docker/influxdb/config:/etc/influxdb
 
-  # portainer:
-  #   image: hypriot/rpi-portainer
-  #   container_name: portainer
-  #   network_mode: host
-  #   restart: unless-stopped
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #   ports:
-  #     - 9000:9000/tcp
-
   grafana:
     image: fg2it/grafana-armhf:v5.1.3
     container_name: grafana
@@ -34,7 +25,6 @@ services:
     ports:
       - 3000:3000/tcp
 
-
   mqtt:
     image: eclipse-mosquitto:latest
     container_name: mqtt
@@ -43,17 +33,8 @@ services:
     ports:
       - 1883:1883
       - 9001:9001
-
-  # mqtt:
-  #   image: mjenz/rpi-mosquitto
-  #   container_name: mqtt
-  #   restart: always
-  #   ports:
-  #     - 1883:1883
-  #     - 9001:9001
-  #   volumes:      
-  #     - ./docker/mqtt/data:/mosquitto/data
-  #     - ./docker/mqtt/log:/mosquitto/log
+    volumes:
+      - ./docker/mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf
 
   homegear:
     image: homegear/rpi-homegear:stable
@@ -75,14 +56,6 @@ services:
         - 2003:2003 
     devices:
       - /dev/homegear:/dev/ttyACM0
-
-  # 433restapi:
-  #   image: mischu/433_rest_api
-  #   restart: always
-  #   container_name: 433restapi
-  #   privileged: true
-  #   ports:
-  #     - 81:80
  
   rc433mq:
     image: mischu/rc433mq:0.1

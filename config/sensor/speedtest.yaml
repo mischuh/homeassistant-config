@@ -8,3 +8,38 @@
   monitored_conditions:
     - download
     - upload
+
+- platform: fritzbox_netmonitor
+  host: fritz.box
+
+- platform: template
+  sensors:
+    net_external_ip:
+      value_template: "{{ states.sensor.fritz_netmonitor.attributes.external_ip }}"
+      icon_template: mdi:nuke
+    net_rate_up_raw:
+      unit_of_measurement: "MBit/s"
+      icon_template: mdi:upload
+      value_template: "{{(states.sensor.fritz_netmonitor.attributes.transmission_rate_up * 8 / 1000 / 1000)|round(2)}}"
+    net_rate_down_raw:
+      unit_of_measurement: "MBit/s"
+      icon_template: mdi:download
+      value_template: "{{(states.sensor.fritz_netmonitor.attributes.transmission_rate_down * 8 / 1000 / 1000)|round(2)}}"
+    net_rate_up_max:
+      unit_of_measurement: "MBit/s"
+      icon_template: mdi:progress-upload
+      value_template: "{{(states.sensor.fritz_netmonitor.attributes.max_byte_rate_up * 8 / 1000 / 1000)|round(2)}}"
+    net_rate_down_max:
+      unit_of_measurement: "MBit/s"
+      icon_template: mdi:progress-download
+      value_template: "{{(states.sensor.fritz_netmonitor.attributes.max_byte_rate_down * 8 / 1000 / 1000)|round(2)}}"
+- platform: template
+  sensors:
+    net_rate_up:
+      unit_of_measurement: "MBit/s"
+      icon_template: mdi:upload
+      value_template: "{% if states.sensor.net_rate_up_raw.state|int < 0 %}0.00{% else %}{{states.sensor.net_rate_up_raw.state|float|round(2)}}{% endif %}"
+    net_rate_down:
+      unit_of_measurement: "MBit/s"
+      icon_template: mdi:download
+      value_template: "{% if states.sensor.net_rate_down_raw.state|int < 0 %}0.00{% else %}{{states.sensor.net_rate_down_raw.state|float|round(2)}}{% endif %}"

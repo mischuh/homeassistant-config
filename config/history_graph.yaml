@@ -4,7 +4,6 @@ dsl:
     - sensor.speedtest_download
     - sensor.speedtest_upload
     - sensor.net_rate_down_max
-    - sensor.net_rate_up_max
   hours_to_show: 96
   refresh: 600
   
@@ -20,8 +19,5 @@ bt_presence:
   name: BT Presence
   entities:
     - sensor.bt_presence_ff_family
-    - sensor.bt_presence_ff_mirko_iphone
-    - sensor.bt_presence_ff_femke_iphone
-    - sensor.bt_presence_ff_mika_huawei
-  hours_to_show: 72
-  refresh: 600
+  hours_to_show: 24
+  refresh: 300

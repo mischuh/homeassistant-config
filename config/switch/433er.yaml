@@ -9,6 +9,12 @@
   command_topic: "rc433/groundfloor/gf_kitchen_window/switch"
   retain: false
 
+- platform: mqtt
+  name: "gf_livingroom_outlet"
+  command_topic: "rc433/groundfloor/gf_livingroom_outlet/switch"
+  retain: false
+
+
 # Firstfloor
 - platform: mqtt
   name: "ff_floor_tree"

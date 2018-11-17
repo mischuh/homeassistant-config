@@ -32,6 +32,10 @@ switch.gf_kitchen_window:
   friendly_name: Küche Fenster
   assumed_state: false
 
+switch.gf_livingroom_outlet: 
+  friendly_name: Wohnzimmer Leiter
+  assumed_state: false
+  
 switch.ff_floor_tree:
   friendly_name: Flur (Baum)
   assumed_state: false

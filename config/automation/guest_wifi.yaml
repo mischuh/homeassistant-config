@@ -1,3 +1,17 @@
+# automation kitchen_light_movement:
+#   alias: Turn on off kitchen lights when there is movement
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.Family_Room_Motion
+#       to: 'on'
+#     - platform: state
+#       entity_id: binary_sensor.Family_Room_Motion
+#       to: 'off'
+#       for:
+#         minutes: 10
+#   action:
+#     - service_template: 'light.turn_{{trigger.to_state.state}}'
+#       entity_id: light.kitchen_light
 
 - alias: "Turn on: Guest WIFI"
   trigger:

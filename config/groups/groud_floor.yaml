@@ -51,7 +51,7 @@ livingroom:
 livingroom_lights:
   name: Wohnzimmer Lichter
   entities:
-    - switch.gf_living_room_outlet
+    - switch.gf_livingroom_outlet    
     - light.meq0169146
     - light.sofa
     - light.links

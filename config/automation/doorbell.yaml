@@ -12,7 +12,13 @@
     state: 'off'
   action:
     - service: homeassistant.turn_on
-      entity_id: input_boolean.doorbell   
+      entity_id: input_boolean.doorbell
+    - service: media_player.alexa_tts
+      data_template:
+        entity_id: 
+          - media_player.arbeitszimmer 
+          - media_player.badezimmer
+        message: "Es hat geklingelt"
     - service: notify.ios_iphone_mirko
       data:
         title: "Home-Assistant"

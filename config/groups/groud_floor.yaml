@@ -51,7 +51,7 @@ livingroom:
 livingroom_lights:
   name: Wohnzimmer Lichter
   entities:
-    - switch.gf_livingroom_outlet    
+    - switch.gf_livingroom_outlet   
     - light.meq0169146
     - light.sofa
     - light.links
@@ -60,8 +60,8 @@ livingroom_lights:
 livingroom_media:
   name: Wohnzimmer Multimedia
   entities:
-    - media_player.yamaha_receiver    
-    - media_player.viera_gt30_series    
+    - media_player.yamaha_receiver 
+    - media_player.panasonic_viera_tv    
 
 yamaha_radio:
   name: Yamaha Radio

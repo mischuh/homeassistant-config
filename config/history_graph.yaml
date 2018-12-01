@@ -3,7 +3,6 @@ dsl:
   entities:
     - sensor.speedtest_download
     - sensor.speedtest_upload
-    - sensor.net_rate_down_max
   hours_to_show: 96
   refresh: 600
   
@@ -19,5 +18,5 @@ bt_presence:
   name: BT Presence
   entities:
     - sensor.bt_presence_ff_family
-  hours_to_show: 24
-  refresh: 300
+  hours_to_show: 6
+  refresh: 120

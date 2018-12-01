@@ -1,11 +1,26 @@
-- alias: Occupancy 
+- alias: Empty house and lights are on
   hide_entity: true
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.bt_presence_ff_mirko_iphone
-      above: 90
+    # - platform: numeric_state
+    #   entity_id: sensor.bt_presence_ff_family
+    #   below: 10
+    - platform: state
+      entity_id: group.family
+      from: 'home'
+      to: 'not_home'
+  condition:  
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.home_lights
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.sunset
+        state: 'off'
   action:
+    - service: homeassistant.turn_off
+      entity_id: group.home_lights
     - service: notify.ios_iphone_mirko
       data:
         title: "Home-Assistant"
-        message: "Mirko ist wieder zuhause"
+        message: "Keiner zuhause und es waren noch Lichter an..."

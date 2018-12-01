@@ -14,7 +14,8 @@ second_floor_lights:
 sf_work_media:
   name: Arbeitszimmer Media
   entities:
-    - media_player.volumio
+    - media_player.arbeitszimmer
+    - media_player.dachgeschoss
 
 sf_work_lights:
   name: Arbeitszimmer

@@ -1,0 +1,6 @@
+alexas:
+  name: Alexas
+  entities:
+    - media_player.badezimmer
+    - media_player.arbeitszimmer
+    - media_player.dachgeschoss

@@ -36,6 +36,7 @@ services:
     volumes:
       - ./docker/mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - ./docker/mqtt/data:/mosquitto/data
+      - /etc/localtime:/etc/localtime:ro
  
 
   homegear:
@@ -70,6 +71,7 @@ services:
     volumes:
         - ./docker/rc433mq/conf/consumer.json:/usr/src/rc433mq/conf/consumer.json:ro
         - ./docker/rc433mq/conf/devices.json:/usr/src/rc433mq/conf/devices.json:ro
+        - /etc/localtime:/etc/localtime:ro
 
   hass:
     image: homeassistant/raspberrypi3-homeassistant:latest

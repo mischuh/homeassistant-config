@@ -17,6 +17,7 @@ entity_registry.yaml
 emulated_hue_ids.json
 .DS_Store
 .homekit.state
+alexa_media.pickle
 homeassistant.code-workspace
 home-assistant_v2.db
 home-assistant.log

@@ -4,8 +4,7 @@
     - type: disk_use_percent
       arg: /home
     - type: memory_use_percent
-    - type: processor_use
-    - type: since_last_boot
+    - type: processor_use    
     - type: network_in
       arg: eth0
     - type: network_out

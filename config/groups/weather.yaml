@@ -1,9 +1,7 @@
 airdata:
   entities:
-    - sensor.luftdaten_humidity
-    - sensor.luftdaten_pm10
-    - sensor.luftdaten_pm25
-    - sensor.luftdaten_temperature
+    - sensor.luftdaten_14343_humidity    
+    - sensor.luftdaten_14343_temperature
 
 weather_dashboard:
   name: Wetter

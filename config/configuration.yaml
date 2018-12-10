@@ -55,6 +55,10 @@ cloud:
 
 ios:
 
+owntracks:
+  waypoints: False
+  track_new_devices: False
+
 weather:
   - platform: darksky
     api_key: !secret darksky_api_key
@@ -74,7 +78,9 @@ http:
   # base_url: example.duckdns.org:8123
   trusted_networks:
     - 127.0.0.1
+    - ::1
     - 192.168.178.0/24
+    - fd00::/8
  
 notify:
   
@@ -84,8 +90,18 @@ homekit:
   filter:
     include_entities:
       - light.jeq0207534 #essplatz
-      - light.sofa
+      - light.links
+      - light.rechts
+      - group.groundfloor_lights
       # - input_boolean.guest_wlan
+
+luftdaten:
+  sensor_id: 14343
+  show_on_map: true
+  sensors:
+    monitored_conditions:
+      - temperature
+      - humidity
 
 mqtt:
   broker: localhost
@@ -106,9 +122,6 @@ tts:
 
 zwave:
   usb_path: /dev/ttyACM0
-
-tradfri:
-  host: Tradfri-Gateway  
 
 # Emulated Hue
 emulated_hue: !include alexa.yaml

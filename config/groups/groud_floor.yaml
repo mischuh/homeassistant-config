@@ -20,7 +20,7 @@ ground_floor_433_lights:
   entities:
     - switch.gf_kitchen_window
     - switch.gf_kitchen_workplace
-    - switch.gf_living_room_outlet
+    - switch.gf_livingroom_outlet
 
 kitchen:
   name: Kueche

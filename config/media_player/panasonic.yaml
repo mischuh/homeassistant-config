@@ -1,3 +1,2 @@
 - platform: panasonic_viera
-  host: VIERA-GT30-Series  
-  mac: !secret panasonic_viera_mac
+  host: 192.168.178.23  

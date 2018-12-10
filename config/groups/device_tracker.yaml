@@ -2,7 +2,7 @@ mirko:
   name: Mirko
   entities:
     - device_tracker.iphone_mirko
-    - device_tracker.mirko_owntracks
+    # - device_tracker.mirko_owntracks
 
 femke:
   name: Femke

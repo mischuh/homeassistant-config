@@ -1,6 +1,6 @@
 default: error
 logs:
-  homeassistant.components.media_player: warning
+  homeassistant.components.media_player: info
 
 # default: info
 # logs:

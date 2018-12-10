@@ -61,7 +61,7 @@ services:
       - /dev/homegear:/dev/ttyACM0
  
   rc433mq:
-    image: mischu/rc433mq:0.1
+    image: mischu/rc433mq:0.2
     restart: always
     container_name: rc433mq
     network_mode: host

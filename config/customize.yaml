@@ -104,6 +104,7 @@ media_player.viera_gt30_series:
 
 
 # Weather
+
 sensor.weather_cloudiness:
   friendly_name: Cloudiness
   icon: mdi:cloud-outline
@@ -117,6 +118,12 @@ sensor.weather_symbol:
 
 sensor.weather_temperature:
   friendly_name: Temperature
+
+sensor.luftdaten_14343_temperature:
+  friendly_name: Temperatur
+
+sensor.luftdaten_14343_humidity:
+  friendly_name: Luftfeuchtigkeit
 
 # Calendar
 sensor.femke_schedule:
@@ -137,11 +144,13 @@ sensor.net_rate_down_max:
   friendly_name: Max Down
 
 # Trashcans
+
 sensor.trash:
   friendly_name: Müll
   icon: mdi:delete
 
 # Scenes
+
 scene.groundfloor_lights:
   icon: mdi:google-fit
 
@@ -152,6 +161,7 @@ scene.blockbuster:
   icon: mdi:youtube-tv
 
 # Scripts
+
 script.yamaha_net_radio:
   friendly_name: Start Playing
   icon: mdi:play

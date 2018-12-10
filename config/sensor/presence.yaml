@@ -19,35 +19,22 @@
 
 - platform: mqtt
   state_topic: !secret bt_presence_ff_mirko
-  value_template: '{{ value_json.confidence }}'
-  unit_of_measurement: '%'
+  value_template: '{{ value_json.confidence | int }}'
+  # unit_of_measurement: '%'
   name: 'bt_presence_ff_mirko_iphone'
-  availability_topic: "presence/FF/status"
-  payload_available: "online"
-  payload_not_available: "offline"
-  json_attributes:
-    - rssi
-    - timestamp
-    - confidence
-
+  
 - platform: mqtt
   state_topic: !secret bt_presence_ff_femke
-  value_template: '{{ value_json.confidence }}'
-  unit_of_measurement: '%'
+  value_template: '{{ value_json.confidence | int }}'
+  # unit_of_measurement: '%'
   name: 'bt_presence_ff_femke_iphone'
-  availability_topic: "presence/FF/status"
-  payload_available: "online"
-  payload_not_available: "offline"
-
+  
 - platform: mqtt
   state_topic: !secret bt_presence_ff_mika
-  value_template: '{{ value_json.confidence }}'
-  unit_of_measurement: '%'
+  value_template: '{{ value_json.confidence | int }}'
+  # unit_of_measurement: '%'
   name: 'bt_presence_ff_mika_huawei'
-  availability_topic: "presence/FF/status"
-  payload_available: "online"
-  payload_not_available: "offline"
-
+  
 - platform: min_max
   name: "BT Presence FF Family"
   type: mean

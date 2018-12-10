@@ -1,0 +1,213 @@
+title: Home
+
+resources:
+  - url: /local/lovelace/group-card.js?v=1
+    type: js
+  - url: /local/lovelace/layout-card.js?v=1
+    type: js
+
+views:  
+  - title: Home
+    id: home
+    icon: mdi:home
+    theme: dark-mode
+    cards:
+      - type: glance
+        id: overview_glance
+        title: Overview
+        entities:
+          - group.ground_floor_lights
+          - group.first_floor_lights
+          - group.second_floor_lights
+      - type: custom:group-card
+        id: overview_presence
+        group: group.family_status
+        card:
+          type: entities
+          title: Anwesenheit
+          show_header_toggle: false
+      - type: weather-forecast
+        id: overview_weather_forecast
+        entity: weather.wetter
+      - type: custom:group-card
+        id: overview_calendars
+        group: group.calendars
+        card:
+          type: entities
+          title: Kalender
+          show_header_toggle: false
+      - type: history-graph
+        id: overview_history_graph_temp
+        title: Temperatur
+        hours_to_show: 48
+        entities:
+          - sensor.aeotec_zw100_multisensor_6_temperature
+          - sensor.weather_temperature
+      
+
+  - title: EG
+    id: groundfloor
+    cards:
+      - type: custom:layout-card
+        id: gf_layout_card
+        layout: horizontal
+        cards:
+          - type: custom:group-card
+            id: gf_entrence_lights
+            group: group.entree_lights
+            card:
+              type: entities
+              title: Eingangsbereich
+          - type: custom:group-card
+            id: gf_kitchen_entities
+            group: group.kitchen_lights
+            card:
+              type: entities
+              title: "K\xFCche Lichter"
+          - type: custom:group-card
+            id: gf_living_room_lights
+            group: group.livingroom_lights
+            card:
+              type: entities
+              title: Wohnzimmer Lichter
+          - type: custom:group-card
+            id: gf_garden_lights
+            group: group.garden_lights
+            card:
+              type: entities
+              title: Garten
+      - type: vertical-stack
+        id: gf_media_control
+        cards:
+          - type: media-control
+            id: gf_media_control_rxv_zone1
+            entity: media_player.yamaha_receiver
+          - type: media-control
+            id: gf_media_control_rxv_zone2
+            entity: media_player.yamaha_receiver_zone_2
+          - type: media-control
+            id: gf_media_control_panasonic
+            entity: media_player.panasonic_viera_tv
+
+  - title: OG
+    panel: true
+    id: firstfloor
+    badges:
+      - sensor.aeotec_zw100_multisensor_6_temperature
+      - sensor.aeotec_zw100_multisensor_6_luminance
+      - sensor.aeotec_zw100_multisensor_6_burglar
+    cards:
+      - type: custom:layout-card
+        id: ff_layout_card
+        layout: horizontal
+        cards:
+          - type: entities
+            id: ff_floor_light_entities
+            title: Flur Lichter
+            show_header_toggle: true
+            entities:
+              - light.meq0397149
+              - switch.ff_floor_tree
+          - type: entities
+            id: ff_mika_entities
+            title: Mika
+            show_header_toggle: true
+            entities:
+              - switch.ff_mika_bed
+          - type: entities
+            id: ff_jona_entities
+            title: Jona
+            show_header_toggle: true
+            entities:
+              - switch.ff_jona_bed
+          - type: media-control
+            id: ff_media_control_alexa_bath
+            entity: media_player.badezimmer
+
+  - title: DG
+    id: secondfloor
+    cards:
+      - type: entities
+        id: sf_bedroom_entities
+        title: Schlafzimmer
+        show_header_toggle: true
+        entities:
+          - switch.sf_bedroom_bed
+          - switch.sf_bedroom_outlet
+      - type: entities
+        id: sf_work_entities
+        title: Arbeitszimmer
+        show_header_toggle: true
+        entities:
+          - switch.sf_floor_work_outlet
+      - type: media-control
+        id: sf_media_control_alexa_work
+        entity: media_player.arbeitszimmer
+      - type: media-control
+        id: sf_media_control_alexa_bedroom
+        entity: media_player.schlafzimmer
+
+  - title: System
+    id: system
+    icon: mdi:cogs
+    cards:
+      - type: horizontal-stack
+        id: system_sensor_speedtest
+        cards: 
+          - type: sensor
+            id: system_sensor_speedtest_down
+            entity: sensor.speedtest_download
+            name: Download
+            graph: line
+            height: 50
+            line_color: "#3498db"
+          - type: sensor
+            id: system_sensor_speedtest_up
+            entity: sensor.speedtest_upload
+            name: Upload
+            graph: line
+            height: 50
+            line_color: "#3498db"
+      - type: entities
+        id: system_raspberry_entities
+        title: Raspberry
+        show_header_toggle: false
+        entities:
+          - sensor.load_5m
+          - sensor.memory_use_percent
+          - sensor.load_1m
+          - sensor.network_out_eth0
+          - sensor.load_15m
+          - sensor.network_in_eth0          
+          - sensor.disk_use_percent_home
+          - sensor.processor_use
+      - type: entities
+        id: system_battery_entities
+        title: Batterien
+        show_header_toggle: false
+        entities:
+          - sensor.tradfri_wireless_dimmer
+      
+  - title: Dies&Das
+    id: diesdas
+    icon: mdi:creation
+    cards:
+      - type: entities
+        id: diesdas_toggle_entities
+        show_header_toggle: false
+        entities:
+          - input_boolean.sunset
+          - input_boolean.guest_wlan
+          - input_boolean.doorbell
+      - type: history-graph
+        id: diesdas_history_graph_bt_presence
+        title: Anwesenheit
+        entities:
+          - sensor.bt_presence_ff_family
+      - type: map
+        id: diesdas_map
+        entities:
+          - device_tracker.mirko_owntracks
+          - device_tracker.femke_owntracks
+          - zone.home
+      

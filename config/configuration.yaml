@@ -21,13 +21,10 @@ homeassistant:
 ####################################################
 # Enables the frontend
 frontend:
-  themes: !include themes.yaml
+  # javascript_version: latest
 
 # Enables configuration UI
 config:
-
-# Allows you to issue voice commands from the frontend in enabled browsers
-# conversation:
 
 #Enables support for tracking state changes over time
 history:
@@ -47,8 +44,6 @@ logbook:
 
 # Track the sun
 sun:
-
-map:
 
 # Cloud
 cloud:
@@ -95,13 +90,13 @@ homekit:
       - group.groundfloor_lights
       # - input_boolean.guest_wlan
 
-luftdaten:
-  sensor_id: 14343
-  show_on_map: true
-  sensors:
-    monitored_conditions:
-      - temperature
-      - humidity
+# luftdaten:
+#   sensor_id: 14343
+#   show_on_map: false
+#   sensors:
+#     monitored_conditions:
+#       - temperature
+#       - humidity
 
 mqtt:
   broker: localhost
@@ -181,7 +176,7 @@ recorder: !include recorder.yaml
 panel_iframe:
   router:
     title: 'Router'
-    url: 'http://192.168.178.1'
+    url: 'http://fritz.box'
     icon: mdi:router-wireless
   # grafana:
   #   title: 'Grafana'

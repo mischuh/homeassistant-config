@@ -4,7 +4,7 @@
     platform: zone
     entity_id: device_tracker.mirko_owntracks
     zone: zone.home    
-    event: enter 
+    event: enter
 
   action:
     service: notify.ios_iphone_mirko

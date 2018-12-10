@@ -8,7 +8,7 @@ entities:
   light.jeq0207534:
     name: "Essplatz"
     hidden: false
-  light.sofa:
+  group.livingroom_couch:
     name: "Sofa"
     hidden: false
   light.meq0397149:

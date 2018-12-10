@@ -1,5 +1,6 @@
-
+#
 # Homematic
+#
 switch.feq0062058:
   icon: mdi:lightbulb
   friendly_name: Gartenlicht
@@ -7,33 +8,39 @@ switch.feq0062058:
 light.heq0359760:
   friendly_name: Lampe 1
   
+# Küche
 light.jeq0207534:
-  friendly_name: Küche - Essplatz
+  friendly_name: Essplatz
 
+# Eingangsbereich
 light.jeq0207545:
-  friendly_name: Eingang
+  friendly_name: Flur
 
+# Eingangsbereich
 light.jeq0207587:
   friendly_name: Außenlicht
 
+# Wohnzimmer
 light.meq0169146:
-  friendly_name: Wohnzimmer
+  friendly_name: Decke
 
+# OG Flur
 light.meq0397149:
   friendly_name: Flurwand
 
+#
 # Switches
-
+#
 switch.gf_kitchen_workplace:
-  friendly_name: Küche Arbeitsplatte
+  friendly_name: Arbeitsplatte
   assumed_state: false
 
 switch.gf_kitchen_window: 
-  friendly_name: Küche Fenster
+  friendly_name: Fenster
   assumed_state: false
 
 switch.gf_livingroom_outlet: 
-  friendly_name: Wohnzimmer Leiter
+  friendly_name: Leiter
   assumed_state: false
   
 switch.ff_floor_tree:
@@ -88,8 +95,9 @@ light.links:
 light.rechts:
   friendly_name: Sofa rechts
 
-light.sofa:
+group.living_room_couch:
   friendly_name: Sofa
+  icon: mdi:lightbulb
 
 # Mediaplayer
 
@@ -99,7 +107,7 @@ media_player.yamaha_receiver:
 media_player.yamaha_receiver_zone_2:
   friendly_name: RX-1030 Küche
 
-media_player.viera_gt30_series:
+media_player.panasonic_viera_tv:
   friendly_name: Fernseher
 
 
@@ -142,6 +150,11 @@ sensor.net_rate_up_max:
 
 sensor.net_rate_down_max:
   friendly_name: Max Down
+
+# Presence
+
+sensor.bt_presence_ff_family:
+  friendly_name: Anwesenheit Familie
 
 # Trashcans
 

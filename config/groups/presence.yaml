@@ -10,13 +10,11 @@
 #     - binary_sensor.mika_home
 #     - binary_sensor.mirko_home
 #     - binary_sensor.femke_home
-
  
 family_status:
   name: Family Status
   icon: mdi:account-multiple
-  entities:
-    - history_graph.bt_presence
+  entities:    
     - sensor.mirko_status
     - sensor.femke_status
     - sensor.mika_status

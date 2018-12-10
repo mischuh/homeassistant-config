@@ -53,7 +53,14 @@ livingroom_lights:
   entities:
     - switch.gf_livingroom_outlet   
     - light.meq0169146
-    - light.sofa
+    - group.livingroom_couch
+    - light.links
+    - light.rechts
+
+livingroom_couch:
+  name: Sofa
+  icon: mdi:lightbulb
+  entities:
     - light.links
     - light.rechts
 
@@ -61,7 +68,7 @@ livingroom_media:
   name: Wohnzimmer Multimedia
   entities:
     - media_player.yamaha_receiver 
-    - media_player.panasonic_viera_tv    
+    - media_player.panasonic_viera_tv
 
 yamaha_radio:
   name: Yamaha Radio

@@ -1,4 +1,0 @@
-default: error
-logs:
-  homeassistant.components.media_player: info
-  #homeassistant.components.emulated_hue: debug

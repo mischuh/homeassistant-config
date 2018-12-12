@@ -23,6 +23,9 @@ homeassistant:
 frontend:
   # javascript_version: latest
 
+lovelace:
+  mode: yaml
+  
 # Enables configuration UI
 config:
 
@@ -42,10 +45,13 @@ logbook:
     entities:
       - group.system
 
-# Track the sun
+logger:
+  default: warning
+  logs:
+    homeassistant.components.media_player: info    
+
 sun:
 
-# Cloud
 cloud:
 
 ios:
@@ -59,16 +65,14 @@ weather:
     api_key: !secret darksky_api_key
     name: Wetter
 
-zone: !include_dir_list zones
+
 
 ####################################################
 #                                                  #
 #                     Dies/Das                     #
 #                                                  #
 ####################################################
-http:
-  # Secrets are defined in the file secrets.yaml
-  # api_password: !secret http_password
+http: 
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
   trusted_networks:
@@ -87,8 +91,7 @@ homekit:
       - light.jeq0207534 #essplatz
       - light.links
       - light.rechts
-      - group.groundfloor_lights
-      # - input_boolean.guest_wlan
+      - group.groundfloor_lights      
 
 # luftdaten:
 #   sensor_id: 14343
@@ -111,15 +114,36 @@ mqtt:
 #   username: !secret cloudmqtt_user
 #   password: !secret cloudmqtt_password
 
-# Text to speech
 tts:
   - platform: google
 
 zwave:
   usb_path: /dev/ttyACM0
 
-# Emulated Hue
-emulated_hue: !include alexa.yaml
+recorder: 
+  purge_interval: 1
+  purge_keep_days: 14
+  exclude:
+    domains:
+      - updater
+      - automation
+      - device_tracker
+      - group
+      - scene
+      - script
+    entities:    
+      - sensor.date    
+      - sun.sun
+      - zone.home
+
+influxdb:
+  include:
+    domains:
+      - sensor
+      - switch
+      - media_player
+      - light
+      - binary_sensor
 
 google:
   client_id: !secret google_client_id
@@ -146,7 +170,6 @@ automation: !include_dir_merge_list automation
 binary_sensor: !include_dir_merge_list binary_sensor
 device_tracker: !include device_tracker.yaml
 group: !include_dir_merge_named groups
-history_graph: !include history_graph.yaml
 input_boolean: !include_dir_merge_named input_boolean
 input_select: !include_dir_merge_named input_select
 media_player: !include_dir_merge_list media_player
@@ -154,31 +177,5 @@ script: !include_dir_named script
 scene: !include_dir_merge_list scene
 sensor: !include_dir_merge_list sensor
 switch: !include_dir_merge_list switch
-
-
-####################################################
-#                                                  #
-#                     Persistence                  #
-#                                                  #
-####################################################
-influxdb:
-  include:
-    domains:
-      - sensor
-      - switch
-      - media_player
-      - light
-      - binary_sensor
-    
-logger: !include logger.yaml
-recorder: !include recorder.yaml
-
-panel_iframe:
-  router:
-    title: 'Router'
-    url: 'http://fritz.box'
-    icon: mdi:router-wireless
-  # grafana:
-  #   title: 'Grafana'
-  #   url: 'http://homeassi:3000'
-  #   icon: mdi:raspberrypi
+emulated_hue: !include alexa.yaml
+zone: !include_dir_list zones

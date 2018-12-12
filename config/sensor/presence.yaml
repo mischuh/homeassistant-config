@@ -4,7 +4,7 @@
       entity_id: input_select.mirko_state
       value_template: '{{ states.input_select.mirko_state.state }}'
       friendly_name: 'Mirko'
-      entity_picture_template: /local/images/mirko.jpg      
+      entity_picture_template: /local/images/mirko.jpg
     femke_status:
       entity_id: input_select.femke_state
       value_template: '{{ states.input_select.femke_state.state }}'
@@ -19,26 +19,57 @@
 
 - platform: mqtt
   state_topic: !secret bt_presence_ff_mirko
-  value_template: '{{ value_json.confidence | int }}'
-  # unit_of_measurement: '%'
+  value_template: '{{ float(value_json.confidence) | int }}'
+  unit_of_measurement: '%'
   name: 'bt_presence_ff_mirko_iphone'
   
 - platform: mqtt
   state_topic: !secret bt_presence_ff_femke
-  value_template: '{{ value_json.confidence | int }}'
-  # unit_of_measurement: '%'
+  value_template: '{{ float(value_json.confidence) | int }}'
+  unit_of_measurement: '%'
   name: 'bt_presence_ff_femke_iphone'
   
 - platform: mqtt
   state_topic: !secret bt_presence_ff_mika
-  value_template: '{{ value_json.confidence | int }}'
-  # unit_of_measurement: '%'
+  value_template: '{{ float(value_json.confidence) | int }}'
+  unit_of_measurement: '%'
   name: 'bt_presence_ff_mika_huawei'
   
+- platform: template
+  sensors:
+    bt_presence_mirko:
+      friendly_name: "Mirko BT"
+      entity_picture_template: /local/images/mirko.jpg
+      value_template: >-
+          {% if states('sensor.bt_presence_ff_mirko_iphone') | float > 0 %}
+            home
+          {% else %}
+            not_home
+          {% endif %}
+    bt_presence_femke:
+      friendly_name: "Femke BT"
+      entity_picture_template: /local/images/femke.jpg
+      value_template: >-
+          {% if states('sensor.bt_presence_ff_femke_iphone') | float > 0 %}
+            home
+          {% else %}
+            not_home
+          {% endif %}
+    bt_presence_mika:
+      friendly_name: "Mika BT"
+      entity_picture_template: /local/images/mika.jpg
+      value_template: >-
+          {% if states('sensor.bt_presence_ff_mika_huawei') | float > 0 %}
+            home
+          {% else %}
+            not_home
+          {% endif %}
+
 - platform: min_max
   name: "BT Presence FF Family"
   type: mean
   round_digits: 0
+  unit_of_measurement: '%'
   entity_ids:
     - sensor.bt_presence_ff_mirko_iphone
     - sensor.bt_presence_ff_femke_iphone

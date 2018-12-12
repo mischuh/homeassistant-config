@@ -4,12 +4,11 @@ system:
     - group.speedtest
     - group.hass_versions
     - group.batteries
-    - group.raspi    
+    - group.raspi
 
 speedtest:
   name: Speedtest
   entities:
-    - history_graph.dsl
     - sensor.speedtest_download
     - sensor.speedtest_upload    
 

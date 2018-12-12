@@ -10,7 +10,6 @@ views:
   - title: Home
     id: home
     icon: mdi:home
-    theme: dark-mode
     cards:
       - type: glance
         id: overview_glance
@@ -79,6 +78,12 @@ views:
       - type: vertical-stack
         id: gf_media_control
         cards:
+          - type: custom:group-card
+            id: gf_media_contrl_rxv_radio
+            group: group.yamaha_radio
+            card:
+              type: entities
+              title: Yamaha Radio
           - type: media-control
             id: gf_media_control_rxv_zone1
             entity: media_player.yamaha_receiver
@@ -90,39 +95,47 @@ views:
             entity: media_player.panasonic_viera_tv
 
   - title: OG
-    panel: true
     id: firstfloor
-    badges:
-      - sensor.aeotec_zw100_multisensor_6_temperature
-      - sensor.aeotec_zw100_multisensor_6_luminance
-      - sensor.aeotec_zw100_multisensor_6_burglar
     cards:
-      - type: custom:layout-card
-        id: ff_layout_card
-        layout: horizontal
-        cards:
-          - type: entities
-            id: ff_floor_light_entities
-            title: Flur Lichter
-            show_header_toggle: true
-            entities:
-              - light.meq0397149
-              - switch.ff_floor_tree
-          - type: entities
-            id: ff_mika_entities
-            title: Mika
-            show_header_toggle: true
-            entities:
-              - switch.ff_mika_bed
-          - type: entities
-            id: ff_jona_entities
-            title: Jona
-            show_header_toggle: true
-            entities:
-              - switch.ff_jona_bed
-          - type: media-control
-            id: ff_media_control_alexa_bath
-            entity: media_player.badezimmer
+      - type: horizontal-stack
+        id: ff_aeotec_zw100_multisensor
+        cards: 
+          - type: sensor
+            id: ff_sensor_temperature
+            entity: sensor.aeotec_zw100_multisensor_6_temperature
+            name: Temperatur
+            graph: line
+            height: 50
+            line_color: "#3498db"
+          - type: sensor
+            id: ff_sensor_luminance
+            entity: sensor.aeotec_zw100_multisensor_6_luminance
+            name: Helligkeit
+            graph: line
+            height: 50
+            line_color: "#3498db"
+      - type: entities
+        id: ff_floor_light_entities
+        title: Flur Lichter
+        show_header_toggle: true
+        entities:
+          - light.meq0397149
+          - switch.ff_floor_tree
+      - type: entities
+        id: ff_mika_entities
+        title: Mika
+        show_header_toggle: true
+        entities:
+          - switch.ff_mika_bed
+      - type: entities
+        id: ff_jona_entities
+        title: Jona
+        show_header_toggle: true
+        entities:
+          - switch.ff_jona_bed
+      - type: media-control
+        id: ff_media_control_alexa_bath
+        entity: media_player.badezimmer
 
   - title: DG
     id: secondfloor
@@ -159,15 +172,18 @@ views:
             entity: sensor.speedtest_download
             name: Download
             graph: line
-            height: 50
-            line_color: "#3498db"
           - type: sensor
             id: system_sensor_speedtest_up
             entity: sensor.speedtest_upload
             name: Upload
             graph: line
-            height: 50
-            line_color: "#3498db"
+      - type: custom:group-card
+        id: system_ha_versions
+        group: group.hass_versions
+        card:
+          type: entities
+          title: HA Versions   
+          show_header_toggle: false   
       - type: entities
         id: system_raspberry_entities
         title: Raspberry
@@ -178,9 +194,10 @@ views:
           - sensor.load_1m
           - sensor.network_out_eth0
           - sensor.load_15m
-          - sensor.network_in_eth0          
+          - sensor.network_in_eth0
           - sensor.disk_use_percent_home
           - sensor.processor_use
+          - sensor.last_boot
       - type: entities
         id: system_battery_entities
         title: Batterien
@@ -199,15 +216,27 @@ views:
           - input_boolean.sunset
           - input_boolean.guest_wlan
           - input_boolean.doorbell
-      - type: history-graph
+      - type: custom:group-card
+        id: diesdas_scenes
+        group: group.scenes
+        card:
+          type: entities
+          title: Szenen
+          show_header_toggle: false
+      - type: sensor
         id: diesdas_history_graph_bt_presence
-        title: Anwesenheit
-        entities:
-          - sensor.bt_presence_ff_family
+        entity: sensor.bt_presence_ff_family
+        icon: mdi:account-supervisor-circle
+        name: Anwesenheit
+        unit: '%'
+        graph: line
       - type: map
         id: diesdas_map
         entities:
           - device_tracker.mirko_owntracks
           - device_tracker.femke_owntracks
           - zone.home
+          - zone.school
+          - zone.work_ml
+          - zone.work_salon
       

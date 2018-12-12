@@ -3,20 +3,19 @@ default_view:
   name: Home
   view: yes
   icon: mdi:home
-  entities:    
-    - history_graph.temperatur
-    - group.home_lights    
-    - group.family_status    
+  entities:
+    - group.home_lights
+    - group.family_status
     - group.weather_dashboard
-    - group.calendars    
+    - group.calendars
 
 
 view_ground_floor:
   name: EG
   view: yes
   entities:
-    - group.kitchen_lights    
-    - group.livingroom_lights        
+    - group.kitchen_lights
+    - group.livingroom_lights
     - group.entree_lights
     - group.garden_lights
     - group.kitchen_media
@@ -30,7 +29,7 @@ view_first_floor:
   entities:
     - sensor.aeotec_zw100_multisensor_6_temperature
     - sensor.aeotec_zw100_multisensor_6_luminance
-    - sensor.aeotec_zw100_multisensor_6_burglar    
+    - sensor.aeotec_zw100_multisensor_6_burglar
     - group.ff_floor_lights
     - group.ff_mika
     - group.ff_jona

@@ -2,18 +2,21 @@ mirko:
   name: Mirko
   entities:
     - device_tracker.iphone_mirko
-    # - device_tracker.mirko_owntracks
+    - device_tracker.mirko_owntracks
+    - sensor.bt_presence_mirko
 
 femke:
   name: Femke
   entities:
     - device_tracker.iphone_femke
-   # - device_tracker.femke_owntracks
+    - device_tracker.femke_owntracks
+    - sensor.bt_presence_femke
 
 mika:
   name: Mika
   entities:
     - device_tracker.huawei_mika
+    - sensor.bt_presence_mika
 
 kids:
   name: Kinder
@@ -36,4 +39,5 @@ trusted_friends:
   name: Freunde und Bekannte
   entities:
     - device_tracker.iphone_sepp
+    - device_tracker.iphone_birgit
     - device_tracker.iphone_frank

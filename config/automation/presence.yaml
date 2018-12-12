@@ -4,14 +4,14 @@
 
 - alias: "Initialization after restart: Mirko"
   trigger:
-    platform: homeassistant    
-    event: start  
+    platform: homeassistant
+    event: start
   action:
     service: input_select.select_option
     data_template:
       entity_id: input_select.mirko_state
       option: > 
-        {% if is_state("sensor.mirko", "home") %}
+        {% if is_state("group.mirko", "home") %}
           Home
         {% else %}
           Away
@@ -19,14 +19,14 @@
 
 - alias: "Initialization after restart: Femke"
   trigger:
-    platform: homeassistant    
-    event: start  
+    platform: homeassistant
+    event: start
   action:
     service: input_select.select_option
     data_template:
       entity_id: input_select.femke_state
       option: > 
-        {% if is_state("sensor.femke", "home") %}
+        {% if is_state("group.femke", "home") %}
           Home
         {% else %}
           Away
@@ -41,7 +41,7 @@
     data_template:
       entity_id: input_select.mika_state
       option: > 
-        {% if is_state("sensor.mika", "home") %}
+        {% if is_state("group.mika", "home") %}
           Home
         {% else %}
           Away
@@ -56,41 +56,41 @@
   initial_state: True
   trigger:
     - platform: state
-      entity_id: sensor.mirko
+      entity_id: group.mirko
       from: 'not_home'
       to: 'home'
     - platform: state
-      entity_id: sensor.femke
+      entity_id: group.femke
       from: 'not_home'
       to: 'home'
     - platform: state
-      entity_id: sensor.mika
+      entity_id: group.mika
       from: 'not_home'
       to: 'home'
   action:
     - service: input_select.select_option
       data_template:
         entity_id: >
-          {% if trigger.entity_id == 'sensor.mirko' %}
+          {% if trigger.entity_id == 'group.mirko' %}
             input_select.mirko_state
-          {% elif trigger.entity_id == 'sensor.femke' %}
+          {% elif trigger.entity_id == 'group.femke' %}
             input_select.femke_state
           {% else %}
             input_select.mika_state
           {% endif %}
         option: >
-          {% if trigger.entity_id == 'sensor.mirko' %}
+          {% if trigger.entity_id == 'group.mirko' %}
             {% if states.input_select.mirko_state.state == 'Just Left' %}
               Home
             {% else %}
               Just Arrived
             {% endif %}
-          {% elif trigger.entity_id == 'sensor.femke' %}
+          {% elif trigger.entity_id == 'group.femke' %}
             {% if states.input_select.femke_state.state == 'Just Left' %}
               Home
             {% else %}
               Just Arrived
-            {% endif %}            
+            {% endif %}
           {% else %}
             {% if states.input_select.mika_state.state == 'Just Left' %}
               Home
@@ -148,24 +148,24 @@
   initial_state: True
   trigger:
     - platform: state
-      entity_id: sensor.mirko
+      entity_id: group.mirko
       from: 'home'
       to: 'not_home'
     - platform: state
-      entity_id: sensor.femke
+      entity_id: group.femke
       from: 'home'
       to: 'not_home'
     - platform: state
-      entity_id: sensor.mika
+      entity_id: group.mika
       from: 'home'
       to: 'not_home'
   action:
     - service: input_select.select_option
       data_template:
         entity_id: >
-          {% if trigger.entity_id == 'sensor.mirko' %}
+          {% if trigger.entity_id == 'group.mirko' %}
             input_select.mirko_state
-          {% elif trigger.entity_id == 'sensor.femke' %}
+          {% elif trigger.entity_id == 'group.femke' %}
             input_select.femke_state
           {% else %}
             input_select.mika_state

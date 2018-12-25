@@ -120,6 +120,11 @@ tts:
 zwave:
   usb_path: /dev/ttyACM0
 
+# pilight:
+#   whitelist:
+#     protocol:
+#       - brennenstuhl
+
 recorder: 
   purge_interval: 1
   purge_keep_days: 14
@@ -136,15 +141,6 @@ recorder:
       - sun.sun
       - zone.home
 
-influxdb:
-  include:
-    domains:
-      - sensor
-      - switch
-      - media_player
-      - light
-      - binary_sensor
-
 google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret
@@ -156,7 +152,7 @@ fritzbox_guestwifi:
 homematic:  
   interfaces:
     wireless:
-      host: 192.168.178.2      
+      host: 192.168.178.2
       port: 2001
       # resolvenames: metadata
 

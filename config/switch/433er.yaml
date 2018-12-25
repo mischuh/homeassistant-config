@@ -1,3 +1,16 @@
+# Freie Radikale
+- platform: mqtt
+  name: "gf_free_outlet_1"
+  command_topic: "rc433/groundfloor/gf_free_outlet_1/switch"
+  state_topic: "rc433/groundfloor/gf_free_outlet_1/state"
+  retain: false
+
+- platform: mqtt
+  name: "gf_free_outlet_2"
+  command_topic: "rc433/groundfloor/gf_free_outlet_2/switch"
+  state_topic: "rc433/groundfloor/gf_free_outlet_2/state"
+  retain: false
+
 # Groundfloor
 - platform: mqtt
   name: "gf_kitchen_workplace"
@@ -17,6 +30,11 @@
   state_topic: "rc433/groundfloor/gf_livingroom_outlet/state"
   retain: false
 
+- platform: mqtt
+  name: "gf_xmastree_outlet"
+  command_topic: "rc433/groundfloor/gf_xmastree_outlet/switch"
+  state_topic: "rc433/groundfloor/gf_xmastree_outlet/state"
+  retain: false
 
 # Firstfloor
 - platform: mqtt
@@ -35,6 +53,12 @@
   name: "ff_jona_bed"
   command_topic: "rc433/firstfloor/ff_jona_bed/switch"
   state_topic: "rc433/firstfloor/ff_jona_bed/state"
+  retain: false
+
+- platform: mqtt
+  name: "ff_jona_outlet"
+  command_topic: "rc433/firstfloor/ff_jona_outlet/switch"
+  state_topic: "rc433/firstfloor/ff_jona_outlet/state"
   retain: false
 
 

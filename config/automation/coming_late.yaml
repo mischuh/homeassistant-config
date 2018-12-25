@@ -1,7 +1,7 @@
 - alias: "Coming home late"
   trigger:
     platform: zone
-    entity_id: group.parents
+    entity_id: group.owntracks
     zone: zone.home
     event: enter
   condition:
@@ -13,6 +13,9 @@
       - condition: state
         entity_id: group.entree_lights
         state: 'off'
+      - condition: state
+        entity_id: group.parents
+        state: 'not_home'
   action:
     - service: light.turn_on
       data:

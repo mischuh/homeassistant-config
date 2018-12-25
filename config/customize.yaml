@@ -31,6 +31,16 @@ light.meq0397149:
 #
 # Switches
 #
+switch.gf_free_outlet_1:
+  # Mika
+  friendly_name: Steckdose
+  assumed_state: false
+
+switch.gf_free_outlet_2:
+  # Eingangsbereich
+  friendly_name: Lichterkette
+  assumed_state: false
+
 switch.gf_kitchen_workplace:
   friendly_name: Arbeitsplatte
   assumed_state: false
@@ -43,28 +53,38 @@ switch.gf_livingroom_outlet:
   friendly_name: Leiter
   assumed_state: false
   
+switch.gf_xmastree_outlet:
+  friendly_name: Weichnachtsbaum
+  assumed_state: false
+  icon: mdi:andriod-auto
+
+
 switch.ff_floor_tree:
-  friendly_name: Flur (Baum)
+  friendly_name: Baum
   assumed_state: false
 
 switch.ff_mika_bed:
-  friendly_name: Mika Lichterkette
+  friendly_name: Lichterkette
   assumed_state: false
 
 switch.ff_jona_bed:
-  friendly_name: Jona Lichterkette
+  friendly_name: Lichterkette
+  assumed_state: false
+
+switch.ff_jona_outlet:
+  friendly_name: Steckdose
   assumed_state: false
 
 switch.sf_floor_work_outlet:
-  friendly_name: Arbeitszimmer Sofa
+  friendly_name: Sofa
   assumed_state: false
 
 switch.sf_bedroom_outlet:
-  friendly_name: Schlafzimmer Kommode
+  friendly_name: Kommode
   assumed_state: false
 
 switch.sf_bedroom_bed:
-  friendly_name: Schlafzimmer Bett
+  friendly_name: Bett
   assumed_state: false
 
 # Aeotec Sensor 6

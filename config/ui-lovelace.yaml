@@ -116,23 +116,23 @@ views:
             line_color: "#3498db"
       - type: entities
         id: ff_floor_light_entities
-        title: Flur Lichter
+        title: Flur
         show_header_toggle: true
         entities:
           - light.meq0397149
           - switch.ff_floor_tree
-      - type: entities
-        id: ff_mika_entities
-        title: Mika
-        show_header_toggle: true
-        entities:
-          - switch.ff_mika_bed
-      - type: entities
-        id: ff_jona_entities
-        title: Jona
-        show_header_toggle: true
-        entities:
-          - switch.ff_jona_bed
+      - type: custom:group-card
+        id: ff_group_mika
+        group: group.ff_mika
+        card:
+          type: entities
+          title: Mika          
+      - type: custom:group-card
+        id: ff_group_jona
+        group: group.ff_jona
+        card:
+          type: entities
+          title: Jona      
       - type: media-control
         id: ff_media_control_alexa_bath
         entity: media_player.badezimmer

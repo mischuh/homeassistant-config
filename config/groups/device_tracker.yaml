@@ -18,6 +18,12 @@ mika:
     - device_tracker.huawei_mika
     - sensor.bt_presence_mika
 
+owntracks:
+  name: Owntracks Devices
+  entities:
+    - device_tracker.femke_owntracks
+    - device_tracker.mirko_owntracks
+
 kids:
   name: Kinder
   entities:

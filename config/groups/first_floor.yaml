@@ -31,8 +31,10 @@ ff_mika:
   name: Mika
   entities:
     - switch.ff_mika_bed
+    - switch.gf_free_outlet_1
 
 ff_jona:
   name: Jona
   entities:
     - switch.ff_jona_bed
+    - switch.ff_jona_outlet

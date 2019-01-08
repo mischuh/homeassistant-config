@@ -82,7 +82,7 @@ http:
     - fd00::/8
  
 notify:
-  
+
 homekit:
   pincode: !secret homekit_pin
   port: 9124

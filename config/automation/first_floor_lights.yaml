@@ -4,11 +4,11 @@
 - alias: "Turn on kids light in the morning"
   trigger:
     platform: time
-    at: '06:30:00'  
-  condition:        
+    at: '06:30:00'
+  condition:
     condition: state
-    entity_id: binary_sensor.workday_sensor
-    state: 'on'
+    entity_id: binary_sensor.holiday_mode
+    state: 'off'
   action:
     - service: homeassistant.turn_on
       entity_id: group.ff_children
@@ -17,11 +17,11 @@
 - alias: "Turn off bed in the morning"
   trigger:
     platform: time
-    at: '07:15:00'  
-  condition:        
+    at: '07:15:00'
+  condition:
     condition: state
-    entity_id: binary_sensor.workday_sensor
-    state: 'on'
+    entity_id: binary_sensor.holiday_mode
+    state: 'off'
   action:
     - service: homeassistant.turn_off
       entity_id: group.ff_children

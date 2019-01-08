@@ -1,6 +1,11 @@
 listen_port: 80
 upnp_bind_multicast: true
 expose_by_default: false
+exposed_domains:
+  - switch
+  - light
+  - group
+  - input_boolean
 entities:
   group.ground_floor_lights:
     name: "Erdgeschoss"
@@ -21,6 +26,25 @@ entities:
     name: "Arbeitsplatte"
     hidden: false
 
+  group.first_floor_lights:
+    name: "Obergeschoss"
+    hidden: false
+  group.ff_floor_lights:
+    name: "Flur"
+    hidden: false
+  switch.ff_jona_bed:
+    name: "Jona Bett"
+    hidden: false
+  switch.ff_jona_outlet:
+    name: "Jona Lichterkette"
+    hidden: false
+  switch.ff_mika_bed:
+    name: "Mika Bett"
+    hidden: false
+  switch.ff_mika_outlet:
+    name: "Mika Lichterkette"
+    hidden: false
+
   group.second_floor_lights:
     name: "Dachgeschoss"
     hidden: false
@@ -36,11 +60,3 @@ entities:
   switch.sf_floor_work_outlet:
     name: "Arbeitszimmer"
     hidden: false
-
-  group.first_floor_lights:
-    name: "Obergeschoss"
-    hidden: false
-  group.ff_floor_lights:
-    name: "Flur"
-  group.ff_children:
-    name: "Kinder"

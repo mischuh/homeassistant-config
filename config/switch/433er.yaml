@@ -1,11 +1,5 @@
-# Freie Radikale
 - platform: mqtt
-  name: "gf_free_outlet_1"
-  command_topic: "rc433/groundfloor/gf_free_outlet_1/switch"
-  state_topic: "rc433/groundfloor/gf_free_outlet_1/state"
-  retain: false
-
-- platform: mqtt
+  # Lichterkette Eingangsbereich
   name: "gf_free_outlet_2"
   command_topic: "rc433/groundfloor/gf_free_outlet_2/switch"
   state_topic: "rc433/groundfloor/gf_free_outlet_2/state"
@@ -47,6 +41,12 @@
   name: "ff_mika_bed"
   command_topic: "rc433/firstfloor/ff_mika_bed/switch"
   state_topic: "rc433/firstfloor/ff_mika_bed/state"
+  retain: false
+# Freie Radikale
+- platform: mqtt
+  name: "ff_mika_outlet"
+  command_topic: "rc433/firstfloor/ff_mika_outlet/switch"
+  state_topic: "rc433/firstfloor/ff_mika_outlet/state"
   retain: false
 
 - platform: mqtt

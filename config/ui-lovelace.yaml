@@ -209,13 +209,13 @@ views:
     id: diesdas
     icon: mdi:creation
     cards:
-      - type: entities
-        id: diesdas_toggle_entities
-        show_header_toggle: false
-        entities:
-          - input_boolean.sunset
-          - input_boolean.guest_wlan
-          - input_boolean.doorbell
+      - type: custom:group-card
+        id: diesdas_states
+        group: group.boolean_states
+        card:
+          type: entities
+          title: Zustände
+          show_header_toggle: false
       - type: custom:group-card
         id: diesdas_scenes
         group: group.scenes

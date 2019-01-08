@@ -5,11 +5,11 @@
   hide_entity: True
   trigger:
     platform: time
-    at: '06:30:00'  
-  condition:        
+    at: '06:30:00'
+  condition:
     condition: state
-    entity_id: binary_sensor.workday_sensor
-    state: 'on'
+    entity_id: binary_sensor.holiday_mode
+    state: 'off'
   action:
     - service: switch.turn_on
       entity_id: switch.sf_bedroom_bed
@@ -18,11 +18,11 @@
   hide_entity: True
   trigger:
     platform: time
-    at: '06:40:00'  
-  condition:        
+    at: '06:40:00'
+  condition:
     condition: state
-    entity_id: binary_sensor.workday_sensor
-    state: 'on'
+    entity_id: binary_sensor.holiday_mode
+    state: 'off'
   action:
     - service: switch.turn_on
       entity_id: switch.sf_bedroom_outlet
@@ -31,11 +31,11 @@
   hide_entity: True
   trigger:
     platform: time
-    at: '07:10:00'  
-  condition:        
+    at: '07:10:00'
+  condition:
     condition: state
-    entity_id: binary_sensor.workday_sensor
-    state: 'on'
+    entity_id: binary_sensor.holiday_mode
+    state: 'off'
   action:
     - service: switch.turn_off
       entity_id: 

@@ -24,11 +24,13 @@ trash:
 
 boolean_states:
   name: Zustände
-  entities:    
+  entities:
     - input_boolean.sunset
     - input_boolean.guest_wlan
     - input_boolean.doorbell
-    - binary_sensor.workday
+    - input_boolean.holiday
+    - binary_sensor.workday_sensor
+    - binary_sensor.holiday_mode
 
 hass_versions:
   name: Home-Assistant Versions

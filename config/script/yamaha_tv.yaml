@@ -2,7 +2,7 @@ alias: TV Scene
 sequence:
   - service: input_select.select_option
     data:
-      entity_id: input_select.yamaha_scene_list         
+      entity_id: input_select.yamaha_scene_list 
       option: Playstation
   - delay: "00:00:05"
   - service: media_player.volume_set

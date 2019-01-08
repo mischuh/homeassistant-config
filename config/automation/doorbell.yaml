@@ -6,7 +6,7 @@
       name: OEQ2237980
       channel: 1
       param: PRESS_SHORT
-  condition:        
+  condition:
     condition: state
     entity_id: input_boolean.doorbell
     state: 'off'

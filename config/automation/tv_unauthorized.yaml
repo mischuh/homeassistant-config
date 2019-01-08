@@ -1,0 +1,15 @@
+- alias: "TV turned on unauthorized"
+  trigger:
+      platform: state
+      entity_id: media_player.panasonic_viera_tv
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: state
+    entity_id: group.parents
+    state: 'not_home'
+  action:
+    service: notify.ios_iphone_mirko
+    data:
+      title: "Home-Assistant"
+      message: "Der Fernseher wurde eingeschaltet.."

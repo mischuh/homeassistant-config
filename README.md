@@ -60,16 +60,10 @@ Optional: Reboot and test if symlink was created:
 
 ## 433 Power Outlets
 
-Idea: Make a container with current solution and wrap it with a REST Api
-https://github.com/philipptrenz/433MHz-Wireless-Sockets-API
+433 power outles are being controlled by MQTT events. I use [my own implementation](https://github.com/mischuh/rc433mq) for that. 
+You will need an MQTT broker and two configuration files (by now). Combine it with homeassistants [MQTT Switch](https://www.home-assistant.io/components/switch.mqtt/)
+and you can turn lights on an off and also have a state topic.
 
-    docker build -f /usr/shar/homeassistant/etc/docker/Dockerfile -t mischu/433_rest_api:0.1 .
-    docker push mischu/433_rest_api:0.1
-
-Usage:
-
-    curl http://your_url:port/10101A/on
-    curl http://your_url:port/10101A/off
 
 # Backup
 

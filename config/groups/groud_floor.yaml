@@ -21,7 +21,6 @@ ground_floor_433_lights:
     - switch.gf_kitchen_window
     - switch.gf_kitchen_workplace
     - switch.gf_livingroom_outlet
-    - switch.gf_xmastree_outlet
 
 kitchen:
   name: Kueche
@@ -35,8 +34,7 @@ kitchen_lights:
   entities:
     - light.jeq0207534
     - switch.gf_kitchen_window
-    - switch.gf_kitchen_workplace
-    - switch.gf_xmastree_outlet
+    - switch.gf_kitchen_workplace    
     
 kitchen_media:
   name: Küche Multimedia

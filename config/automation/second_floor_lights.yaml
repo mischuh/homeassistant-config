@@ -5,7 +5,7 @@
   hide_entity: True
   trigger:
     platform: time
-    at: '06:30:00'
+    at: '06:45:00'
   condition:
     condition: state
     entity_id: binary_sensor.holiday_mode
@@ -18,7 +18,7 @@
   hide_entity: True
   trigger:
     platform: time
-    at: '06:40:00'
+    at: '06:30:00'
   condition:
     condition: state
     entity_id: binary_sensor.holiday_mode

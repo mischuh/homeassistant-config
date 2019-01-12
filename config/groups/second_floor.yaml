@@ -21,6 +21,7 @@ sf_work_lights:
   name: Arbeitszimmer
   entities:
     - switch.sf_floor_work_outlet
+    - switch.sf_floor_work_desk
 
 sf_bedroom_lights:
   name: Schlafzimmer

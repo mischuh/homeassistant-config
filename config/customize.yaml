@@ -48,11 +48,6 @@ switch.gf_kitchen_window:
 switch.gf_livingroom_outlet: 
   friendly_name: Leiter
   assumed_state: false
-  
-switch.gf_xmastree_outlet:
-  friendly_name: Weichnachtsbaum
-  assumed_state: false
-  icon: mdi:andriod-auto
 
 
 switch.ff_floor_tree:
@@ -76,8 +71,13 @@ switch.ff_jona_outlet:
   assumed_state: false
 
 switch.sf_floor_work_outlet:
-  friendly_name: Sofa
+  friendly_name: Regal
   assumed_state: false
+
+switch.sf_floor_work_desk:
+  friendly_name: Schreibtisch
+  assumed_state: false
+  icon: mdi:television
 
 switch.sf_bedroom_outlet:
   friendly_name: Kommode

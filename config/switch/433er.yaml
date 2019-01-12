@@ -24,12 +24,6 @@
   state_topic: "rc433/groundfloor/gf_livingroom_outlet/state"
   retain: false
 
-- platform: mqtt
-  name: "gf_xmastree_outlet"
-  command_topic: "rc433/groundfloor/gf_xmastree_outlet/switch"
-  state_topic: "rc433/groundfloor/gf_xmastree_outlet/state"
-  retain: false
-
 # Firstfloor
 - platform: mqtt
   name: "ff_floor_tree"
@@ -67,6 +61,12 @@
   name: "sf_floor_work_outlet"
   command_topic: "rc433/secondfloor/sf_floor_work_outlet/switch"
   state_topic: "rc433/secondfloor/sf_floor_work_outlet/state"
+  retain: false
+
+- platform: mqtt
+  name: "sf_floor_work_desk"
+  command_topic: "rc433/secondfloor/sf_floor_work_desk/switch"
+  state_topic: "rc433/secondfloor/sf_floor_work_desk/state"
   retain: false
 
 - platform: mqtt

@@ -140,19 +140,18 @@ views:
   - title: DG
     id: secondfloor
     cards:
-      - type: entities
-        id: sf_bedroom_entities
-        title: Schlafzimmer
-        show_header_toggle: true
-        entities:
-          - switch.sf_bedroom_bed
-          - switch.sf_bedroom_outlet
-      - type: entities
-        id: sf_work_entities
-        title: Arbeitszimmer
-        show_header_toggle: true
-        entities:
-          - switch.sf_floor_work_outlet
+      - type: custom:group-card
+        id: sf_group_work
+        group: group.sf_work_lights
+        card:
+          type: entities
+          title: Arbeitszimmer
+      - type: custom:group-card
+        id: sf_group_bedroom
+        group: group.sf_bedroom_lights
+        card:
+          type: entities
+          title: Schlafzimmer      
       - type: media-control
         id: sf_media_control_alexa_work
         entity: media_player.arbeitszimmer

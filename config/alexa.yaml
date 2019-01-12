@@ -57,6 +57,12 @@ entities:
   switch.sf_bedroom_bed:
     name: "Bett"
     hidden: false
-  switch.sf_floor_work_outlet:
+  group.sf_work_lights:
     name: "Arbeitszimmer"
+    hidden: false
+  switch.sf_floor_work_outlet:
+    name: "Regal"
+    hidden: false
+  switch.sf_floor_work_desk:
+    name: "Schreibtisch"
     hidden: false

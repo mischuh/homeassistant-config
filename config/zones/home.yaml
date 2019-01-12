@@ -2,5 +2,4 @@
 name: Home
 latitude: !secret latitude_loc_home
 longitude: !secret longitude_loc_home
-icon: mdi:account-multiple
 radius: 250

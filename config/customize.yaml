@@ -133,25 +133,17 @@ media_player.panasonic_viera_tv:
 
 # Weather
 
-sensor.weather_cloudiness:
+sensor.dark_sky_cloud_coverage:
   friendly_name: Cloudiness
   icon: mdi:cloud-outline
 
-sensor.weather_humidity:
+sensor.dark_sky_humidity:
   friendly_name: Humidity (Outdoor)
   icon: mdi:water-percent
 
-sensor.weather_symbol:
-  friendly_name: Weather
-
-sensor.weather_temperature:
+sensor.dark_sky_temperature:
   friendly_name: Temperature
 
-sensor.luftdaten_14343_temperature:
-  friendly_name: Temperatur
-
-sensor.luftdaten_14343_humidity:
-  friendly_name: Luftfeuchtigkeit
 
 # Calendar
 sensor.femke_schedule:

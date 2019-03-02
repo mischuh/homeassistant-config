@@ -28,10 +28,10 @@ config/.HA_VERSION
 config/.ios.conf
 config/.tradfri_psk.conf
 config/.uuid
-config/alexa_media.pickle
+config/*.pickle
 config/core
 config/google_calendars.yaml
-config/secrets.yaml
+config/secrets.*
 config/zw*.xml
 config/options.xml
 config/OZW_Log.txt

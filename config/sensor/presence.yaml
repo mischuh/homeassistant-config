@@ -69,7 +69,6 @@
   name: "BT Presence FF Family"
   type: mean
   round_digits: 0
-  unit_of_measurement: '%'
   entity_ids:
     - sensor.bt_presence_ff_mirko_iphone
     - sensor.bt_presence_ff_femke_iphone

@@ -1,9 +1,13 @@
+- platform: ferien
+  name: Vacation (HH)
+  state_code: HH
+
 - platform: template
   sensors:
     holiday_mode:
       friendly_name: "Urlaubsmode"
       value_template: >-
-        {{ 
+        {{
           is_state('binary_sensor.workday_sensor', 'off')
-          or is_state('input_boolean.holiday', 'on')
+          or is_state('binary_sensor.vacation_hh', 'on')
         }}

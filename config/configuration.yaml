@@ -38,7 +38,7 @@ history:
       - media_player
       - light
       - binary_sensor
-      
+
 # View all events in a logbook
 logbook:
   exclude:
@@ -64,6 +64,18 @@ weather:
   - platform: darksky
     api_key: !secret darksky_api_key
     name: Wetter
+
+alexa_media:
+  accounts:
+    - email: !secret alexa_email
+      password: !secret alexa_password
+      url: amazon.de
+    - email: !secret alexa_jona_email
+      password: !secret alexa_jona_password
+      url: amazon.de
+    - email: !secret alexa_mika_email
+      password: !secret alexa_mika_password
+      url: amazon.de
 
 
 
@@ -91,28 +103,13 @@ homekit:
       - light.jeq0207534 #essplatz
       - light.links
       - light.rechts
-      - group.groundfloor_lights      
-
-# luftdaten:
-#   sensor_id: 14343
-#   show_on_map: false
-#   sensors:
-#     monitored_conditions:
-#       - temperature
-#       - humidity
+      - group.groundfloor_lights
 
 mqtt:
   broker: localhost
   port: 1883  
   client_id: home-assistant-1
   keepalive: 60
-#   # https://community.home-assistant.io/t/mqtt-working-mosquitto-cloudmqtt-bridge/1830/17
-#   # https://community.home-assistant.io/t/mqtt-bridge/12177
-#   broker: !secret cloudmqtt_host
-#   port: !secret cloudmqtt_port
-#   certificate: auto
-#   username: !secret cloudmqtt_user
-#   password: !secret cloudmqtt_password
 
 tts:
   - platform: google
@@ -120,12 +117,7 @@ tts:
 zwave:
   usb_path: /dev/ttyACM0
 
-# pilight:
-#   whitelist:
-#     protocol:
-#       - brennenstuhl
-
-recorder: 
+recorder:
   purge_interval: 1
   purge_keep_days: 14
   exclude:
@@ -156,6 +148,29 @@ homematic:
       port: 2001
       # resolvenames: metadata
 
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+# person:
+#   - name: Mirko
+#     id: mirko123
+#     device_trackers:
+#       - device_tracker.iphone_mirko
+#       - device_tracker.mirko_owntracks
+#   - name: Femke
+#     id: femke123
+#     device_trackers:
+#       - device_tracker.iphone_femke
+#       - device_tracker.femke_owntracks
+
+system_health:
+
+
 ####################################################
 #                                                  #
 #                     Includes                     #
@@ -175,3 +190,20 @@ sensor: !include_dir_merge_list sensor
 switch: !include_dir_merge_list switch
 emulated_hue: !include alexa.yaml
 zone: !include_dir_list zones
+
+
+####################################################
+#                                                  #
+#                     Panels                       #
+#                                                  #
+####################################################
+
+panel_iframe:
+  router:
+    title: 'Router'
+    url: 'http://192.168.178.1'
+    icon: mdi:router-wireless
+  pihole:
+    title: 'PI Hole'
+    url: 'http://raspi-hole/admin'
+    icon: mdi:raspberrypi

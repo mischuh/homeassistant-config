@@ -2,8 +2,7 @@ second_floor:
   name: Dachgeschoss
   entities:
     - group.sf_work_lights
-    - group.sf_work_media
-    - group.sf_bedroom_lights    
+    - group.sf_bedroom_lights
 
 second_floor_lights:
   name: Dachgeschoss
@@ -11,20 +10,16 @@ second_floor_lights:
     - group.sf_work_lights
     - group.sf_bedroom_lights    
 
-sf_work_media:
-  name: Arbeitszimmer Media
-  entities:
-    - media_player.arbeitszimmer
-    - media_player.dachgeschoss
-
 sf_work_lights:
   name: Arbeitszimmer
   entities:
     - switch.sf_floor_work_outlet
     - switch.sf_floor_work_desk
+    - media_player.echo_arbeitszimmer
 
 sf_bedroom_lights:
   name: Schlafzimmer
   entities:
     - switch.sf_bedroom_outlet
     - switch.sf_bedroom_bed
+    - media_player.echo_schlafzimmer

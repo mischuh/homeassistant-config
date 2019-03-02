@@ -42,7 +42,6 @@ view_second_floor:
   entities:
     - group.sf_work_lights
     - group.sf_bedroom_lights
-    - group.sf_work_media
 
 
 view_rest:

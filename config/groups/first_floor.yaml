@@ -7,7 +7,7 @@ first_floor:
     - group.ff_floor_lights
     - group.ff_mika
     - group.ff_jona
-    - media_player.badezimmer
+    - media_player.alexas_echo_dot
 
 first_floor_lights:
   name: Obergeschoss
@@ -32,9 +32,11 @@ ff_mika:
   entities:
     - switch.ff_mika_bed
     - switch.ff_mika_outlet
+    - media_player.mikas_echo
 
 ff_jona:
   name: Jona
   entities:
     - switch.ff_jona_bed
     - switch.ff_jona_outlet
+    - media_player.jonas_echo

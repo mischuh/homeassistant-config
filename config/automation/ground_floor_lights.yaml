@@ -48,7 +48,12 @@
           {% else %}
             {{ states.light.jeq0207534.attributes.brightness | int }}
           {% endif %}
-        
+
+    - service: light.turn_on
+      data:
+        brightness_pct: 15
+        entity_id: 
+          - light.meq0169146
     - service: light.turn_on
       data:
         brightness_pct: 25
@@ -86,7 +91,8 @@
     - service: light.turn_on
       data:
         brightness_pct: 14
-        entity_id: light.jeq0207587  
+        entity_id: light.jeq0207587 
+
 
 - alias: "Turn off lights: Entree"
   trigger:    

@@ -1,16 +1,15 @@
 - platform: darksky
   api_key: !secret darksky_api_key
-  update_interval: '00:30:00'
   language: de
   monitored_conditions:
     - summary
-    - daily_summary        
+    - daily_summary
     - temperature
     - apparent_temperature
-    - wind_speed    
+    - wind_speed
     - cloud_cover
     - visibility
     - humidity
     - pressure
     - temperature_high
-    - temperature_low    
+    - temperature_low

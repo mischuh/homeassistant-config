@@ -42,6 +42,13 @@ views:
         entities:
           - sensor.aeotec_zw100_multisensor_6_temperature
           - sensor.dark_sky_temperature
+      - type: custom:group-card
+        id: overview_alexas
+        group: group.alexas
+        card:
+          type: entities
+          title: Alexas
+          show_header_toggle: false
       
 
   - title: EG
@@ -132,10 +139,10 @@ views:
         group: group.ff_jona
         card:
           type: entities
-          title: Jona      
+          title: Jona
       - type: media-control
         id: ff_media_control_alexa_bath
-        entity: media_player.badezimmer
+        entity: media_player.alexas_echo_dot
 
   - title: DG
     id: secondfloor
@@ -151,13 +158,8 @@ views:
         group: group.sf_bedroom_lights
         card:
           type: entities
-          title: Schlafzimmer      
-      - type: media-control
-        id: sf_media_control_alexa_work
-        entity: media_player.arbeitszimmer
-      - type: media-control
-        id: sf_media_control_alexa_bedroom
-        entity: media_player.schlafzimmer
+          title: Schlafzimmer
+
 
   - title: System
     id: system
@@ -181,8 +183,15 @@ views:
         group: group.hass_versions
         card:
           type: entities
-          title: HA Versions   
-          show_header_toggle: false   
+          title: HA Versions
+          show_header_toggle: false
+      - type: custom:group-card
+        id: system_pi_hole
+        group: group.pi_hole
+        card:
+          type: entities
+          title: Pi Hole
+          show_header_toggle: false
       - type: entities
         id: system_raspberry_entities
         title: Raspberry

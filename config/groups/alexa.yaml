@@ -1,6 +1,8 @@
 alexas:
   name: Alexas
   entities:
-    - media_player.badezimmer
-    - media_player.arbeitszimmer
-    - media_player.dachgeschoss
+    - media_player.alexas_echo_dot
+    - media_player.echo_arbeitszimmer
+    - media_player.echo_schlafzimmer
+    - media_player.mikas_echo
+    - media_player.jonas_echo

@@ -16,8 +16,8 @@
     - service: media_player.alexa_tts
       data_template:
         entity_id: 
-          - media_player.arbeitszimmer 
-          - media_player.badezimmer
+          - media_player.echo_arbeitszimmer
+          - media_player.alexas_echo_dot
         message: "Es hat geklingelt"
     - service: notify.ios_iphone_mirko
       data:

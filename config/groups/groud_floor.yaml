@@ -33,8 +33,9 @@ kitchen_lights:
   name: Küche Lichter
   entities:
     - light.jeq0207534
+    - light.heq0359760
     - switch.gf_kitchen_window
-    - switch.gf_kitchen_workplace    
+    - switch.gf_kitchen_workplace
     
 kitchen_media:
   name: Küche Multimedia

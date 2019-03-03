@@ -205,5 +205,5 @@ panel_iframe:
     icon: mdi:router-wireless
   pihole:
     title: 'PI Hole'
-    url: 'http://raspi-hole/admin'
+    url: 'http://192.168.178.58/admin'
     icon: mdi:raspberrypi

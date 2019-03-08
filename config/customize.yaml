@@ -55,11 +55,11 @@ switch.ff_floor_tree:
   assumed_state: false
 
 switch.ff_mika_bed:
-  friendly_name: Lichterkette
+  friendly_name: Lichterkette Bett
   assumed_state: false
 
 switch.ff_mika_outlet:
-  friendly_name: Steckdose
+  friendly_name: Lichterkette Tür
   assumed_state: false
 
 switch.ff_jona_bed:

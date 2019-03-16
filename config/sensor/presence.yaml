@@ -65,6 +65,17 @@
             not_home
           {% endif %}
 
+# - platform: template
+#   binary_sensors:
+#     binary_presence_mirko:      
+#       value_template: >-
+#           {% if states('sensor.bt_presence_mirko') | float > 0 %}
+#             home
+#           {% else %}
+#             not_home
+#           {% endif %}
+
+
 - platform: min_max
   name: "BT Presence FF Family"
   type: mean

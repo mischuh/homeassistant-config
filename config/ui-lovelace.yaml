@@ -1,12 +1,15 @@
 title: Home
 
 resources:
-  - url: /local/lovelace/group-card.js?v=1
+  - url: /local/lovelace/group-card.js?track=true
     type: js
-  - url: /local/lovelace/layout-card.js?v=1
+  - url: /customcards/github/thomasloven/card-tools.js?track=true
     type: js
-
-views:  
+  - url: /customcards/github/thomasloven/layout-card.js?track=true
+    type: js
+  - url: /customcards/github/custom-cards/tracker-card.js?track=true
+    type: module
+views:
   - title: Home
     id: home
     icon: mdi:home
@@ -34,6 +37,13 @@ views:
         card:
           type: entities
           title: Kalender
+          show_header_toggle: false
+      - type: custom:group-card
+        id: overview_scenes
+        group: group.scenes
+        card:
+          type: entities
+          title: Szenen
           show_header_toggle: false
       - type: history-graph
         id: overview_history_graph_temp
@@ -223,14 +233,7 @@ views:
         card:
           type: entities
           title: Zustände
-          show_header_toggle: false
-      - type: custom:group-card
-        id: diesdas_scenes
-        group: group.scenes
-        card:
-          type: entities
-          title: Szenen
-          show_header_toggle: false
+          show_header_toggle: false      
       - type: sensor
         id: diesdas_history_graph_bt_presence
         entity: sensor.bt_presence_ff_family
@@ -238,6 +241,7 @@ views:
         name: Anwesenheit
         unit: '%'
         graph: line
+      - type: custom:tracker-card
       - type: map
         id: diesdas_map
         entities:

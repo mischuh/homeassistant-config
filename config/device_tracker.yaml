@@ -5,3 +5,11 @@
   interval_seconds: 60
   new_device_defaults:
     track_new_devices: False
+
+- platform: composite
+  name: mirko
+  time_as: device_or_local
+  entity_id:
+    - device_tracker.iphone_mirko
+    - device_tracker.mirko_owntracks
+    # - sensor.bt_presence_mirko

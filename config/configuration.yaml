@@ -12,6 +12,13 @@ homeassistant:
   time_zone: Europe/Berlin
   # Customization file
   customize: !include customize.yaml
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 127.0.0.1
+        - ::1
+        - 192.168.178.0/24
+        - fd00::/8
 
 
 ####################################################
@@ -85,15 +92,17 @@ alexa_media:
 #                                                  #
 ####################################################
 http: 
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
-  trusted_networks:
-    - 127.0.0.1
-    - ::1
-    - 192.168.178.0/24
-    - fd00::/8
  
 notify:
+
+custom_updater:
+  track:
+    - components
+    - cards
+  component_urls:
+    - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
+    - https://raw.githubusercontent.com/keatontaylor/alexa_media_player/master/custom_components.json
+
 
 homekit:
   pincode: !secret homekit_pin

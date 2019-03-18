@@ -27,7 +27,11 @@
     - service: notify.ios_iphone_mirko
       data:
         title: "Home-Assistant"
-        message: "Guest wifi turned ON"    
+        message: "Guest wifi turned ON"
+    - service: notify.ios_iphone_femke
+      data:
+        title: "Home-Assistant"
+        message: "Guest wifi turned ON"
 
 - alias: "Turn off: Guest WIFI"
   trigger:
@@ -35,19 +39,24 @@
       at: '00:00:00'
     - platform: state
       entity_id: input_boolean.guest_wlan
+      from: 'on'
       to: 'off'
     - platform: state
       entity_id: input_boolean.guest_wlan
       to: 'on'
       for:
-        minutes: 90
-  condition:
-    condition: state
-    entity_id: input_boolean.guest_wlan
-    state: 'on'
+        minutes: 60
+  # condition:
+  #   condition: state
+  #   entity_id: input_boolean.guest_wlan
+  #   state: 'on'
   action:
     - service: fritzbox_guestwifi.turn_off
     - service: notify.ios_iphone_mirko
+      data:
+        title: "Home-Assistant"
+        message: "Guest wifi turned off"
+    - service: notify.ios_iphone_femke
       data:
         title: "Home-Assistant"
         message: "Guest wifi turned off"

@@ -54,9 +54,9 @@ logbook:
 
 logger:
   default: warning
-  logs:
+#  logs:
 #    homeassistant.components.homematic: debug
-    homeassistant.components.device_tracker: debug
+#    homeassistant.components.device_tracker: debug
 
 
 sun:
@@ -173,17 +173,20 @@ person:
     device_trackers:
       - device_tracker.iphone_mirko
       - device_tracker.mirko_owntracks
+      - device_tracker.bt_mirko_gf
       - device_tracker.bt_mirko_ff
   - name: Femke
     id: person_femke
     device_trackers:
       - device_tracker.iphone_femke
       - device_tracker.femke_owntracks
+      - device_tracker.bt_femke_gf
       - device_tracker.bt_femke_ff
   - name: Mika
     id: person_mika
     device_trackers:
       - device_tracker.huawei_mika      
+      - device_tracker.bt_mika_gf
       - device_tracker.bt_mika_ff
 
 system_health:

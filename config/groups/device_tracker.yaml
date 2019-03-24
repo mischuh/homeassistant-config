@@ -3,6 +3,8 @@ mirko:
   entities:
     - device_tracker.iphone_mirko
     - device_tracker.mirko_owntracks
+    - device_tracker.bt_mirko_gf
+    - device_tracker.bt_mirko_ff
     - sensor.bt_presence_mirko
 
 femke:
@@ -10,12 +12,16 @@ femke:
   entities:
     - device_tracker.iphone_femke
     - device_tracker.femke_owntracks
+    - device_tracker.bt_femke_gf
+    - device_tracker.bt_femke_ff
     - sensor.bt_presence_femke
 
 mika:
   name: Mika
   entities:
     - device_tracker.huawei_mika
+    - device_tracker.bt_mika_gf
+    - device_tracker.bt_mika_ff
     - sensor.bt_presence_mika
 
 owntracks:

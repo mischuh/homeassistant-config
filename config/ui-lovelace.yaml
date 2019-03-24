@@ -38,6 +38,14 @@ views:
           type: entities
           title: Kalender
           show_header_toggle: false
+      - type: entities
+        id: overview_person_entities
+        title: Persons
+        show_header_toggle: false
+        entities:
+          - person.mirko
+          - person.femke
+          - person.mika
       - type: custom:group-card
         id: overview_scenes
         group: group.scenes

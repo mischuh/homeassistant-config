@@ -22,10 +22,10 @@ views:
     id: home
     icon: mdi:home
     background: var(--background-image)
-    badges:
-      - person.mirko
-      - person.mika
-      - person.femke
+    # badges:
+    #   - person.mirko
+    #   - person.mika
+    #   - person.femke
     cards:
       - type: glance
         id: overview_glance
@@ -33,14 +33,14 @@ views:
           - group.ground_floor_lights
           - group.first_floor_lights
           - group.second_floor_lights
-      # - type: entities
-      #   id: overview_person_entities
-      #   title: Anwesenheit
-      #   show_header_toggle: false
-      #   entities:
-      #     - person.mirko
-      #     - person.femke
-      #     - person.mika
+      - type: entities
+        id: overview_person_entities
+        title: Anwesenheit
+        show_header_toggle: false
+        entities:
+          - person.mirko
+          - person.femke
+          - person.mika
       - type: weather-forecast
         id: overview_weather_forecast
         entity: weather.wetter

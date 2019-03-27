@@ -12,14 +12,13 @@ homeassistant:
   time_zone: Europe/Berlin
   # Customization file
   customize: !include customize.yaml
-  auth_providers:
+  auth_providers:    
     - type: trusted_networks
       trusted_networks:
         - 127.0.0.1
         - ::1
         - 192.168.178.0/24
         - fd00::/8
-
 
 ####################################################
 #                                                  #
@@ -28,8 +27,9 @@ homeassistant:
 ####################################################
 # Enables the frontend
 frontend:
-  # javascript_version: latest
-
+  themes: !include themes.yaml
+  javascript_version: latest
+  
 lovelace:
   mode: yaml
   
@@ -45,6 +45,7 @@ history:
       - media_player
       - light
       - binary_sensor
+      - device_tracker
 
 # View all events in a logbook
 logbook:
@@ -54,10 +55,11 @@ logbook:
 
 logger:
   default: warning
-#  logs:
+  logs:
+    homeassistant.components.panel_iframe: debug
 #    homeassistant.components.homematic: debug
 #    homeassistant.components.device_tracker: debug
-
+#    custom_components.alexa_media: debug  # optional
 
 sun:
 
@@ -93,17 +95,26 @@ alexa_media:
 #                     Dies/Das                     #
 #                                                  #
 ####################################################
-http: 
+http:
  
+
 notify:
+  - platform: alexa_media
+    name: alexa_media
 
 custom_updater:
   track:
     - components
     - cards
+  card_urls:
+    - https://raw.githubusercontent.com/rdehuyss/homeassistant-lovelace-google-calendar-card/master/custom_updater.json
   component_urls:
     - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
     - https://raw.githubusercontent.com/keatontaylor/alexa_media_player/master/custom_components.json
+  
+
+updater:
+  reporting: false
 
 
 homekit:
@@ -130,12 +141,11 @@ zwave:
 
 recorder:
   purge_interval: 1
-  purge_keep_days: 14
+  purge_keep_days: 7
   exclude:
     domains:
       - updater
       - automation
-      - device_tracker
       - group
       - scene
       - script
@@ -170,6 +180,7 @@ speedtestdotnet:
 person:
   - name: Mirko
     id: person_mirko
+    user_id: 930ac8c04c884c6dba2c7585e533b169
     device_trackers:
       - device_tracker.iphone_mirko
       - device_tracker.mirko_owntracks
@@ -177,6 +188,7 @@ person:
       - device_tracker.bt_mirko_ff
   - name: Femke
     id: person_femke
+    user_id: d78ceab5a0af4cfca21e49d638bbefdb
     device_trackers:
       - device_tracker.iphone_femke
       - device_tracker.femke_owntracks
@@ -184,6 +196,7 @@ person:
       - device_tracker.bt_femke_ff
   - name: Mika
     id: person_mika
+    user_id: f7eaa84806ad4037aabc5f5ae8d63f03
     device_trackers:
       - device_tracker.huawei_mika      
       - device_tracker.bt_mika_gf
@@ -191,6 +204,28 @@ person:
 
 system_health:
 
+####################################################
+#                                                  #
+#                     Panels                       #
+#                                                  #
+####################################################
+
+panel_iframe:
+  fritzbox:
+    title: 'Router'
+    url: http://192.168.178.1
+    icon: mdi:router-wireless
+  pihole:
+    title: 'PI Hole'
+    url: http://raspi-hole/admin/index.php
+    icon: mdi:raspberrypi
+  google:
+    title: 'Google'
+    url: https://www.google.com
+    icon: mdi:google
+
+
+  
 
 ####################################################
 #                                                  #
@@ -211,20 +246,3 @@ sensor: !include_dir_merge_list sensor
 switch: !include_dir_merge_list switch
 emulated_hue: !include alexa.yaml
 zone: !include_dir_list zones
-
-
-####################################################
-#                                                  #
-#                     Panels                       #
-#                                                  #
-####################################################
-
-panel_iframe:
-  router:
-    title: 'Router'
-    url: 'http://192.168.178.1'
-    icon: mdi:router-wireless
-  pihole:
-    title: 'PI Hole'
-    url: 'http://192.168.178.58/admin'
-    icon: mdi:raspberrypi

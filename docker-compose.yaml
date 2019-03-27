@@ -51,7 +51,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
 
   hass:
-    image: homeassistant/raspberrypi3-homeassistant:0.90.1
+    image: homeassistant/raspberrypi3-homeassistant:0.90.2
     container_name: home-assistant
     restart: always
     privileged: true
@@ -65,4 +65,14 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./etc/rxv/rxv.py:/usr/local/lib/python3.6/site-packages/rxv/rxv.py
     ports:
-      - 8123:8123
+      - "8123:8123"
+
+  portainer:
+    image: "portainer/portainer:arm"
+    container_name: portainer
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/portainer:/data
+      - /var/run/docker.sock:/var/run/docker.sock

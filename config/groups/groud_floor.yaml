@@ -15,6 +15,12 @@ ground_floor_lights:
     - group.livingroom_lights
     - group.garden_lights
     
+ground_floor_multimedia:
+  name: Media (EG)
+  entities:
+    - group.kitchen_media
+    - group.livingroom_media
+    
 ground_floor_433_lights:
   name: Erdgeschoss Funk
   entities:
@@ -83,7 +89,6 @@ entree_lights:
   entities:
     - light.jeq0207545
     - light.jeq0207587
-    - switch.gf_free_outlet_2
 
 garden_lights:
   name: Garten

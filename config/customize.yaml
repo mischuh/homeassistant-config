@@ -1,3 +1,14 @@
+# Persons
+
+person.mirko:
+  entity_picutre: /local/images/mirko.jpg
+
+person.femke:  
+  entity_picutre: /local/images/femke.jpg
+
+person.mika:
+  entity_picutre: /local/images/mika.jpg
+
 #
 # Homematic
 #

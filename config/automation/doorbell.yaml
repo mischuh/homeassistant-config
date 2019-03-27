@@ -13,12 +13,7 @@
   action:
     - service: homeassistant.turn_on
       entity_id: input_boolean.doorbell
-    - service: media_player.alexa_tts
-      data_template:
-        entity_id: 
-          - media_player.echo_arbeitszimmer
-          - media_player.alexas_echo_dot
-        message: "Es hat geklingelt"
+
     - service: notify.ios_iphone_mirko
       data:
         title: "Home-Assistant"
@@ -27,6 +22,16 @@
       data:
         title: "Home-Assistant"
         message: "Es hat geklingelt"
+
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.echo_arbeitszimmer
+          - media_player.alexas_echo_dot
+        data:
+          type: tts
+        message: "Es hat geklingelt"
+
 
 - alias: "Doorbell Timer"
   trigger:

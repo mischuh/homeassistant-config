@@ -1,0 +1,44 @@
+
+- platform: template
+  switches:
+    frontend_theme_default:
+      value_template: "{{ is_state('input_select.frontend_theme', 'default') }}"
+      icon_template: mdi:home-circle
+      turn_on:
+        service: input_select.select_option
+        data:
+          entity_id: input_select.frontend_theme
+          option: "default"
+      turn_off:
+        service: input_select.select_option
+        data:
+          entity_id: input_select.frontend_theme
+          option: "default"
+
+    frontend_theme_clear:
+      value_template: "{{ is_state('input_select.frontend_theme', 'clear') }}"
+      icon_template: mdi:white-balance-sunny
+      turn_on:
+        service: input_select.select_option
+        data:
+          entity_id: input_select.frontend_theme
+          option: "clear"
+      turn_off:
+        service: input_select.select_option
+        data:
+          entity_id: input_select.frontend_theme
+          option: "clear"
+          
+    frontend_theme_dark:
+      value_template: "{{ is_state('input_select.frontend_theme', 'dark') }}"
+      icon_template: mdi:weather-night
+      turn_on:
+        service: input_select.select_option
+        data:
+          entity_id: input_select.frontend_theme
+          option: "dark"
+      turn_off:
+        service: input_select.select_option
+        data:
+          entity_id: input_select.frontend_theme
+          option: "dark"

@@ -1,6 +1,8 @@
 title: Home
 
 resources:
+  - url: /customcards/github/custom-cards/button-card.js?track=true
+    type: module
   - url: /local/lovelace/group-card.js?track=true
     type: js
   - url: /customcards/github/thomasloven/card-tools.js?track=true
@@ -9,97 +11,100 @@ resources:
     type: js
   - url: /customcards/github/custom-cards/tracker-card.js?track=true
     type: module
+  # Calendar
+  - url: https://unpkg.com/moment@2.22.2/moment.js
+    type: js
+  - url: /local/custom_ui/calendar-card/calendar-card.js?track=true
+    type: module
+
 views:
   - title: Home
     id: home
     icon: mdi:home
+    background: var(--background-image)
+    badges:
+      - person.mirko
+      - person.mika
+      - person.femke
     cards:
       - type: glance
         id: overview_glance
-        title: Overview
         entities:
           - group.ground_floor_lights
           - group.first_floor_lights
           - group.second_floor_lights
-      - type: custom:group-card
-        id: overview_presence
-        group: group.family_status
-        card:
-          type: entities
-          title: Anwesenheit
-          show_header_toggle: false
+      # - type: entities
+      #   id: overview_person_entities
+      #   title: Anwesenheit
+      #   show_header_toggle: false
+      #   entities:
+      #     - person.mirko
+      #     - person.femke
+      #     - person.mika
       - type: weather-forecast
         id: overview_weather_forecast
         entity: weather.wetter
-      - type: custom:group-card
+      - type: "custom:calendar-card"
         id: overview_calendars
-        group: group.calendars
-        card:
-          type: entities
-          title: Kalender
-          show_header_toggle: false
-      - type: entities
-        id: overview_person_entities
-        title: Persons
-        show_header_toggle: false
+        name: "Kalendar"
+        showProgressBar: false
+        numberOfDays: 5
         entities:
-          - person.mirko
-          - person.femke
-          - person.mika
-      - type: custom:group-card
-        id: overview_scenes
-        group: group.scenes
-        card:
-          type: entities
-          title: Szenen
-          show_header_toggle: false
+          - calendar.femke_schuh
+          - calendar.hrschuhgooglemailcom
       - type: history-graph
         id: overview_history_graph_temp
         title: Temperatur
         hours_to_show: 48
         entities:
           - sensor.aeotec_zw100_multisensor_6_temperature
-          - sensor.dark_sky_temperature
-      - type: custom:group-card
-        id: overview_alexas
-        group: group.alexas
-        card:
-          type: entities
-          title: Alexas
-          show_header_toggle: false
-      
+          - sensor.dark_sky_temperature     
 
   - title: EG
     id: groundfloor
+    background: var(--background-image)
+    # cards:
+    #   - type: custom:layout-card
+    #     id: gf_layout_card
+    #     layout: horizontal
     cards:
-      - type: custom:layout-card
-        id: gf_layout_card
-        layout: horizontal
-        cards:
-          - type: custom:group-card
-            id: gf_entrence_lights
-            group: group.entree_lights
-            card:
-              type: entities
-              title: Eingangsbereich
-          - type: custom:group-card
-            id: gf_kitchen_entities
-            group: group.kitchen_lights
-            card:
-              type: entities
-              title: "K\xFCche Lichter"
-          - type: custom:group-card
-            id: gf_living_room_lights
-            group: group.livingroom_lights
-            card:
-              type: entities
-              title: Wohnzimmer Lichter
-          - type: custom:group-card
-            id: gf_garden_lights
-            group: group.garden_lights
-            card:
-              type: entities
-              title: Garten
+      - type: glance
+        id: gf_glance
+        entities:
+          - group.kitchen
+          - group.livingroom
+          - group.garden_lights   
+      - type: custom:group-card
+        id: overview_scenes
+        group: group.scenes
+        card:
+          type: entities
+          title: Szenen
+          show_header_toggle: false       
+      - type: custom:group-card
+        id: gf_entrence_lights
+        group: group.entree_lights
+        card:
+          type: entities
+          title: Eingangsbereich
+      - type: custom:group-card
+        id: gf_kitchen_entities
+        group: group.kitchen_lights
+        card:
+          type: entities
+          title: "K\xFCche Lichter"
+      - type: custom:group-card
+        id: gf_living_room_lights
+        group: group.livingroom_lights
+        card:
+          type: entities
+          title: Wohnzimmer Lichter
+      - type: custom:group-card
+        id: gf_garden_lights
+        group: group.garden_lights
+        card:
+          type: entities
+          title: Garten
       - type: vertical-stack
         id: gf_media_control
         cards:
@@ -121,7 +126,13 @@ views:
 
   - title: OG
     id: firstfloor
+    background: var(--background-image)
     cards:
+      - type: glance
+        id: ff_glance
+        entities:
+          - group.ff_floor_lights
+          - group.ff_children          
       - type: horizontal-stack
         id: ff_aeotec_zw100_multisensor
         cards: 
@@ -164,7 +175,19 @@ views:
 
   - title: DG
     id: secondfloor
+    background: var(--background-image)
     cards:
+      - type: glance
+        id: sf_glance
+        entities:
+          - group.sf_work_lights
+          - group.sf_bedroom_lights
+      - type: custom:group-card
+        id: sf_multimedia
+        group: group.sf_alexas
+        card:
+          type: entities
+          show_header_toggle: false
       - type: custom:group-card
         id: sf_group_work
         group: group.sf_work_lights
@@ -182,6 +205,7 @@ views:
   - title: System
     id: system
     icon: mdi:cogs
+    background: var(--background-image)
     cards:
       - type: horizontal-stack
         id: system_sensor_speedtest
@@ -234,7 +258,15 @@ views:
   - title: Dies&Das
     id: diesdas
     icon: mdi:creation
+    background: var(--background-image)
     cards:
+      - type: custom:group-card
+        id: overview_alexas
+        group: group.alexas
+        card:
+          type: entities
+          title: Alexas
+          show_header_toggle: false
       - type: custom:group-card
         id: diesdas_states
         group: group.boolean_states
@@ -249,6 +281,47 @@ views:
         name: Anwesenheit
         unit: '%'
         graph: line
+      - type: vertical-stack
+        id: settings_theme
+        cards:
+          - type: "custom:button-card"
+            color_type: label-card
+            color: var(--background-card-color)
+            name: Themes
+            style:
+              - color: var(--primary-text-color)
+          - type: horizontal-stack
+            cards:
+            - type: custom:button-card
+              entity: switch.frontend_theme_default
+              name: Default
+              icon: attribute
+              size: 40%
+              color: var(--accent-color)
+            - type: custom:button-card
+              entity: switch.frontend_theme_clear
+              name: Day
+              icon: attribute
+              size: 40%
+              color: var(--accent-color)
+            - type: custom:button-card
+              entity: switch.frontend_theme_dark
+              name: Night
+              icon: attribute
+              size: 40%
+              color: var(--accent-color)
+          - type: horizontal-stack
+            cards:
+            - type: "custom:button-card"
+              color_type: blank-card
+            - type: custom:button-card
+              entity: input_boolean.frontend_theme_day_night_switch
+              name: "Auto switch"
+              icon: attribute
+              size: 40%
+              color: var(--accent-color)
+            - type: "custom:button-card"
+              color_type: blank-card
       - type: custom:tracker-card
       - type: map
         id: diesdas_map

@@ -1,0 +1,7 @@
+frontend_theme:
+  name: Choose Theme
+  options:
+    - default
+    - clear
+    - dark
+  icon: mdi:wall

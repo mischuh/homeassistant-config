@@ -6,3 +6,9 @@ alexas:
     - media_player.echo_schlafzimmer
     - media_player.mikas_echo
     - media_player.jonas_echo
+
+sf_alexas:
+  name: Alexas
+  entities:
+    - media_player.echo_arbeitszimmer
+    - media_player.echo_schlafzimmer

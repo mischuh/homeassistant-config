@@ -1,15 +1,3 @@
-# - platform: luftdaten
-#   sensorid: 9966
-#   monitored_conditions:
-#     - P1
-#     - P2
-    
-# - platform: luftdaten
-#   sensorid: 14343
-#   monitored_conditions:
-#     - temperature
-#     - humidity
-
 - platform: yr
   name: weather
   monitored_conditions:

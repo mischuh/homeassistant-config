@@ -1,9 +1,13 @@
 - alias: "Coming home late"
   trigger:
-    platform: zone
-    entity_id: group.owntracks
-    zone: zone.home
-    event: enter
+    - platform: zone
+      entity_id: evice_tracker.femke_owntracks
+      zone: zone.home
+      event: enter
+    - platform: zone
+      entity_id: evice_tracker.mirko_owntracks
+      zone: zone.home
+      event: enter
   condition:
     condition: and
     conditions:
@@ -13,9 +17,6 @@
       - condition: state
         entity_id: group.entree_lights
         state: 'off'
-      - condition: state
-        entity_id: group.parents
-        state: 'not_home'
   action:
     - service: light.turn_on
       data:
@@ -26,4 +27,8 @@
       data:
         # Entree
         brightness_pct: 30
-        entity_id: light.jeq0207545 
+        entity_id: light.jeq0207545
+    - service: notify.ios_iphone_mirko
+      data:
+        title: "Home-Assistant"
+        message: "Coming home late event"

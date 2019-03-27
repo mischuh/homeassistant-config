@@ -14,12 +14,26 @@
       entity_id: 
         - switch.gf_kitchen_workplace
         - switch.gf_livingroom_outlet
-    - service: ligth.turn_on
+    - service: light.turn_on
       data:
         brightness_pct: 45
         entity_id:
           - light.links
           - light.rechts
+
+
+- alias: "Turn off light Arbeitsplatte in the morning"
+  trigger:
+    platform: time
+    at: '07:50:00'
+  condition:
+    condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: 
+        - group.ground_floor_lights
 
 # ####################################################
 # Sunset event

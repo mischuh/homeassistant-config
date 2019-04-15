@@ -21,8 +21,8 @@
   state_topic: !secret bt_presence_ff_mirko
   value_template: '{{ float(value_json.confidence) | int }}'
   unit_of_measurement: '%'
-  name: 'bt_presence_ff_mirko_iphone'
-  
+  name: 'bt_presence_ff_mirko_handy'
+
 - platform: mqtt
   state_topic: !secret bt_presence_ff_femke
   value_template: '{{ float(value_json.confidence) | int }}'
@@ -41,7 +41,7 @@
       friendly_name: "Mirko BT"
       entity_picture_template: /local/images/mirko.jpg
       value_template: >-
-          {% if states('sensor.bt_presence_ff_mirko_iphone') | float > 0 %}
+          {% if states('sensor.bt_presence_ff_mirko_handy') | float > 0 %}
             home
           {% else %}
             not_home
@@ -81,6 +81,6 @@
   type: mean
   round_digits: 0
   entity_ids:
-    - sensor.bt_presence_ff_mirko_iphone
+    - sensor.bt_presence_ff_mirko_handy
     - sensor.bt_presence_ff_femke_iphone
     - sensor.bt_presence_ff_mika_huawei

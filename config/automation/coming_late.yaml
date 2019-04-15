@@ -28,7 +28,7 @@
         # Entree
         brightness_pct: 30
         entity_id: light.jeq0207545
-    - service: notify.ios_iphone_mirko
-      data:
-        title: "Home-Assistant"
-        message: "Coming home late event"
+    # - service: notify.ios_iphone_mirko
+    #   data:
+    #     title: "Home-Assistant"
+    #     message: "Coming home late event"

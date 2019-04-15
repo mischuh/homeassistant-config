@@ -9,8 +9,8 @@
     light.jeq0207587:
       state: on
       brightness_pct: 25
-    
-    light.jeq0207534:  
+
+    light.jeq0207534:
       state: on
       data_template:
         brightness: >
@@ -20,6 +20,6 @@
               {{ states.light.jeq0207534.attributes.brightness | int }}
             {% endif %}
 
-    light.jeq0207545:  
+    light.jeq0207545:
       state: on
       brightness_pct: 33

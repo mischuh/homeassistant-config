@@ -19,8 +19,7 @@
         brightness_pct: 45
         entity_id:
           - light.links
-          - light.rechts
-
+          - light.rechts_2
 
 - alias: "Turn off light Arbeitsplatte in the morning"
   trigger:
@@ -49,9 +48,9 @@
     - service: light.turn_on
       data:
         brightness_pct: 45
-        entity_id:           
+        entity_id:
           - light.links
-          - light.rechts
+          - light.rechts_2
 
     - service: light.turn_on
       entity_id: light.jeq0207534

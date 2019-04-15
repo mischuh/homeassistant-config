@@ -20,7 +20,7 @@
   action:
     - service: homeassistant.turn_off
       entity_id: group.home_lights
-    - service: notify.ios_iphone_mirko
-      data:
-        title: "Home-Assistant"
-        message: "Keiner zuhause und es waren noch Lichter an..."
+    # - service: notify.ios_iphone_mirko
+    #   data:
+    #     title: "Home-Assistant"
+    #     message: "Keiner zuhause und es waren noch Lichter an..."

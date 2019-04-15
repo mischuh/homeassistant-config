@@ -30,13 +30,14 @@ ground_floor_433_lights:
 
 kitchen:
   name: Kueche
+  icon: mdi:coffee
   entities:
-    - group.livingroom_lights
     - group.kitchen_lights
     - group.kitchen_media
 
 kitchen_lights:
   name: Küche Lichter
+  icon: mdi:lightbulb
   entities:
     - light.jeq0207534
     - light.heq0359760
@@ -45,34 +46,38 @@ kitchen_lights:
     
 kitchen_media:
   name: Küche Multimedia
+  icon: mdi:radio
   entities:
     - media_player.yamaha_receiver_zone_2
 
 
 livingroom:
   name: Wohnzimmer
+  icon: mdi:seat
   entities:
     - group.livingroom_lights
     - group.livingroom_media
 
 livingroom_lights:
   name: Wohnzimmer Lichter
+  icon: mdi:lightbulb
   entities:
     - switch.gf_livingroom_outlet   
     - light.meq0169146
     - group.livingroom_couch
     - light.links
-    - light.rechts
+    - light.rechts_2
 
 livingroom_couch:
   name: Sofa
   icon: mdi:lightbulb
   entities:
     - light.links
-    - light.rechts
+    - light.rechts_2
 
 livingroom_media:
   name: Wohnzimmer Multimedia
+  icon: mdi:radio
   entities:
     - media_player.yamaha_receiver 
     - media_player.panasonic_viera_tv
@@ -86,11 +91,13 @@ yamaha_radio:
 
 entree_lights:
   name: Eingangsbereich
+  icon: mdi:lightbulb
   entities:
     - light.jeq0207545
     - light.jeq0207587
 
 garden_lights:
   name: Garten
-  entities:    
+  icon: mdi:lightbulb
+  entities:
     - switch.feq0062058

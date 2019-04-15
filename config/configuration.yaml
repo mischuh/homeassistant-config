@@ -124,7 +124,7 @@ homekit:
     include_entities:
       - light.jeq0207534 #essplatz
       - light.links
-      - light.rechts
+      - light.rechts_2
       - group.groundfloor_lights
 
 mqtt:
@@ -149,8 +149,8 @@ recorder:
       - group
       - scene
       - script
-    entities:    
-      - sensor.date    
+    entities:
+      - sensor.date
       - sun.sun
       - zone.home
 
@@ -182,7 +182,7 @@ person:
     id: person_mirko
     user_id: 930ac8c04c884c6dba2c7585e533b169
     device_trackers:
-      - device_tracker.iphone_mirko
+      - device_tracker.galaxy_s10
       - device_tracker.mirko_owntracks
       - device_tracker.bt_mirko_gf
       - device_tracker.bt_mirko_ff
@@ -198,7 +198,8 @@ person:
     id: person_mika
     user_id: f7eaa84806ad4037aabc5f5ae8d63f03
     device_trackers:
-      - device_tracker.huawei_mika      
+      - device_tracker.huawei_mika
+      - device_tracker.mika_owntracks
       - device_tracker.bt_mika_gf
       - device_tracker.bt_mika_ff
 
@@ -210,19 +211,19 @@ system_health:
 #                                                  #
 ####################################################
 
-panel_iframe:
-  fritzbox:
-    title: 'Router'
-    url: http://192.168.178.1
-    icon: mdi:router-wireless
-  pihole:
-    title: 'PI Hole'
-    url: http://raspi-hole/admin/index.php
-    icon: mdi:raspberrypi
-  google:
-    title: 'Google'
-    url: https://www.google.com
-    icon: mdi:google
+# panel_iframe:
+#   fritzbox:
+#     title: 'Router'
+#     url: http://192.168.178.1
+#     icon: mdi:router-wireless
+#   pihole:
+#     title: 'PI Hole'
+#     url: http://raspi-hole/admin/index.php
+#     icon: mdi:raspberrypi
+#   google:
+#     title: 'Google'
+#     url: https://www.google.com
+#     icon: mdi:google
 
 
   

@@ -11,6 +11,8 @@ resources:
     type: js
   - url: /customcards/github/custom-cards/tracker-card.js?track=true
     type: module
+  - url: /local/config-template-card.js
+    type: module
   # Calendar
   - url: https://unpkg.com/moment@2.22.2/moment.js
     type: js
@@ -22,25 +24,50 @@ views:
     id: home
     icon: mdi:home
     background: var(--background-image)
-    # badges:
-    #   - person.mirko
-    #   - person.mika
-    #   - person.femke
+    badges:
+      - person.mirko
+      - person.mika
+      - person.femke
     cards:
-      - type: glance
-        id: overview_glance
+      - type: "custom:config-template-card"
+        variables:
+          - states['group.ground_floor'].state
+          - states['group.first_floor_lights'].state
+          - states['group.second_floor'].state
         entities:
-          - group.ground_floor_lights
+          - group.ground_floor
           - group.first_floor_lights
-          - group.second_floor_lights
-      - type: entities
-        id: overview_person_entities
-        title: Anwesenheit
-        show_header_toggle: false
-        entities:
-          - person.mirko
-          - person.femke
-          - person.mika
+          - group.second_floor
+        card:
+          type: 'custom:hui-glance-card'
+          entities:
+            - entity: group.ground_floor
+              hold_action:
+                  action: toggle
+              icon: "${vars[0] === 'on' ? 'mdi:numeric-1-box' : 'mdi:mdi:numeric-1-box-outline' }"
+            - entity: group.first_floor_lights
+              hold_action:
+                  action: toggle
+              icon: "${vars[1] === 'on' ? 'mdi:numeric-2-box' : 'mdi:mdi:numeric-2-box-outline' }"
+            - entity: group.second_floor
+              hold_action:
+                  action: toggle
+              icon: "${vars[2] === 'on' ? 'mdi:numeric-3-box' : 'mdi:mdi:numeric-3-box-outline' }"
+      # - type: glance
+      #   id: overview_glance
+      #   entities:
+      #     - entity: group.ground_floor
+      #       hold_action:
+      #           action: toggle
+      #       icon: mdi:numeric-1-box-multiple-outline
+      #     - entity: group.first_floor_lights
+      #       hold_action:
+      #           action: toggle
+      #       icon: mdi:numeric-2-box-multiple-outline
+      #     - entity: group.second_floor
+      #       hold_action:
+      #           action: toggle
+      #       icon: mdi:numeric-3-box-multiple-outline
       - type: weather-forecast
         id: overview_weather_forecast
         entity: weather.wetter
@@ -48,10 +75,11 @@ views:
         id: overview_calendars
         name: "Kalendar"
         showProgressBar: false
-        numberOfDays: 5
+        numberOfDays: 7
         entities:
           - calendar.femke_schuh
           - calendar.hrschuhgooglemailcom
+          - calendar.familie
       - type: history-graph
         id: overview_history_graph_temp
         title: Temperatur
@@ -63,24 +91,51 @@ views:
   - title: EG
     id: groundfloor
     background: var(--background-image)
-    # cards:
-    #   - type: custom:layout-card
-    #     id: gf_layout_card
-    #     layout: horizontal
     cards:
-      - type: glance
-        id: gf_glance
+      - type: "custom:config-template-card"
         entities:
           - group.kitchen
           - group.livingroom
-          - group.garden_lights   
+          - group.garden_lights
+        card:
+          type: 'custom:hui-glance-card'
+          entities:
+            - entity: group.kitchen
+              hold_action:
+                  action: toggle
+              icon: "${states['group.kitchen'].state === 'on' ? 'mdi:coffee' : 'mdi:coffee-outline' }"
+            - entity: group.livingroom
+              hold_action:
+                  action: toggle
+              icon: "${states['group.livingroom'].state === 'on' ? 'mdi:seat' : 'mdi:seat-outline' }"
+            - entity: group.garden_lights
+              hold_action:
+                  action: toggle
+              icon: "${states['group.garden_lights'].state === 'on' ? 'mdi:flower' : 'mdi:flower-outline' }"
+
+    # - type: glance
+      #   id: gf_glance
+      #   entities:
+      #     - entity: group.kitchen
+      #       hold_action:
+      #           action: toggle
+      #       icon: mdi:coffee
+      #       #grill
+      #     - entity: group.livingroom
+      #       hold_action:
+      #           action: toggle
+      #       icon: mdi:seat
+      #     - entity: group.garden_lights
+      #       hold_action:
+      #           action: toggle
+      #       icon: mdi:flower
       - type: custom:group-card
         id: overview_scenes
         group: group.scenes
         card:
           type: entities
           title: Szenen
-          show_header_toggle: false       
+          show_header_toggle: false
       - type: custom:group-card
         id: gf_entrence_lights
         group: group.entree_lights
@@ -105,24 +160,21 @@ views:
         card:
           type: entities
           title: Garten
-      - type: vertical-stack
-        id: gf_media_control
-        cards:
-          - type: custom:group-card
-            id: gf_media_contrl_rxv_radio
-            group: group.yamaha_radio
-            card:
-              type: entities
-              title: Yamaha Radio
-          - type: media-control
-            id: gf_media_control_rxv_zone1
-            entity: media_player.yamaha_receiver
-          - type: media-control
-            id: gf_media_control_rxv_zone2
-            entity: media_player.yamaha_receiver_zone_2
-          - type: media-control
-            id: gf_media_control_panasonic
-            entity: media_player.panasonic_viera_tv
+      - type: custom:group-card
+        id: gf_media_contrl_rxv_radio
+        group: group.yamaha_radio
+        card:
+          type: entities
+          title: Yamaha Radio
+      - type: media-control
+        id: gf_media_control_rxv_zone1
+        entity: media_player.yamaha_receiver
+      - type: media-control
+        id: gf_media_control_rxv_zone2
+        entity: media_player.yamaha_receiver_zone_2
+      - type: media-control
+        id: gf_media_control_panasonic
+        entity: media_player.panasonic_viera_tv
 
   - title: OG
     id: firstfloor
@@ -131,8 +183,14 @@ views:
       - type: glance
         id: ff_glance
         entities:
-          - group.ff_floor_lights
-          - group.ff_children          
+          - entity: group.ff_floor_lights
+            hold_action:
+                action: toggle
+            icon: mdi:home-heart
+          - entity: group.ff_children
+            hold_action:
+                action: toggle
+            icon: mdi:account-supervisor
       - type: horizontal-stack
         id: ff_aeotec_zw100_multisensor
         cards: 
@@ -162,7 +220,7 @@ views:
         group: group.ff_mika
         card:
           type: entities
-          title: Mika          
+          title: Mika
       - type: custom:group-card
         id: ff_group_jona
         group: group.ff_jona
@@ -180,8 +238,14 @@ views:
       - type: glance
         id: sf_glance
         entities:
-          - group.sf_work_lights
-          - group.sf_bedroom_lights
+          - entity: group.sf_work_lights
+            hold_action:
+                action: toggle
+            icon: mdi:monitor-cellphone-star
+          - entity: group.sf_bedroom_lights
+            hold_action:
+                action: toggle
+            icon: mdi:hotel
       - type: custom:group-card
         id: sf_multimedia
         group: group.sf_alexas
@@ -201,7 +265,6 @@ views:
           type: entities
           title: Schlafzimmer
 
-
   - title: System
     id: system
     icon: mdi:cogs
@@ -209,7 +272,7 @@ views:
     cards:
       - type: horizontal-stack
         id: system_sensor_speedtest
-        cards: 
+        cards:
           - type: sensor
             id: system_sensor_speedtest_down
             entity: sensor.speedtest_download
@@ -220,20 +283,31 @@ views:
             entity: sensor.speedtest_upload
             name: Upload
             graph: line
-      - type: custom:group-card
-        id: system_ha_versions
-        group: group.hass_versions
-        card:
-          type: entities
-          title: HA Versions
-          show_header_toggle: false
-      - type: custom:group-card
-        id: system_pi_hole
-        group: group.pi_hole
-        card:
-          type: entities
-          title: Pi Hole
-          show_header_toggle: false
+      - type: horizontal-stack
+        id: system_sensor_pihole
+        cards:
+          - type: sensor
+            id: system_sensor_pi_hole_ads_percentage_blocked_today
+            entity: sensor.pi_hole_ads_percentage_blocked_today
+            name: "% Ads blocked"
+            graph: line
+          - type: sensor
+            id: system_sensor_pi_hole_dns_queries_today
+            entity: sensor.pi_hole_dns_queries_today
+            name: DNS queries
+            graph: line
+      - type: horizontal-stack
+        id: system_raspberry
+        cards:
+          - type: sensor
+            id: system_sensor_raspberry_load_5m
+            entity: sensor.load_5m
+            unit: '%'
+            graph: line
+          - type: sensor
+            id: system_sensor_raspberry_disk_use_percent_home
+            entity: sensor.disk_use_percent_home
+            graph: line
       - type: entities
         id: system_raspberry_entities
         title: Raspberry
@@ -242,19 +316,23 @@ views:
           - sensor.load_5m
           - sensor.memory_use_percent
           - sensor.load_1m
-          - sensor.network_out_eth0
           - sensor.load_15m
-          - sensor.network_in_eth0
           - sensor.disk_use_percent_home
-          - sensor.processor_use
           - sensor.last_boot
+      - type: custom:group-card
+        id: system_ha_versions
+        group: group.hass_versions
+        card:
+          type: entities
+          title: HA Versions
+          show_header_toggle: false
       - type: entities
         id: system_battery_entities
         title: Batterien
         show_header_toggle: false
         entities:
           - sensor.tradfri_wireless_dimmer
-      
+
   - title: Dies&Das
     id: diesdas
     icon: mdi:creation
@@ -328,8 +406,8 @@ views:
         entities:
           - device_tracker.mirko_owntracks
           - device_tracker.femke_owntracks
+          - device_tracker.mika_owntracks
           - zone.home
           - zone.school
           - zone.work_ml
           - zone.work_salon
-      

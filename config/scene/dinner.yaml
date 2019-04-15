@@ -1,6 +1,6 @@
 - name: Dinner
   entities:
-    switch.gf_kitchen_window_outlet: on 
+    switch.gf_kitchen_window_outlet: on
     switch.gf_kitchen_ceiling_outlet: on
     light.sofa:
       state: on

@@ -1,7 +1,7 @@
 mirko:
   name: Mirko
   entities:
-    - device_tracker.iphone_mirko
+    - device_tracker.galaxy_s10
     - device_tracker.mirko_owntracks
     - device_tracker.bt_mirko_gf
     - device_tracker.bt_mirko_ff
@@ -20,6 +20,7 @@ mika:
   name: Mika
   entities:
     - device_tracker.huawei_mika
+    - device_tracker.mika_owntracks
     - device_tracker.bt_mika_gf
     - device_tracker.bt_mika_ff
     - sensor.bt_presence_mika
@@ -29,6 +30,7 @@ owntracks:
   entities:
     - device_tracker.femke_owntracks
     - device_tracker.mirko_owntracks
+    - device_tracker.mika_owntracks
 
 kids:
   name: Kinder

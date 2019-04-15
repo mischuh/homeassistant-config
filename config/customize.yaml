@@ -1,13 +1,13 @@
 # Persons
 
 person.mirko:
-  entity_picutre: /local/images/mirko.jpg
+  entity_picture: /local/images/mirko.jpg
 
-person.femke:  
-  entity_picutre: /local/images/femke.jpg
+person.femke:
+  entity_picture: /local/images/femke.jpg
 
 person.mika:
-  entity_picutre: /local/images/mika.jpg
+  entity_picture: /local/images/mika.jpg
 
 #
 # Homematic
@@ -56,7 +56,7 @@ switch.gf_kitchen_window:
   friendly_name: Fenster
   assumed_state: false
 
-switch.gf_livingroom_outlet: 
+switch.gf_livingroom_outlet:
   friendly_name: Leiter
   assumed_state: false
 
@@ -123,7 +123,7 @@ sensor.current_version:
 light.links:
   friendly_name: Sofa links
 
-light.rechts:
+light.rechts_2:
   friendly_name: Sofa rechts
 
 group.living_room_couch:

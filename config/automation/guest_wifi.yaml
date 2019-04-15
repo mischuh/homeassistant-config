@@ -24,10 +24,10 @@
       to: 'home'
   action:
     - service: fritzbox_guestwifi.turn_on
-    - service: notify.ios_iphone_mirko
-      data:
-        title: "Home-Assistant"
-        message: "Guest wifi turned ON"
+    # - service: notify.ios_iphone_mirko
+    #   data:
+    #     title: "Home-Assistant"
+    #     message: "Guest wifi turned ON"
     - service: notify.ios_iphone_femke
       data:
         title: "Home-Assistant"
@@ -52,10 +52,10 @@
   #   state: 'on'
   action:
     - service: fritzbox_guestwifi.turn_off
-    - service: notify.ios_iphone_mirko
-      data:
-        title: "Home-Assistant"
-        message: "Guest wifi turned off"
+    # - service: notify.ios_iphone_mirko
+    #   data:
+    #     title: "Home-Assistant"
+    #     message: "Guest wifi turned off"
     - service: notify.ios_iphone_femke
       data:
         title: "Home-Assistant"

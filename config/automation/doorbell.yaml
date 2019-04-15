@@ -14,10 +14,10 @@
     - service: homeassistant.turn_on
       entity_id: input_boolean.doorbell
 
-    - service: notify.ios_iphone_mirko
-      data:
-        title: "Home-Assistant"
-        message: "Es hat geklingelt"
+    # - service: notify.ios_iphone_mirko
+    #   data:
+    #     title: "Home-Assistant"
+    #     message: "Es hat geklingelt"
     - service: notify.ios_iphone_femke
       data:
         title: "Home-Assistant"

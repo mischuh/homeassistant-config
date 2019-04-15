@@ -22,7 +22,8 @@ ff_floor_lights:
     - switch.ff_floor_tree
 
 ff_children:
-  name: Kinder  
+  name: Kinder
+  icon: mid:account-supervisor
   entities:
     - group.ff_mika
     - group.ff_jona

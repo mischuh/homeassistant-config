@@ -1,74 +1,74 @@
-- alias: "presence_mirko_home"
-  trigger:
-    platform: zone
-    entity_id: device_tracker.mirko_owntracks
-    zone: zone.home    
-    event: enter
-  condition:
-    condition: state
-    entity_id: group.mirko
-    state: 'not_home'
-  action:
-    service: notify.ios_iphone_mirko
-    data:
-      title: "Mirko@Home"
-      message: "Hallo Mirko! Schön, dass du zuhause bist"
+# - alias: "presence_mirko_home"
+#   trigger:
+#     platform: zone
+#     entity_id: device_tracker.mirko_owntracks
+#     zone: zone.home
+#     event: enter
+#   condition:
+#     condition: state
+#     entity_id: group.mirko
+#     state: 'not_home'
+  # action:
+  #   service: notify.ios_iphone_mirko
+  #   data:
+  #     title: "Mirko@Home"
+  #     message: "Hallo Mirko! Schön, dass du zuhause bist"
 
-- alias: "presence_femke_home"
-  trigger:
-    platform: zone
-    entity_id: device_tracker.femke_owntracks
-    zone: zone.home
-    event: enter
-  condition:
-    condition: state
-    entity_id: group.femke
-    state: 'not_home'
-  action:
-    service: notify.ios_iphone_mirko
-    data:
-      title: "Mirko@Home"
-      message: "Femke kommt...<3"
-
-
-- alias: "leave_mirko_home"
-  trigger:
-    platform: zone
-    entity_id: device_tracker.mirko_owntracks
-    zone: zone.home
-    event: leave 
-  condition:
-    condition: state
-    entity_id: group.mirko
-    state: 'not_home'
-  action:
-    service: notify.ios_iphone_mirko
-    data:
-      title: "Mirko@Home"
-      message: "Hallo Mirko! Schade, dass du gehst..."
+# - alias: "presence_femke_home"
+#   trigger:
+#     platform: zone
+#     entity_id: device_tracker.femke_owntracks
+#     zone: zone.home
+#     event: enter
+#   condition:
+#     condition: state
+#     entity_id: group.femke
+#     state: 'not_home'
+#   action:
+#     service: notify.ios_iphone_mirko
+#     data:
+#       title: "Mirko@Home"
+#       message: "Femke kommt...<3"
 
 
-- alias: "presence_mirko_work"
-  trigger:
-    platform: zone
-    entity_id: device_tracker.mirko_owntracks
-    zone: zone.work_ml
-    event: enter
-  action:
-    service: notify.ios_iphone_mirko
-    data:
-      title: "Mirko@Work"
-      message: "Du schaffst das :)"
+# - alias: "leave_mirko_home"
+#   trigger:
+#     platform: zone
+#     entity_id: device_tracker.mirko_owntracks
+#     zone: zone.home
+#     event: leave
+#   condition:
+#     condition: state
+#     entity_id: group.mirko
+#     state: 'not_home'
+#   action:
+#     service: notify.ios_iphone_mirko
+#     data:
+#       title: "Mirko@Home"
+#       message: "Hallo Mirko! Schade, dass du gehst..."
 
 
-- alias: "presence_femke_work"
-  trigger:
-    platform: zone
-    entity_id: device_tracker.iphone_femke
-    zone: zone.work_salon
-    event: enter
-  action:
-    service: notify.ios_iphone_femke
-    data:
-      title: "Femke@Work"
-      message: "Du schaffst das :). Ich habe dich lieb <3"
+# - alias: "presence_mirko_work"
+#   trigger:
+#     platform: zone
+#     entity_id: device_tracker.mirko_owntracks
+#     zone: zone.work_ml
+#     event: enter
+#   action:
+#     service: notify.ios_iphone_mirko
+#     data:
+#       title: "Mirko@Work"
+#       message: "Du schaffst das :)"
+
+
+# - alias: "presence_femke_work"
+#   trigger:
+#     platform: zone
+#     entity_id: device_tracker.iphone_femke
+#     zone: zone.work_salon
+#     event: enter
+#   action:
+#     service: notify.ios_iphone_femke
+#     data:
+#       title: "Femke@Work"
+#       message: "Du schaffst das :). Ich habe dich lieb <3"

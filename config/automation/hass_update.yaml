@@ -6,7 +6,11 @@
     - condition: template
       value_template: '{{states.sensor.ha_online_version.state != states.sensor.current_version.state }}'
   action:
-    service: persistent_notification.create
-    data:
-      message: "Es ist eine neue Version ({{states.sensor.ha_online_version.state}}) von Home Assistant verfügbar :)"
-      title: "HomeAssi - Update"
+    - service: persistent_notification.create
+      data:
+        message: "Es ist eine neue Version ({{states.sensor.ha_online_version.state}}) von Home Assistant verfügbar :)"
+        title: "HomeAssi - Update"
+    - service: notify.telegram
+      data:
+        title: '*Send a message*'
+        message: "Es ist eine neue Version _({{states.sensor.ha_online_version.state}})_ von Home Assistant verfügbar :)"

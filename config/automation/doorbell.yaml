@@ -23,6 +23,11 @@
         title: "Home-Assistant"
         message: "Es hat geklingelt"
 
+    - service: notify.telegram
+      data:
+        title: '*Home-Assistant*'
+        message: "Es hat geklingelt"
+
     - service: notify.alexa_media
       data:
         target: 

@@ -27,7 +27,9 @@ views:
     badges:
       - person.mirko
       - person.mika
+      - person.jona
       - person.femke
+
     cards:
       - type: "custom:config-template-card"
         variables:

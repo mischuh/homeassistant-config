@@ -97,10 +97,20 @@ alexa_media:
 ####################################################
 http:
  
+telegram_bot:
+  - platform: broadcast
+    api_key: !secret telegram_api_token
+    allowed_chat_ids:
+      - !secret telegram_chat_id
+      
 
 notify:
   - platform: alexa_media
     name: alexa_media
+  - platform: telegram
+    name: telegram    
+    chat_id: !secret telegram_chat_id
+
 
 custom_updater:
   track:
@@ -134,7 +144,8 @@ mqtt:
   keepalive: 60
 
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 zwave:
   usb_path: /dev/ttyACM0
@@ -198,10 +209,17 @@ person:
     id: person_mika
     user_id: f7eaa84806ad4037aabc5f5ae8d63f03
     device_trackers:
-      - device_tracker.huawei_mika
+      - device_tracker.iphone_mika
       - device_tracker.mika_owntracks
       - device_tracker.bt_mika_gf
       - device_tracker.bt_mika_ff
+  - name: Jona
+    id: person_jona
+    user_id: 93cdb17814f048b7be7b6cfa20d700df
+    device_trackers:
+      - device_tracker.huawei_jona
+      - device_tracker.jona_owntracks
+
 
 system_health:
 

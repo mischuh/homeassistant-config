@@ -12,7 +12,9 @@
     bt_mirko_gf: !secret bt_presence_gf_mirko_dt
     bt_femke_gf: !secret bt_presence_gf_femke_dt
     bt_mika_gf: !secret bt_presence_gf_mika_dt
+    bt_jona_gf: !secret bt_presence_gf_jona_dt
     # FF
     bt_mirko_ff: !secret bt_presence_ff_mirko_dt
     bt_femke_ff: !secret bt_presence_ff_femke_dt
     bt_mika_ff: !secret bt_presence_ff_mika_dt
+    bt_jona_ff: !secret bt_presence_ff_jona_dt

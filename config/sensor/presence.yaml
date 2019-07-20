@@ -33,7 +33,13 @@
   state_topic: !secret bt_presence_ff_mika
   value_template: '{{ float(value_json.confidence) | int }}'
   unit_of_measurement: '%'
-  name: 'bt_presence_ff_mika_huawei'
+  name: 'bt_presence_ff_mika_iphone'
+
+- platform: mqtt
+  state_topic: !secret bt_presence_ff_jona
+  value_template: '{{ float(value_json.confidence) | int }}'
+  unit_of_measurement: '%'
+  name: 'bt_presence_ff_jona_huawei'
 
 
 - platform: mqtt
@@ -52,7 +58,13 @@
   state_topic: !secret bt_presence_gf_mika
   value_template: '{{ float(value_json.confidence) | int }}'
   unit_of_measurement: '%'
-  name: 'bt_presence_gf_mika_huawei'
+  name: 'bt_presence_gf_mika_iphone'
+
+- platform: mqtt
+  state_topic: !secret bt_presence_gf_jona
+  value_template: '{{ float(value_json.confidence) | int }}'
+  unit_of_measurement: '%'
+  name: 'bt_presence_gf_jona_huawei'
 
 
   
@@ -80,7 +92,16 @@
       friendly_name: "Mika BT"
       entity_picture_template: /local/images/mika.jpg
       value_template: >-
-          {% if states('sensor.bt_presence_ff_mika_huawei') | float > 0 %}
+          {% if states('sensor.bt_presence_ff_mika_iphone') | float > 0 %}
+            home
+          {% else %}
+            not_home
+          {% endif %}
+    bt_presence_mika:
+      friendly_name: "Mika BT"
+      entity_picture_template: /local/images/jona.jpg
+      value_template: >-
+          {% if states('sensor.bt_presence_ff_jona_huawei') | float > 0 %}
             home
           {% else %}
             not_home
@@ -104,7 +125,9 @@
   entity_ids:
     - sensor.bt_presence_gf_mirko_handy
     - sensor.bt_presence_gf_femke_iphone
-    - sensor.bt_presence_gf_mika_huawei
+    - sensor.bt_presence_gf_mika_iphone
+    - sensor.bt_presence_gf_jona_huawei
     - sensor.bt_presence_ff_mirko_handy
     - sensor.bt_presence_ff_femke_iphone
-    - sensor.bt_presence_ff_mika_huawei
+    - sensor.bt_presence_ff_mika_iphone
+    - sensor.bt_presence_ff_jona_huawei

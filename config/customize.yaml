@@ -9,6 +9,9 @@ person.femke:
 person.mika:
   entity_picture: /local/images/mika.jpg
 
+person.jona:
+  entity_picture: /local/images/jona.jpg
+
 #
 # Homematic
 #

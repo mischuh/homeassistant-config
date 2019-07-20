@@ -219,6 +219,8 @@ person:
     device_trackers:
       - device_tracker.huawei_jona
       - device_tracker.jona_owntracks
+      - device_tracker.bt_jona_gf
+      - device_tracker.bt_jona_ff
 
 
 system_health:

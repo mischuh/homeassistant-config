@@ -47,11 +47,11 @@ services:
       - mqtt
     volumes:
       - ./docker/rc433mq/conf:/usr/src/rc433mq/conf:ro      
-      - ./docker/rc433mq/logs:/usr/src/rc433mq/logs   
+      - ./docker/rc433mq/logs:/usr/src/rc433mq/logs
       - /etc/localtime:/etc/localtime:ro
 
   hass:
-    image: homeassistant/raspberrypi3-homeassistant:0.96.1
+    image: homeassistant/raspberrypi3-homeassistant:0.98.5
     container_name: home-assistant
     restart: always
     privileged: true

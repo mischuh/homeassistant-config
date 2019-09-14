@@ -196,6 +196,18 @@ sensor.trash:
   friendly_name: Müll
   icon: mdi:delete
 
+binary_sensor.srhh_morgen_blue:
+  icon: mdi:delete
+
+binary_sensor.srhh_morgen_green:
+  icon: mdi:delete
+
+binary_sensor.srhh_morgen_yellow:
+  icon: mdi:delete
+
+binary_sensor.srhh_morgen_black:
+  icon: mdi:delete
+
 # Scenes
 
 scene.groundfloor_lights:

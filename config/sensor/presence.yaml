@@ -97,7 +97,7 @@
           {% else %}
             not_home
           {% endif %}
-    bt_presence_mika:
+    bt_presence_jona:
       friendly_name: "Mika BT"
       entity_picture_template: /local/images/jona.jpg
       value_template: >-

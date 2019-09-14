@@ -108,20 +108,25 @@ notify:
   - platform: alexa_media
     name: alexa_media
   - platform: telegram
-    name: telegram    
+    name: telegram
     chat_id: !secret telegram_chat_id
 
 
-custom_updater:
-  track:
-    - components
-    - cards
-  card_urls:
-    - https://raw.githubusercontent.com/rdehuyss/homeassistant-lovelace-google-calendar-card/master/custom_updater.json
-  component_urls:
-    - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
-    - https://raw.githubusercontent.com/keatontaylor/alexa_media_player/master/custom_components.json
-  
+hacs:
+  token: !secret github_hacs_token
+  sidepanel_title: Community
+  python_script: True
+
+# custom_updater:
+#   track:
+#     - components
+#     - cards
+#   card_urls:
+#     - https://raw.githubusercontent.com/rdehuyss/homeassistant-lovelace-google-calendar-card/master/custom_updater.json
+#   component_urls:
+#     - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
+#     - https://raw.githubusercontent.com/keatontaylor/alexa_media_player/master/custom_components.json
+
 
 updater:
   reporting: false
@@ -187,6 +192,12 @@ speedtestdotnet:
     - ping
     - download
     - upload
+
+# stadtreinigung_hamburg:
+#   - name: home
+#     street: !secret srhh_street
+#     number: !secret srhh_number
+
 
 person:
   - name: Mirko

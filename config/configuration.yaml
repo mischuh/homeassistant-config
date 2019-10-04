@@ -59,7 +59,7 @@ logger:
     homeassistant.components.panel_iframe: debug
 #    homeassistant.components.homematic: debug
 #    homeassistant.components.device_tracker: debug
-#    custom_components.alexa_media: debug  # optional
+    custom_components.emulated_hue: info  # optional
 
 sun:
 
@@ -70,6 +70,14 @@ ios:
 owntracks:
   waypoints: False
   track_new_devices: False
+
+
+pi_hole:  
+  host: raspi-hole
+  # monitored_conditions:
+  #   - ads_blocked_today
+  #   - ads_percentage_today
+  #   - dns_queries_today
 
 weather:
   - platform: darksky
@@ -117,20 +125,8 @@ hacs:
   sidepanel_title: Community
   python_script: True
 
-# custom_updater:
-#   track:
-#     - components
-#     - cards
-#   card_urls:
-#     - https://raw.githubusercontent.com/rdehuyss/homeassistant-lovelace-google-calendar-card/master/custom_updater.json
-#   component_urls:
-#     - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
-#     - https://raw.githubusercontent.com/keatontaylor/alexa_media_player/master/custom_components.json
-
-
 updater:
   reporting: false
-
 
 homekit:
   pincode: !secret homekit_pin
@@ -157,7 +153,7 @@ zwave:
 
 recorder:
   purge_interval: 1
-  purge_keep_days: 7
+  purge_keep_days: 3
   exclude:
     domains:
       - updater
@@ -198,6 +194,9 @@ speedtestdotnet:
 #     street: !secret srhh_street
 #     number: !secret srhh_number
 
+
+# HUE API
+# http://192.168.178.2/api/pi/lights
 
 person:
   - name: Mirko
@@ -243,14 +242,14 @@ system_health:
 ####################################################
 
 # panel_iframe:
-#   fritzbox:
-#     title: 'Router'
-#     url: http://192.168.178.1
-#     icon: mdi:router-wireless
-#   pihole:
-#     title: 'PI Hole'
-#     url: http://raspi-hole/admin/index.php
-#     icon: mdi:raspberrypi
+  # fritzbox:
+  #   title: 'Router'
+  #   url: http://192.168.178.1
+  #   icon: mdi:router-wireless
+  # pihole:
+  #   title: 'PI Hole'
+  #   url: 'http://192.168.178.58/admin/index.php'
+  #   icon: mdi:raspberrypi
 #   google:
 #     title: 'Google'
 #     url: https://www.google.com

@@ -21,9 +21,9 @@ services:
     container_name: homegear
     restart: always
     volumes:
-      - ./docker/homegear/data/etc:/etc/homegear:Z 
+      - ./docker/homegear/data/etc:/etc/homegear:Z
       - ./docker/homegear/lib:/var/lib/homegear:Z 
-      - ./docker/homegear/log:/var/log/homegear:Z 
+      - ./docker/homegear/log:/var/log/homegear:Z
       - /etc/localtime:/etc/localtime:ro
     environment:
       - TZ=Europe/Berlin 
@@ -51,7 +51,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
 
   hass:
-    image: homeassistant/raspberrypi3-homeassistant:0.98.5
+    image: homeassistant/raspberrypi3-homeassistant:0.99.3
     container_name: home-assistant
     restart: always
     privileged: true
@@ -66,6 +66,7 @@ services:
       - ./etc/rxv/rxv.py:/usr/local/lib/python3.6/site-packages/rxv/rxv.py
     ports:
       - "8123:8123"
+      - "80:80"
 
   portainer:
     image: "portainer/portainer:arm"

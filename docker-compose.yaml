@@ -51,7 +51,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
 
   hass:
-    image: homeassistant/raspberrypi3-homeassistant:0.99.3
+    image: homeassistant/raspberrypi3-homeassistant:stable
     container_name: home-assistant
     restart: always
     privileged: true

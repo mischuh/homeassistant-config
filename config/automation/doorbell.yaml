@@ -13,21 +13,14 @@
   action:
     - service: homeassistant.turn_on
       entity_id: input_boolean.doorbell
-
-    # - service: notify.ios_iphone_mirko
-    #   data:
-    #     title: "Home-Assistant"
-    #     message: "Es hat geklingelt"
     - service: notify.ios_iphone_femke
       data:
         title: "Home-Assistant"
         message: "Es hat geklingelt"
-
     - service: notify.telegram
       data:
         title: '*Home-Assistant*'
         message: "Es hat geklingelt"
-
     - service: notify.alexa_media
       data:
         target: 
@@ -44,7 +37,7 @@
     entity_id: input_boolean.doorbell
     to: 'on'
     for:
-      seconds: 120
+      seconds: 180
   action:
     - service: homeassistant.turn_off
       entity_id: input_boolean.doorbell
@@ -52,15 +45,17 @@
 - alias: "Doorbell Entree Lights ON"
   trigger:
     platform: state
-    entity_id: input_boolean.doorbell    
+    entity_id: input_boolean.doorbell
     to: 'on'
-  condition:        
+  condition:
     condition: state
     entity_id: input_boolean.sunset
     state: 'on'
   action:
     - service: scene.turn_on
       entity_id: scene.entree_lights_on
+    # - service: script.turn_on
+    #   entity_id: script.halloween
 
 - alias: "Doorbell Entree Lights Dimm"
   trigger:

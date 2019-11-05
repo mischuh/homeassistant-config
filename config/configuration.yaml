@@ -33,6 +33,8 @@ frontend:
 lovelace:
   mode: yaml
   
+mobile_app:
+
 # Enables configuration UI
 config:
 
@@ -70,14 +72,11 @@ ios:
 owntracks:
   waypoints: False
   track_new_devices: False
+  max_gps_accuracy: 150
 
 
 pi_hole:  
   host: raspi-hole
-  # monitored_conditions:
-  #   - ads_blocked_today
-  #   - ads_percentage_today
-  #   - dns_queries_today
 
 weather:
   - platform: darksky
@@ -104,13 +103,16 @@ alexa_media:
 #                                                  #
 ####################################################
 http:
- 
+  cors_allowed_origins:
+    - http://192.168.178.1
+    - https://google.com
+
 telegram_bot:
   - platform: broadcast
     api_key: !secret telegram_api_token
     allowed_chat_ids:
       - !secret telegram_chat_id
-      
+
 
 notify:
   - platform: alexa_media
@@ -123,6 +125,8 @@ notify:
 hacs:
   token: !secret github_hacs_token
   sidepanel_title: Community
+  sidepanel_icon: mdi:alpha-c-box
+  theme: True
   python_script: True
 
 updater:
@@ -203,34 +207,34 @@ person:
     id: person_mirko
     user_id: 930ac8c04c884c6dba2c7585e533b169
     device_trackers:
-      - device_tracker.galaxy_s10
       - device_tracker.mirko_owntracks
       - device_tracker.bt_mirko_gf
       - device_tracker.bt_mirko_ff
+      - device_tracker.galaxy_s10
   - name: Femke
     id: person_femke
     user_id: d78ceab5a0af4cfca21e49d638bbefdb
     device_trackers:
-      - device_tracker.iphone_femke
       - device_tracker.femke_owntracks
       - device_tracker.bt_femke_gf
       - device_tracker.bt_femke_ff
+      - device_tracker.iphone_femke
   - name: Mika
     id: person_mika
     user_id: f7eaa84806ad4037aabc5f5ae8d63f03
     device_trackers:
-      - device_tracker.iphone_mika
       - device_tracker.mika_owntracks
       - device_tracker.bt_mika_gf
       - device_tracker.bt_mika_ff
+      - device_tracker.iphone_mika
   - name: Jona
     id: person_jona
     user_id: 93cdb17814f048b7be7b6cfa20d700df
     device_trackers:
-      - device_tracker.huawei_jona
       - device_tracker.jona_owntracks
       - device_tracker.bt_jona_gf
       - device_tracker.bt_jona_ff
+      - device_tracker.huawei_jona
 
 
 system_health:
@@ -242,21 +246,15 @@ system_health:
 ####################################################
 
 # panel_iframe:
-  # fritzbox:
-  #   title: 'Router'
-  #   url: http://192.168.178.1
-  #   icon: mdi:router-wireless
-  # pihole:
-  #   title: 'PI Hole'
-  #   url: 'http://192.168.178.58/admin/index.php'
-  #   icon: mdi:raspberrypi
+#   fritzbox:
+#     title: 'Fritz Box'
+#     url: 'http://192.168.178.1'
+#     icon: mdi:router-wireless
 #   google:
 #     title: 'Google'
 #     url: https://www.google.com
 #     icon: mdi:google
 
-
-  
 
 ####################################################
 #                                                  #

@@ -28,6 +28,14 @@ views:
       - person.jona
       - person.femke
     cards:
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.display_card
+            state: "on"
+        card:
+          type: entities
+          entities:
+            - scene.groundfloor_good_night
       - type: "custom:config-template-card"
         variables:
           - states['group.ground_floor'].state
@@ -67,7 +75,7 @@ views:
       - type: history-graph
         id: overview_history_graph_temp
         title: Temperatur
-        hours_to_show: 48
+        hours_to_show: 96
         entities:
           - sensor.aeotec_zw100_multisensor_6_temperature
           - sensor.dark_sky_temperature
@@ -397,6 +405,7 @@ views:
           - device_tracker.mirko_owntracks
           - device_tracker.femke_owntracks
           - device_tracker.mika_owntracks
+          - device_tracker.jona_owntracks
           - zone.home
           - zone.school
           - zone.work_ml

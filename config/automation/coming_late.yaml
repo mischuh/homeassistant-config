@@ -1,11 +1,11 @@
 - alias: "Coming home late"
-  trigger:
+  trigger:    
     - platform: zone
-      entity_id: evice_tracker.femke_owntracks
+      entity_id: device_tracker.mirko_owntracks
       zone: zone.home
       event: enter
     - platform: zone
-      entity_id: evice_tracker.mirko_owntracks
+      entity_id: device_tracker.femke_owntracks
       zone: zone.home
       event: enter
   condition:
@@ -13,22 +13,25 @@
     conditions:
       - condition: state
         entity_id: input_boolean.sunset
-        state: 'on'
+        state: 'on'      
       - condition: state
-        entity_id: group.entree_lights
+        entity_id: input_boolean.doorbell
         state: 'off'
   action:
+    # see doorbell.yaml for turn_off event
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.doorbell
     - service: light.turn_on
       data:
         # Door
-        brightness_pct: 60
-        entity_id: light.jeq0207587  
+        brightness_pct: 70
+        entity_id: light.jeq0207587
     - service: light.turn_on
       data:
         # Entree
-        brightness_pct: 30
+        brightness_pct: 40
         entity_id: light.jeq0207545
-    # - service: notify.ios_iphone_mirko
-    #   data:
-    #     title: "Home-Assistant"
-    #     message: "Coming home late event"
+    - service: notify.telegram
+      data:
+        title: '*Home-Assistant*'
+        message: "Coming home late event"

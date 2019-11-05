@@ -2,7 +2,10 @@
   entities:
     switch.gf_kitchen_window_outlet: on
     switch.gf_kitchen_ceiling_outlet: on
-    light.sofa:
+    light.links:
+      state: on
+      brightness_pct: 20
+    light.rechts_2:
       state: on
       brightness_pct: 20
     light.jeq0207534:  # Dinning table lamp

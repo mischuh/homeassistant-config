@@ -1,6 +1,7 @@
 - platform: time_date
   display_options:
     - "date"
+    - "time"
 
 - platform: template
   sensors:

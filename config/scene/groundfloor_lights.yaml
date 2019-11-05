@@ -2,7 +2,11 @@
   entities:
     group.ground_floor_433_lights: on 
     
-    light.sofa:
+    light.links:
+      state: on
+      brightness_pct: 45
+
+    light.rechts_2:
       state: on
       brightness_pct: 45
     
@@ -23,3 +27,9 @@
     light.jeq0207545:
       state: on
       brightness_pct: 33
+
+
+- name: Groundfloor Good Night
+  entities:
+    group.ground_floor: off
+    group.ff_children: off

@@ -31,7 +31,7 @@ sf_work_lights:
 sf_work_multimedia:
   name: Arbeitszimmer Media
   entities:
-    - media_player.echo_arbeitszimmer
+    - media_player.echo_dg_arbeitszimmer
 
 sf_bedroom:
   name: Schlafzimmer
@@ -48,4 +48,4 @@ sf_bedroom_lights:
 sf_bedroom_multimedia:
   name: Schlafzimmer Media
   entities:
-    - media_player.echo_schlafzimmer
+    - media_player.echo_dg_schlafzimmer

@@ -5,7 +5,7 @@
     light.links:
       state: on
       brightness_pct: 20
-    light.rechts_2:
+    light.rechts:
       state: on
       brightness_pct: 20
     light.jeq0207534:  # Dinning table lamp

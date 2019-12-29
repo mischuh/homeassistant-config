@@ -10,7 +10,7 @@
       brightness_pct: 85
 
 - name: Entree Lights Dimm
-  entities:    
+  entities:
     # Eingang
     light.jeq0207545:
       state: on

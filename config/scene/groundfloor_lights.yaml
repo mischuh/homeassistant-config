@@ -6,7 +6,7 @@
       state: on
       brightness_pct: 45
 
-    light.rechts_2:
+    light.rechts:
       state: on
       brightness_pct: 45
     

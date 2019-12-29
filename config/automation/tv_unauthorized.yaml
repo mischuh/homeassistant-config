@@ -9,7 +9,11 @@
     entity_id: group.parents
     state: 'not_home'
   action:
-    service: notify.telegram
-    data:
-      title: "Home-Assistant"
-      message: "Der Fernseher wurde eingeschaltet.."
+    - service: notify.ios_iphone_femke
+      data:
+        title: "Home-Assistant"
+        message: "Der Fernseher wurde eingeschaltet..."
+    - service: notify.mobile_app_sm_g975f
+      data:
+        title: '*Home-Assistant*'
+        message: "Der Fernseher wurde eingeschaltet..."

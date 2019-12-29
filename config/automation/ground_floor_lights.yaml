@@ -14,17 +14,18 @@
       entity_id: 
         - switch.gf_kitchen_workplace
         - switch.gf_livingroom_outlet
+        - switch.gf_free_outlet_2
     - service: light.turn_on
       data:
         brightness_pct: 45
         entity_id:
           - light.links
-          - light.rechts_2
+          - light.rechts
 
 - alias: "Turn off light Arbeitsplatte in the morning"
   trigger:
     platform: time
-    at: '07:50:00'
+    at: '07:55:00'
   condition:
     condition: state
     entity_id: binary_sensor.workday_sensor
@@ -50,7 +51,12 @@
         brightness_pct: 45
         entity_id:
           - light.links
-          - light.rechts_2
+
+    - service: light.turn_on
+      data:
+        brightness_pct: 30
+        entity_id:
+          - light.rechts
 
     - service: light.turn_on
       entity_id: light.jeq0207534
@@ -88,7 +94,7 @@
     at: '23:00:00'  
   action:
     service: homeassistant.turn_off
-    entity_id:         
+    entity_id:
       - group.kitchen_lights        
     
 - alias: "Turn off lights: 23:15"

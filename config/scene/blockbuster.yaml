@@ -3,7 +3,7 @@
     # Lights
     group.kitchen_lights: off 
     switch.gf_kitchen_ceiling_outlet: on
-    light.rechts_2:
+    light.rechts:
       state: on
       brightness_pct: 15
     light.links:

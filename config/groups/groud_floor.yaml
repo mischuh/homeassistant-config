@@ -27,6 +27,7 @@ ground_floor_433_lights:
     - switch.gf_kitchen_window
     - switch.gf_kitchen_workplace
     - switch.gf_livingroom_outlet
+    - switch.gf_free_outlet_2
 
 kitchen:
   name: Kueche
@@ -43,6 +44,7 @@ kitchen_lights:
     - light.heq0359760
     - switch.gf_kitchen_window
     - switch.gf_kitchen_workplace
+    - switch.gf_free_outlet_2
     
 kitchen_media:
   name: Küche Multimedia
@@ -66,14 +68,14 @@ livingroom_lights:
     - light.meq0169146
     - group.livingroom_couch
     - light.links
-    - light.rechts_2
+    - light.rechts
 
 livingroom_couch:
   name: Sofa
   icon: mdi:lightbulb
   entities:
     - light.links
-    - light.rechts_2
+    - light.rechts
 
 livingroom_media:
   name: Wohnzimmer Multimedia

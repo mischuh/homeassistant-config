@@ -11,6 +11,10 @@ resources:
     type: js
   - url: /local/config-template-card.js
     type: module
+  - url: /community_plugin/lovelace-card-mod/card-mod.js
+    type: module
+  - url: /community_plugin/mini-media-player/mini-media-player-bundle.js
+    type: module
   # Calendar
   - url: https://unpkg.com/moment@2.22.2/moment.js
     type: js
@@ -165,16 +169,40 @@ views:
         card:
           type: entities
           title: Yamaha Radio
-      - type: media-control
+      # - type: media-control
+      #   id: gf_media_control_rxv_zone1
+      #   entity: media_player.yamaha_receiver
+      - type: custom:mini-media-player
         id: gf_media_control_rxv_zone1
+        artwork: cover
+        icon: mdi:headphones
         entity: media_player.yamaha_receiver
-      - type: media-control
+      - type: custom:mini-media-player
         id: gf_media_control_rxv_zone2
+        artwork: cover
+        icon: mdi:speaker        
         entity: media_player.yamaha_receiver_zone_2
-      - type: media-control
+      - type: custom:mini-media-player
         id: gf_media_control_panasonic
+        icon: mdi:television
         entity: media_player.panasonic_viera_tv
-
+      # - type: media-control
+      #   id: gf_media_control_rxv_zone2 
+      #   # "#columns > div:nth-child(2) > hui-media-control-card > ha-media_player-card":
+      #   # debug_cardMod: true
+      #   # style: 
+      #   #   .: |
+      #   #      "ha-card": 
+      #   #       $: |
+      #   #         div.banner {
+      #   #           border-top-left-radius: 20px;
+      #   #           border-top-right-radius: 20px;
+      #   #         }       
+      #   entity: media_player.yamaha_receiver_zone_2
+      # - type: media-control
+      #   id: gf_media_control_panasonic
+      #   entity: media_player.panasonic_viera_tv
+      
   - title: OG
     id: firstfloor
     background: var(--background-image)
@@ -226,9 +254,16 @@ views:
         card:
           type: entities
           title: Jona
-      - type: media-control
+      - type: custom:mini-media-player
         id: ff_media_control_alexa_bath
+        artwork: cover
+        icon: mdi:spotify
+        hide:
+          source: true
         entity: media_player.alexas_echo_dot
+      # - type: media-control
+      #   id: ff_media_control_alexa_bath
+      #   entity: media_player.alexas_echo_dot
 
   - title: DG
     id: secondfloor
@@ -245,12 +280,24 @@ views:
             hold_action:
                 action: toggle
             icon: mdi:hotel
-      - type: custom:group-card
-        id: sf_multimedia
-        group: group.sf_alexas
-        card:
-          type: entities
-          show_header_toggle: false
+      # - type: custom:group-card
+      #   id: sf_multimedia
+      #   group: group.sf_alexas
+      #   card:
+      #     type: entities
+      #     show_header_toggle: false
+      - type: custom:mini-media-player
+        artwork: cover
+        icon: mdi:spotify        
+        hide:
+          source: true
+        entity: media_player.echo_dg_schlafzimmer
+      - type: custom:mini-media-player
+        artwork: cover
+        icon: mdi:spotify
+        hide:
+          source: true
+        entity: media_player.echo_dg_arbeitszimmer
       - type: custom:group-card
         id: sf_group_work
         group: group.sf_work_lights
@@ -317,7 +364,7 @@ views:
           - sensor.load_1m
           - sensor.load_15m
           - sensor.disk_use_percent_home
-          - sensor.last_boot
+          - sensor.last_boot          
       - type: custom:group-card
         id: system_ha_versions
         group: group.hass_versions

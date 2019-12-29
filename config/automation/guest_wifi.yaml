@@ -32,7 +32,11 @@
       data:
         title: "Home-Assistant"
         message: "Guest wifi turned ON"
-    - service: notify.telegram
+    # - service: notify.telegram
+    #   data:
+    #     title: '*Home-Assistant*'
+    #     message: "Guest wifi turned *ON*"
+    - service: notify.mobile_app_sm_g975f
       data:
         title: '*Home-Assistant*'
         message: "Guest wifi turned *ON*"
@@ -49,17 +53,17 @@
       entity_id: input_boolean.guest_wlan
       to: 'on'
       for:
-        minutes: 60
-  # condition:
-  #   condition: state
-  #   entity_id: input_boolean.guest_wlan
-  #   state: 'on'
+        minutes: 90
+  condition:
+    condition: state
+    entity_id: input_boolean.guest_wlan
+    state: 'on'
   action:
-    service: fritzbox_guestwifi.turn_off
-    # - service: notify.ios_iphone_mirko
-    #   data:
-    #     title: "Home-Assistant"
-    #     message: "Guest wifi turned off"
+    - service: fritzbox_guestwifi.turn_off
+    - service: notify.mobile_app_sm_g975f
+      data:
+        title: "Home-Assistant"
+        message: "Guest wifi turned off"
     # - service: notify.ios_iphone_femke
     #   data:
     #     title: "Home-Assistant"

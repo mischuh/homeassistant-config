@@ -17,7 +17,11 @@
       data:
         title: "Home-Assistant"
         message: "Es hat geklingelt"
-    - service: notify.telegram
+#    - service: notify.telegram
+#      data:
+#        title: '*Home-Assistant*'
+#        message: "Es hat geklingelt"
+    - service: notify.mobile_app_sm_g975f
       data:
         title: '*Home-Assistant*'
         message: "Es hat geklingelt"

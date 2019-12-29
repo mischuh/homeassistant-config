@@ -126,7 +126,7 @@ sensor.current_version:
 light.links:
   friendly_name: Sofa links
 
-light.rechts_2:
+light.rechts:
   friendly_name: Sofa rechts
 
 group.living_room_couch:
@@ -147,11 +147,11 @@ media_player.panasonic_viera_tv:
 media_player.alexas_echo_dot:
   friendly_name: Alexa Badezimmer
 
-media_player.echo_arbeitszimmer:
-  friendly_name: Alexa Arbeitszimmer
+media_player.echo_dg_schlafzimmer:
+  friendly_name: Alexa Schlafzimmer
 
-media_player.echo_schlafzimmer:
-  friendly_name: Alexa Schafzimmer
+media_player.echo_dg_arbeitszimmer:
+  friendly_name: Alexa Arbeitszimmer
 
 # Weather
 

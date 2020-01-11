@@ -37,6 +37,8 @@ services:
     devices:
       - /dev/homegear:/dev/ttyACM0
  
+  #docker run --privileged=true --restart=always -v /home/pi/rc433mq/conf:/usr/src/rc433mq/conf:ro -v /home/pi/rc433mq/logs:/usr/src/rc433mq/logs -v /etc/localtime:/etc/localtime:ro --name rc433mq mischu/rc433mq:0.3
+
   rc433mq:
     image: mischu/rc433mq:0.3
     restart: always
@@ -68,12 +70,12 @@ services:
       - "8123:8123"
       - "80:80"
 
-  portainer:
-    image: "portainer/portainer:arm"
-    container_name: portainer
-    restart: unless-stopped
-    ports:
-      - "9000:9000"
-    volumes:
-      - /var/portainer:/data
-      - /var/run/docker.sock:/var/run/docker.sock
+  # portainer:
+  #   image: portainer/portainer:arm
+  #   container_name: portainer
+  #   restart: unless-stopped
+  #   ports:
+  #     - "9000:9000"
+  #   volumes:
+  #     - /var/portainer:/data
+  #     - /var/run/docker.sock:/var/run/docker.sock

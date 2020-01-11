@@ -40,3 +40,4 @@ config/home-assistant.log
 config/home-assistant_v2.db*
 config/known_devices.yaml
 config/www/images
+config/.pip_progress

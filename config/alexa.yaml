@@ -7,9 +7,9 @@ exposed_domains:
   - group
   - input_boolean
 entities:
-  group.ground_floor:
+  group.ground_floor_lights:
     name: "Erdgeschoss"
-    hidden: false  
+    hidden: false
   light.jeq0207534:
     name: "Essplatz"
     hidden: false

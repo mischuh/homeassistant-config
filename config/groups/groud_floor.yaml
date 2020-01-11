@@ -97,6 +97,7 @@ entree_lights:
   entities:
     - light.jeq0207545
     - light.jeq0207587
+    - light.shelly_dim_eg_bicycles
 
 garden_lights:
   name: Garten

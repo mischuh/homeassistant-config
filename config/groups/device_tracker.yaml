@@ -2,8 +2,8 @@ mirko:
   name: Mirko
   entities:
     - device_tracker.galaxy_s10
-    - device_tracker.mirko_mobile_app
-    - device_tracker.mirko_owntracks
+    # - device_tracker.mirko_mobile_app
+    # - device_tracker.mirko_owntracks
     - device_tracker.bt_mirko_gf
     - device_tracker.bt_mirko_ff
     - sensor.bt_presence_mirko
@@ -11,8 +11,8 @@ mirko:
 femke:
   name: Femke
   entities:
-    - device_tracker.femke_mobile_app
-    - device_tracker.femke_owntracks
+    # - device_tracker.femke_mobile_app
+    # - device_tracker.femke_owntracks
     - device_tracker.bt_femke_gf
     - device_tracker.bt_femke_ff
     - sensor.bt_presence_femke
@@ -20,8 +20,8 @@ femke:
 mika:
   name: Mika
   entities:
-    - device_tracker.mika_owntracks    
-    - device_tracker.mika_mobile_app
+    # - device_tracker.mika_owntracks    
+    # - device_tracker.mika_mobile_app
     - device_tracker.bt_mika_gf
     - device_tracker.bt_mika_ff
     - sensor.bt_presence_mika

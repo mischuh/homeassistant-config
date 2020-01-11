@@ -34,6 +34,10 @@ light.jeq0207545:
 light.jeq0207587:
   friendly_name: Außenlicht
 
+# Fahrräder
+light.shelly_dim_eg_bicycles:
+  friendly_name: Fahrräder
+
 # Wohnzimmer
 light.meq0169146:
   friendly_name: Decke

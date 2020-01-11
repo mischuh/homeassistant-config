@@ -208,10 +208,11 @@ person:
     id: person_mirko
     user_id: 930ac8c04c884c6dba2c7585e533b169
     device_trackers:
-      - device_tracker.mirko_mobile_app
-      - device_tracker.mirko_owntracks
+      # - device_tracker.mirko_mobile_app
+      # - device_tracker.mirko_owntracks
       - device_tracker.bt_mirko_gf
       - device_tracker.bt_mirko_ff
+      - device_tracker.bt_mirko_sf
       # - device_tracker.galaxy_s10
   - name: Femke
     id: person_femke
@@ -221,6 +222,7 @@ person:
 #     - device_tracker.femke_mobile_app
       - device_tracker.bt_femke_gf
       - device_tracker.bt_femke_ff
+      - device_tracker.bt_femke_sf
 #     - device_tracker.iphone_femke
   - name: Mika
     id: person_mika
@@ -229,16 +231,18 @@ person:
 #     - device_tracker.mika_mobile_app
       - device_tracker.bt_mika_gf
       - device_tracker.bt_mika_ff
+      - device_tracker.bt_mika_sf
 #     - device_tracker.mika_owntracks
 #     - device_tracker.iphone_mika
   - name: Jona
     id: person_jona
     user_id: 93cdb17814f048b7be7b6cfa20d700df
     device_trackers:
-      - device_tracker.jona_mobile_app
-      - device_tracker.jona_owntracks
+      # - device_tracker.jona_mobile_app
+      # - device_tracker.jona_owntracks
       - device_tracker.bt_jona_gf
       - device_tracker.bt_jona_ff
+      - device_tracker.bt_jona_sf
 # - device_tracker.huawei_jona
 
 
@@ -280,3 +284,4 @@ sensor: !include_dir_merge_list sensor
 switch: !include_dir_merge_list switch
 emulated_hue: !include alexa.yaml
 zone: !include_dir_list zones
+light: !include_dir_merge_list light

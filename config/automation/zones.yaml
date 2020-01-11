@@ -14,21 +14,21 @@
   #     title: "Mirko@Home"
   #     message: "Hallo Mirko! Schön, dass du zuhause bist"
 
-- alias: "presence_femke_home"
-  trigger:
-    platform: zone
-    entity_id: device_tracker.femke_owntracks
-    zone: zone.home
-    event: enter
-  condition:
-    condition: state
-    entity_id: group.femke
-    state: 'not_home'
-  action:
-    service: notify.telegram
-    data:
-      title: '*Home-Assistant*'
-      message: "Femke kommt...<3"
+# - alias: "presence_femke_home"
+#   trigger:
+#     platform: zone
+#     entity_id: device_tracker.femke_owntracks
+#     zone: zone.home
+#     event: enter
+#   condition:
+#     condition: state
+#     entity_id: group.femke
+#     state: 'not_home'
+#   action:
+#     service: notify.telegram
+#     data:
+#       title: '*Home-Assistant*'
+#       message: "Femke kommt...<3"
 
 
 # - alias: "leave_mirko_home"

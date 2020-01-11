@@ -18,35 +18,15 @@
 
 
 - platform: mqtt
-  state_topic: !secret bt_presence_ff_mirko
-  value_template: '{{ float(value_json.confidence) | int }}'
-  unit_of_measurement: '%'
-  name: 'bt_presence_ff_mirko_handy'
-
-- platform: mqtt
-  state_topic: !secret bt_presence_ff_femke
-  value_template: '{{ float(value_json.confidence) | int }}'
-  unit_of_measurement: '%'
-  name: 'bt_presence_ff_femke_iphone'
-  
-- platform: mqtt
-  state_topic: !secret bt_presence_ff_mika
-  value_template: '{{ float(value_json.confidence) | int }}'
-  unit_of_measurement: '%'
-  name: 'bt_presence_ff_mika_iphone'
-
-- platform: mqtt
-  state_topic: !secret bt_presence_ff_jona
-  value_template: '{{ float(value_json.confidence) | int }}'
-  unit_of_measurement: '%'
-  name: 'bt_presence_ff_jona_huawei'
-
-
-- platform: mqtt
   state_topic: !secret bt_presence_gf_mirko
   value_template: '{{ float(value_json.confidence) | int }}'
   unit_of_measurement: '%'
   name: 'bt_presence_gf_mirko_handy'
+
+- platform: mqtt
+  state_topic: !secret bt_rssi_gf_mirko
+  unit_of_measurement: 'dBm'
+  name: 'bt_rssi_gf_mirko_handy'
 
 - platform: mqtt
   state_topic: !secret bt_presence_gf_femke
@@ -67,7 +47,68 @@
   name: 'bt_presence_gf_jona_huawei'
 
 
+- platform: mqtt
+  state_topic: !secret bt_presence_ff_mirko
+  value_template: '{{ float(value_json.confidence) | int }}'
+  unit_of_measurement: '%'
+  name: 'bt_presence_ff_mirko_handy'
+
+- platform: mqtt
+  state_topic: !secret bt_rssi_ff_mirko
+  unit_of_measurement: 'dBm'
+  name: 'bt_rssi_ff_mirko_handy'
+
+- platform: mqtt
+  state_topic: !secret bt_presence_ff_femke
+  value_template: '{{ float(value_json.confidence) | int }}'
+  unit_of_measurement: '%'
+  name: 'bt_presence_ff_femke_iphone'
   
+- platform: mqtt
+  state_topic: !secret bt_presence_ff_mika
+  value_template: '{{ float(value_json.confidence) | int }}'
+  unit_of_measurement: '%'
+  name: 'bt_presence_ff_mika_iphone'
+
+- platform: mqtt
+  state_topic: !secret bt_presence_ff_jona
+  value_template: '{{ float(value_json.confidence) | int }}'
+  unit_of_measurement: '%'
+  name: 'bt_presence_ff_jona_huawei'
+
+  
+- platform: mqtt
+  state_topic: !secret bt_presence_sf_mirko
+  value_template: '{{ float(value_json.confidence) | int }}'
+  unit_of_measurement: '%'
+  name: 'bt_presence_sf_mirko_handy'
+
+- platform: mqtt
+  state_topic: !secret bt_rssi_sf_mirko
+  unit_of_measurement: 'dBm'
+  name: 'bt_rssi_sf_mirko_handy'
+
+- platform: mqtt
+  state_topic: !secret bt_presence_sf_femke
+  value_template: '{{ float(value_json.confidence) | int }}'
+  unit_of_measurement: '%'
+  name: 'bt_presence_sf_femke_iphone'
+  
+- platform: mqtt
+  state_topic: !secret bt_presence_sf_mika
+  value_template: '{{ float(value_json.confidence) | int }}'
+  unit_of_measurement: '%'
+  name: 'bt_presence_sf_mika_iphone'
+
+- platform: mqtt
+  state_topic: !secret bt_presence_sf_jona
+  value_template: '{{ float(value_json.confidence) | int }}'
+  unit_of_measurement: '%'
+  name: 'bt_presence_sf_jona_huawei'
+
+
+
+
 - platform: template
   sensors:
     bt_presence_mirko:
@@ -131,3 +172,7 @@
     - sensor.bt_presence_ff_femke_iphone
     - sensor.bt_presence_ff_mika_iphone
     - sensor.bt_presence_ff_jona_huawei
+    - sensor.bt_presence_sf_mirko_handy
+    - sensor.bt_presence_sf_femke_iphone
+    - sensor.bt_presence_sf_mika_iphone
+    - sensor.bt_presence_sf_jona_huawei

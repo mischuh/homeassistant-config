@@ -19,3 +19,7 @@
     light.jeq0207587:
       state: on
       brightness_pct: 25
+    
+    light.shelly_dim_eg_bicycles:
+      state: on
+      brightness_pct: 35

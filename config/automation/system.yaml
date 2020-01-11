@@ -1,0 +1,10 @@
+- alias: "System Startup"
+  trigger:
+    platform: homeassistant
+    # Event can also be 'shutdown'
+    event: start
+  action:
+    service: notify.telegram
+    data:
+      title: "HA - System"
+      message: "Homeassistant ist gestartet"

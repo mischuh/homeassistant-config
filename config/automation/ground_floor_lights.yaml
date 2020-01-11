@@ -14,13 +14,14 @@
       entity_id: 
         - switch.gf_kitchen_workplace
         - switch.gf_livingroom_outlet
-        - switch.gf_free_outlet_2
+        - switch.gf_free_outlet_2        
     - service: light.turn_on
       data:
         brightness_pct: 45
         entity_id:
           - light.links
           - light.rechts
+          - light.shelly_dim_eg_bicycles
 
 - alias: "Turn off light Arbeitsplatte in the morning"
   trigger:
@@ -51,12 +52,14 @@
         brightness_pct: 45
         entity_id:
           - light.links
+          - light.shelly_dim_eg_bicycles
 
     - service: light.turn_on
       data:
         brightness_pct: 30
         entity_id:
           - light.rechts
+          
 
     - service: light.turn_on
       entity_id: light.jeq0207534
@@ -95,7 +98,8 @@
   action:
     service: homeassistant.turn_off
     entity_id:
-      - group.kitchen_lights        
+      - group.kitchen_lights
+      - light.shelly_dim_eg_bicycles
     
 - alias: "Turn off lights: 23:15"
   trigger:    

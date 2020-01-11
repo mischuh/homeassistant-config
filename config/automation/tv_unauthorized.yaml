@@ -13,7 +13,7 @@
       data:
         title: "Home-Assistant"
         message: "Der Fernseher wurde eingeschaltet..."
-    - service: notify.mobile_app_sm_g975f
+    - service: notify.telegram
       data:
         title: '*Home-Assistant*'
         message: "Der Fernseher wurde eingeschaltet..."

@@ -405,6 +405,14 @@ views:
         name: Anwesenheit
         unit: '%'
         graph: line
+      - type: history-graph
+        id: diesdas_history_graph_bt_rssi_mirko
+        title: RSSI Mirko
+        hours_to_show: 48 
+        entities:
+          - sensor.bt_rssi_gf_mirko_handy
+          - sensor.bt_rssi_ff_mirko_handy 
+          - sensor.bt_rssi_sf_mirko_handy 
       - type: vertical-stack
         id: settings_theme
         cards:
@@ -450,9 +458,9 @@ views:
         id: diesdas_map
         entities:
           - device_tracker.mirko_owntracks
-          - device_tracker.femke_owntracks
-          - device_tracker.mika_owntracks
-          - device_tracker.jona_owntracks
+          - device_tracker.femke_mobile_app
+          - device_tracker.mika_mobile_app
+          - device_tracker.jona_mobile_app
           - zone.home
           - zone.school
           - zone.work_ml

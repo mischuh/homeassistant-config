@@ -457,7 +457,7 @@ views:
       - type: map
         id: diesdas_map
         entities:
-          - device_tracker.mirko_owntracks
+          - device_tracker.mirko_mobile_app
           - device_tracker.femke_mobile_app
           - device_tracker.mika_mobile_app
           - device_tracker.jona_mobile_app

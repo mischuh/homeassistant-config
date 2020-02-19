@@ -1,7 +1,39 @@
 - alias: "TESTI"
-  trigger:    
+  trigger:
 
-  action:    
+  action:
+    - service: notify.telegram
+      data:
+        title: '*Send a message*'
+        message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
+        data:
+          inline_keyboard:
+            - 'Task 1:/command1, Task 2:/command2'
+            - 'Task 3:/command3, Task 4:/command4'
+
+
+- alias: "TEST2"
+  trigger:
+
+  action:
+    - data:
+        data:
+          actions:
+          - action: test1
+            title: Lights off
+        message: "Keiner zuhause und es waren noch Lichter an..."
+        title: '*Home-Assistant*'
+      service: notify.mobile_app_galaxy_s10
+
+
+
+- alias: Empty house receive action
+  trigger:
+    - event_data:
+        action: test1
+      event_type: mobile_app_notification_action
+      platform: event
+  action:
     - service: notify.telegram
       data:
         title: '*Send a message*'

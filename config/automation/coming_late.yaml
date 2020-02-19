@@ -1,14 +1,13 @@
 - alias: "Coming home late"
   trigger:    
-    - platform: zone
-      # entity_id: device_tracker.mirko_owntracks
+    - platform: state
       entity_id: group.mirko
-      zone: zone.home
-      event: enter
-    - platform: zone
+      from: 'not_home'
+      to: 'home'
+    - platform: state
       entity_id: group.femke
-      zone: zone.home
-      event: enter
+      from: 'not_home'
+      to: 'home'
   condition:
     condition: and
     conditions:
@@ -34,7 +33,7 @@
         # Entree
         brightness_pct: 40
         entity_id: light.jeq0207545
-    - service: notify.telegram #notify.mobile_app_sm_g975f
+    - service: notify.telegram #notify.mobile_app_galaxy_s10
       data:
         title: '*Home-Assistant*'
         message: "Coming home late event"

@@ -1,5 +1,4 @@
 - alias: Empty house and lights are on
-  hide_entity: true
   trigger:
     # - platform: numeric_state
     #   entity_id: sensor.bt_presence_ff_family
@@ -18,9 +17,59 @@
         entity_id: input_boolean.sunset
         state: 'off'
   action:
-    - service: homeassistant.turn_off
-      entity_id: group.home_lights
+    - data:
+        data:
+          actions:
+          - action: turn_lights_off
+            title: Turn lights off
+        message: "Keiner zuhause und es waren noch Lichter an..."
+        title: '*Home-Assistant*'
+      service: notify.mobile_app_mirko_s10
+
+
+- alias: Empty house receive action
+  trigger:
+    - event_data:
+        action: turn_lights_off
+      event_type: mobile_app_notification_action
+      platform: event
+  action:
+    - data:
+        entity_id: group.home_lights
+      service: homeassistant.turn_off
+    - service: notify.telegram
+      data:
+        title: '*Send a message*'
+        message: "_Someone_ turned the lights off through *actionably* notification"
+
+
+- alias: Mirko Group Status Coming Home
+  trigger:
+    # - platform: numeric_state
+    #   entity_id: sensor.bt_presence_ff_family
+    #   below: 10
+    - platform: state
+      entity_id: group.mirko
+      from: 'not_home'
+      to: 'home'  
+  action:    
     - service: notify.telegram
       data:
         title: '*Home-Assistant*'
-        message: "Keiner zuhause und es waren noch Lichter an..."
+        message: "Group Mirko kommt nach hause..."
+
+
+- alias: Mirko Group Status Leaving Home
+  trigger:
+    # - platform: numeric_state
+    #   entity_id: sensor.bt_presence_ff_family
+    #   below: 10
+    - platform: state
+      entity_id: group.mirko
+      from: 'home'
+      to: 'not_home'  
+  action:    
+    - service: notify.telegram
+      data:
+        title: '*Home-Assistant*'
+        message: "Group Mirko verlässt das Haus..."

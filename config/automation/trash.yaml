@@ -1,5 +1,4 @@
 - alias: "Trash notification"
-  hide_entity: False
   trigger:
     # platform: template
     # value_template: "{{ states('sensor.trash') | int > 0 }}"

@@ -1,7 +1,6 @@
 
 default_view:
   name: Home
-  view: yes
   icon: mdi:home
   entities:
     - group.home_lights
@@ -12,7 +11,6 @@ default_view:
 
 view_ground_floor:
   name: EG
-  view: yes
   entities:
     - group.kitchen_lights
     - group.livingroom_lights
@@ -25,7 +23,6 @@ view_ground_floor:
 
 view_first_floor:
   name: OG
-  view: yes
   entities:
     - sensor.aeotec_zw100_multisensor_6_temperature
     - sensor.aeotec_zw100_multisensor_6_luminance
@@ -34,28 +31,25 @@ view_first_floor:
     - group.ff_mika
     - group.ff_jona
     - media_player.badezimmer
-    
+
 
 view_second_floor:
   name: DG
-  view: yes
   entities:
     - group.sf_work_lights
     - group.sf_bedroom_lights
 
 
 view_rest:
-  view: yes
   name: Dies&Das
   icon: mdi:creation
   entities:
     - group.scenes
     #- group.family_status
     - group.boolean_states
-    
+
 
 view_system:
-  view: yes
   name: System
   icon: mdi:cogs
   entities:
@@ -65,7 +59,6 @@ view_system:
     - group.batteries
 
 # view_weather:
-#   view: yes
 #   name: Wetter
 #   icon: mdi:cloud
 #   entities:

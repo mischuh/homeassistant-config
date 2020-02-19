@@ -2,7 +2,6 @@
 # Morning routine
 # ####################################################
 - alias: "Turn on bed in the morning"
-  hide_entity: True
   trigger:
     platform: time
     at: '06:45:00'
@@ -15,7 +14,6 @@
       entity_id: switch.sf_bedroom_bed
 
 - alias: "Turn on commode in the morning"
-  hide_entity: True
   trigger:
     platform: time
     at: '06:30:00'
@@ -28,7 +26,6 @@
       entity_id: switch.sf_bedroom_outlet
 
 - alias: "Turn off bedroom in the morning"
-  hide_entity: True
   trigger:
     platform: time
     at: '07:10:00'

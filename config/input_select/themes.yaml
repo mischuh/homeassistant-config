@@ -2,6 +2,6 @@ frontend_theme:
   name: Choose Theme
   options:
     - default
-    - clear
-    - dark
+    - google_light_theme
+    - google_dark_theme
   icon: mdi:wall

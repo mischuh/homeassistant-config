@@ -22,12 +22,12 @@
         service: input_select.select_option
         data:
           entity_id: input_select.frontend_theme
-          option: "clear"
+          option: "google_light_theme"
       turn_off:
         service: input_select.select_option
         data:
           entity_id: input_select.frontend_theme
-          option: "clear"
+          option: "google_light_theme"
           
     frontend_theme_dark:
       value_template: "{{ is_state('input_select.frontend_theme', 'dark') }}"
@@ -36,9 +36,9 @@
         service: input_select.select_option
         data:
           entity_id: input_select.frontend_theme
-          option: "dark"
+          option: "google_dark_theme"
       turn_off:
         service: input_select.select_option
         data:
           entity_id: input_select.frontend_theme
-          option: "dark"
+          option: "google_dark_theme"

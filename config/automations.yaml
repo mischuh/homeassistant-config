@@ -1,0 +1,76 @@
+- id: '1583583414476'
+  alias: Neue Automatisierung
+  description: ''
+  trigger:
+  - device_id: 4b7a70e327f04a0c8f6bf61a8d730bc0
+    domain: light
+    entity_id: light.garderobe1
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
+    platform: device
+    type: turned_on
+  condition: []
+  action:
+  - device_id: 4b7a70e327f04a0c8f6bf61a8d730bc0
+    domain: light
+    entity_id: light.garderobe1
+    type: turn_off
+- id: '1583583604854'
+  alias: Garderobe OFF
+  description: ''
+  trigger:
+  - device_id: 4b7a70e327f04a0c8f6bf61a8d730bc0
+    domain: light
+    entity_id: light.garderobe1
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    platform: device
+    type: turned_on
+  condition: []
+  action:
+  - device_id: 4b7a70e327f04a0c8f6bf61a8d730bc0
+    domain: light
+    entity_id: light.garderobe1
+    type: turn_off
+- id: '1583583659286'
+  alias: Garderobe OFF
+  description: ''
+  trigger:
+  - device_id: 4b7a70e327f04a0c8f6bf61a8d730bc0
+    domain: light
+    entity_id: light.garderobe1
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    platform: device
+    type: turned_on
+  condition: []
+  action:
+  - device_id: 4b7a70e327f04a0c8f6bf61a8d730bc0
+    domain: light
+    entity_id: light.garderobe1
+    type: turn_off
+- id: '1583583724802'
+  alias: Garderobe OFF
+  description: ''
+  trigger:
+  - device_id: 4b7a70e327f04a0c8f6bf61a8d730bc0
+    domain: light
+    entity_id: light.garderobe1
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    platform: device
+    type: turned_off
+  condition: []
+  action:
+  - device_id: 4b7a70e327f04a0c8f6bf61a8d730bc0
+    domain: light
+    entity_id: light.garderobe1
+    type: turn_off

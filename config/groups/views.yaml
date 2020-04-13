@@ -30,7 +30,7 @@ view_first_floor:
     - group.ff_floor_lights
     - group.ff_mika
     - group.ff_jona
-    - media_player.badezimmer
+    - media_player.echo_badezimmer
 
 
 view_second_floor:

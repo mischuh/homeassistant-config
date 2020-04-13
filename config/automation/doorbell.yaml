@@ -21,14 +21,14 @@
       data:
         title: '*Home-Assistant*'
         message: "Es hat geklingelt"
-    # - service: notify.mobile_app_sm_g975f
-    #   data:
-    #     title: '*Home-Assistant*'
-    #     message: "Es hat geklingelt"
+    - service: notify.mobile_app_galaxy_s10
+      data:
+        title: '*Home-Assistant*'
+        message: "Es hat geklingelt"
     - service: notify.alexa_media
       data:
         target: 
-          - media_player.echo_arbeitszimmer
+          - media_player.echo_dg_arbeitszimmer
           - media_player.alexas_echo_dot
         data:
           type: tts

@@ -33,7 +33,10 @@ ff_mika:
   entities:
     - switch.ff_mika_bed
     - switch.ff_mika_outlet
+    - light.mika_klavier
     - media_player.mikas_echo
+    - scene.mika_chill
+
 
 ff_jona:
   name: Jona

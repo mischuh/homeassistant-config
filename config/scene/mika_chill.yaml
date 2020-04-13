@@ -1,0 +1,7 @@
+- name: Mika Chill
+  entities:
+    switch.ff_mika_bed: on
+    switch.ff_mika_outlet: on
+    light.mika_klavier:
+      state: on
+      brightness_pct: 25

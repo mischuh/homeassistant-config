@@ -150,6 +150,9 @@ mqtt:
   port: 1883  
   client_id: home-assistant-1
   keepalive: 60
+  discovery: true
+  discovery_prefix: homeassistant
+
 
 tts:
   - platform: google_translate
@@ -157,6 +160,19 @@ tts:
 
 zwave:
   usb_path: /dev/ttyACM0
+
+# Example configuration.yaml entry
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+
+
+google_assistant:
+  project_id: homeassi-51b5d
+  exposed_domains:
+    - switch
+    - light
+
 
 recorder:
   purge_interval: 1
@@ -210,38 +226,39 @@ person:
     id: person_mirko
     user_id: 930ac8c04c884c6dba2c7585e533b169
     device_trackers:
-      - device_tracker.mirko_mobile_app
-      - device_tracker.bt_mirko_gf
-      - device_tracker.bt_mirko_ff
-      - device_tracker.bt_mirko_sf
-      # - device_tracker.galaxy_s10
+      # - device_tracker.mirko_mobile_app
+      # - device_tracker.bt_mirko_gf
+      # - device_tracker.bt_mirko_ff
+      # - device_tracker.bt_mirko_sf
+      - device_tracker.galaxy_s10
   - name: Femke
     id: person_femke
     user_id: d78ceab5a0af4cfca21e49d638bbefdb
     device_trackers:
-#     - device_tracker.femke_mobile_app
-      - device_tracker.bt_femke_gf
-      - device_tracker.bt_femke_ff
-      - device_tracker.bt_femke_sf
-#     - device_tracker.iphone_femke
+      # - device_tracker.femke_mobile_app
+      # - device_tracker.bt_femke_gf
+      # - device_tracker.bt_femke_ff
+      # - device_tracker.bt_femke_sf
+      - device_tracker.iphone_femke
   - name: Mika
     id: person_mika
     user_id: f7eaa84806ad4037aabc5f5ae8d63f03
     device_trackers:
-#     - device_tracker.mika_mobile_app
-      - device_tracker.bt_mika_gf
-      - device_tracker.bt_mika_ff
-      - device_tracker.bt_mika_sf
-#     - device_tracker.iphone_mika
+      # - device_tracker.mika_mobile_app
+      # - device_tracker.bt_mika_gf
+      # - device_tracker.bt_mika_ff
+      # - device_tracker.bt_mika_sf
+      - device_tracker.iphone_mika
   - name: Jona
     id: person_jona
     user_id: 93cdb17814f048b7be7b6cfa20d700df
     device_trackers:
       # - device_tracker.jona_mobile_app
-      - device_tracker.bt_jona_gf
-      - device_tracker.bt_jona_ff
-      - device_tracker.bt_jona_sf
-# - device_tracker.huawei_jona
+      # - device_tracker.bt_jona_gf
+      # - device_tracker.bt_jona_ff
+      # - device_tracker.bt_jona_sf
+      - device_tracker.huawei_jona
+
 
 
 system_health:

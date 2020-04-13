@@ -34,7 +34,7 @@
       data_template:
         option: >-
           {% if states.sun.sun.state == "above_horizon" %}
-            clear
+            google_light_theme
           {% else %}
-            dark
+            google_dark_theme
           {% endif %}

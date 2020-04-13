@@ -2,19 +2,21 @@
 ground_floor:
   name: Erdgeschoss
   entities:
-    - group.livingroom
-    - group.kitchen_lights
     - group.entree_lights
+    - group.wardrobe_lights
+    - group.kitchen_lights
+    - group.livingroom
     - group.garden_lights
 
 ground_floor_lights:
   name: Erdgeschoss
   entities:
     - group.entree_lights
+    - group.wardrobe_lights
     - group.kitchen_lights
     - group.livingroom_lights
     - group.garden_lights
-    
+
 ground_floor_multimedia:
   name: Media (EG)
   entities:
@@ -98,6 +100,18 @@ entree_lights:
     - light.jeq0207545
     - light.jeq0207587
     - light.shelly_dim_eg_bicycles
+
+wardrobe_lights:
+  name: Garderobe Lichter
+  entities:
+    - light.garderobe1
+    # - light.garderobe2
+
+wardrobe:
+  name: Garderobe
+  entities:
+    - group.wardrobe_lights
+    - sensor.tradfri_motion_sensor
 
 garden_lights:
   name: Garten

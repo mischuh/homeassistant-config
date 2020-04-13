@@ -44,6 +44,9 @@ entities:
   switch.ff_mika_outlet:
     name: "Mika Lichterkette"
     hidden: false
+  light.mika_klavier:
+    name: "Mika Klavier"
+    hidden: false
 
   group.second_floor_lights:
     name: "Dachgeschoss"

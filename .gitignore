@@ -28,6 +28,7 @@ config/.HA_VERSION
 config/.ios.conf
 config/.tradfri_psk.conf
 config/.uuid
+config/.shopping_list.json
 config/*.pickle
 config/ip_bans.yaml
 config/core

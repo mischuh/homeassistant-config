@@ -34,6 +34,26 @@ frontend:
 
 lovelace:
   mode: yaml
+  resources:
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+    - url: /hacsfiles/lovelace-card-tools/card-tools.js
+      type: js
+    - url: /hacsfiles/lovelace-layout-card/layout-card.js
+      type: js
+    - url: /local/config-template-card.js
+      type: module
+    - url: /hacsfiles/lovelace-card-mod/card-mod.js
+      type: module
+    - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+      type: module
+    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+      type: module  
+    - url: /hacsfiles/calendar-card/calendar-card.js
+      type: module
+    - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
+      type: module
+
   
 mobile_app:
 
@@ -150,8 +170,8 @@ mqtt:
   port: 1883  
   client_id: home-assistant-1
   keepalive: 60
-  discovery: true
-  discovery_prefix: homeassistant
+  # discovery: true
+  # discovery_prefix: homeassistant
 
 
 tts:
@@ -167,15 +187,14 @@ spotify:
   client_secret: !secret spotify_client_secret
 
 
-google_assistant:
-  project_id: homeassi-51b5d
-  exposed_domains:
-    - switch
-    - light
+# google_assistant:
+#   project_id: homeassi-51b5d
+#   exposed_domains:
+#     - switch
+#     - light
 
 
 recorder:
-  purge_interval: 1
   purge_keep_days: 2
   exclude:
     domains:
@@ -226,7 +245,7 @@ person:
     id: person_mirko
     user_id: 930ac8c04c884c6dba2c7585e533b169
     device_trackers:
-      # - device_tracker.mirko_mobile_app
+      - device_tracker.mirko_mobile_app
       # - device_tracker.bt_mirko_gf
       # - device_tracker.bt_mirko_ff
       # - device_tracker.bt_mirko_sf
@@ -260,25 +279,7 @@ person:
       - device_tracker.huawei_jona
 
 
-
 system_health:
-
-####################################################
-#                                                  #
-#                     Panels                       #
-#                                                  #
-####################################################
-
-# panel_iframe:
-#   fritzbox:
-#     title: 'Fritz Box'
-#     url: 'http://192.168.178.1'
-#     icon: mdi:router-wireless
-#   google:
-#     title: 'Google'
-#     url: https://www.google.com
-#     icon: mdi:google
-
 
 ####################################################
 #                                                  #

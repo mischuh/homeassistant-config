@@ -1,9 +1,0 @@
-alias: Script Guest Wifi ON
-sequence:
-  - alias: Guest Wifi ON
-    service: fritzbox_guestwifi.turn_on
-  - alias: Notify Mirko
-    service: notify.ios_iphone_mirko
-    data:
-      title: "Home-Assistant"
-      message: "Guest wifi turned on"

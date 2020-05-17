@@ -1,28 +1,5 @@
 title: Home
 
-resources:
-  - url: /community_plugin/button-card/button-card.js
-    type: module
-  - url: /community_plugin/lovelace-card-tools/card-tools.js
-    type: js
-  - url: /community_plugin/lovelace-layout-card/layout-card.js
-    type: js
-  - url: /local/config-template-card.js
-    type: module
-  - url: /community_plugin/lovelace-card-mod/card-mod.js
-    type: module
-  - url: /community_plugin/mini-media-player/mini-media-player-bundle.js
-    type: module
-  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
-    type: module
-  # Calendar
-  - url: https://unpkg.com/moment@2.22.2/moment.js
-    type: js
-  - url: /local/community/calendar-card/calendar-card.js?track=true
-    type: module
-  - url: /community_plugin/lovelace-auto-entities/auto-entities.js
-    type: module
-
 views:
   - title: Home
     id: home
@@ -106,6 +83,7 @@ views:
           - calendar.femke_schuh
           - calendar.hrschuhgooglemailcom
           - calendar.familie
+
       # - type: history-graph
       #   id: overview_history_graph_temp
       #   title: Temperatur
@@ -535,7 +513,6 @@ views:
           name: Motion Sensor
           graph: line
         
-
   - title: Dies&Das
     id: diesdas
     icon: mdi:creation

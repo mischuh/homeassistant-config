@@ -27,6 +27,7 @@ boolean_states:
   entities:
     - input_boolean.sunset
     - input_boolean.guest_wlan
+    - switch.fritzbox_guest_wifi
     - input_boolean.doorbell
     - binary_sensor.vacation_hh
     - binary_sensor.workday_sensor

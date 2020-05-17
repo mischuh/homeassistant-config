@@ -17,7 +17,7 @@ services:
  
 
   homegear:
-    image: homegear/rpi-homegear:stable
+    image: homegear/homegear:stable
     container_name: homegear
     restart: always
     volumes:
@@ -65,7 +65,6 @@ services:
     volumes:
       - ./config:/config
       - /etc/localtime:/etc/localtime:ro
-      - ./etc/rxv/rxv.py:/usr/local/lib/python3.6/site-packages/rxv/rxv.py
     ports:
       - "8123:8123"
       - "80:80"

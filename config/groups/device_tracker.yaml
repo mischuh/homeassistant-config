@@ -1,41 +1,45 @@
 mirko:
   name: Mirko
   entities:
-    - device_tracker.mirko_mobile_app
-    - device_tracker.galaxy_s10
-    - device_tracker.bt_mirko_gf
-    - device_tracker.bt_mirko_ff
-    - device_tracker.bt_mirko_sf
-    - sensor.bt_presence_mirko
+    - person.mirko
+    # - device_tracker.mirko_mobile_app
+    # - device_tracker.galaxy_s10
+    # - device_tracker.bt_mirko_gf
+    # - device_tracker.bt_mirko_ff
+    # - device_tracker.bt_mirko_sf
+    # - sensor.bt_presence_mirko
 
 femke:
   name: Femke
   entities:
-    - device_tracker.femke_mobile_app
-    - device_tracker.iphone_femke
-    - device_tracker.bt_femke_gf
-    - device_tracker.bt_femke_ff
-    - device_tracker.bt_femke_sf
-    - sensor.bt_presence_femke
+    - person.femke
+    #  - device_tracker.iphone_femke
+    # - device_tracker.femke_mobile_app
+    # - device_tracker.bt_femke_gf
+    # - device_tracker.bt_femke_ff
+    # - device_tracker.bt_femke_sf
+    # - sensor.bt_presence_femke
 
 mika:
   name: Mika
   entities:
-    - device_tracker.mika_mobile_app
-    - device_tracker.iphone_mika
-    - device_tracker.bt_mika_gf
-    - device_tracker.bt_mika_ff
-    - device_tracker.bt_mika_sf
-    - sensor.bt_presence_mika
+    - person.mika
+    # - device_tracker.iphone_mika
+    # - device_tracker.mika_mobile_app
+    # - device_tracker.bt_mika_gf
+    # - device_tracker.bt_mika_ff
+    # - device_tracker.bt_mika_sf
+    # - sensor.bt_presence_mika
 
 jona:
   name: Jona
   entities:
-    - device_tracker.jona_mobile_app
-    - device_tracker.huawei_jona
-    - device_tracker.bt_jona_gf
-    - device_tracker.bt_jona_ff
-    - device_tracker.bt_jona_sf
+    - person.jona
+    # - device_tracker.huawei_jona
+    # - device_tracker.jona_mobile_app
+    # - device_tracker.bt_jona_gf
+    # - device_tracker.bt_jona_ff
+    # - device_tracker.bt_jona_sf
 
 
 kids:

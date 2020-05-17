@@ -53,10 +53,10 @@ class FritzBoxGuestWifi(object):
         self._handle_turn_on_off(False)
 
     def _handle_turn_on_off(self, turn_on):
-        from fritzconnection.fritzconnection import ServiceError, ActionError
+        from fritzconnection.core.exceptions import FritzServiceError, FritzActionError
         new_state = '1' if turn_on else '0'
         try:
             self._connection.call_action('WLANConfiguration:3', 'SetEnable', NewEnable=new_state)
-        except ServiceError or ActionError:
+        except FritzServiceError or FritzActionError:
             _LOGGER.error('Home Assistant cannot call the wished service on the FRITZ!Box. '
                           'Are credentials, address and port correct?')

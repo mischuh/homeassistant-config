@@ -43,33 +43,33 @@
         message: "_Someone_ turned the lights off through *actionably* notification"
 
 
-- alias: Mirko Group Status Coming Home
-  trigger:
-    # - platform: numeric_state
-    #   entity_id: sensor.bt_presence_ff_family
-    #   below: 10
-    - platform: state
-      entity_id: group.mirko
-      from: 'not_home'
-      to: 'home'  
-  action:    
-    - service: notify.telegram
-      data:
-        title: '*Home-Assistant*'
-        message: "Group Mirko kommt nach hause..."
+# - alias: Mirko Group Status Coming Home
+#   trigger:
+#     # - platform: numeric_state
+#     #   entity_id: sensor.bt_presence_ff_family
+#     #   below: 10
+#     - platform: state
+#       entity_id: group.mirko
+#       from: 'not_home'
+#       to: 'home'  
+#   action:    
+#     - service: notify.telegram
+#       data:
+#         title: '*Home-Assistant*'
+#         message: "Group Mirko kommt nach hause..."
 
 
-- alias: Mirko Group Status Leaving Home
-  trigger:
-    # - platform: numeric_state
-    #   entity_id: sensor.bt_presence_ff_family
-    #   below: 10
-    - platform: state
-      entity_id: group.mirko
-      from: 'home'
-      to: 'not_home'  
-  action:    
-    - service: notify.telegram
-      data:
-        title: '*Home-Assistant*'
-        message: "Group Mirko verlässt das Haus..."
+# - alias: Mirko Group Status Leaving Home
+#   trigger:
+#     # - platform: numeric_state
+#     #   entity_id: sensor.bt_presence_ff_family
+#     #   below: 10
+#     - platform: state
+#       entity_id: group.mirko
+#       from: 'home'
+#       to: 'not_home'  
+#   action:    
+#     - service: notify.telegram
+#       data:
+#         title: '*Home-Assistant*'
+#         message: "Group Mirko verlässt das Haus..."

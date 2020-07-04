@@ -38,26 +38,22 @@ views:
             - entity: group.ground_floor
               hold_action:
                   action: toggle
-              icon: "${vars[0] === 'on' ? 'mdi:numeric-1-box' : 'mdi:mdi:numeric-1-box-outline' }"
+              icon: "${vars[0] === 'on' ? 'mdi:numeric-1-box' : 'mdi:numeric-1-box-outline' }"
             - entity: group.first_floor_lights
               hold_action:
                   action: toggle
-              icon: "${vars[1] === 'on' ? 'mdi:numeric-2-box' : 'mdi:mdi:numeric-2-box-outline' }"
+              icon: "${vars[1] === 'on' ? 'mdi:numeric-2-box' : 'mdi:numeric-2-box-outline' }"
             - entity: group.second_floor
               hold_action:
                   action: toggle
-              icon: "${vars[2] === 'on' ? 'mdi:numeric-3-box' : 'mdi:mdi:numeric-3-box-outline' }"
+              icon: "${vars[2] === 'on' ? 'mdi:numeric-3-box' : 'mdi:numeric-3-box-outline' }"
       - type: conditional
         conditions:
           - entity: media_player.spotify_mirko
             state: "playing"
         card:
-          type: custom:mini-media-player
-          artwork: cover
-          icon: mdi:spotify
+          type: media-control
           entity: media_player.spotify_mirko
-          hide:
-            source: true
       - type: conditional
         conditions:
             - entity: group.stadtreinigung
@@ -84,14 +80,6 @@ views:
           - calendar.hrschuhgooglemailcom
           - calendar.familie
 
-      # - type: history-graph
-      #   id: overview_history_graph_temp
-      #   title: Temperatur
-      #   hours_to_show: 96
-      #   entities:
-      #     - sensor.aeotec_zw100_multisensor_6_temperature
-      #     - sensor.dark_sky_temperature
-
   - title: EG
     id: groundfloor
     background: var(--background-image)
@@ -116,23 +104,6 @@ views:
               hold_action:
                   action: toggle
               icon: "${states['group.garden_lights'].state === 'on' ? 'mdi:flower' : 'mdi:flower-outline' }"
-
-    # - type: glance
-      #   id: gf_glance
-      #   entities:
-      #     - entity: group.kitchen
-      #       hold_action:
-      #           action: toggle
-      #       icon: mdi:coffee
-      #       #grill
-      #     - entity: group.livingroom
-      #       hold_action:
-      #           action: toggle
-      #       icon: mdi:seat
-      #     - entity: group.garden_lights
-      #       hold_action:
-      #           action: toggle
-      #       icon: mdi:flower
       - type: custom:auto-entities
         id: overview_scenes
         filter:
@@ -190,9 +161,6 @@ views:
         card:
           type: entities
           title: Yamaha Radio
-      # - type: media-control
-      #   id: gf_media_control_rxv_zone1
-      #   entity: media_player.yamaha_receiver
       - type: custom:mini-media-player
         id: gf_media_control_rxv_zone1
         artwork: cover
@@ -207,22 +175,6 @@ views:
         id: gf_media_control_panasonic
         icon: mdi:television
         entity: media_player.panasonic_viera_tv
-      # - type: media-control
-      #   id: gf_media_control_rxv_zone2 
-      #   # "#columns > div:nth-child(2) > hui-media-control-card > ha-media_player-card":
-      #   # debug_cardMod: true
-      #   # style: 
-      #   #   .: |
-      #   #      "ha-card": 
-      #   #       $: |
-      #   #         div.banner {
-      #   #           border-top-left-radius: 20px;
-      #   #           border-top-right-radius: 20px;
-      #   #         }       
-      #   entity: media_player.yamaha_receiver_zone_2
-      # - type: media-control
-      #   id: gf_media_control_panasonic
-      #   entity: media_player.panasonic_viera_tv
       
   - title: OG
     id: firstfloor
@@ -294,16 +246,8 @@ views:
         card:
           type: entities
           title: Jona
-      - type: custom:mini-media-player
-        id: ff_media_control_alexa_bath
-        artwork: cover
-        icon: mdi:spotify
-        hide:
-          source: true
+      - type: media-control
         entity: media_player.echo_badezimmer
-      # - type: media-control
-      #   id: ff_media_control_alexa_bath
-      #   entity: media_player.alexas_echo_dot
 
   - title: DG
     id: secondfloor
@@ -320,23 +264,9 @@ views:
             hold_action:
                 action: toggle
             icon: mdi:hotel
-      # - type: custom:auto-entities
-      #   id: sf_multimedia
-      #   group: group.sf_alexas
-      #   card:
-      #     type: entities
-      #     show_header_toggle: false
-      - type: custom:mini-media-player
-        artwork: cover
-        icon: mdi:spotify        
-        hide:
-          source: true
+      - type: media-control
         entity: media_player.echo_dg_schlafzimmer
-      - type: custom:mini-media-player
-        artwork: cover
-        icon: mdi:spotify
-        hide:
-          source: true
+      - type: media-control
         entity: media_player.echo_dg_arbeitszimmer
       - type: custom:auto-entities
         id: sf_group_work
@@ -535,7 +465,9 @@ views:
         card:
           type: entities
           title: Zustände
-          show_header_toggle: false      
+          show_header_toggle: false
+      - type: media-control
+        entity: media_player.playstation_4
       - type: vertical-stack
         id: settings_theme
         cards:

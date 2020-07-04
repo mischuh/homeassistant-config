@@ -69,7 +69,7 @@
 - alias: "Turn off lights: children k1"
   trigger:    
     platform: time
-    at: '22:00:00'  
+    at: '22:30:00'  
   action:
     - service: switch.turn_off
       entity_id: group.ff_mika

@@ -12,7 +12,7 @@ homeassistant:
   time_zone: Europe/Berlin
   # Customization file
   customize: !include customize.yaml
-  auth_providers:    
+  auth_providers:
     - type: trusted_networks
       trusted_networks:
         - 127.0.0.1
@@ -20,6 +20,8 @@ homeassistant:
         - 192.168.178.0/24
         - fd00::/8
     - type: homeassistant
+  external_url: !secret external_url
+  internal_url: http://homeassi:8123
 
 ####################################################
 #                                                  #
@@ -32,16 +34,19 @@ frontend:
   themes: !include_dir_merge_named themes
   javascript_version: latest
 
+
 lovelace:
   mode: yaml
   resources:
-    - url: /hacsfiles/button-card/button-card.js
-      type: module
     - url: /hacsfiles/lovelace-card-tools/card-tools.js
       type: js
     - url: /hacsfiles/lovelace-layout-card/layout-card.js
       type: js
-    - url: /local/config-template-card.js
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+    - url: /hacsfiles/lovelace-slider-entity-row/slider-entity-row.js
+      type: module
+    - url: /hacsfiles/config-template-card/config-template-card.js
       type: module
     - url: /hacsfiles/lovelace-card-mod/card-mod.js
       type: module
@@ -93,10 +98,6 @@ ios:
 #  track_new_devices: False
 #  max_gps_accuracy: 150
 
-
-pi_hole:  
-  host: raspi-hole
-
 weather:
   - platform: darksky
     api_key: !secret darksky_api_key
@@ -122,15 +123,17 @@ alexa_media:
 #                                                  #
 ####################################################
 http:
-  ip_ban_enabled: true 
-  login_attempts_threshold: 5 
-  base_url: !secret base_url
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
+  # base_url: !secret external_url
+  # external_url: !secret external_url
+  # internal_url: homeassi
   # Allow reverse proxy requests
   use_x_forwarded_for: true
   # You must set the trusted proxy IP address so that Home Assistant will properly accept connections
   # Set this to your NGINX machine IP, or localhost if hosted on the same machine.
   trusted_proxies: 192.168.178.25
-  
+
 
 telegram_bot:
   - platform: broadcast

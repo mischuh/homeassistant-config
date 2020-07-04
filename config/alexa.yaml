@@ -38,13 +38,16 @@ entities:
   switch.ff_jona_outlet:
     name: "Jona Lichterkette"
     hidden: false
+  light.jona_bunt:
+    name: "Jona Schreibtisch"
+    hidden: false
   switch.ff_mika_bed:
     name: "Mika Bett"
     hidden: false
   switch.ff_mika_outlet:
     name: "Mika Lichterkette"
     hidden: false
-  light.mika_klavier:
+  light.mika_bunt:
     name: "Mika Klavier"
     hidden: false
 

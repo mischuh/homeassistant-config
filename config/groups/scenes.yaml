@@ -5,3 +5,4 @@ scenes:
     - scene.groundfloor_lights
     - scene.groundfloor_good_night
     - scene.blockbuster
+    - scene.lunch_notification

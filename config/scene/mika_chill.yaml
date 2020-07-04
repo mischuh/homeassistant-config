@@ -2,6 +2,10 @@
   entities:
     switch.ff_mika_bed: on
     switch.ff_mika_outlet: on
-    light.mika_klavier:
+    light.mika_bunt:
       state: on
       brightness_pct: 25
+      rgb_color:
+        - 255
+        - 182
+        - 109

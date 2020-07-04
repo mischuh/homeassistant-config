@@ -31,9 +31,9 @@ ff_children:
 ff_mika:
   name: Mika
   entities:
+    - light.mika_bunt
     - switch.ff_mika_bed
     - switch.ff_mika_outlet
-    - light.mika_klavier
     - media_player.mikas_echo
     - scene.mika_chill
 
@@ -41,6 +41,7 @@ ff_mika:
 ff_jona:
   name: Jona
   entities:
+    - light.jona_bunt
     - switch.ff_jona_bed
     - switch.ff_jona_outlet
     - media_player.jonas_echo

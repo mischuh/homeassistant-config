@@ -232,6 +232,9 @@ scene.dinner:
 
 scene.blockbuster:
   icon: mdi:youtube-tv
+  
+scene.lunch_notification:
+  icon: mdi:hand-heart
 
 # Scripts
 

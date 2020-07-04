@@ -1,0 +1,55 @@
+alias: Notify Call
+sequence:
+- service: media_player.volume_set
+  data:
+    entity_id: 
+      - media_player.echo_dg_arbeitszimmer
+    volume_level: 0.4
+- service: media_player.volume_set
+  data:
+    entity_id: 
+      - media_player.mikas_echo
+    volume_level: 0.4
+- service: media_player.volume_set
+  data:
+    entity_id: 
+      - media_player.jonas_echo
+    volume_level: 0.4
+- delay: 00:00:01
+- service: notify.alexa_media
+  data:
+    message: "Essen ist fertig, bitte zu Tisch kommen. Danke"
+    target:       
+      - media_player.echo_dg_arbeitszimmer
+    data:
+      type: tts
+- service: notify.alexa_media
+  data:
+    message: "Essen ist fertig, bitte zu Tisch kommen. Danke"
+    target:       
+      - media_player.mikas_echo
+    data:
+      type: tts
+- service: notify.alexa_media
+  data:
+    message: "Essen ist fertig, bitte zu Tisch kommen. Danke"
+    target:       
+      - media_player.jonas_echo
+    data:
+      type: tts
+- delay: 00:00:01
+- service: media_player.volume_set
+  data:
+    entity_id: 
+      - media_player.echo_dg_arbeitszimmer
+    volume_level: 0.3
+- service: media_player.volume_set
+  data:
+    entity_id: 
+      - media_player.mikas_echo
+    volume_level: 0.3
+- service: media_player.volume_set
+  data:
+    entity_id: 
+      - media_player.jonas_echo
+    volume_level: 0.3

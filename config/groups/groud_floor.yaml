@@ -105,7 +105,7 @@ wardrobe_lights:
   name: Garderobe Lichter
   entities:
     - light.garderobe1
-    # - light.garderobe2
+    - light.garderobe2
 
 wardrobe:
   name: Garderobe

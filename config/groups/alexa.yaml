@@ -1,5 +1,5 @@
 alexas:
-  name: Alexas
+  name: All Alexas
   entities:
     - media_player.alexas_echo_dot
     - media_player.echo_dg_arbeitszimmer
@@ -8,7 +8,14 @@ alexas:
     - media_player.jonas_echo
 
 sf_alexas:
-  name: Alexas
+  name: SF Alexas
   entities:
     - media_player.echo_dg_arbeitszimmer
     - media_player.echo_dg_schlafzimmer
+
+lunch_alexas:
+  name: Lunch call Alexas
+  entities:
+    - media_player.echo_dg_arbeitszimmer
+    - media_player.mikas_echo
+    - media_player.jonas_echo

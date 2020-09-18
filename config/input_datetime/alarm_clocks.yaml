@@ -1,0 +1,9 @@
+alarm_clock_time_mika:
+  name: Alarm Clock Mika
+  has_date: false
+  has_time: true
+
+alarm_clock_time_jona:
+  name: Alarm Clock Jona
+  has_date: false
+  has_time: true

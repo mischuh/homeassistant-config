@@ -20,6 +20,7 @@ ff_floor_lights:
   entities:
     - light.meq0397149
     - switch.ff_floor_tree
+    - light.homegear_ff_hallway
 
 ff_children:
   name: Kinder
@@ -36,6 +37,7 @@ ff_mika:
     - switch.ff_mika_outlet
     - media_player.mikas_echo
     - scene.mika_chill
+    - group.mika_moods
 
 
 ff_jona:
@@ -45,3 +47,5 @@ ff_jona:
     - switch.ff_jona_bed
     - switch.ff_jona_outlet
     - media_player.jonas_echo
+    - sensor.iphone_von_jona_distance
+    - group.jona_moods

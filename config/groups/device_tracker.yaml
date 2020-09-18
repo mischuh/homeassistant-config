@@ -67,4 +67,6 @@ trusted_friends:
     - device_tracker.franksiphone8s
     - device_tracker.iphone_cclausen
     - device_tracker.meins
-    - device_tracker.iphoneocknorris
+    - device_tracker.svenjas_iphone
+    - device_tracker.bjoerns_iphone
+    - device_tracker.applewaonbjoern

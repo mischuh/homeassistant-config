@@ -1,0 +1,26 @@
+
+mika_lights:
+  name: Mika Lichter
+  entities:
+    - light.mika_bunt
+    - switch.ff_mika_bed
+    - switch.ff_mika_outlet
+
+mika_multimedia:
+  name: Mika Multimedia
+  entities:
+    - media_player.mikas_echo
+
+mika_scenes:
+  name: Mika Szenen
+  entities:
+    - scene.mika_chill
+    - script.tradfri_mika_relax
+    - script.tradfri_mika_everyday
+    - script.tradfri_mika_focus
+
+mika_alarm_clock:
+  name: Wecker
+  entities:
+    - input_boolean.alarm_clock_mika
+    - input_datetime.alarm_clock_time_mika

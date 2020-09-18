@@ -1,0 +1,63 @@
+title: Dies&Das
+id: diesdas
+icon: mdi:creation
+background: var(--background-image)
+cards:
+  - type: vertical-stack
+    title: Themes
+    id: settings_theme
+    cards:
+    - type: horizontal-stack
+      cards:
+      - type: custom:button-card
+        entity: input_boolean.frontend_theme_day_night_switch
+        name: "Auto switch"
+        size: 20%
+      - type: custom:button-card
+        entity: switch.frontend_theme_clear
+        name: Day
+        size: 20%
+      - type: custom:button-card
+        entity: switch.frontend_theme_dark
+        name: Night
+        size: 20%
+  - type: custom:mini-graph-card
+    id: ff_steps
+    name: Schritte
+    entities:
+      - sensor.iphone_von_jona_steps
+      - sensor.iphone_steps
+      - sensor.galaxy_s10_steps_sensor
+    show:
+      labels: true
+  - type: custom:auto-entities
+    id: overview_alexas
+    filter:
+      include:
+        - group: group.alexas
+    card:
+      type: entities
+      title: Alexas
+      show_header_toggle: false
+  - type: horizontal-stack
+    id: states_states_overview
+    title: States
+    cards:
+    - type: custom:auto-entities
+      id: diesdas_states
+      filter:
+        include:
+          - group: group.boolean_states
+      card:
+        type: entities
+        title: Zustände
+        show_header_toggle: false
+    - type: custom:auto-entities
+      id: diesdas_stadtreinigung
+      filter:
+        include:
+          - group: group.stadtreinigung
+      card:
+        type: entities
+        title: Stadtreinigung
+        show_header_toggle: false

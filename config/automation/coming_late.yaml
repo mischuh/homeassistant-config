@@ -1,5 +1,5 @@
 - alias: "Coming home late"
-  trigger:    
+  trigger:
     - platform: state
       entity_id: group.mirko
       from: 'not_home'
@@ -13,26 +13,27 @@
     conditions:
       - condition: state
         entity_id: input_boolean.sunset
-        state: 'on'      
+        state: 'on'
       - condition: state
         entity_id: input_boolean.doorbell
         state: 'off'
   action:
-    # see doorbell.yaml for turn_off event
     - service: homeassistant.turn_on
       entity_id: input_boolean.doorbell
     - service: light.turn_on
       data:
-        # Door
         brightness_pct: 70
-        entity_id: 
+        entity_id:
           - light.jeq0207587
           - light.shelly_dim_eg_bicycles
     - service: light.turn_on
       data:
-        # Entree
         brightness_pct: 40
         entity_id: light.jeq0207545
+    - service: light.turn_on
+      data:
+        entity_id: light.shelly_dim_eg_bicycles
+        brightness_pct: 80
     - service: notify.telegram #notify.mobile_app_galaxy_s10
       data:
         title: '*Home-Assistant*'

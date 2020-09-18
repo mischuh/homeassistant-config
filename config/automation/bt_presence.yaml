@@ -67,9 +67,35 @@
 #     - platform: state
 #       entity_id: group.mirko
 #       from: 'home'
-#       to: 'not_home'  
-#   action:    
+#       to: 'not_home'
+#   action:
 #     - service: notify.telegram
 #       data:
 #         title: '*Home-Assistant*'
 #         message: "Group Mirko verlässt das Haus..."
+
+
+- alias: Femke Leavs Work
+  trigger:
+    - platform: state
+      entity_id: person.femke
+      from: 'arbeit_femke'
+      to: 'not_home'
+  action:
+    - service: notify.mobile_app_mirko_s10
+      data:
+        title: '*Home-Assistant*'
+        message: "Femke verlässt die Arbeit..."
+
+
+- alias: Femke Enters Home
+  trigger:
+    - platform: state
+      entity_id: person.femke
+      from: 'not_home'
+      to: 'home'
+  action:
+    - service: notify.mobile_app_mirko_s10
+      data:
+        title: '*Home-Assistant*'
+        message: "Femke betritt Home..."

@@ -1,7 +1,7 @@
 stadtreinigung:
   name: Stadtreinigung
   entities:
-    - binary_sensor.srhh_morgen_blue
-    - binary_sensor.srhh_morgen_green
-    - binary_sensor.srhh_morgen_yellow
-    - binary_sensor.srhh_morgen_black
+    - binary_sensor.srhh_morgen_blau
+    - binary_sensor.srhh_morgen_gelb
+    - binary_sensor.srhh_morgen_grune
+    - binary_sensor.srhh_morgen_schwarz

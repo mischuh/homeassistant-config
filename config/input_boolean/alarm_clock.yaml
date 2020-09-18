@@ -1,0 +1,18 @@
+alarm_clock_mika:
+  name: Alarm clock Mika is on
+  icon: mdi:alarm
+
+alarm_clock_jona:
+  name: Alarm clock Jona is on
+  icon: mdi:alarm
+
+
+wake_up_light_mika:
+  name: Start wake up light Mika
+  initial: "off"
+  icon: mdi:weather-sunset-up
+
+wake_up_light_jona:
+  name: Start wake up light Jona
+  initial: "off"
+  icon: mdi:weather-sunset-up

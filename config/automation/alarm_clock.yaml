@@ -1,0 +1,46 @@
+- alias: "Alarm clock Mika"
+  trigger:
+    platform: template
+    value_template: >
+      {{ states("sensor.time")[0:5] == states("sensor.ten_minutes_before_alarm_mika") }}
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.alarm_clock_mika
+        state: "on"
+      - condition: state
+        entity_id: binary_sensor.holiday_mode
+        state: "off"
+  action:
+    - service: notify.mobile_app_galaxy_s10
+      data:
+        title: '*Home-Assistant*'
+        message: "Mikas Wecker hat gezündet"
+    - service: script.alarm_fader_kids
+      data:
+        name: mika
+
+
+- alias: "Alarm clock Jona"
+  trigger:
+    platform: template
+    value_template: >
+      {{ states("sensor.time")[0:5] == states("sensor.ten_minutes_before_alarm_jona") }}
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.alarm_clock_jona
+        state: "on"
+      - condition: state
+        entity_id: binary_sensor.holiday_mode
+        state: "off"
+  action:
+    - service: notify.mobile_app_galaxy_s10
+      data:
+        title: '*Home-Assistant*'
+        message: "Jonas Wecker hat gezündet"
+    - service: script.alarm_fader_kids
+      data:
+        name: jona

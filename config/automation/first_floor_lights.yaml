@@ -52,7 +52,7 @@
     - delay: "00:00:05"
     - service: switch.turn_on
       entity_id: group.ff_children
-          
+
 
 - alias: "Turn off lights: Floor"
   trigger:    
@@ -67,18 +67,33 @@
 
 
 - alias: "Turn off lights: children k1"
-  trigger:    
+  trigger:
     platform: time
-    at: '22:30:00'  
+    at: '22:30:00'
   action:
     - service: switch.turn_off
       entity_id: group.ff_mika
-    
+
 
 - alias: "Turn off lights: children k2"
   trigger:    
     platform: time
-    at: '21:00:00'  
+    at: '21:00:00'
   action:
     - service: switch.turn_off
-      entity_id: group.ff_jona    
+      entity_id: group.ff_jona
+
+
+- alias: "Flurwand Taster"
+  trigger:
+    platform: event
+    event_type: homematic.keypress
+    event_data:
+      name: LEQ0252755
+      channel: 1
+      param: PRESS_SHORT
+  action:
+    - service: light.toggle
+      data:
+        brightness_pct: 45
+        entity_id: light.meq0397149

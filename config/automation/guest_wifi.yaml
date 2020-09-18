@@ -18,16 +18,12 @@
     - platform: state
       entity_id: input_boolean.guest_wlan
       to: 'on'
-    # - platform: state
-    #   entity_id: group.trusted_friends
-    #   from: 'not_home'
-    #   to: 'home'
+    - platform: state
+      entity_id: group.trusted_friends
+      from: 'not_home'
+      to: 'home'
   action:
     - service: fritzbox_guestwifi.turn_on
-    # - service: notify.ios_iphone_mirko
-    #   data:
-    #     title: "Home-Assistant"
-    #     message: "Guest wifi turned ON"
     - service: notify.ios_iphone_femke
       data:
         title: "Home-Assistant"
@@ -51,10 +47,6 @@
       to: 'on'
       for:
         minutes: 90
-  # condition:
-  #   condition: state
-  #   entity_id: input_boolean.guest_wlan
-  #   state: 'on'
   action:
     - service: fritzbox_guestwifi.turn_off
     - service: notify.telegram

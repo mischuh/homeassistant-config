@@ -53,13 +53,21 @@ lovelace:
     - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
       type: module
     - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
-      type: module  
+      type: module
     - url: /hacsfiles/calendar-card/calendar-card.js
       type: module
     - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
       type: module
+    - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+      type: module
+  # dashboards:
+  #   lovelace-yaml:
+  #     mode: yaml
+  #     title: Overview
+  #     icon: mdi:view-dashboard
+  #     show_in_sidebar: true
+  #     filename: ui-lovelace.yaml
 
-  
 mobile_app:
 
 # Enables configuration UI
@@ -86,12 +94,13 @@ logger:
   default: warning
   logs:    
     homeassistant.components.mqtt: info
+    homeassistant.components.mqtt.light: debug
 
 sun:
 
 cloud:
 
-ios:
+# ios:
 
 # owntracks:
 #  waypoints: False
@@ -166,7 +175,10 @@ homekit:
       - light.jeq0207534 #essplatz
       - light.links
       - light.rechts
-      - group.groundfloor_lights
+      - group.sf_work_lights
+      - switch.sf_floor_work_outlet
+      - switch.sf_floor_work_desk
+      - switch.sf_floor_work_shelf
 
 mqtt:
   broker: localhost
@@ -234,11 +246,6 @@ speedtestdotnet:
     - download
     - upload
 
-# stadtreinigung_hamburg:
-#   - name: home
-#     street: !secret srhh_street
-#     number: !secret srhh_number
-
 
 # HUE API
 # http://192.168.178.2/api/pi/lights
@@ -248,38 +255,38 @@ person:
     id: person_mirko
     user_id: 930ac8c04c884c6dba2c7585e533b169
     device_trackers:
-      - device_tracker.mirko_mobile_app
       # - device_tracker.bt_mirko_gf
       # - device_tracker.bt_mirko_ff
       # - device_tracker.bt_mirko_sf
-      - device_tracker.galaxy_s10
+      - device_tracker.galaxy_s10       # Handy
+      - device_tracker.mirko_mobile_app # APP
   - name: Femke
     id: person_femke
     user_id: d78ceab5a0af4cfca21e49d638bbefdb
     device_trackers:
-      # - device_tracker.femke_mobile_app
       # - device_tracker.bt_femke_gf
       # - device_tracker.bt_femke_ff
       # - device_tracker.bt_femke_sf
-      - device_tracker.iphone_femke
+      - device_tracker.iphone_femke     # Handy
+      - device_tracker.iphone_femke_app # APP
   - name: Mika
     id: person_mika
     user_id: f7eaa84806ad4037aabc5f5ae8d63f03
     device_trackers:
-      # - device_tracker.mika_mobile_app
       # - device_tracker.bt_mika_gf
       # - device_tracker.bt_mika_ff
       # - device_tracker.bt_mika_sf
-      - device_tracker.iphone_mika
+      - device_tracker.mikas_iphone     # Handy
+      - device_tracker.mikas_iphone_app # APP
   - name: Jona
     id: person_jona
     user_id: 93cdb17814f048b7be7b6cfa20d700df
     device_trackers:
-      # - device_tracker.jona_mobile_app
       # - device_tracker.bt_jona_gf
       # - device_tracker.bt_jona_ff
       # - device_tracker.bt_jona_sf
-      - device_tracker.huawei_jona
+      - device_tracker.iphone_jona      # Handy
+      - device_tracker.iphone_jona_app  # APP
 
 
 system_health:
@@ -295,6 +302,7 @@ binary_sensor: !include_dir_merge_list binary_sensor
 device_tracker: !include device_tracker.yaml
 group: !include_dir_merge_named groups
 input_boolean: !include_dir_merge_named input_boolean
+input_datetime: !include_dir_merge_named input_datetime
 input_select: !include_dir_merge_named input_select
 media_player: !include_dir_merge_list media_player
 script: !include_dir_named script

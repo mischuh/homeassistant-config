@@ -27,6 +27,7 @@ sf_work_lights:
   entities:
     - switch.sf_floor_work_outlet
     - switch.sf_floor_work_desk
+    - switch.sf_floor_work_shelf
 
 sf_work_multimedia:
   name: Arbeitszimmer Media
@@ -43,7 +44,6 @@ sf_bedroom_lights:
   name: Schlafzimmer Licht
   entities:
     - switch.sf_bedroom_outlet
-    - switch.sf_bedroom_bed
 
 sf_bedroom_multimedia:
   name: Schlafzimmer Media

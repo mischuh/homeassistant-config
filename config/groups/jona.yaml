@@ -1,0 +1,25 @@
+
+jona_lights:
+  name: Jona Lichter
+  entities:
+    - light.jona_bunt
+    - switch.ff_jona_bed
+    - switch.ff_jona_outlet
+
+jona_multimedia:
+  name: Jona Multimedia
+  entities:
+    - media_player.jonas_echo
+
+jona_scenes:
+  name: Jona Szenen
+  entities:
+    - script.tradfri_jona_relax
+    - script.tradfri_jona_everyday
+    - script.tradfri_jona_focus
+
+jona_alarm_clock:
+  name: Wecker
+  entities:
+    - input_boolean.alarm_clock_jona
+    - input_datetime.alarm_clock_time_jona

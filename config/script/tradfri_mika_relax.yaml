@@ -1,0 +1,10 @@
+alias: Mika Relax
+sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.mika_bunt
+      brightness: 25
+      rgb_color:
+        - 239
+        - 210
+        - 117

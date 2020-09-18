@@ -35,8 +35,7 @@
     state: 'off'
   action:
     - service: switch.turn_off
-      entity_id: 
-        - switch.sf_bedroom_bed
+      entity_id:
         - switch.sf_bedroom_outlet
     
 
@@ -50,14 +49,16 @@
     to: 'on'
   action:
     - service: switch.turn_on
-      entity_id: switch.sf_floor_work_outlet
+      entity_id:
+        - switch.sf_floor_work_outlet
+        - switch.sf_floor_work_shelf
     - delay: "00:00:05"
     - service: switch.turn_on
       entity_id: switch.sf_bedroom_outlet
       
 
 - alias: "Turn off lights: Work"
-  trigger:    
+  trigger:
     platform: time
     at: '22:30:00'
   action:

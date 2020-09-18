@@ -1,0 +1,149 @@
+title: Home
+id: home
+icon: mdi:home
+background: var(--background-image)
+badges:
+  - person.mirko
+  - person.mika
+  - person.jona
+  - person.femke
+cards:
+  - type: vertical-stack
+    cards:
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.display_card
+            state: "on" 
+          - entity: input_boolean.sunset
+            state: "on"
+          - entity: group.ground_floor
+            state: "on"
+        card:
+          type: entities
+          entities:
+            - scene.groundfloor_good_night
+      - type: conditional
+        conditions:
+          - entity: media_player.spotify_mirko
+            state: "playing"
+        card:
+          type: media-control
+          entity: media_player.spotify_mirko
+      - type: conditional
+        conditions:
+          - entity: media_player.playstation_4
+            state: "playing"
+        card:
+          type: media-control
+          entity: media_player.playstation_4
+      - type: conditional
+        conditions:
+          - entity: media_player.panasonic_viera_tv
+            state: "playing"
+          - entity: input_boolean.sunset
+            state: "on"
+        card:
+          type: entities
+          show_header_toggle: false
+          entities:
+            - scene.blockbuster
+      - type: conditional
+        conditions:
+          - entity: group.stadtreinigung
+            state: "on"
+        card:
+          type: custom:auto-entities
+          show_empty: false
+          card:
+            type: glance
+            title: Mülltonnen
+          filter:
+            include:
+              - group: group.stadtreinigung
+  - type: vertical-stack
+    cards:
+      - type: "custom:config-template-card"
+        variables:
+          - states['group.ground_floor'].state
+          - states['group.first_floor_lights'].state
+          - states['group.second_floor'].state
+        entities:
+          - group.ground_floor
+          - group.first_floor_lights
+          - group.second_floor
+        card:
+          type: 'custom:hui-glance-card'
+          entities:
+            - entity: group.ground_floor
+              hold_action:
+                  action: toggle
+              icon: "${vars[0] === 'on' ? 'mdi:numeric-1-box' : 'mdi:numeric-1-box-outline' }"
+            - entity: group.first_floor_lights
+              hold_action:
+                  action: toggle
+              icon: "${vars[1] === 'on' ? 'mdi:numeric-2-box' : 'mdi:numeric-2-box-outline' }"
+            - entity: group.second_floor
+              hold_action:
+                  action: toggle
+              icon: "${vars[2] === 'on' ? 'mdi:numeric-3-box' : 'mdi:numeric-3-box-outline' }"
+      - id: overview_weather_forecast
+        type: weather-forecast
+        entity: weather.wetter
+      - id: overview_hvv
+        type: entities
+        entities:
+          - entity: sensor.departures_at_volksdorf
+            name: Volksdorf
+            type: custom:multiple-entity-row
+            format: relative
+            icon: mdi:train
+            entities:
+              - attribute: line
+                name: Line
+              - attribute: delay
+                name: Delay
+                unit: mins
+      - id: overview_wastebin
+        title: Müll
+        type: entities
+        show_header_toggle: False
+        entities:
+          - entity: sensor.stadtreinigung_hamburg_home_schwarze_restmulltonne
+            type: custom:multiple-entity-row
+            format: relative
+            state_color: true
+            secondary_info:
+              entity: sensor.stadtreinigung_hamburg_home_schwarze_restmulltonne
+              format: datetime
+          - entity: sensor.stadtreinigung_hamburg_home_gelbe_wertstofftonne_sack
+            type: custom:multiple-entity-row
+            format: relative
+            state_color: true
+            secondary_info:
+              entity: sensor.stadtreinigung_hamburg_home_gelbe_wertstofftonne_sack
+              format: datetime
+          - entity: sensor.stadtreinigung_hamburg_home_grune_biotonne
+            type: custom:multiple-entity-row
+            format: relative
+            state_color: true
+            secondary_info:
+              entity: sensor.stadtreinigung_hamburg_home_grune_biotonne
+              format: datetime
+          - entity: sensor.stadtreinigung_hamburg_home_blaue_papiertonne
+            type: custom:multiple-entity-row
+            format: relative
+            state_color: true
+            secondary_info:
+              entity: sensor.stadtreinigung_hamburg_home_blaue_papiertonne
+              format: datetime
+
+  - type: vertical-stack
+    cards:
+      - id: overview_calendars
+        type: "custom:calendar-card"
+        showProgressBar: false
+        numberOfDays: 7
+        entities:
+          - calendar.femke_schuh
+          - calendar.hrschuhgooglemailcom
+          - calendar.familie

@@ -21,18 +21,30 @@ switch.feq0062058:
 
 light.heq0359760:
   friendly_name: Spüle
-  
+
+light.homegear_eg_sink:
+  friendly_name: Spüle (MQTT)
+
 # Küche
 light.jeq0207534:
   friendly_name: Essplatz
+
+light.homegear_eg_table:
+  friendly_name: Essplatz (MQTT)
 
 # Eingangsbereich
 light.jeq0207545:
   friendly_name: Flur
 
+light.homegear_eg_entrance:
+  friendly_name: Flur (MQTT)
+
 # Eingangsbereich
 light.jeq0207587:
   friendly_name: Außenlicht
+
+light.homegear_eg_doorlight:
+  friendly_name: Außenlicht (MQTT)
 
 # Fahrräder
 light.shelly_dim_eg_bicycles:
@@ -42,9 +54,16 @@ light.shelly_dim_eg_bicycles:
 light.meq0169146:
   friendly_name: Decke
 
+light.homegear_eg_living_room:
+  friendly_name: Decke (MQTT)
+
+
 # OG Flur
 light.meq0397149:
   friendly_name: Flurwand
+
+light.homegear_ff_hallway:
+  friendly_name: Flurwand (MQTT)
 
 #
 # Switches
@@ -81,7 +100,7 @@ switch.ff_mika_outlet:
   assumed_state: false
 
 switch.ff_jona_bed:
-  friendly_name: Lichterkette
+  friendly_name: Bett
   assumed_state: false
 
 switch.ff_jona_outlet:
@@ -89,7 +108,7 @@ switch.ff_jona_outlet:
   assumed_state: false
 
 switch.sf_floor_work_outlet:
-  friendly_name: Regal
+  friendly_name: Regal (Sofa)
   assumed_state: false
 
 switch.sf_floor_work_desk:
@@ -97,13 +116,15 @@ switch.sf_floor_work_desk:
   assumed_state: false
   icon: mdi:television
 
+switch.sf_floor_work_shelf:
+  friendly_name: Regal (Drucker)
+  assumed_state: false
+
 switch.sf_bedroom_outlet:
   friendly_name: Kommode
   assumed_state: false
 
-switch.sf_bedroom_bed:
-  friendly_name: Bett
-  assumed_state: false
+
 
 # Aeotec Sensor 6
 
@@ -206,7 +227,7 @@ sensor.trash:
   friendly_name: Müll
   icon: mdi:delete
 
-binary_sensor.srhh_morgen_blue:
+binary_sensor.srhh_morgen_blau:
   friendly_name: Blau
   icon: mdi:delete
 

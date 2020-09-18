@@ -1,0 +1,35 @@
+title: DG
+id: secondfloor
+background: var(--background-image)
+cards:
+  - type: glance
+    id: sf_glance
+    entities:
+      - entity: group.sf_work_lights
+        hold_action:
+            action: toggle
+        icon: mdi:monitor-cellphone-star
+      - entity: group.sf_bedroom_lights
+        hold_action:
+            action: toggle
+        icon: mdi:bed-outline
+  - type: media-control
+    entity: media_player.echo_dg_schlafzimmer
+  - type: media-control
+    entity: media_player.echo_dg_arbeitszimmer
+  - type: custom:auto-entities
+    id: sf_group_work
+    filter:
+      include:
+        - group: group.sf_work_lights
+    card:
+      type: entities
+      title: Arbeitszimmer
+  - type: custom:auto-entities
+    id: sf_group_bedroom
+    filter:
+      include:
+        - group: group.sf_bedroom_lights
+    card:
+      type: entities
+      title: Schlafzimmer

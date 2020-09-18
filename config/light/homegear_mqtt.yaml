@@ -1,0 +1,100 @@
+- platform: mqtt
+  name: 'homegear_eg_table'
+  schema: template
+
+  state_topic: "homegear/homeassi/jsonobj/10/1"
+  state_template: "{% if value_json.LEVEL|float > 0 %}on{% else %}off{% endif %}"
+
+  command_topic: "homegear/homeassi/set/10/1/LEVEL"
+  command_off_template: '{"value": 0}'
+  command_on_template: >
+    {
+      "value": {%- if brightness is defined -%}{{ brightness/255 }}{% else %}1{% endif %}
+    }
+
+  brightness_template: "{{ (value_json.LEVEL|float*255)|int }}"
+
+- platform: mqtt
+  name: 'homegear_eg_sink'
+  schema: template
+
+  state_topic: "homegear/homeassi/jsonobj/19/1"
+  state_template: "{% if value_json.LEVEL|float > 0 %}on{% else %}off{% endif %}"
+
+  command_topic: "homegear/homeassi/set/19/1/LEVEL"
+  command_off_template: '{"value": 0}'
+  command_on_template: >
+    {
+      "value": {%- if brightness is defined -%}{{ brightness/255 }}{% else %}1{% endif %}
+    }
+
+  brightness_template: "{{ (value_json.LEVEL|float*255)|int }}"
+
+
+- platform: mqtt
+  name: 'homegear_eg_living_room'
+  schema: template
+
+  state_topic: "homegear/homeassi/jsonobj/9/1"
+  state_template: "{% if value_json.LEVEL|float > 0 %}on{% else %}off{% endif %}"
+
+  command_topic: "homegear/homeassi/set/9/1/LEVEL"
+  command_off_template: '{"value": 0}'
+  command_on_template: >
+    {
+      "value": {%- if brightness is defined -%}{{ brightness/255 }}{% else %}1{% endif %}
+    }
+
+  brightness_template: "{{ (value_json.LEVEL|float*255)|int }}"
+
+
+- platform: mqtt
+  name: 'homegear_eg_entrance'
+  schema: template
+
+  state_topic: "homegear/homeassi/jsonobj/11/1"
+  state_template: "{% if value_json.LEVEL|float > 0 %}on{% else %}off{% endif %}"
+
+  command_topic: "homegear/homeassi/set/11/1/LEVEL"
+  command_off_template: '{"value": 0}'
+  command_on_template: >
+    {
+      "value": {%- if brightness is defined -%}{{ brightness/255 }}{% else %}1{% endif %}
+    }
+
+  brightness_template: "{{ (value_json.LEVEL|float*255)|int }}"
+
+
+- platform: mqtt
+  name: 'homegear_eg_doorlight'
+  schema: template
+
+  state_topic: "homegear/homeassi/jsonobj/14/1"
+  state_template: "{% if value_json.LEVEL|float > 0 %}on{% else %}off{% endif %}"
+
+  command_topic: "homegear/homeassi/set/14/1/LEVEL"
+  command_off_template: '{"value": 0}'
+  command_on_template: >
+    {
+      "value": {%- if brightness is defined -%}{{ brightness/255 }}{% else %}1{% endif %}
+    }
+
+  brightness_template: "{{ (value_json.LEVEL|float*255)|int }}"
+
+
+
+- platform: mqtt
+  name: 'homegear_ff_hallway'
+  schema: template
+
+  state_topic: "homegear/homeassi/jsonobj/21/1"
+  state_template: "{% if value_json.LEVEL|float > 0 %}on{% else %}off{% endif %}"
+
+  command_topic: "homegear/homeassi/set/21/1/LEVEL"
+  command_off_template: '{"value": 0}'
+  command_on_template: >
+    {
+      "value": {%- if brightness is defined -%}{{ brightness/255 }}{% else %}1{% endif %}
+    }
+
+  brightness_template: "{{ (value_json.LEVEL|float*255)|int }}"

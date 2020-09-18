@@ -14,7 +14,7 @@
       entity_id: 
         - switch.gf_kitchen_workplace
         - switch.gf_livingroom_outlet
-        - switch.gf_free_outlet_2        
+        - switch.gf_free_outlet_2
     - service: light.turn_on
       data:
         brightness_pct: 45
@@ -108,7 +108,7 @@
   action:
     - service: homeassistant.turn_off
       entity_id: 
-        - group.livingroom_lights    
+        - group.livingroom_lights
         - group.kitchen_lights
         - group.garden_lights
     - service: light.turn_on
@@ -118,13 +118,13 @@
 
 
 - alias: "Turn off lights: Entree"
-  trigger:    
+  trigger:
     platform: time
-    at: '23:45:00'  
+    at: '23:45:00'
   action:
     service: homeassistant.turn_off
-    entity_id: 
-      - light.jeq0207587    
+    entity_id:
+      - light.jeq0207587
 
 - alias: "Turn off lights: Door"
   trigger:    
@@ -132,5 +132,34 @@
     at: '00:15:00'  
   action:
     service: homeassistant.turn_off
-    entity_id: 
+    entity_id:
       - light.jeq0207545
+
+
+
+- alias: "Sofa Taster"
+  trigger:
+    platform: event
+    event_type: homematic.keypress
+    event_data:
+      name: FEQ0028615
+      channel: 1
+      param: PRESS_SHORT
+  action:
+    - service: light.toggle
+      data:
+        brightness_pct: 45
+        entity_id:
+          - group.livingroom_couch
+
+- alias: "Garten Taster"
+  trigger:
+    platform: event
+    event_type: homematic.keypress
+    event_data:
+      name: FEQ0028615
+      channel: 2
+      param: PRESS_SHORT
+  action:
+    - service: switch.toggle
+      entity_id: switch.feq0062058

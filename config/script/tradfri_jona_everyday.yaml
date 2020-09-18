@@ -1,0 +1,10 @@
+alias: Jona Everyday
+sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.jona_bunt
+      brightness: 203
+      rgb_color:
+        - 241
+        - 224
+        - 181

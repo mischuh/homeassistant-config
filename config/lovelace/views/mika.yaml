@@ -1,0 +1,43 @@
+title: Mika
+id: mikas_space
+background: var(--background-image)
+visible:
+  - user: f7eaa84806ad4037aabc5f5ae8d63f03
+  - user: 930ac8c04c884c6dba2c7585e533b169
+  - user: d78ceab5a0af4cfca21e49d638bbefdb
+cards:
+    - id: mika_echo
+      type: custom:mini-media-player
+      artwork: cover
+      icon: mdi:headphones
+      entity: media_player.mikas_echo
+    - id: mika_lichter
+      type: custom:auto-entities
+      filter:
+        include:
+          - group: group.mika_lights
+      card:
+        type: entities
+        title: Lichter
+    - id: mika_scenes
+      type: custom:auto-entities
+      filter:
+        include:
+          - group: group.mika_scenes
+      card:
+        type: entities
+        title: Szenen
+    - id: mika_alarm_clock
+      type: custom:auto-entities
+      filter:
+        include:
+          - group: group.mika_alarm_clock
+      card:
+        type: entities
+        title: Wecker
+    - id: mika_steps
+      type: custom:mini-graph-card
+      name: Schritte
+      entities:
+        - sensor.mikas_iphone_steps
+        - sensor.mikas_iphone_distance

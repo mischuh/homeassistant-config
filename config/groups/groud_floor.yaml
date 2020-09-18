@@ -47,6 +47,9 @@ kitchen_lights:
     - switch.gf_kitchen_window
     - switch.gf_kitchen_workplace
     - switch.gf_free_outlet_2
+    - light.homegear_eg_table
+    - light.homegear_eg_sink
+
     
 kitchen_media:
   name: Küche Multimedia
@@ -71,6 +74,7 @@ livingroom_lights:
     - group.livingroom_couch
     - light.links
     - light.rechts
+    - light.homegear_eg_living_room
 
 livingroom_couch:
   name: Sofa
@@ -100,6 +104,8 @@ entree_lights:
     - light.jeq0207545
     - light.jeq0207587
     - light.shelly_dim_eg_bicycles
+    - light.homegear_eg_doorlight
+    - light.homegear_eg_entrance
 
 wardrobe_lights:
   name: Garderobe Lichter

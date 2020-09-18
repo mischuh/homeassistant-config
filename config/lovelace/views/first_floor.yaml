@@ -1,0 +1,73 @@
+title: OG
+id: firstfloor
+background: var(--background-image)
+cards:
+  - type: glance
+    id: ff_glance
+    entities:
+      - entity: group.ff_floor_lights
+        hold_action:
+            action: toggle
+        icon: mdi:home-heart
+      - entity: group.ff_children
+        hold_action:
+            action: toggle
+        icon: mdi:account-supervisor
+  - type: horizontal-stack
+    id: ff_aeotec_zw100_multisensor
+    cards: 
+      - type: custom:mini-graph-card
+        id: ff_sensor_temperature
+        name: Temperatur
+        entities:
+          - sensor.aeotec_zw100_multisensor_6_temperature
+        show:
+          labels: true
+        color_thresholds:
+          - value: 20
+            color: "#f39c12"
+          - value: 21
+            color: "#d35400"
+          - value: 21.5
+            color: "#c0392b"
+      - type: custom:mini-graph-card
+        id: ff_sensor_luminance
+        icon: mdi:brightness-7
+        name: Helligkeit
+        entities:
+          - sensor.aeotec_zw100_multisensor_6_luminance
+        show:
+          labels: true
+        color_thresholds:
+          - value: 0
+            color: "#1b3394"
+          - value: 20
+            color: "#247d32"
+          - value: 40
+            color: "#bfa017"
+  - type: custom:auto-entities
+    id: ff_floor_light_entities
+    filter:
+      include:
+        - group: group.ff_floor_lights
+    card:
+      type: entities
+      title: Flurlichter
+  - type: custom:auto-entities
+    id: ff_group_mika
+    filter:
+      include:
+        - group: group.ff_mika
+    card:
+      type: entities
+      title: Mika
+  - type: custom:auto-entities
+    id: ff_group_jona
+    filter:
+      include:
+        - group: group.ff_jona
+    card:
+      type: entities
+      title: Jona
+  - type: media-control
+    entity: media_player.echo_badezimmer

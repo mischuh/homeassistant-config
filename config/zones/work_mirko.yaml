@@ -1,5 +1,5 @@
 name: Arbeit Mirko
 latitude: !secret latitude_work_mirko
 longitude: !secret longitude_work_mirko
-radius: 50
+radius: 100
 icon: mdi:worker

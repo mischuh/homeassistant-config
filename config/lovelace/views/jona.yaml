@@ -1,0 +1,43 @@
+title: Jona
+id: jonas_space
+background: var(--background-image)
+visible:
+  - user: 93cdb17814f048b7be7b6cfa20d700df
+  - user: 930ac8c04c884c6dba2c7585e533b169
+  - user: d78ceab5a0af4cfca21e49d638bbefdb
+cards:
+    - id: jona_echo
+      type: custom:mini-media-player
+      artwork: cover
+      icon: mdi:headphones
+      entity: media_player.jonas_echo
+    - id: jona_lichter
+      type: custom:auto-entities
+      filter:
+        include:
+          - group: group.jona_lights
+      card:
+        type: entities
+        title: Lichter
+    - id: jona_szenes
+      type: custom:auto-entities
+      filter:
+        include:
+          - group: group.jona_scenes
+      card:
+        type: entities
+        title: Szenen
+    - id: jona_alarm_clock
+      type: custom:auto-entities
+      filter:
+        include:
+          - group: group.jona_alarm_clock
+      card:
+        type: entities
+        title: Wecker
+    - id: jona_steps
+      type: custom:mini-graph-card
+      name: Schritte
+      entities:
+        - sensor.iphone_von_jona_steps
+        - sensor.iphone_von_jona_distance

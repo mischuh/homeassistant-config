@@ -15,7 +15,7 @@
       - condition: time
         after: '06:30:00'
       - condition: time
-        before: '22:30:00'        
+        before: '22:30:00'
   action:
     service: light.turn_on
     entity_id: light.meq0397149

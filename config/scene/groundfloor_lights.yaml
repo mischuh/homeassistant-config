@@ -1,6 +1,6 @@
 - name: Groundfloor Lights
   entities:
-    group.ground_floor_433_lights: on 
+    group.ground_floor_433_lights: on
     
     light.links:
       state: on

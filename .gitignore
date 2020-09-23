@@ -22,6 +22,7 @@ emulated_hue_ids.*
 homeassistant.code-workspace
 home-assistant_v2.db
 home-assistant.log
+config/.storage
 config/.cloud/
 config/.google.token
 config/.HA_VERSION
@@ -44,3 +45,4 @@ config/home-assistant_v2.db*
 config/known_devices.yaml
 config/www/images
 config/.pip_progress
+config/custom_components

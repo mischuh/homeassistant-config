@@ -1,21 +1,3 @@
-# - platform: template
-#   sensors:
-#     mirko_status:
-#       entity_id: input_select.mirko_state
-#       value_template: '{{ states.input_select.mirko_state.state }}'
-#       friendly_name: 'Mirko'
-#       entity_picture_template: /local/images/mirko.jpg
-#     femke_status:
-#       entity_id: input_select.femke_state
-#       value_template: '{{ states.input_select.femke_state.state }}'
-#       friendly_name: 'Femke'
-#       entity_picture_template: /local/images/femke.jpg
-#     mika_status:
-#       entity_id: input_select.mika_state
-#       value_template: '{{ states.input_select.mika_state.state }}'
-#       friendly_name: 'Mika'
-#       entity_picture_template: /local/images/mika.jpg
-
 
 - platform: mqtt
   state_topic: !secret bt_presence_gf_mirko
@@ -158,21 +140,3 @@
 #             not_home
 #           {% endif %}
 
-
-- platform: min_max
-  name: "BT Presence FF Family"
-  type: mean
-  round_digits: 0  
-  entity_ids:
-    - sensor.bt_presence_gf_mirko_handy
-    - sensor.bt_presence_gf_femke_iphone
-    - sensor.bt_presence_gf_mika_iphone
-    - sensor.bt_presence_gf_jona_huawei
-    - sensor.bt_presence_ff_mirko_handy
-    - sensor.bt_presence_ff_femke_iphone
-    - sensor.bt_presence_ff_mika_iphone
-    - sensor.bt_presence_ff_jona_huawei
-    - sensor.bt_presence_sf_mirko_handy
-    - sensor.bt_presence_sf_femke_iphone
-    - sensor.bt_presence_sf_mika_iphone
-    - sensor.bt_presence_sf_jona_huawei

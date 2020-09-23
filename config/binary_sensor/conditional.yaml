@@ -2,8 +2,7 @@
 - platform: template
   sensors:
     display_card:
-      friendly_name: Display card between 21 and noon.
-      entity_id: sensor.time
-      value_template: >
+      friendly_name: Display card between 21 and noon
+      value_template: >-
           {% set ct = now().strftime("%H%M") | int %}
           {{ 2100 <= ct <= 2359 }}

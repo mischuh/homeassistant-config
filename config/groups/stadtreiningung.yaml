@@ -3,5 +3,5 @@ stadtreinigung:
   entities:
     - binary_sensor.srhh_morgen_blau
     - binary_sensor.srhh_morgen_gelb
-    - binary_sensor.srhh_morgen_grune
+    - binary_sensor.srhh_morgen_gruen
     - binary_sensor.srhh_morgen_schwarz

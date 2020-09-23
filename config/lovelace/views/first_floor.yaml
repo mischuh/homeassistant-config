@@ -53,21 +53,5 @@ cards:
     card:
       type: entities
       title: Flurlichter
-  - type: custom:auto-entities
-    id: ff_group_mika
-    filter:
-      include:
-        - group: group.ff_mika
-    card:
-      type: entities
-      title: Mika
-  - type: custom:auto-entities
-    id: ff_group_jona
-    filter:
-      include:
-        - group: group.ff_jona
-    card:
-      type: entities
-      title: Jona
   - type: media-control
     entity: media_player.echo_badezimmer

@@ -39,5 +39,5 @@ cards:
       type: custom:mini-graph-card
       name: Schritte
       entities:
-        - sensor.iphone_von_jona_steps
-        - sensor.iphone_von_jona_distance
+        - sensor.iphone_jona_steps
+        - sensor.iphone_jona_distance

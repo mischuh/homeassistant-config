@@ -47,19 +47,19 @@ cards:
           show_header_toggle: false
           entities:
             - scene.blockbuster
-      - type: conditional
-        conditions:
-          - entity: group.stadtreinigung
-            state: "on"
-        card:
-          type: custom:auto-entities
-          show_empty: false
-          card:
-            type: glance
-            title: Mülltonnen
-          filter:
-            include:
-              - group: group.stadtreinigung
+      # - type: conditional
+      #   conditions:
+      #     - entity: group.stadtreinigung
+      #       state: "on"
+      #   card:
+      #     type: custom:auto-entities
+      #     show_empty: false
+      #     card:
+      #       type: glance
+      #       title: Mülltonnen
+      #     filter:
+      #       include:
+      #         - group: group.stadtreinigung
   - type: vertical-stack
     cards:
       - type: "custom:config-template-card"
@@ -108,34 +108,34 @@ cards:
         type: entities
         show_header_toggle: False
         entities:
-          - entity: sensor.stadtreinigung_hamburg_home_schwarze_restmulltonne
+          - entity: binary_sensor.srhh_morgen_schwarz
             type: custom:multiple-entity-row
-            format: relative
+            icon: mdi:delete
             state_color: true
             secondary_info:
               entity: sensor.stadtreinigung_hamburg_home_schwarze_restmulltonne
-              format: datetime
-          - entity: sensor.stadtreinigung_hamburg_home_gelbe_wertstofftonne_sack
+              format: relative
+          - entity: binary_sensor.srhh_morgen_gelb
             type: custom:multiple-entity-row
-            format: relative
+            icon: mdi:delete
             state_color: true
             secondary_info:
               entity: sensor.stadtreinigung_hamburg_home_gelbe_wertstofftonne_sack
-              format: datetime
-          - entity: sensor.stadtreinigung_hamburg_home_grune_biotonne
+              format: relative
+          - entity: binary_sensor.srhh_morgen_gruen
             type: custom:multiple-entity-row
-            format: relative
+            icon: mdi:delete
             state_color: true
             secondary_info:
               entity: sensor.stadtreinigung_hamburg_home_grune_biotonne
-              format: datetime
-          - entity: sensor.stadtreinigung_hamburg_home_blaue_papiertonne
+              format: relative
+          - entity: binary_sensor.srhh_morgen_blau
             type: custom:multiple-entity-row
-            format: relative
+            icon: mdi:delete
             state_color: true
             secondary_info:
               entity: sensor.stadtreinigung_hamburg_home_blaue_papiertonne
-              format: datetime
+              format: relative
 
   - type: vertical-stack
     cards:

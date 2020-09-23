@@ -10,19 +10,19 @@
     srhh_morgen_gelb:
       friendly_name: "gelbe Tonne"
       value_template: >-
-          {% set collection = as_timestamp(states.sensor.stadtreinigung_hamburg_home_gelbe_papiertonnen.state)|timestamp_custom("%Y-%m-%d") %}
+          {% set collection = as_timestamp(states.sensor.stadtreinigung_hamburg_home_gelbe_wertstofftonne_sack.state)|timestamp_custom("%Y-%m-%d") %}
           {% set tomorrow = (as_timestamp(now()) + 86400)|timestamp_custom("%Y-%m-%d") %}
           {{ collection == tomorrow }}
-    srhh_morgen_grune:
+    srhh_morgen_gruen:
       friendly_name: "grüne Tonne"
       value_template: >-
-          {% set collection = as_timestamp(states.sensor.stadtreinigung_hamburg_home_grune_papiertonne.state)|timestamp_custom("%Y-%m-%d") %}
+          {% set collection = as_timestamp(states.sensor.stadtreinigung_hamburg_home_grune_biotonne.state)|timestamp_custom("%Y-%m-%d") %}
           {% set tomorrow = (as_timestamp(now()) + 86400)|timestamp_custom("%Y-%m-%d") %}
           {{ collection == tomorrow }}
     srhh_morgen_schwarz:
       friendly_name: "schwarze Tonne"
       value_template: >-
-          {% set collection = as_timestamp(states.sensor.stadtreinigung_hamburg_home_schwarze_papiertonne.state)|timestamp_custom("%Y-%m-%d") %}
+          {% set collection = as_timestamp(states.sensor.stadtreinigung_hamburg_home_schwarze_restmulltonne.state)|timestamp_custom("%Y-%m-%d") %}
           {% set tomorrow = (as_timestamp(now()) + 86400)|timestamp_custom("%Y-%m-%d") %}
           {{ collection == tomorrow }}
     srhh_morgen_xmas_tree:

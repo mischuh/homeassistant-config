@@ -77,8 +77,10 @@ switch.gf_free_outlet_2:
 switch.gf_kitchen_workplace:
   friendly_name: Arbeitsplatte
   assumed_state: false
+  automation:
+    initial_state: 'off'
 
-switch.gf_kitchen_window: 
+switch.gf_kitchen_window:
   friendly_name: Fenster
   assumed_state: false
 
@@ -223,25 +225,29 @@ sensor.bt_presence_ff_family:
 
 # Trashcans
 
-sensor.trash:
-  friendly_name: Müll
-  icon: mdi:delete
-
 binary_sensor.srhh_morgen_blau:
   friendly_name: Blau
   icon: mdi:delete
+  automation:
+    initial_state: 'off'
 
-binary_sensor.srhh_morgen_green:
+binary_sensor.srhh_morgen_gruen:
   friendly_name: Grün
   icon: mdi:delete
+  automation:
+    initial_state: 'off'
 
-binary_sensor.srhh_morgen_yellow:
+binary_sensor.srhh_morgen_gelb:
   friendly_name: Gelb
   icon: mdi:delete
+  automation:
+    initial_state: 'off'
 
-binary_sensor.srhh_morgen_black:
+binary_sensor.srhh_morgen_schwarz:
   friendly_name: Schwarz
   icon: mdi:delete
+  automation:
+    initial_state: 'off'
 
 # Scenes
 

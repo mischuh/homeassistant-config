@@ -1,0 +1,6 @@
+
+alias: Cancel Mikas room light timer 
+sequence:
+  - service: timer.cancel
+    data:
+      entity_id: timer.mika_timer

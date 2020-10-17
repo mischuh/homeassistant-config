@@ -1,10 +1,15 @@
 - name: Mika Chill
   entities:
-    switch.ff_mika_bed: on
-    switch.ff_mika_outlet: on
+    light.shelly_rgbw_ff_mika_led_strip:
+      state: on
+      brightness: 64
+      rgb_color:
+        - 255
+        - 182
+        - 109
     light.mika_bunt:
       state: on
-      brightness_pct: 25
+      brightness: 64
       rgb_color:
         - 255
         - 182

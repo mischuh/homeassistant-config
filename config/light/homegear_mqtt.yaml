@@ -1,3 +1,8 @@
+# {"INSTALL_TEST":true,"PRESS_SHORT":true}
+# homegear/homeassi/jsonobj/20/1
+# KLINGEL
+
+
 - platform: mqtt
   name: 'homegear_eg_table'
   schema: template

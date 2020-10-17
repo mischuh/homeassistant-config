@@ -28,8 +28,6 @@ view_first_floor:
     - sensor.aeotec_zw100_multisensor_6_luminance
     - sensor.aeotec_zw100_multisensor_6_burglar
     - group.ff_floor_lights
-    - group.ff_mika
-    - group.ff_jona
     - media_player.echo_badezimmer
 
 

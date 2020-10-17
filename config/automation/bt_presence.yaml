@@ -1,8 +1,5 @@
 - alias: Empty house and lights are on
   trigger:
-    # - platform: numeric_state
-    #   entity_id: sensor.bt_presence_ff_family
-    #   below: 10
     - platform: state
       entity_id: group.family
       from: 'home'
@@ -43,37 +40,6 @@
         message: "_Someone_ turned the lights off through *actionably* notification"
 
 
-# - alias: Mirko Group Status Coming Home
-#   trigger:
-#     # - platform: numeric_state
-#     #   entity_id: sensor.bt_presence_ff_family
-#     #   below: 10
-#     - platform: state
-#       entity_id: group.mirko
-#       from: 'not_home'
-#       to: 'home'  
-#   action:    
-#     - service: notify.telegram
-#       data:
-#         title: '*Home-Assistant*'
-#         message: "Group Mirko kommt nach hause..."
-
-
-# - alias: Mirko Group Status Leaving Home
-#   trigger:
-#     # - platform: numeric_state
-#     #   entity_id: sensor.bt_presence_ff_family
-#     #   below: 10
-#     - platform: state
-#       entity_id: group.mirko
-#       from: 'home'
-#       to: 'not_home'
-#   action:
-#     - service: notify.telegram
-#       data:
-#         title: '*Home-Assistant*'
-#         message: "Group Mirko verlässt das Haus..."
-
 
 - alias: Femke Leavs Work
   trigger:
@@ -82,10 +48,10 @@
       from: 'arbeit_femke'
       to: 'not_home'
   action:
-    - service: notify.mobile_app_mirko_s10
+    - service: notify.mobile_app_galaxy_s10
       data:
         title: '*Home-Assistant*'
-        message: "Femke verlässt die Arbeit..."
+        message: "Femke verlässt Arbeit..."
 
 
 - alias: Femke Enters Home
@@ -95,7 +61,7 @@
       from: 'not_home'
       to: 'home'
   action:
-    - service: notify.mobile_app_mirko_s10
+    - service: notify.mobile_app_galaxy_s10
       data:
         title: '*Home-Assistant*'
         message: "Femke betritt Home..."

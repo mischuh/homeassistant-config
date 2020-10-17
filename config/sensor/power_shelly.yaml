@@ -1,0 +1,16 @@
+- platform: mqtt
+  name: 'shelly_rgbw_ff_mika_led_power'
+  icon: mdi:gauge
+  state_topic: "shellies/shellyrgbw2-1E004D/color/0/status"
+  value_template: "{{ value_json.power | float }}"
+  unit_of_measurement: "W"
+  qos: 1
+
+
+- platform: mqtt
+  name: 'shelly_dim_eg_bicycles_power'
+  icon: mdi:gauge
+  state_topic: "shellies/shellydimmer-DB4A90/light/0/power"
+  value_template: "{{ value_json | float }}"
+  unit_of_measurement: "W"
+  qos: 1

@@ -15,7 +15,14 @@ speedtest:
 batteries:
   name: Batterien
   entities:
-    - sensor.tradfri_wireless_dimmer
+    - sensor.tradfri_wireless_dimmer_2
+
+power:
+  name: Verbrauch
+  entities:
+    - sensor.shelly_dim_eg_bicycles_power
+    - sensor.shelly_rgbw_ff_mika_led_power
+
 
 trash:
   name: Müll

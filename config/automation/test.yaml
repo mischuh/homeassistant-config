@@ -1,5 +1,10 @@
-- alias: "TESTI"
-  trigger:
-  action:
-    - service: script.turn_on
-      entity_id: script.test
+# - alias: "TESTI"
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.homegear_eg_doorbell
+#     to: 'on'
+#   action:
+#     - service: notify.mobile_app_galaxy_s10
+#       data:
+#         title: '*Home-Assistant*'
+#         message: "Test erfolgreich"

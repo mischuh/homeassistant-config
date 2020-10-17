@@ -13,7 +13,7 @@ cards:
       - type: conditional
         conditions:
           - entity: binary_sensor.display_card
-            state: "on" 
+            state: "on"
           - entity: input_boolean.sunset
             state: "on"
           - entity: group.ground_floor
@@ -140,9 +140,7 @@ cards:
   - type: vertical-stack
     cards:
       - id: overview_calendars
-        type: "custom:calendar-card"
-        showProgressBar: false
-        numberOfDays: 7
+        type: calendar
         entities:
           - calendar.femke_schuh
           - calendar.hrschuhgooglemailcom

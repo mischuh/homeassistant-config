@@ -1,0 +1,7 @@
+
+alias: Start Mikas room light timer 
+sequence:
+  - service: timer.start
+    data_template:
+      entity_id: timer.mika_timer
+      duration: '00:{{ states.input_number.mika_timer_minutes.state | int }}:00'

@@ -52,12 +52,13 @@ lovelace:
       type: module
     - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
       type: module
-    - url: /hacsfiles/calendar-card/calendar-card.js
-      type: module
     - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
+      type: module
+    - url: /hacsfiles/lovelace-paper-buttons-row/paper-buttons-row.js
       type: module
     - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
       type: module
+    
   # dashboards:
   #   lovelace-yaml:
   #     mode: yaml
@@ -92,18 +93,10 @@ logger:
   default: warning
   logs:    
     homeassistant.components.mqtt: info
-    homeassistant.components.mqtt.light: debug
 
 sun:
 
 cloud:
-
-# ios:
-
-# owntracks:
-#  waypoints: False
-#  track_new_devices: False
-#  max_gps_accuracy: 150
 
 weather:
   - platform: darksky
@@ -155,7 +148,13 @@ notify:
   - platform: telegram
     name: telegram
     chat_id: !secret telegram_chat_id
-
+  # makes a notify group to allow TTS messaging of multiple Alexas at once
+  # - platform: group
+  #   name: alexa_media_doorbell
+  #   services:
+  #     - service: alexa_media_echo_badezimmer
+  #     - service: alexa_media_echo_dg_arbeitszimmer
+  #     - service: alexa_media_mikas_echo
 
 hacs:
   token: !secret github_hacs_token
@@ -173,10 +172,7 @@ homekit:
       - light.jeq0207534 #essplatz
       - light.links
       - light.rechts
-      - group.sf_work_lights
-      - switch.sf_floor_work_outlet
-      - switch.sf_floor_work_desk
-      - switch.sf_floor_work_shelf
+      - light.shelly_rgbw_ff_mika_led_strip
 
 mqtt:
   broker: localhost
@@ -245,46 +241,30 @@ speedtestdotnet:
     - upload
 
 
-# HUE API
-# http://192.168.178.2/api/pi/lights
-
 person:
   - name: Mirko
     id: person_mirko
     user_id: 930ac8c04c884c6dba2c7585e533b169
     device_trackers:
-      # - device_tracker.bt_mirko_gf
-      # - device_tracker.bt_mirko_ff
-      # - device_tracker.bt_mirko_sf
-      - device_tracker.galaxy_s10       # Handy
       - device_tracker.mirko_mobile_app # APP
+      - device_tracker.galaxy_s10       # Handy
   - name: Femke
     id: person_femke
     user_id: d78ceab5a0af4cfca21e49d638bbefdb
     device_trackers:
-      # - device_tracker.bt_femke_gf
-      # - device_tracker.bt_femke_ff
-      # - device_tracker.bt_femke_sf
+      - device_tracker.iphone           # APP
       - device_tracker.iphone_femke     # Handy
-      - device_tracker.iphone_femke_app # APP
   - name: Mika
     id: person_mika
     user_id: f7eaa84806ad4037aabc5f5ae8d63f03
     device_trackers:
-      # - device_tracker.bt_mika_gf
-      # - device_tracker.bt_mika_ff
-      # - device_tracker.bt_mika_sf
       - device_tracker.mikas_iphone     # Handy
-      - device_tracker.mikas_iphone_app # APP
   - name: Jona
     id: person_jona
     user_id: 93cdb17814f048b7be7b6cfa20d700df
     device_trackers:
-      # - device_tracker.bt_jona_gf
-      # - device_tracker.bt_jona_ff
-      # - device_tracker.bt_jona_sf
-      - device_tracker.iphone_jona      # Handy
       - device_tracker.iphone_jona_app  # APP
+      - device_tracker.iphone_jona      # Handy
 
 
 system_health:
@@ -302,6 +282,7 @@ group: !include_dir_merge_named groups
 input_boolean: !include_dir_merge_named input_boolean
 input_datetime: !include_dir_merge_named input_datetime
 input_select: !include_dir_merge_named input_select
+input_number: !include_dir_merge_named input_number
 media_player: !include_dir_merge_list media_player
 script: !include_dir_named script
 scene: !include_dir_merge_list scene
@@ -310,3 +291,4 @@ switch: !include_dir_merge_list switch
 emulated_hue: !include alexa.yaml
 zone: !include_dir_list zones
 light: !include_dir_merge_list light
+timer: !include_dir_merge_named timer

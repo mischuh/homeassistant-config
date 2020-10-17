@@ -27,6 +27,35 @@ cards:
       card:
         type: entities
         title: Szenen
+    - id: mika_timer
+      type: entities
+      title: Good Night Timer
+      show_header_toggle: false
+      entities:
+        - input_number.mika_timer_minutes 
+        - type: divider
+        - entity: timer.mika_timer
+          name: Timer
+          icon: mdi:timer  
+          extend_paper_buttons_row:  
+            buttons:
+              - entity: script.mika_timer_start
+                icon: mdi:timer
+                name: Start
+                style:
+                  button:
+                    margin-right: 8px
+                  icon:
+                    color: green
+              - entity: script.mika_timer_stop
+                icon: mdi:timer-off
+                name: Stop    
+                style:
+                  button:
+                    margin-right: 8px
+                  icon:
+                    color: red
+        
     - id: mika_alarm_clock
       type: custom:auto-entities
       filter:

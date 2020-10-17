@@ -30,6 +30,14 @@ cards:
       - sensor.galaxy_s10_steps_sensor
     show:
       labels: true
+  - type: custom:mini-graph-card
+    id: ff_power
+    name: Verbrauch
+    entities:
+      - sensor.shelly_rgbw_ff_mika_led_power
+      - sensor.shelly_dim_eg_bicycles_power
+    show:
+      labels: true
   - type: custom:auto-entities
     id: overview_alexas
     filter:

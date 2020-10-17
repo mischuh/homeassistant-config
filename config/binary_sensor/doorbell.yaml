@@ -1,0 +1,13 @@
+
+- platform: mqtt
+  name: homegear_eg_doorbell
+  state_topic: "homegear/homeassi/jsonobj/20/1"
+  payload_on: "true"
+  value_template: "{{ value_json.PRESS_SHORT | string | lower }}"
+  off_delay: 5
+  device_class: occupancy
+
+# {"INSTALL_TEST":true,"PRESS_SHORT":true}
+# homegear/homeassi/jsonobj/20/1
+# KLINGEL
+# {"INSTALL_TEST":true,"PRESS_SHORT":true}

@@ -5,8 +5,6 @@ first_floor:
     - sensor.aeotec_zw100_multisensor_6_luminance
     - sensor.aeotec_zw100_multisensor_6_alarm_level
     - group.ff_floor_lights
-    - group.ff_mika
-    - group.ff_jona
     - media_player.alexas_echo_dot
 
 first_floor_lights:
@@ -26,26 +24,25 @@ ff_children:
   name: Kinder
   icon: mid:account-supervisor
   entities:
-    - group.ff_mika
-    - group.ff_jona
+    - group.jona_lights
+    - group.mika_lights
 
-ff_mika:
-  name: Mika
-  entities:
-    - light.mika_bunt
-    - switch.ff_mika_bed
-    - switch.ff_mika_outlet
-    - media_player.mikas_echo
-    - scene.mika_chill
-    - group.mika_moods
+# ff_mika:
+#   name: Mika
+#   entities:
+#     - light.mika_bunt
+#     - switch.ff_mika_bed
+#     - switch.ff_mika_outlet
+#     - media_player.mikas_echo
+#     - scene.mika_chill
+#     - group.mika_moods
 
-
-ff_jona:
-  name: Jona
-  entities:
-    - light.jona_bunt
-    - switch.ff_jona_bed
-    - switch.ff_jona_outlet
-    - media_player.jonas_echo
-    - sensor.iphone_von_jona_distance
-    - group.jona_moods
+# ff_jona:
+#   name: Jona
+#   entities:
+#     - light.jona_bunt
+#     - switch.ff_jona_bed
+#     - switch.ff_jona_outlet
+#     - media_player.jonas_echo
+#     - sensor.iphone_von_jona_distance
+#     - group.jona_moods

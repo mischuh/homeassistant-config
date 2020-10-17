@@ -1,22 +1,13 @@
 - alias: "Doorbell"
   trigger:
-    platform: event
-    event_type: homematic.keypress
-    event_data:
-      name: OEQ2237980
-      channel: 1
-      param: PRESS_SHORT
+    platform: state
+    entity_id: binary_sensor.homegear_eg_doorbell
+    to: 'on'
   condition:
     condition: state
     entity_id: input_boolean.doorbell
     state: 'off'
   action:
-    - service: homeassistant.turn_on
-      entity_id: input_boolean.doorbell
-    - service: notify.ios_iphone_femke
-      data:
-        title: "Home-Assistant"
-        message: "Es hat geklingelt"
     - service: notify.telegram
       data:
         title: '*Home-Assistant*'
@@ -27,12 +18,18 @@
         message: "Es hat geklingelt"
     - service: notify.alexa_media
       data:
-        target: 
+        target:
           - media_player.echo_dg_arbeitszimmer
           - media_player.echo_badezimmer
           - media_player.mikas_echo
         data:
           type: tts
+        message: "Es hat geklingelt"
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.doorbell
+    - service: notify.iphone
+      data:
+        title: "Home-Assistant"
         message: "Es hat geklingelt"
 
 

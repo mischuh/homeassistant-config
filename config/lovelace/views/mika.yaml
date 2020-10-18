@@ -57,13 +57,25 @@ cards:
                     color: red
         
     - id: mika_alarm_clock
-      type: custom:auto-entities
-      filter:
-        include:
-          - group: group.mika_alarm_clock
-      card:
-        type: entities
-        title: Wecker
+      type: entities
+      title: Alarm Clock
+      show_header_toggle: false
+      entities:
+        - input_datetime.alarm_clock_time_mika
+        - type: divider
+        - input_boolean.alarm_clock_mika
+        - type: "custom:paper-buttons-row"
+          buttons:
+            - entity: script.mika_alarm_fader_stop
+              icon: mdi:timer-off
+              name: Stop    
+              style:
+                button:
+                  margin-right: 8px
+                icon:
+                  color: red
+
+
     - id: mika_steps
       type: custom:mini-graph-card
       name: Schritte

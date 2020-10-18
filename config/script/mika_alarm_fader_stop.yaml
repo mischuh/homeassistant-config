@@ -1,0 +1,5 @@
+alias: Mika Alarm Clock Stop
+sequence:
+  - service: script.turn_off
+    data: 
+      entity_id: script.mika_alarm_fader

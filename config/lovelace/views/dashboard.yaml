@@ -38,15 +38,13 @@ cards:
           entity: media_player.playstation_4
       - type: conditional
         conditions:
-          - entity: media_player.panasonic_viera_tv
-            state: "playing"
-          - entity: input_boolean.sunset
+          - entity: media_player.yamaha_receiver
             state: "on"
         card:
-          type: entities
-          show_header_toggle: false
-          entities:
-            - scene.blockbuster
+          type: custom:mini-media-player            
+          artwork: cover
+          icon: mdi:headphones
+          entity: media_player.yamaha_receiver
       # - type: conditional
       #   conditions:
       #     - entity: group.stadtreinigung

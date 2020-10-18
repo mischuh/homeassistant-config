@@ -1,0 +1,96 @@
+alias: Mika Alarm Clock
+sequence:
+
+  - service: light.turn_on
+    data_template:
+      entity_id: light.shelly_rgbw_ff_mika_led_strip
+      brightness: 10
+      white_value: 0
+      rgb_color:
+        - 255
+        - 0
+        - 63
+
+  - delay: "00:02:00"
+
+  - service: light.turn_on
+    data_template:
+      entity_id: light.shelly_rgbw_ff_mika_led_strip
+      brightness: 15
+      white_value: 0
+      rgb_color:
+        - 191
+        - 0
+        - 255
+
+  - delay: "00:02:00"
+
+  - service: light.turn_on
+    data_template:
+      entity_id: light.shelly_rgbw_ff_mika_led_strip
+      brightness: 20
+      white_value: 0
+      rgb_color:
+        - 191
+        - 0
+        - 255
+
+  - delay: "00:02:00"
+
+  - service: light.turn_on
+    data_template:
+      entity_id: light.shelly_rgbw_ff_mika_led_strip
+      brightness: 40
+      white_value: 0
+      rgb_color:
+        - 255
+        - 63
+        - 0
+
+  - delay: "00:02:00"
+
+  - service: light.turn_on
+    data_template:
+      entity_id: light.shelly_rgbw_ff_mika_led_strip
+      brightness: 60
+      white_value: 0
+      rgb_color:
+        - 255
+        - 127
+        - 0
+
+  - delay: "00:02:00"
+
+  - service: light.turn_on
+    data_template:
+      entity_id: light.shelly_rgbw_ff_mika_led_strip
+      brightness: 80
+      white_value: 0
+      rgb_color:
+        - 255
+        - 145
+        - 36
+
+  - delay: "00:02:00"
+
+  - service: light.turn_on
+    data_template:
+      entity_id: light.shelly_rgbw_ff_mika_led_strip      
+      white_value: 45
+      brightness: 1
+      rgb_color:
+        - 255
+        - 255
+        - 255
+
+  - delay: "00:02:00"
+
+  - service: light.turn_on
+    data_template:
+      entity_id: light.shelly_rgbw_ff_mika_led_strip      
+      white_value: 80
+      brightness: 1
+      rgb_color:
+        - 255
+        - 255
+        - 255

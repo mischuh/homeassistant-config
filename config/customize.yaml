@@ -276,3 +276,11 @@ script.yamaha_net_radio:
 script.yamaha_net_radio_zone2:
   friendly_name: Start Playing (Küche)
   icon: mdi:play
+
+script.mika_night_mode:
+  friendly_name: Night Mode
+  icon: mdi:emoticon-dead
+
+script.mika_warm_white:
+  friendly_name: Warm White
+  icon: mdi:white-balance-sunny

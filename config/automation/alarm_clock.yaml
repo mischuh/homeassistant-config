@@ -10,16 +10,14 @@
         entity_id: input_boolean.alarm_clock_mika
         state: "on"
       - condition: state
-        entity_id: binary_sensor.holiday_mode
+        entity_id: binary_sensor.vacation_hh
         state: "off"
   action:
     - service: notify.mobile_app_galaxy_s10
       data:
         title: '*Home-Assistant*'
         message: "Mikas Wecker hat gezündet"
-    - service: script.alarm_fader_kids
-      data:
-        name: mika
+    - service: script.mika_alarm_fader
 
 
 - alias: "Alarm clock Jona"
@@ -34,7 +32,7 @@
         entity_id: input_boolean.alarm_clock_jona
         state: "on"
       - condition: state
-        entity_id: binary_sensor.holiday_mode
+        entity_id: binary_sensor.vacation_hh
         state: "off"
   action:
     - service: notify.mobile_app_galaxy_s10

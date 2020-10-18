@@ -3,8 +3,6 @@ mika_lights:
   name: Mika Lichter
   entities:
     - light.mika_bunt
-#    - switch.ff_mika_bed
-#    - switch.ff_mika_outlet
     - light.shelly_rgbw_ff_mika_led_strip
 
 mika_multimedia:
@@ -15,12 +13,9 @@ mika_multimedia:
 mika_scenes:
   name: Mika Szenen
   entities:
-#    - scene.mika_warm_white
-#    - scene.mika_chill
-    - script.tradfri_mika_relax
-    - script.tradfri_mika_everyday
-    - script.tradfri_mika_focus
-
+    - script.mika_warm_white
+    - script.mika_night_mode
+    
 mika_alarm_clock:
   name: Wecker
   entities:

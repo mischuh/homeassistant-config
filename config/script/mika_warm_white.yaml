@@ -5,9 +5,9 @@ sequence:
       entity_id: light.shelly_rgbw_ff_mika_led_strip
       rgb_color: [0,0,0]
       brightness: 1
-      white_value: 60
+      white_value: 40
   - service: light.turn_on
     data:
       entity_id: light.mika_bunt
-      brightness: 25
+      brightness: 15
       rgb_color: [239,210,117]

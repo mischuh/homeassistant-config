@@ -117,3 +117,15 @@
   action:
     - service: switch.toggle
       entity_id: group.sf_work_mood_lights
+
+- alias: "Arbeitszimmer Taster LANG"
+  trigger:
+    platform: event
+    event_type: homematic.keypress
+    event_data:
+      name: LEQ0252748
+      channel: 1
+      param: PRESS_LONG
+  action:
+    - service: switch.toggle
+      entity_id: group.sf_work_lights

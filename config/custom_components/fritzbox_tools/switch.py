@@ -24,16 +24,20 @@ SCAN_INTERVAL = timedelta(seconds=30)  # update of profile switch takes too long
 
 
 async def async_setup_entry(
-    hass: HomeAssistantType, entry: ConfigEntry, async_add_entities
+        hass: HomeAssistantType, entry: ConfigEntry, async_add_entities
 ) -> None:
     _LOGGER.debug("Setting up switches")
-    fritzbox_tools = hass.data[DOMAIN][DATA_FRITZ_TOOLS_INSTANCE]
+    fritzbox_tools = hass.data[DOMAIN][DATA_FRITZ_TOOLS_INSTANCE][entry.entry_id]
 
     def _create_deflection_switches():
-        deflections_response = fritzbox_tools.connection.call_action("X_AVM-DE_OnTel:1", "GetNumberOfDeflections")
+        if "X_AVM-DE_OnTel1" in fritzbox_tools.connection.services:
+            deflections_response = fritzbox_tools.connection.call_action("X_AVM-DE_OnTel:1", "GetNumberOfDeflections")
+        else:
+            return
         _LOGGER.debug(deflections_response)
         _LOGGER.debug(fritzbox_tools.connection.services)
-        if "X_AVM-DE_OnTel1" in fritzbox_tools.connection.services and deflections_response["NewNumberOfDeflections"] != 0:
+        if "X_AVM-DE_OnTel1" in fritzbox_tools.connection.services and deflections_response[
+            "NewNumberOfDeflections"] != 0:
             try:
                 _LOGGER.debug("Setting up deflection switches")
                 deflections = xmltodict.parse(
@@ -62,6 +66,9 @@ async def async_setup_entry(
         if fritzbox_tools.ha_ip != "127.0.0.1":
             try:
                 _LOGGER.debug("Setting up port forward switches")
+                if "Layer3Forwarding1" not in fritzbox_tools.connection.services:
+                    _LOGGER.debug('The fritzbox has no port forwarding options')
+                    return
                 connection_type = fritzbox_tools.connection.call_action(
                     "Layer3Forwarding:1", "GetDefaultConnectionService"
                 )["NewDefaultConnectionService"]
@@ -74,11 +81,16 @@ async def async_setup_entry(
                 _LOGGER.debug('Number of port forwards response')
                 _LOGGER.debug(port_forwards_count)
                 for i in range(port_forwards_count):
-                    portmap = fritzbox_tools.connection.call_action(
-                        connection_type,
-                        "GetGenericPortMappingEntry",
-                        NewPortMappingIndex=i,
-                    )
+                    try:
+                        portmap = fritzbox_tools.connection.call_action(
+                            connection_type,
+                            "GetGenericPortMappingEntry",
+                            NewPortMappingIndex=i,
+                        )
+                    except ValueError:
+                        _LOGGER.error("Do not use port forwarding ranges or disable port forwarding switches!")
+                        return
+
                     _LOGGER.debug("Specific port forward response")
                     _LOGGER.debug(portmap)
 
@@ -111,16 +123,20 @@ async def async_setup_entry(
                 )
 
     def _create_wifi_switches():
-        if "WLANConfiguration3" not in fritzbox_tools.connection.services:
-            networks = {"1": "Wifi", "2": "Guest Wifi"}
-        else:
+        if "WLANConfiguration4" in fritzbox_tools.connection.services:
+            networks = {"1": "Wifi", "2": "Wifi (5GHz)", "3":"Wifi (5GHz) - 2", "4": "Guest Wifi"}
+            # todo: come up with better names!
+        elif "WLANConfiguration3" in fritzbox_tools.connection.services:
             networks = {"1": "Wifi", "2": "Wifi (5GHz)", "3": "Guest Wifi"}
+        else:
+            networks = {"1": "Wifi", "2": "Guest Wifi"}
 
         for net in networks:
             hass.add_job(
                 async_add_entities,
                 [FritzBoxWifiSwitch(fritzbox_tools, net, networks[net])],
             )
+
     if fritzbox_tools.use_wifi:
         hass.async_add_executor_job(_create_wifi_switches)
     if fritzbox_tools.use_port:
@@ -151,7 +167,7 @@ class FritzBoxPortSwitch(SwitchEntity):
 
         description = port_mapping["NewPortMappingDescription"]
         self._name = f"Port forward {description}"
-        id = f"fritzbox_portforward_{slugify(description)}"
+        id = f"fritzbox_{self.fritzbox_tools.fritzbox_model}_portforward_{slugify(description)}"
         self.entity_id = ENTITY_ID_FORMAT.format(id)
 
         self._attributes = defaultdict(str)
@@ -192,11 +208,12 @@ class FritzBoxPortSwitch(SwitchEntity):
         from fritzconnection.core.exceptions import FritzConnectionException
 
         try:
-            self.port_mapping = await self.hass.async_add_executor_job(lambda: self.fritzbox_tools.connection.call_action(
-                self.connection_type,
-                "GetGenericPortMappingEntry",
-                NewPortMappingIndex=self._idx,
-            ))
+            self.port_mapping = await self.hass.async_add_executor_job(
+                lambda: self.fritzbox_tools.connection.call_action(
+                    self.connection_type,
+                    "GetGenericPortMappingEntry",
+                    NewPortMappingIndex=self._idx,
+                ))
             _LOGGER.debug(self.port_mapping)
             self._is_on = self.port_mapping["NewEnabled"] is True
             self._is_available = True
@@ -220,11 +237,10 @@ class FritzBoxPortSwitch(SwitchEntity):
 
     async def async_update(self):
         if (
-            self._last_toggle_timestamp is not None
-            and time.time() < self._last_toggle_timestamp + self._update_grace_period
+                self._last_toggle_timestamp is not None
+                and time.time() < self._last_toggle_timestamp + self._update_grace_period
         ):
             # We skip update for 5 seconds after toggling the switch
-            # This is because the router needs some time to change the guest wifi state
             _LOGGER.debug(
                 "Not updating switch state, because last toggle happend < 5 seconds ago"
             )
@@ -291,7 +307,7 @@ class FritzBoxDeflectionSwitch(SwitchEntity):
         self.dict_of_deflection = dict_of_deflection
         self.id = int(self.dict_of_deflection["DeflectionId"])
         self._name = f"Deflection {self.id}"
-        id = f"fritzbox_deflection_{self.id}"
+        id = f"fritzbox_{self.fritzbox_tools.fritzbox_model}_deflection_{self.id}"
         self.entity_id = ENTITY_ID_FORMAT.format(id)
 
         self._attributes = defaultdict(str)
@@ -347,11 +363,11 @@ class FritzBoxDeflectionSwitch(SwitchEntity):
             self._is_available = True
 
             self._attributes["Type"] = self.dict_of_deflection["Type"]
-            self._attributes["Number"] =  self.dict_of_deflection["Number"]
-            self._attributes["DeflectionToNumber"] =  self.dict_of_deflection["DeflectionToNumber"]
-            self._attributes["Mode"] =  self.dict_of_deflection["Mode"]
-            self._attributes["Outgoing"] =  self.dict_of_deflection["Outgoing"]
-            self._attributes["PhonebookID"] =  self.dict_of_deflection["PhonebookID"]
+            self._attributes["Number"] = self.dict_of_deflection["Number"]
+            self._attributes["DeflectionToNumber"] = self.dict_of_deflection["DeflectionToNumber"]
+            self._attributes["Mode"] = self.dict_of_deflection["Mode"]
+            self._attributes["Outgoing"] = self.dict_of_deflection["Outgoing"]
+            self._attributes["PhonebookID"] = self.dict_of_deflection["PhonebookID"]
 
         except FritzConnectionException:
             _LOGGER.error(
@@ -365,11 +381,10 @@ class FritzBoxDeflectionSwitch(SwitchEntity):
 
     async def async_update(self):
         if (
-            self._last_toggle_timestamp is not None
-            and time.time() < self._last_toggle_timestamp + self._update_grace_period
+                self._last_toggle_timestamp is not None
+                and time.time() < self._last_toggle_timestamp + self._update_grace_period
         ):
             # We skip update for 5 seconds after toggling the switch
-            # This is because the router needs some time to change the guest wifi state
             _LOGGER.debug(
                 "Not updating switch state, because last toggle happend < 5 seconds ago"
             )
@@ -407,7 +422,7 @@ class FritzBoxDeflectionSwitch(SwitchEntity):
         new_state = '1' if turn_on else '0'
         try:
             self.hass.async_add_executor_job(lambda: self.fritzbox_tools.connection.call_action(
-                "X_AVM-DE_OnTel:1","SetDeflectionEnable", NewDeflectionId=self.id, NewEnable=new_state
+                "X_AVM-DE_OnTel:1", "SetDeflectionEnable", NewDeflectionId=self.id, NewEnable=new_state
             ))
         except FritzSecurityError:
             _LOGGER.error(
@@ -439,11 +454,11 @@ class FritzBoxProfileSwitch(SwitchEntity):
         self.profile_switch = self.fritzbox_tools.profile_switch[self.profile]
 
         self._name = f"Access profile {self.profile}"
-        id = f"fritzbox_profile_{self.profile}"
+        id = f"fritzbox_{self.fritzbox_tools.fritzbox_model}_profile_{self.profile}"
         self.entity_id = ENTITY_ID_FORMAT.format(slugify(id))
 
-        self._is_available = True 
-        self._is_on = None 
+        self._is_available = True
+        self._is_on = None
 
         super().__init__()
 
@@ -494,7 +509,7 @@ class FritzBoxProfileSwitch(SwitchEntity):
         else:
             self._is_on = False
             _LOGGER.error(
-                "An error occurred while turning on fritzbox_tools Guest wifi switch."
+                "An error occurred while turning on fritzbox_tools profile switch."
             )
 
     async def async_turn_off(self, **kwargs) -> None:
@@ -505,7 +520,7 @@ class FritzBoxProfileSwitch(SwitchEntity):
         else:
             self._is_on = True
             _LOGGER.error(
-                "An error occurred while turning off fritzbox_tools Guest wifi switch."
+                "An error occurred while turning off fritzbox_tools profile switch."
             )
 
     async def _async_handle_profile_switch_on_off(self, turn_on: bool) -> bool:
@@ -533,9 +548,9 @@ class FritzBoxWifiSwitch(SwitchEntity):
         self._fritzbox_tools = fritzbox_tools
         self._network_num = network_num
         id = network_name.lower().replace(' ', '_').replace('(', '').replace(')', '')
-        self.entity_id = ENTITY_ID_FORMAT.format(f"fritzbox_{id}")
+        self.entity_id = ENTITY_ID_FORMAT.format(f"fritzbox_{self._fritzbox_tools.fritzbox_model}_{id}")
         self._name = f"FRITZ!Box {network_name}"
-        self._is_on = False
+        self._is_on = None
         self._last_toggle_timestamp = None
         self._is_available = (
             True  # set to False if an error happend during toggling the switch
@@ -569,9 +584,9 @@ class FritzBoxWifiSwitch(SwitchEntity):
             wifi_info = await self.hass.async_add_executor_job(lambda: self._fritzbox_tools.connection.call_action(
                 f"WLANConfiguration:{self._network_num}", "GetInfo"
             ))
-            _LOGGER.debug("Guest WiFi GetInfo:")
+            _LOGGER.debug("WiFi GetInfo:")
             _LOGGER.debug(wifi_info)
-            self._is_on = True if wifi_info["NewStatus"] == "Up" else False
+            self._is_on = wifi_info["NewEnable"] is True
             self._is_available = True
         except FritzConnectionException:
             _LOGGER.error(
@@ -586,8 +601,8 @@ class FritzBoxWifiSwitch(SwitchEntity):
 
     async def async_update(self):
         if (
-            self._last_toggle_timestamp is not None
-            and time.time() < self._last_toggle_timestamp + self._update_grace_period
+                self._last_toggle_timestamp is not None
+                and time.time() < self._last_toggle_timestamp + self._update_grace_period
         ):
             # We skip update for 5 seconds after toggling the switch
             # This is because the router needs some time to change the wifi state

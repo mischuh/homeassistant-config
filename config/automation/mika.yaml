@@ -1,3 +1,44 @@
+- alias: Mika out lights are on
+  trigger:
+    - platform: state
+      entity_id: person.mika
+      from: 'home'
+      to: 'not_home'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.mika_devices
+        state: 'on'
+  action:
+    - service: notify.mobile_app_galaxy_s10
+      data:
+        data:
+          actions:
+          - action: mika_turn_lights_off
+            title: Turn lights off for Mika
+        title: '*Home-Assistant*'
+        message: "Mika ist nich zuhause und es waren noch Geräte an..."
+
+
+- alias: Mika out receive action
+  trigger:
+    - event_data:
+        action: mika_turn_lights_off
+      event_type: mobile_app_notification_action
+      platform: event
+  action:
+    - service: homeassistant.turn_off
+      data:
+        entity_id: group.mika_devices
+    - service: notify.mobile_app_galaxy_s10
+      data:
+        title: '*Home-Assistant*'
+        message: "Turned Mikas lights off through *actionably* notification"
+
+
+
+
 - alias: "Mika - Turn off lights"
   trigger:
     platform: time
@@ -6,6 +47,23 @@
     - service: homeassistant.turn_off
       entity_id: group.mika_lights
 
+
+- alias: "Mika - Turn off computer stuff"
+  trigger:
+    platform: time
+    at: '00:30:00'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.mika_computer
+
+
+- alias: "Mika - Turn on computer stuff"
+  trigger:
+    platform: time
+    at: '06:00:00'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: group.mika_computer
 
 
 - alias: Mika - Turn off lights by timer
@@ -18,3 +76,71 @@
   action:
     - service: homeassistant.turn_off
       entity_id: group.mika_lights
+
+
+- alias: "Mika Button - Single Press"
+  trigger:
+    platform: mqtt
+    topic: "shellies/shellybutton1-483FDA6FBD5A/input_event/0"
+  condition:
+    condition: template
+    value_template: "{{ trigger.payload_json.event == 'S' }}"
+  action:
+    - service: light.toggle
+      entity_id: light.shelly_rgbw_ff_mika_led_strip
+
+
+- alias: "Mika Button - Double Press"
+  trigger:
+    platform: mqtt
+    topic: "shellies/shellybutton1-483FDA6FBD5A/input_event/0"
+  condition:
+    condition: template
+    value_template: "{{ trigger.payload_json.event == 'SS' }}"
+  action:
+    - service: script.turn_on
+      entity_id: script.mika_night_mode
+
+- alias: "Mika Button - Tirple Press"
+  trigger:
+    platform: mqtt
+    topic: "shellies/shellybutton1-483FDA6FBD5A/input_event/0"
+  condition:
+    condition: template
+    value_template: "{{ trigger.payload_json.event == 'SSS' }}"
+  action:
+    - service: script.turn_on
+      entity_id: script.mika_warm_white
+
+- alias: "Mika Button - Long Press"
+  trigger:
+    platform: mqtt
+    topic: "shellies/shellybutton1-483FDA6FBD5A/input_event/0"
+  condition:
+    condition: template
+    value_template: "{{ trigger.payload_json.event == 'L' }}"
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.mika_devices
+
+
+
+
+# - alias: "Shelly Button1"
+#     trigger:
+#       platform: mqtt
+#       topic: "shellies/NOME_SHELLY/input_event/0"
+#     condition: []
+#     action:
+#     - service: script.turn_on
+#       data_template:
+#         entity_id:
+#           {% if trigger.payload_json.event == "S" %}
+#             script.shelly_button1_pressione_singola
+#           {% if trigger.payload_json.event == "SS" %}
+#             script.shelly_button1_pressione_doppia
+#           {% if trigger.payload_json.event == "SSS" %}
+#             script.shelly_button1_pressione_tripla
+#           {% if trigger.payload_json.event == "L" %}
+#             script.shelly_button1_pressione_prolungata
+#           {% endif %}

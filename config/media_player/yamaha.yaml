@@ -1,5 +1,5 @@
 - platform: yamaha
-  host: RX-A1030-A2E197
+  host: RX-A1030
   # zone_ignore: 
   #   - "Zone_2"
   source_ignore:

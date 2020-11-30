@@ -71,23 +71,18 @@ cards:
     card:
       type: entities
       title: "Garderobe Lichter"
-  - type: custom:auto-entities
-    id: gf_media_contrl_rxv_radio
-    filter:
-      include:
-        - group: group.yamaha_radio
-    card:
-      type: entities
-      title: Yamaha Radio
   - type: custom:mini-media-player
     id: gf_media_control_rxv_zone1
     artwork: cover
     icon: mdi:headphones
     entity: media_player.yamaha_receiver
+  # - type: media-control
+  #   id: gf_media_control_rxv_zone1
+  #   entity: media_player.yamaha_receiver
   - type: custom:mini-media-player
     id: gf_media_control_rxv_zone2
     artwork: cover
-    icon: mdi:speaker        
+    icon: mdi:speaker
     entity: media_player.yamaha_receiver_zone_2
   - type: custom:mini-media-player
     id: gf_media_control_panasonic

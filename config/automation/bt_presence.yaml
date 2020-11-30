@@ -14,14 +14,14 @@
         entity_id: input_boolean.sunset
         state: 'off'
   action:
-    - data:
+    - service: notify.mobile_app_galaxy_s10
+      data:
         data:
           actions:
           - action: turn_lights_off
             title: Turn lights off
-        message: "Keiner zuhause und es waren noch Lichter an..."
         title: '*Home-Assistant*'
-      service: notify.mobile_app_mirko_s10
+        message: "Keiner zuhause und es waren noch Lichter an..."
 
 
 - alias: Empty house receive action

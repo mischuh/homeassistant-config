@@ -1,4 +1,10 @@
 
+mika_devices:
+  name: Mika Geräte
+  entities:
+    - group.mika_lights
+    - group.mika_computer
+
 mika_lights:
   name: Mika Lichter
   entities:
@@ -21,3 +27,8 @@ mika_alarm_clock:
   entities:
     - input_boolean.alarm_clock_mika
     - input_datetime.alarm_clock_time_mika
+
+mika_computer:
+  name: PC Stuff
+  entities:
+    - switch.ff_mika_outlet

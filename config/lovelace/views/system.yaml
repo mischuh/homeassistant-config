@@ -147,7 +147,7 @@ cards:
     cards:
     - type: sensor
       id: system_sensor_tradfri_wireless_dimmer
-      entity: sensor.tradfri_wireless_dimmer_2
+      entity: sensor.tradfri_wireless_dimmer
       name: Wireless Dimmer
       graph: line
     - type: sensor

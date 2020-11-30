@@ -1,0 +1,6 @@
+- platform: mqtt
+  name: "Mika Button Battery"
+  state_topic: "shellies/shellybutton1-483FDA6FBD5A/sensor/battery"
+  value_template: "{{ value }}"
+  unit_of_measurement: "%"
+  icon: mdi:battery

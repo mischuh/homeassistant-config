@@ -93,12 +93,8 @@ switch.ff_floor_tree:
   friendly_name: Baum
   assumed_state: false
 
-switch.ff_mika_bed:
-  friendly_name: Lichterkette Bett
-  assumed_state: false
-
 switch.ff_mika_outlet:
-  friendly_name: Lichterkette Tür
+  friendly_name: Computer
   assumed_state: false
 
 light.shelly_rgbw_ff_mika_led_strip:
@@ -130,6 +126,9 @@ switch.sf_bedroom_outlet:
   friendly_name: Kommode
   assumed_state: false
 
+switch.sf_bedroom_bed:
+  friendly_name: Lichterkette Bett
+  assumed_state: false
 
 
 # Aeotec Sensor 6

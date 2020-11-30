@@ -41,11 +41,9 @@ entities:
   light.jona_bunt:
     name: "Jona Schreibtisch"
     hidden: false
-  switch.ff_mika_bed:
-    name: "Mika Bett"
-    hidden: false
-  switch.ff_mika_outlet:
-    name: "Mika Lichterkette"
+
+  light.shelly_rgbw_ff_mika_led_strip:
+    name: "Mika LED Wand"
     hidden: false
   light.mika_bunt:
     name: "Mika Klavier"

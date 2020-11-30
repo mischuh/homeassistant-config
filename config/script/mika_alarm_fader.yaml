@@ -88,7 +88,7 @@ sequence:
   - service: light.turn_on
     data_template:
       entity_id: light.shelly_rgbw_ff_mika_led_strip      
-      white_value: 80
+      white_value: 60
       brightness: 1
       rgb_color:
         - 255

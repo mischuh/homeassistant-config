@@ -31,11 +31,7 @@
   state_topic: "rc433/firstfloor/ff_floor_tree/state"
   retain: false
 
-- platform: mqtt
-  name: "ff_mika_bed"
-  command_topic: "rc433/firstfloor/ff_mika_bed/switch"
-  state_topic: "rc433/firstfloor/ff_mika_bed/state"
-  retain: false
+
 # Freie Radikale
 - platform: mqtt
   name: "ff_mika_outlet"
@@ -80,4 +76,11 @@
   command_topic: "rc433/secondfloor/sf_bedroom_outlet/switch"
   state_topic: "rc433/secondfloor/sf_bedroom_outlet/state"
   retain: false
+
+- platform: mqtt
+  name: "sf_bedroom_bed"
+  command_topic: "rc433/secondfloor/sf_bedroom_bed/switch"
+  state_topic: "rc433/secondfloor/sf_bedroom_bed/state"
+  retain: false
+
 

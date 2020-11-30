@@ -32,7 +32,6 @@ config/.uuid
 config/.shopping_list.json
 config/*.pickle
 config/.ps4*
-config/ip_bans.yaml
 config/core
 config/google_calendars.yaml
 config/secrets.*
@@ -46,3 +45,5 @@ config/known_devices.yaml
 config/www/images
 config/.pip_progress
 config/custom_components
+config/alexa*.html
+config/ip_bans.yaml

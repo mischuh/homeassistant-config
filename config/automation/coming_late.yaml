@@ -4,10 +4,10 @@
       entity_id: device_tracker.mirko_mobile_app
       from: 'not_home'
       to: 'home'
-    # - platform: state
-    #   entity_id: device_tracker.femke_mobile_app
-    #   from: 'not_home'
-    #   to: 'home'
+    - platform: state
+      entity_id: device_tracker.iphone
+      from: 'not_home'
+      to: 'home'
   condition:
     condition: and
     conditions:

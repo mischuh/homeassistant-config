@@ -75,10 +75,24 @@ cards:
                 icon:
                   color: red
 
-
     - id: mika_steps
       type: custom:mini-graph-card
       name: Schritte
       entities:
         - sensor.mikas_iphone_steps
         - sensor.mikas_iphone_distance
+
+    - id: mika_lichter
+      type: custom:auto-entities
+      filter:
+        include:
+          - group: group.mika_computer
+      card:
+        type: entities
+        title: PC Stuff
+
+    - id: mika_button_battery
+      type: custom:mini-graph-card
+      name: Button Battery
+      entities:
+        - sensor.mika_button_battery

@@ -1,0 +1,34 @@
+- id: '1607177668035'
+  alias: NFC Tag Küche ist gescannt
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: 21593951-7d23-45df-9ed6-f5c723f78745
+  condition: []
+  action:
+  - type: turn_on
+    device_id: e774a69f499f4d9fe383dc1b9bc891ce
+    entity_id: light.garderobe2
+    domain: light
+    brightness_pct: 50
+  mode: single
+- id: '1607182259058'
+  alias: NFC Tag Mika Tisch ist gescannt
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: a15691fb-217d-4fde-825a-52a8e7e37d9f
+  condition: []
+  action:
+  - scene: scene.blockbuster
+  mode: single
+- id: '1607182323612'
+  alias: NFC Tag Mika Tisch ist gescannt
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: a15691fb-217d-4fde-825a-52a8e7e37d9f
+  condition: []
+  action:
+  - scene: scene.blockbuster
+  mode: single

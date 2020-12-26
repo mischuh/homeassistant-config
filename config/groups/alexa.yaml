@@ -1,7 +1,7 @@
 alexas:
   name: All Alexas
   entities:
-    - media_player.alexas_echo_dot
+    - media_player.echo_badezimmer
     - media_player.echo_dg_arbeitszimmer
     - media_player.echo_dg_schlafzimmer
     - media_player.mikas_echo

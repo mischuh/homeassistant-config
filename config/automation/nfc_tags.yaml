@@ -1,0 +1,16 @@
+# Küche 
+
+- alias: "NFC Tag: Kitchen morning light"
+  trigger:
+    platform: event
+    event_type: tag_scanned
+    event_data:
+      device_id: ccfe9a4ce2c4f8d5
+      tag_id: 21593951-7d23-45df-9ed6-f5c723f78745
+  action:
+    - service: homeassistant.turn_on
+      entity_id: group.kitchen_lights
+    - service: notify.telegram #notify.mobile_app_galaxy_s10
+      data:
+        title: '*Home-Assistant*'
+        message: "NFC Tag: *Küche* wurde ausgelöst"

@@ -7,24 +7,24 @@ exposed_domains:
   - group
   - input_boolean
 entities:
-  group.ground_floor_lights:
-    name: "Erdgeschoss"
-    hidden: false
-  light.jeq0207534:
-    name: "Essplatz"
-    hidden: false
-  group.livingroom_couch:
-    name: "Sofa"
-    hidden: false
-  light.meq0397149:
-    name: "Eingangsbereich"
-    hidden: false
-  switch.feq0062058:
-    name: "Gartenlicht"
-    hidden: false
-  switch.gf_kitchen_workplace:
-    name: "Arbeitsplatte"
-    hidden: false
+  # group.ground_floor_lights:
+  #   name: "Erdgeschoss"
+  #   hidden: false
+  # light.jeq0207534:
+  #   name: "Essplatz"
+  #   hidden: false
+  # group.livingroom_couch:
+  #   name: "Sofa"
+  #   hidden: false
+  # light.meq0397149:
+  #   name: "Eingangsbereich"
+  #   hidden: false
+  # switch.feq0062058:
+  #   name: "Gartenlicht"
+  #   hidden: false
+  # switch.gf_kitchen_workplace:
+  #   name: "Arbeitsplatte"
+  #   hidden: false
 
   group.first_floor_lights:
     name: "Obergeschoss"
@@ -40,6 +40,9 @@ entities:
     hidden: false
   light.jona_bunt:
     name: "Jona Schreibtisch"
+    hidden: false
+  light.shelly_dim_ff_bathroom_ceiling:
+    name: "Badezimmer Decke"
     hidden: false
 
   light.shelly_rgbw_ff_mika_led_strip:

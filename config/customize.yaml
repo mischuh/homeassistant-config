@@ -101,6 +101,10 @@ light.shelly_rgbw_ff_mika_led_strip:
   friendly_name: LED Wand
   assumed_state: false
 
+sensor.shelly_rgbw_ff_mika_led_power:
+  friendly_name: LED Wand
+  assumed_state: false
+
 switch.ff_jona_bed:
   friendly_name: Bett
   assumed_state: false
@@ -108,6 +112,15 @@ switch.ff_jona_bed:
 switch.ff_jona_outlet:
   friendly_name: Steckdose
   assumed_state: false
+
+light.shelly_dim_ff_bathroom_ceiling:
+  friendly_name: Decke
+  assumed_state: false
+
+sensor.shelly_dim_ff_bathroom_ceiling_power:
+  friendly_name: Decke
+  assumed_state: false
+
 
 switch.sf_floor_work_outlet:
   friendly_name: Regal (Sofa)
@@ -220,11 +233,6 @@ sensor.net_rate_up_max:
 
 sensor.net_rate_down_max:
   friendly_name: Max Down
-
-# Presence
-
-sensor.bt_presence_ff_family:
-  friendly_name: Anwesenheit Familie
 
 # Trashcans
 

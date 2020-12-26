@@ -11,22 +11,19 @@ cards:
       artwork: cover
       icon: mdi:headphones
       entity: media_player.mikas_echo
-    - id: mika_lichter
-      type: custom:auto-entities
-      filter:
-        include:
-          - group: group.mika_lights
-      card:
-        type: entities
-        title: Lichter
-    - id: mika_scenes
-      type: custom:auto-entities
-      filter:
-        include:
-          - group: group.mika_scenes
-      card:
-        type: entities
-        title: Szenen
+    - type: entities
+      title: Lichter
+      show_header_toggle: false
+      entities:
+        - light.mika_bunt
+        - light.shelly_rgbw_ff_mika_led_strip
+        - type: custom:auto-entities
+          filter:
+            include:
+              - group: group.mika_scenes
+          card:
+            type: entities
+            title: Szenen
     - id: mika_timer
       type: entities
       title: Good Night Timer

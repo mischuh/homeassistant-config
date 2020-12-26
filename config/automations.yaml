@@ -32,3 +32,23 @@
   action:
   - scene: scene.blockbuster
   mode: single
+- id: '1607707247867'
+  alias: NFC Tag 21593951-7d23-45df-9ed6-f5c723f78745 ist gescannt
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: 21593951-7d23-45df-9ed6-f5c723f78745
+  condition: []
+  action:
+  - scene: scene.dinner
+  mode: single
+- id: '1607709331775'
+  alias: NFC Tag Küche Test ist gescannt
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: 21593951-7d23-45df-9ed6-f5c723f78745
+  condition: []
+  action:
+  - scene: scene.dinner
+  mode: single

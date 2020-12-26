@@ -13,6 +13,28 @@ cards:
         hold_action:
             action: toggle
         icon: mdi:account-supervisor
+      - entity: group.ff_bathroom
+        hold_action:
+            action: toggle
+        icon: mdi:baby-face-outline
+  - type: custom:auto-entities
+    id: ff_floor_light_entities
+    filter:
+      include:
+        - group: group.ff_floor_lights
+    card:
+      type: entities
+      title: Flurlichter
+  - type: entities
+    title: Badezimmer
+    show_header_toggle: false
+    entities:
+      - light.shelly_dim_ff_bathroom_ceiling
+      - entity: media_player.echo_badezimmer
+        type: custom:mini-media-player    
+        artwork: cover
+        icon: mdi:headphones      
+        name: Alexa
   - type: horizontal-stack
     id: ff_aeotec_zw100_multisensor
     cards: 
@@ -45,13 +67,11 @@ cards:
             color: "#247d32"
           - value: 40
             color: "#bfa017"
-  - type: custom:auto-entities
-    id: ff_floor_light_entities
-    filter:
-      include:
-        - group: group.ff_floor_lights
-    card:
-      type: entities
-      title: Flurlichter
-  - type: media-control
-    entity: media_player.echo_badezimmer
+  - type: history-graph
+    id: ff_power
+    title: Energieverbrauch
+    hours_to_show: 48
+    entities:
+      - entity: sensor.shelly_dim_ff_bathroom_ceiling_power
+      - entity: sensor.shelly_rgbw_ff_mika_led_power
+  

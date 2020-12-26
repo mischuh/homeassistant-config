@@ -22,6 +22,10 @@ homeassistant:
     - type: homeassistant
   external_url: !secret external_url
   internal_url: http://homeassi:8123
+  # for color_extractor
+  allowlist_external_urls: 
+    - http://0.0.0.0:8123/api/media_player_proxy
+  
 
 ####################################################
 #                                                  #
@@ -132,7 +136,7 @@ http:
   use_x_forwarded_for: true
   # You must set the trusted proxy IP address so that Home Assistant will properly accept connections
   # Set this to your NGINX machine IP, or localhost if hosted on the same machine.
-  trusted_proxies: 192.168.178.25
+  trusted_proxies: 192.168.178.4
 
 
 telegram_bot:
@@ -239,6 +243,9 @@ speedtestdotnet:
     - ping
     - download
     - upload
+
+
+color_extractor:
 
 
 person:

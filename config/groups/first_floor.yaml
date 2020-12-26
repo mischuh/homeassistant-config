@@ -4,14 +4,14 @@ first_floor:
     - sensor.aeotec_zw100_multisensor_6_temperature
     - sensor.aeotec_zw100_multisensor_6_luminance
     - sensor.aeotec_zw100_multisensor_6_alarm_level
-    - group.ff_floor_lights
-    - media_player.alexas_echo_dot
+    - group.ff_floor_lights    
 
 first_floor_lights:
   name: Obergeschoss
   entities:
     - group.ff_floor_lights
     - group.ff_children
+    - group.ff_bathroom
 
 ff_floor_lights:
   name: Flur Lichter
@@ -27,22 +27,22 @@ ff_children:
     - group.jona_lights
     - group.mika_lights
 
-# ff_mika:
-#   name: Mika
-#   entities:
-#     - light.mika_bunt
-#     - switch.ff_mika_bed
-#     - switch.ff_mika_outlet
-#     - media_player.mikas_echo
-#     - scene.mika_chill
-#     - group.mika_moods
+ff_bathroom:
+  name: Badezimmer
+  icon: mdi:account
+  entities:
+    - group.ff_bathroom_lights
+    - media_player.echo_badezimmer
 
-# ff_jona:
-#   name: Jona
-#   entities:
-#     - light.jona_bunt
-#     - switch.ff_jona_bed
-#     - switch.ff_jona_outlet
-#     - media_player.jonas_echo
-#     - sensor.iphone_von_jona_distance
-#     - group.jona_moods
+ff_bathroom_lights:
+  name: Badezimmer Lichter
+  icon: mdi:baby-face-outline
+  entities:
+    - light.shelly_dim_ff_bathroom_ceiling
+
+ff_power:
+  name: Energieverbrauch
+  icon: mdi:power
+  entities:
+    - sensor.shelly_rgbw_ff_mika_led_power
+    - sensor.shelly_dim_ff_bathroom_ceiling_power

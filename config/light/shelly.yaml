@@ -15,6 +15,22 @@
   qos: 1
 
 
+- platform: mqtt
+  schema: template
+  name: 'shelly_dim_ff_bathroom_ceiling'
+  command_topic: "shellies/shellydimmer2-8CAAB54C4B3E/light/0/set"
+  state_topic: "shellies/shellydimmer2-8CAAB54C4B3E/light/0/status"
+  state_template: "{% if value_json.ison %}on{% else %}off{% endif %}"
+  command_off_template: '{"turn":"off"}'
+  command_on_template: >
+      {"turn": "on"
+      {%- if brightness is defined -%}
+      , "brightness": {%- if brightness == 0 -%} 0 {%- else -%} {{ 100*brightness//255 }} {%- endif -%}
+      {%- endif -%}
+      }
+  brightness_template: "{{ value_json.brightness*255//100 }}"
+  qos: 1
+
 
 - platform: mqtt
   schema: template

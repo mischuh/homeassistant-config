@@ -18,12 +18,12 @@ cards:
     show_header_toggle: false
     entities:
       - switch.sf_floor_work_desk
-      - switch.sf_floor_work_outlet
       - switch.sf_floor_work_shelf
+      - light.work_bunt
       - entity: media_player.echo_dg_arbeitszimmer
-        type: custom:mini-media-player    
+        type: custom:mini-media-player
         artwork: cover
-        icon: mdi:headphones      
+        icon: mdi:headphones
         name: Alexa
   - type: entities
     title: Schlafzimmer
@@ -31,8 +31,37 @@ cards:
     entities:
       - switch.sf_bedroom_outlet
       - switch.sf_bedroom_bed
+      - switch.sf_floor_work_outlet
       - entity: media_player.echo_dg_schlafzimmer
-        type: custom:mini-media-player    
+        type: custom:mini-media-player
         artwork: cover
-        icon: mdi:headphones      
+        icon: mdi:headphones
         name: Alexa
+
+  - type: entities
+    title: Schlafzimmer Humidifier
+    show_header_toggle: false
+    entities:
+      - input_number.sf_bedroom_timer_minutes
+      - type: divider
+      - entity: timer.sf_bedroom_humidifier_timer
+        name: Timer
+        icon: mdi:timer  
+        extend_paper_buttons_row:
+          buttons:
+            - entity: script.sf_bedroom_humidifier_timer_start
+              icon: mdi:timer
+              name: Start
+              style:
+                button:
+                  margin-right: 8px
+                icon:
+                  color: green
+            - entity: script.sf_bedroom_humidifier_timer_stop
+              icon: mdi:timer-off
+              name: Stop    
+              style:
+                button:
+                  margin-right: 8px
+                icon:
+                  color: red

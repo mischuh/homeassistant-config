@@ -23,15 +23,6 @@ cards:
               action: toggle
           icon: "${states['group.garden_lights'].state === 'on' ? 'mdi:flower' : 'mdi:flower-outline' }"
   - type: custom:auto-entities
-    id: overview_scenes
-    filter:
-      include:
-        - group: group.scenes
-    card:
-      type: entities
-      title: Szenen
-      show_header_toggle: false
-  - type: custom:auto-entities
     id: gf_entrence_lights
     filter:
       include:
@@ -88,3 +79,12 @@ cards:
     id: gf_media_control_panasonic
     icon: mdi:television
     entity: media_player.panasonic_viera_tv
+  - type: custom:auto-entities
+    id: overview_scenes
+    filter:
+      include:
+        - group: group.scenes
+    card:
+      type: entities
+      title: Szenen
+      show_header_toggle: false

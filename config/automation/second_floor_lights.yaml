@@ -1,3 +1,17 @@
+
+- alias: Mika - Turn off lights by timer
+  trigger:
+    platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.sf_bedroom_humidifier_timer
+  condition: []
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.sf_floor_work_outlet
+
+
+
 # ####################################################
 # Morning routine
 # ####################################################
@@ -37,7 +51,7 @@
     - service: switch.turn_off
       entity_id:
         - switch.sf_bedroom_outlet
-    
+
 
 # ####################################################
 # Sunset event
@@ -50,24 +64,22 @@
   action:
     - service: switch.turn_on
       entity_id:
-        - switch.sf_floor_work_outlet
-        - switch.sf_floor_work_shelf
+        - switch.sf_work_lights
+    - service: light.turn_on
+      data:
+        entity_id: light.work_bunt
+        brightness: 15
+        rgb_color: [239,210,117]
     - delay: "00:00:05"
     - service: switch.turn_on
       entity_id: switch.sf_bedroom_outlet
-      
+
 
 - alias: "Turn off lights: Work"
   trigger:
     platform: time
     at: '22:30:00'
   action:
-    - service: switch.turn_off
-      entity_id: group.sf_work_lights
-    - delay: "00:00:05"
-    - service: switch.turn_off
-      entity_id: group.sf_work_lights
-    - delay: "00:00:05"
     - service: switch.turn_off
       entity_id: group.sf_work_lights
 
@@ -79,12 +91,6 @@
   action:
     - service: switch.turn_off
       entity_id: group.sf_bedroom_lights
-    - delay: "00:00:05"
-    - service: switch.turn_off
-      entity_id: group.sf_bedroom_lights
-    - delay: "00:00:05"
-    - service: switch.turn_off
-      entity_id: group.sf_bedroom_lights
 
 
 - alias: "Turn off lights: Fallback"
@@ -94,12 +100,7 @@
   action:
     - service: switch.turn_off
       entity_id: group.second_floor_lights
-    - delay: "00:00:05"
-    - service: switch.turn_off
-      entity_id: group.second_floor_lights
-    - delay: "00:00:05"
-    - service: switch.turn_off
-      entity_id: group.second_floor_lights
+
 
 
 # ######################################################

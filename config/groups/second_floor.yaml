@@ -26,13 +26,12 @@ sf_work_lights:
   name: Arbeitszimmer Licht
   entities:
     - switch.sf_floor_work_desk
-    - switch.sf_floor_work_outlet
     - switch.sf_floor_work_shelf
+    - light.work_bunt
 
 sf_work_mood_lights:
   name: Arbeitszimmer Licht
   entities:
-    - switch.sf_floor_work_outlet
     - switch.sf_floor_work_shelf
 
 sf_work_multimedia:

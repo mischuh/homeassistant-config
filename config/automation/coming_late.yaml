@@ -8,6 +8,10 @@
       entity_id: device_tracker.iphone
       from: 'not_home'
       to: 'home'
+    - platform: state
+      entity_id: device_tracker.mikas_iphone_app
+      from: 'not_home'
+      to: 'home'
   condition:
     condition: and
     conditions:

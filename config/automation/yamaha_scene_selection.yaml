@@ -9,7 +9,5 @@
         {% if is_state ('input_select.yamaha_scene_list','Playstation') %} switch.yamaha_scene_ps4
         {% elif is_state ('input_select.yamaha_scene_list','TV Viewing') %} switch.yamaha_scene_tv
         {% elif is_state ('input_select.yamaha_scene_list','Apple TV') %} switch.yamaha_scene_apple
-        {% elif is_state ('input_select.yamaha_scene_list','Radio Listening') %} switch.yamaha_scene_radio
         {% elif is_state ('input_select.yamaha_scene_list','Spotify') %} switch.yamaha_scene_spotify
-        {% elif is_state ('input_select.yamaha_scene_list','Jazz') %} switch.yamaha_scene_jazz
         {% endif %}

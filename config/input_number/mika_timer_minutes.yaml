@@ -7,3 +7,13 @@ mika_timer_minutes:
   max: 60
   step: 1
   unit_of_measurement: mins
+
+
+sf_bedroom_timer_minutes:
+  name: Minutes
+  icon: mdi:clock-start
+  initial: 20
+  min: 0
+  max: 60
+  step: 1
+  unit_of_measurement: mins

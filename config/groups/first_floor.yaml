@@ -39,10 +39,12 @@ ff_bathroom_lights:
   icon: mdi:baby-face-outline
   entities:
     - light.shelly_dim_ff_bathroom_ceiling
+    - light.shelly_dim_ff_bathroom_wall
 
 ff_power:
   name: Energieverbrauch
   icon: mdi:power
   entities:
     - sensor.shelly_rgbw_ff_mika_led_power
+    - sensor.shelly_dim_ff_bathroom_wall_power
     - sensor.shelly_dim_ff_bathroom_ceiling_power

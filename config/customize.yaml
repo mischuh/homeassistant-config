@@ -118,12 +118,20 @@ light.shelly_dim_ff_bathroom_ceiling:
   assumed_state: false
 
 sensor.shelly_dim_ff_bathroom_ceiling_power:
-  friendly_name: Decke
+  friendly_name: Decke Power
+  assumed_state: false
+
+light.shelly_dim_ff_bathroom_wall:
+  friendly_name: Wand
+  assumed_state: false
+
+sensor.shelly_dim_ff_bathroom_wall_power:
+  friendly_name: Wand Power
   assumed_state: false
 
 
 switch.sf_floor_work_outlet:
-  friendly_name: Regal (Sofa)
+  friendly_name: Humidifier
   assumed_state: false
 
 switch.sf_floor_work_desk:

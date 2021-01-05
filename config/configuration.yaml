@@ -261,6 +261,7 @@ person:
     device_trackers:
       - device_tracker.iphone           # APP
       - device_tracker.iphone_femke     # Handy
+      - device_tracker.watch_femke      # Watch
   - name: Mika
     id: person_mika
     user_id: f7eaa84806ad4037aabc5f5ae8d63f03

@@ -1,0 +1,7 @@
+
+alias: Start Bedroom humidifier timer
+sequence:
+  - service: timer.start
+    data_template:
+      entity_id: timer.sf_bedroom_humidifier_timer
+      duration: '00:{{ states.input_number.sf_bedroom_timer_minutes.state | int }}:00'

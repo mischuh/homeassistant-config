@@ -23,3 +23,12 @@
   value_template: "{{ value_json | float }}"
   unit_of_measurement: "W"
   qos: 1
+
+
+- platform: mqtt
+  name: 'shelly_dim_ff_bathroom_wall_power'
+  icon: mdi:gauge
+  state_topic: "shellies/shellydimmer2-E0980695A860/light/0/power"
+  value_template: "{{ value_json | float }}"
+  unit_of_measurement: "W"
+  qos: 1

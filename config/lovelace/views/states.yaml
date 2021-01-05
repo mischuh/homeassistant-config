@@ -21,6 +21,9 @@ cards:
         entity: switch.frontend_theme_dark
         name: Night
         size: 20%
+  # - type: media-control
+  #   entity: media_player.msvolumio
+    
   - type: custom:mini-graph-card
     id: ff_steps
     name: Schritte
@@ -36,6 +39,7 @@ cards:
     entities:
       - sensor.shelly_rgbw_ff_mika_led_power
       - sensor.shelly_dim_eg_bicycles_power
+      - sensor.shelly_dim_ff_bathroom_ceiling_power
     show:
       labels: true
   - type: custom:auto-entities

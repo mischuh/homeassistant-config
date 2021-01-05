@@ -15,7 +15,6 @@ cards:
       title: Lichter
       show_header_toggle: false
       entities:
-        - light.mika_bunt
         - light.shelly_rgbw_ff_mika_led_strip
         - type: custom:auto-entities
           filter:

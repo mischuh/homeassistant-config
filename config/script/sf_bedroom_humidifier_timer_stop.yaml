@@ -1,0 +1,6 @@
+
+alias: Cancel Bedroom humidifier timer
+sequence:
+  - service: timer.cancel
+    data:
+      entity_id: timer.sf_bedroom_humidifier_timer

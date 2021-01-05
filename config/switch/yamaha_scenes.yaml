@@ -13,17 +13,9 @@
       command_on: "curl -X POST --header 'Content-Type:application/xml' --data '<YAMAHA_AV cmd=\"PUT\"><Main_Zone><Scene><Scene_Sel>Scene 3</Scene_Sel></Scene></Main_Zone></YAMAHA_AV>' http://rx-a1030-a2e197/YamahaRemoteControl/ctrl"
       command_off: ""
       friendly_name: Yamaha Scene AppleTV
-    yamaha_scene_radio:
-      command_on: "curl -X POST --header 'Content-Type:application/xml' --data '<YAMAHA_AV cmd=\"PUT\"><Main_Zone><Scene><Scene_Sel>Scene 4</Scene_Sel></Scene></Main_Zone></YAMAHA_AV>' http://rx-a1030-a2e197/YamahaRemoteControl/ctrl"
-      command_off: ""
-      friendly_name: Yamaha Scene Radio 
     yamaha_scene_spotify:
       command_on: "curl -X POST --header 'Content-Type:application/xml' --data '<YAMAHA_AV cmd=\"PUT\"><Main_Zone><Scene><Scene_Sel>Scene 5</Scene_Sel></Scene></Main_Zone></YAMAHA_AV>' http://rx-a1030-a2e197/YamahaRemoteControl/ctrl"
       command_off: ""
       friendly_name: Yamaha Scene Spotify
-    yamaha_scene_jazz:
-      command_on: "curl -X POST --header 'Content-Type:application/xml' --data '<YAMAHA_AV cmd=\"PUT\"><Main_Zone><Scene><Scene_Sel>Scene 6</Scene_Sel></Scene></Main_Zone></YAMAHA_AV>' http://rx-a1030-a2e197/YamahaRemoteControl/ctrl"
-      command_off: ""
-      friendly_name: Yamaha Scene Jazz
-
+  
 # {'Playstation': 'Scene 1', 'TV Viewing': 'Scene 2', 'Apple TV': 'Scene 3', 'Radio Listening': 'Scene 4', 'Spotify': 'Scene 5', 'Jazz': 'Scene 6', 'SCENE7': 'Scene 7', 'SCENE8': 'Scene 8', 'SCENE9': 'Scene 9', 'SCENE10': 'Scene 10', 'SCENE11': 'Scene 11', 'SCENE12': 'Scene 12'}

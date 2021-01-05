@@ -54,14 +54,14 @@
         message: "Femke verlässt Arbeit..."
 
 
-- alias: Femke Enters Home
-  trigger:
-    - platform: state
-      entity_id: person.femke
-      from: 'not_home'
-      to: 'home'
-  action:
-    - service: notify.mobile_app_galaxy_s10
-      data:
-        title: '*Home-Assistant*'
-        message: "Femke betritt Home..."
+# - alias: Femke Enters Home
+#   trigger:
+#     - platform: state
+#       entity_id: person.femke
+#       from: 'not_home'
+#       to: 'home'
+#   action:
+#     - service: notify.mobile_app_galaxy_s10
+#       data:
+#         title: '*Home-Assistant*'
+#         message: "Femke betritt Home..."

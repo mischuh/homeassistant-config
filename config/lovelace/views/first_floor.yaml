@@ -27,9 +27,10 @@ cards:
       title: Flurlichter
   - type: entities
     title: Badezimmer
-    show_header_toggle: false
+    show_header_toggle: true
     entities:
       - light.shelly_dim_ff_bathroom_ceiling
+      - light.shelly_dim_ff_bathroom_wall
       - entity: media_player.echo_badezimmer
         type: custom:mini-media-player    
         artwork: cover
@@ -73,5 +74,6 @@ cards:
     hours_to_show: 48
     entities:
       - entity: sensor.shelly_dim_ff_bathroom_ceiling_power
+      - entity: sensor.shelly_dim_ff_bathroom_wall_power
       - entity: sensor.shelly_rgbw_ff_mika_led_power
   

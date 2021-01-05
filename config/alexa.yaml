@@ -41,15 +41,18 @@ entities:
   light.jona_bunt:
     name: "Jona Schreibtisch"
     hidden: false
+  group.ff_bathroom_lights:
+    name: "Badezimmer"
+    hidden: false
   light.shelly_dim_ff_bathroom_ceiling:
     name: "Badezimmer Decke"
+    hidden: false
+  light.shelly_dim_ff_bathroom_wall:
+    name: "Badezimmer Wand"
     hidden: false
 
   light.shelly_rgbw_ff_mika_led_strip:
     name: "Mika LED Wand"
-    hidden: false
-  light.mika_bunt:
-    name: "Mika Klavier"
     hidden: false
 
   group.second_floor_lights:

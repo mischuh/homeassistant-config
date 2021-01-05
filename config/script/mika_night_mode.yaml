@@ -6,8 +6,3 @@ sequence:
       rgb_color: [255,0,0]
       brightness: 15
       white_value: 0
-  - service: light.turn_on
-    data:
-      entity_id: light.mika_bunt
-      brightness: 25
-      rgb_color: [255,0,0]

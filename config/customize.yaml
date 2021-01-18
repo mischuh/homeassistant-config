@@ -299,3 +299,11 @@ script.mika_night_mode:
 script.mika_warm_white:
   friendly_name: Warm White
   icon: mdi:white-balance-sunny
+
+script.ff_bathroom_bathtub:
+  friendly_name: Badewanne
+  icon: mdi:hot-tub
+
+script.ff_bathroom_shower:
+  friendly_name: Duschen
+  icon: mdi:water

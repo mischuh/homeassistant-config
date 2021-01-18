@@ -1,0 +1,14 @@
+alias: Badezimmer Duschen
+sequence:
+
+    - service: light.turn_on
+      data:
+        # Wand
+        entity_id: light.shelly_dim_ff_bathroom_wall
+        brightness_pct: 50
+
+    - service: light.turn_on
+      data:
+        # Decke
+        entity_id: light.shelly_dim_ff_bathroom_ceiling
+        brightness_pct: 75          

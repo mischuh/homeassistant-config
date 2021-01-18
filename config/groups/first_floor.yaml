@@ -41,6 +41,13 @@ ff_bathroom_lights:
     - light.shelly_dim_ff_bathroom_ceiling
     - light.shelly_dim_ff_bathroom_wall
 
+ff_bathroom_scenes:
+    name: Badezimmer Szenen
+    icon: mdi:baby-face-outline
+    entities:
+      - script.ff_bathroom_bathtub
+      - script.ff_bathroom_shower
+
 ff_power:
   name: Energieverbrauch
   icon: mdi:power

@@ -36,6 +36,14 @@ cards:
         artwork: cover
         icon: mdi:headphones      
         name: Alexa
+      - type: divider
+      - type: custom:auto-entities
+        filter:
+          include:
+            - group: group.ff_bathroom_scenes
+        card:
+          type: entities
+          title: Szenen
   - type: horizontal-stack
     id: ff_aeotec_zw100_multisensor
     cards: 

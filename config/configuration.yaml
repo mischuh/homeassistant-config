@@ -63,6 +63,7 @@ lovelace:
     - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
       type: module
     
+    
   # dashboards:
   #   lovelace-yaml:
   #     mode: yaml

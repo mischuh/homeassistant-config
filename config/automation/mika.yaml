@@ -37,12 +37,10 @@
         message: "Turned Mikas lights off through *actionably* notification"
 
 
-
-
 - alias: "Mika - Turn off lights"
   trigger:
     platform: time
-    at: '22:30:00'
+    at: '00:30:00'
   action:
     - service: homeassistant.turn_off
       entity_id: group.mika_lights

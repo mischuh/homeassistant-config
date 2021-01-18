@@ -33,6 +33,7 @@ sf_work_mood_lights:
   name: Arbeitszimmer Licht
   entities:
     - switch.sf_floor_work_shelf
+    - light.work_bunt
 
 sf_work_multimedia:
   name: Arbeitszimmer Media

@@ -11,6 +11,8 @@ cards:
       artwork: cover
       icon: mdi:headphones
       entity: media_player.jonas_echo
+      hide: 
+        source: true
     - id: jona_lichter
       type: custom:auto-entities
       filter:

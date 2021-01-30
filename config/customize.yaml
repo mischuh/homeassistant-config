@@ -23,28 +23,28 @@ light.heq0359760:
   friendly_name: Spüle
 
 light.homegear_eg_sink:
-  friendly_name: Spüle (MQTT)
+  friendly_name: Spüle
 
 # Küche
 light.jeq0207534:
   friendly_name: Essplatz
 
 light.homegear_eg_table:
-  friendly_name: Essplatz (MQTT)
+  friendly_name: Essplatz
 
 # Eingangsbereich
 light.jeq0207545:
   friendly_name: Flur
 
 light.homegear_eg_entrance:
-  friendly_name: Flur (MQTT)
+  friendly_name: Flur
 
 # Eingangsbereich
 light.jeq0207587:
   friendly_name: Außenlicht
 
 light.homegear_eg_doorlight:
-  friendly_name: Außenlicht (MQTT)
+  friendly_name: Außenlicht
 
 # Fahrräder
 light.shelly_dim_eg_bicycles:
@@ -55,7 +55,7 @@ light.meq0169146:
   friendly_name: Decke
 
 light.homegear_eg_living_room:
-  friendly_name: Decke (MQTT)
+  friendly_name: Decke
 
 
 # OG Flur
@@ -63,7 +63,7 @@ light.meq0397149:
   friendly_name: Flurwand
 
 light.homegear_ff_hallway:
-  friendly_name: Flurwand (MQTT)
+  friendly_name: Flurwand
 
 #
 # Switches

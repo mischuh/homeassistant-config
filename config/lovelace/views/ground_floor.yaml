@@ -22,6 +22,42 @@ cards:
           hold_action:
               action: toggle
           icon: "${states['group.garden_lights'].state === 'on' ? 'mdi:flower' : 'mdi:flower-outline' }"
+
+  - type: entities
+    title: Küche
+    show_header_toggle: true
+    entities:
+      - entity: light.homegear_eg_table
+      - entity: light.homegear_eg_sink
+      - entity: switch.gf_kitchen_window
+      - entity: switch.gf_kitchen_workplace
+      # - entity: switch.gf_free_outlet_2
+      - entity: media_player.yamaha_receiver_zone_2
+        type: custom:mini-media-player
+        artwork: cover
+        icon: mdi:speaker
+        name: Receiver Küche      
+
+  - type: entities
+    title: Wohnzimmer
+    show_header_toggle: true
+    entities:
+      - entity: group.livingroom_couch
+      - entity: light.links
+      - entity: light.rechts
+      - entity: switch.gf_livingroom_outlet 
+      - entity: light.homegear_eg_living_room
+      - entity: media_player.yamaha_receiver
+        type: custom:mini-media-player
+        artwork: material
+        idle_view: when_idle
+        icon: mdi:speaker
+        name: Receiver
+      - entity: media_player.viera_gt30_series_2
+        type: custom:mini-media-player
+        icon: mdi:television
+        name: Fernseher
+
   - type: custom:auto-entities
     id: gf_entrence_lights
     filter:
@@ -30,22 +66,7 @@ cards:
     card:
       type: entities
       title: Eingangsbereich
-  - type: custom:auto-entities
-    id: gf_kitchen_entities
-    filter:
-      include:
-        - group: group.kitchen_lights
-    card:
-      type: entities
-      title: "K\xFCche Lichter"
-  - type: custom:auto-entities
-    id: gf_living_room_lights
-    filter:
-      include:
-        - group: group.livingroom_lights
-    card:
-      type: entities
-      title: Wohnzimmer Lichter
+
   - type: custom:auto-entities
     id: gf_garden_lights
     filter:
@@ -54,6 +75,7 @@ cards:
     card:
       type: entities
       title: Garten
+
   - type: custom:auto-entities
     id: gf_wardrobe_entities
     filter:
@@ -62,23 +84,9 @@ cards:
     card:
       type: entities
       title: "Garderobe Lichter"
-  - type: custom:mini-media-player
-    id: gf_media_control_rxv_zone1
-    artwork: cover
-    icon: mdi:headphones
-    entity: media_player.yamaha_receiver
-  # - type: media-control
-  #   id: gf_media_control_rxv_zone1
-  #   entity: media_player.yamaha_receiver
-  - type: custom:mini-media-player
-    id: gf_media_control_rxv_zone2
-    artwork: cover
-    icon: mdi:speaker
-    entity: media_player.yamaha_receiver_zone_2
-  - type: custom:mini-media-player
-    id: gf_media_control_panasonic
-    icon: mdi:television
-    entity: media_player.panasonic_viera_tv
+
+  
+
   - type: custom:auto-entities
     id: overview_scenes
     filter:

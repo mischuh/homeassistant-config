@@ -25,6 +25,8 @@ cards:
         artwork: cover
         icon: mdi:headphones
         name: Alexa
+        hide: 
+          source: true
   - type: entities
     title: Schlafzimmer
     show_header_toggle: false
@@ -37,6 +39,8 @@ cards:
         artwork: cover
         icon: mdi:headphones
         name: Alexa
+        hide: 
+          source: true
 
   - type: entities
     title: Schlafzimmer Humidifier

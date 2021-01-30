@@ -42,8 +42,8 @@ kitchen_lights:
   name: Küche Lichter
   icon: mdi:lightbulb
   entities:
-    - light.jeq0207534
-    - light.heq0359760
+    # - light.jeq0207534
+    # - light.heq0359760
     - switch.gf_kitchen_window
     - switch.gf_kitchen_workplace
     - switch.gf_free_outlet_2
@@ -70,7 +70,7 @@ livingroom_lights:
   icon: mdi:lightbulb
   entities:
     - switch.gf_livingroom_outlet   
-    - light.meq0169146
+    # - light.meq0169146
     - group.livingroom_couch
     - light.links
     - light.rechts
@@ -101,8 +101,8 @@ entree_lights:
   name: Eingangsbereich
   icon: mdi:lightbulb
   entities:
-    - light.jeq0207545
-    - light.jeq0207587
+    # - light.jeq0207545
+    # - light.jeq0207587
     - light.shelly_dim_eg_bicycles
     - light.homegear_eg_doorlight
     - light.homegear_eg_entrance

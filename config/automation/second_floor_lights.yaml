@@ -64,12 +64,12 @@
   action:
     - service: switch.turn_on
       entity_id:
-        - switch.sf_work_lights
+        - group.sf_work_lights
     - service: light.turn_on
       data:
         entity_id: light.work_bunt
-        brightness: 15
-        rgb_color: [239,210,117]
+        brightness: 50
+        rgb_color: [255, 180, 107]
     - delay: "00:00:05"
     - service: switch.turn_on
       entity_id: switch.sf_bedroom_outlet
